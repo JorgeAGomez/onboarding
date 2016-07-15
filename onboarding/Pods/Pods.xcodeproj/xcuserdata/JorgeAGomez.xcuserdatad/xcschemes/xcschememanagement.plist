@@ -19,7 +19,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ResearchKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SHSPhoneComponent.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SignatureView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,7 +47,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1083DCBCB4C3B6570BB1A95B0A2E8462</key>
+		<key>00FAAB093E39D0EE2C1639101E8183A1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>12081E64863AF9792CF40B18A8AA65EE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,22 +62,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>29CF671342975009555392BD90743B82</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A31E84AD6357C7FD84487DF382C8D13E</key>
+		<key>431F8B252F6C664EDADC83F1F5F52E9A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ED35F29AB8AC1F3B76189C907C9D2446</key>
+		<key>9C0FDA165687FA197AF8FE9476C293C4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D39A2941966E3DF331FC9502BA76E274</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F93B35606E6E9EB3C4B051D8758DC146</key>
 		<dict>
 			<key>primary</key>
 			<true/>

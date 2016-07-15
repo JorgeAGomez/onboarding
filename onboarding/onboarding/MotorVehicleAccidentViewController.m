@@ -73,51 +73,42 @@
     //Figure out if is a work related injury.
     carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Motor Vehicle Injury" rowType:XLFormRowDescriptorTypeSelectorSegmentedControl title:@"Are you here due to a motor vehicle accident?"];
     carAccidentRow.selectorOptions = @[@"Yes", @"No"];
-    carAccidentRow.value = @"Yes";
+    carAccidentRow.value = @"No";
     [carAccidentSection addFormRow:carAccidentRow];
   
   
     carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Insurence" rowType:XLFormRowDescriptorTypeText title:@"Insurance Company"];
-    [carAccidentSection addFormRow:carAccidentRow];
     _insurance = carAccidentRow;
   
     //Date of accident
     carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Date of accident" rowType:XLFormRowDescriptorTypeDateInline title:@"Date of accident"];
     carAccidentRow.value = [NSDate new];
-    [carAccidentSection addFormRow:carAccidentRow];
     _date = carAccidentRow;
   
     //Claim / Policy number
     carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Claim/Policy #" rowType:XLFormRowDescriptorTypeText title:@"Claim/Policy #"];
-    [carAccidentSection addFormRow:carAccidentRow];
     _claim = carAccidentRow;
   
     //Adjuster
     carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Adjuster" rowType:XLFormRowDescriptorTypeText title:@"Adjuster"];
-    [carAccidentSection addFormRow:carAccidentRow];
     _adjuster = carAccidentRow;
   
     //Phone No.
     carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Phone No." rowType:XLFormRowDescriptorTypeText title:@"Phone No."];
-    [carAccidentSection addFormRow:carAccidentRow];
     _phone = carAccidentRow;
   
     //Fax #
     carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Fax #" rowType:XLFormRowDescriptorTypeText title:@"Fax #"];
-    [carAccidentSection addFormRow:carAccidentRow];
     _fax = carAccidentRow;
   
     //Name on Policy
     carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Name on Policy" rowType:XLFormRowDescriptorTypeText title:@"Name on Policy"];
-    [carAccidentSection addFormRow:carAccidentRow];
     _policyName = carAccidentRow;
   
     //Legal Representative(if applicable)
     carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Legal Representative" rowType:XLFormRowDescriptorTypeText title:@"Legal Representative (if applicable)"];
-    [carAccidentSection addFormRow:carAccidentRow];
     _legalRepresentative = carAccidentRow;
 
-  
     self.form = carAccidentForm;
   
 }

@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Form View Controller-->
+        <!--New Patient Information-->
         <scene sceneID="SdG-Xg-Qte">
             <objects>
                 <viewController id="fDe-X0-UCa" customClass="FormViewController" sceneMemberID="viewController">
@@ -15,11 +15,11 @@
                         <viewControllerLayoutGuide type="bottom" id="yZI-eL-jBf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="efA-em-7lT">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="AaR-ca-LTU">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="936"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                         </subviews>
@@ -31,7 +31,7 @@
                             <constraint firstItem="AaR-ca-LTU" firstAttribute="top" secondItem="efA-em-7lT" secondAttribute="top" constant="64" id="qwp-jA-BU6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="bXt-BK-GWL">
+                    <navigationItem key="navigationItem" title="New Patient Information" id="bXt-BK-GWL">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="4hM-C4-YLH">
                             <connections>
                                 <action selector="nextButton:" destination="fDe-X0-UCa" id="ul4-Jo-cS3"/>
@@ -44,7 +44,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x32-dW-hDd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1622" y="28"/>
+            <point key="canvasLocation" x="2450" y="228"/>
         </scene>
         <!--Medical Information View Controller-->
         <scene sceneID="vdW-If-ZsU">
@@ -55,11 +55,11 @@
                         <viewControllerLayoutGuide type="bottom" id="ovb-FR-Z6C"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="m6z-YB-Q8G">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BFq-ef-VUu">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="936"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -84,7 +84,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kZy-Ej-gzd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2297" y="28"/>
+            <point key="canvasLocation" x="3173" y="228"/>
         </scene>
         <!--Work Injury View Controller-->
         <scene sceneID="Y1k-da-OWm">
@@ -95,11 +95,11 @@
                         <viewControllerLayoutGuide type="bottom" id="mRc-dv-d7Y"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="myY-09-5px">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YYs-hL-xVX">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="936"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -124,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b4K-nV-ttV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3158" y="33"/>
+            <point key="canvasLocation" x="3970" y="33"/>
         </scene>
         <!--Motor Vehicle Accident View Controller-->
         <scene sceneID="h34-8f-xwa">
@@ -135,11 +135,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Jnq-wd-igj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TFa-UE-2HM">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ozK-03-9vQ">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="936"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -164,7 +164,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JBd-uF-HU6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3917" y="33"/>
+            <point key="canvasLocation" x="4729" y="33"/>
         </scene>
         <!--Health Coverage View Controller-->
         <scene sceneID="rjo-fY-oP1">
@@ -175,11 +175,11 @@
                         <viewControllerLayoutGuide type="bottom" id="IZR-55-kby"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JkO-oK-Rzl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M0b-uI-Hgb">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="936"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -199,12 +199,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="egu-gF-zEc" kind="push" identifier="next4" id="WEj-VP-Sf1"/>
+                        <segue destination="egu-gF-zEc" kind="push" identifier="next4" id="mlC-sQ-49e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qp-0u-T98" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4727" y="33"/>
+            <point key="canvasLocation" x="5539" y="33"/>
         </scene>
         <!--Report Questionnarie View Controller-->
         <scene sceneID="YvJ-AP-wdH">
@@ -215,11 +215,11 @@
                         <viewControllerLayoutGuide type="bottom" id="rrB-04-wug"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="gw7-FG-kr6">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fFo-fL-08X">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="936"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -241,9 +241,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="olN-Hv-hcC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5470" y="33"/>
+            <point key="canvasLocation" x="6280" y="33"/>
         </scene>
-        <!--New Registration Form-->
+        <!--View Controller-->
+        <scene sceneID="UrL-fd-uvt">
+            <objects>
+                <viewController id="Z8z-jW-sSa" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hQx-kR-Cpv"/>
+                        <viewControllerLayoutGuide type="bottom" id="tdb-uk-N7u"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="56T-0C-NTD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e6g-P6-Ezr">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="e6g-P6-Ezr" firstAttribute="top" secondItem="hQx-kR-Cpv" secondAttribute="bottom" id="1Ya-qN-phf"/>
+                            <constraint firstAttribute="trailing" secondItem="e6g-P6-Ezr" secondAttribute="trailing" id="aVD-r9-Ztb"/>
+                            <constraint firstItem="e6g-P6-Ezr" firstAttribute="bottom" secondItem="tdb-uk-N7u" secondAttribute="top" id="sMN-WF-E5D"/>
+                            <constraint firstItem="e6g-P6-Ezr" firstAttribute="leading" secondItem="56T-0C-NTD" secondAttribute="leading" id="xQs-VS-LqR"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Esk-H1-15S">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="mIy-8t-WMg"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QXK-rw-7qr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3922" y="1003"/>
+        </scene>
+        <!--Informed Consent-->
         <scene sceneID="FuA-2W-bkh">
             <objects>
                 <viewController id="8eR-rC-0LV" sceneMemberID="viewController">
@@ -255,60 +288,242 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSN-4R-9Ud">
-                                <rect key="frame" x="255" y="268" width="90" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="m6D-hU-L1E"/>
-                                    <constraint firstAttribute="height" constant="44" id="ohT-Uv-0ih"/>
-                                </constraints>
-                                <state key="normal" title="Agree"/>
-                                <connections>
-                                    <segue destination="fDe-X0-UCa" kind="push" id="urV-oh-aX0"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7Cb-XW-Ter">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Cb-XW-Ter">
                                 <rect key="frame" x="20" y="88" width="538" height="93"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="93" id="PDy-h3-GV5"/>
                                 </constraints>
-                                <string key="text">PLEASE ASSIST US TO PROVIDE YOU WITH OPTIMUM CARE BY CAREFULLY ANSWERING EACH SECTION OF THIS FORM. ALL INFORMATION ON THE FORM WILL BE KEPT CONFIDENTIAL.       </string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">PLEASE ASSIST US TO PROVIDE YOU WITH OPTIMUM CARE BY CAREFULLY ANSWERING EACH SECTION OF THIS FORM. ALL INFORMATION ON THE FORM WILL BE KEPT CONFIDENTIAL.       </string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-MediumItalic"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bha-ez-2dn">
-                                <rect key="frame" x="20" y="198" width="560" height="54"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bha-ez-2dn">
+                                <rect key="frame" x="20" y="198" width="560" height="140"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Dear Patient: Your information is confidential. We need this information so that we can better care for you. Your consent will help us determine if treatment in our office will benefit you. If we do not sincerely believe your condition will respond satisfactorily, we will not accept your case. In order for us to understand your condition properly, please be as neat and complete as possible while completing all form.
-
-Consent to Assessment and Treatment
-
-Physiotherapy, physical therapy has been subject to government reports and multidisciplinary studies and has been demonstrated to be highly effective treatment for joint pain, back and neck pain, headaches and other similar symptoms. I hereby authorize Caleo Health or any agent acting on behalf of the aforementioned to disclose or collect, verbal or written, any or all relevant medical information pertinent to my case to: medical/technical consultants; legal representatives; insurance carriers and third party payers involved in the case.
-
-
-By clicking agree below, I hereby acknowledge that I have read and understand the above statements, and consent to the release of any or all relevant medical information pertinent to my case to: medical/technical consultants; legal representatives; insurance carriers and third party payers involved in the case. I reserve the right to inform my therapist or doctor of such, and withdraw my consent at anytime in whole or in part to the information within.      </string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Dear Patient">
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">: Your information is confidential. We need this information so that we can better care for you. Your consent will help us determine if treatment in our office will benefit you. If we do not sincerely believe your condition will respond satisfactorily, we will not accept your case. In order for us to understand your condition properly, please be as neat and complete as possible while completing all form. </string>
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSN-4R-9Ud">
+                                <rect key="frame" x="255" y="407" width="90" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="m6D-hU-L1E"/>
+                                    <constraint firstAttribute="height" constant="44" id="ohT-Uv-0ih"/>
+                                </constraints>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <segue destination="TLw-SB-JZh" kind="push" id="a3t-M6-RCc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="7Cb-XW-Ter" firstAttribute="leading" secondItem="4HT-Pw-xPW" secondAttribute="leadingMargin" id="40c-FM-ntF"/>
                             <constraint firstItem="bha-ez-2dn" firstAttribute="centerX" secondItem="OSN-4R-9Ud" secondAttribute="centerX" id="Dqk-9z-qNZ"/>
                             <constraint firstItem="bha-ez-2dn" firstAttribute="top" secondItem="7Cb-XW-Ter" secondAttribute="bottom" constant="17" id="EVU-JE-efN"/>
-                            <constraint firstItem="M0g-fR-bz8" firstAttribute="top" secondItem="OSN-4R-9Ud" secondAttribute="bottom" constant="288" id="IfR-E8-vMO"/>
+                            <constraint firstItem="M0g-fR-bz8" firstAttribute="top" secondItem="OSN-4R-9Ud" secondAttribute="bottom" constant="149" id="IfR-E8-vMO"/>
                             <constraint firstItem="7Cb-XW-Ter" firstAttribute="leading" secondItem="bha-ez-2dn" secondAttribute="leading" id="MVl-4e-Ubq"/>
                             <constraint firstItem="bha-ez-2dn" firstAttribute="trailing" secondItem="4HT-Pw-xPW" secondAttribute="trailingMargin" id="RoF-d7-KNG"/>
-                            <constraint firstItem="OSN-4R-9Ud" firstAttribute="top" secondItem="bha-ez-2dn" secondAttribute="bottom" constant="16" id="Ui2-az-RHs"/>
+                            <constraint firstItem="OSN-4R-9Ud" firstAttribute="top" secondItem="bha-ez-2dn" secondAttribute="bottom" constant="69" id="Ui2-az-RHs"/>
                             <constraint firstItem="7Cb-XW-Ter" firstAttribute="top" secondItem="yje-bo-pi8" secondAttribute="bottom" constant="24" id="j26-pw-4JX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7Cb-XW-Ter" secondAttribute="trailing" constant="22" id="qoT-wq-zya"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="New Registration Form" id="UOC-iA-W1B"/>
+                    <navigationItem key="navigationItem" title="Informed Consent" id="UOC-iA-W1B"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWI-Br-xGy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="885" y="33"/>
+            <point key="canvasLocation" x="-462" y="28"/>
+        </scene>
+        <!--Informed Consent-->
+        <scene sceneID="ZPZ-4V-Qiu">
+            <objects>
+                <viewController id="TLw-SB-JZh" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JoV-Es-DWw"/>
+                        <viewControllerLayoutGuide type="bottom" id="dhE-cP-ruw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wT2-M8-Kfc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Consent to Assessment and Treatment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5j-lS-XE1">
+                                <rect key="frame" x="20" y="91" width="391" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="391" id="YSy-ie-86Q"/>
+                                    <constraint firstAttribute="height" constant="21" id="pws-K6-GVw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xh-pH-BN9">
+                                <rect key="frame" x="20" y="120" width="540" height="105"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="105" id="494-d7-xBc"/>
+                                </constraints>
+                                <string key="text">Physiotherapy, physical therapy has been subject to government reports and multidisciplinary studies and has been demonstrated to be highly effective treatment for joint pain, back and neck pain, headaches and other similar symptoms.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Guk-Uu-7Vy">
+                                <rect key="frame" x="20" y="241" width="540" height="206"/>
+                                <string key="text">I (the patient), hereby request and consent to the performance physiotherapy, massage including various modalities, acupuncture, gait analysis, which may be deemed appropriate for therapeutic and or diagnostic purposes. These modalities may include, but are not limited to: electrical muscle/nerve stimulation; spinal manipulative therapy; laser/electrical acupuncture, therapeutic ultrasound; mobilization; soft tissue manipulation; diagnostic x-rays; and various forms of physio/physical therapy performed by the physiotherapist, therapist aide, kinesiologist and/or anyone authorized by the therapist.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fP2-fb-SK4">
+                                <rect key="frame" x="20" y="470" width="540" height="178"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="178" id="fxk-P4-Th1"/>
+                                </constraints>
+                                <string key="text">I understand that, as is the case with most health care interventions, there is a certain inherent risk of complication associated with physiotherapy, acupuncture, physiotherapeutic and/or rehabilitative procedures, which may include but is not limited to skin irritation; bruising; muscle strains/sprains; disc injuries; infection and stroke. The risk of complication/injury associated with the aforementioned procedures is small and subsequently reduced when performed by a certified and/or licensed professional.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bc9-xy-Mew">
+                                <rect key="frame" x="274" y="740" width="32" height="30"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <segue destination="6K6-bj-YGc" kind="push" id="VNN-BW-2qR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="R5j-lS-XE1" firstAttribute="top" secondItem="JoV-Es-DWw" secondAttribute="bottom" constant="27" id="3Io-BF-ieX"/>
+                            <constraint firstItem="R5j-lS-XE1" firstAttribute="leading" secondItem="wT2-M8-Kfc" secondAttribute="leadingMargin" id="I3A-ZH-6Xz"/>
+                            <constraint firstItem="dhE-cP-ruw" firstAttribute="top" secondItem="fP2-fb-SK4" secondAttribute="bottom" constant="352" id="MLN-Sd-k7p"/>
+                            <constraint firstItem="5Xh-pH-BN9" firstAttribute="top" secondItem="R5j-lS-XE1" secondAttribute="bottom" constant="8" symbolic="YES" id="Pu8-dD-11S"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Guk-Uu-7Vy" secondAttribute="trailing" constant="20" id="Xdy-oi-Lxn"/>
+                            <constraint firstItem="bc9-xy-Mew" firstAttribute="top" secondItem="fP2-fb-SK4" secondAttribute="bottom" constant="92" id="ZtC-sp-qvh"/>
+                            <constraint firstItem="bc9-xy-Mew" firstAttribute="centerX" secondItem="fP2-fb-SK4" secondAttribute="centerX" id="ceT-7v-WYy"/>
+                            <constraint firstItem="fP2-fb-SK4" firstAttribute="leading" secondItem="wT2-M8-Kfc" secondAttribute="leadingMargin" id="jgA-Bc-7ec"/>
+                            <constraint firstItem="Guk-Uu-7Vy" firstAttribute="leading" secondItem="wT2-M8-Kfc" secondAttribute="leadingMargin" id="k94-ob-KjC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fP2-fb-SK4" secondAttribute="trailing" constant="20" id="nBW-8C-6ad"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5Xh-pH-BN9" secondAttribute="trailing" constant="20" id="oXp-3e-80T"/>
+                            <constraint firstItem="5Xh-pH-BN9" firstAttribute="leading" secondItem="wT2-M8-Kfc" secondAttribute="leadingMargin" id="rVO-7k-PlC"/>
+                            <constraint firstItem="Guk-Uu-7Vy" firstAttribute="top" secondItem="5Xh-pH-BN9" secondAttribute="bottom" constant="16" id="raD-Vk-NrX"/>
+                            <constraint firstItem="fP2-fb-SK4" firstAttribute="top" secondItem="Guk-Uu-7Vy" secondAttribute="bottom" constant="23" id="yvw-d6-byu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Informed Consent" id="Ynk-7Q-rbd"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="1000"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hc8-wL-nmo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1056" y="228"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jt5-6J-DWG">
+            <objects>
+                <viewController id="6K6-bj-YGc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gOa-su-qCm"/>
+                        <viewControllerLayoutGuide type="bottom" id="B8d-ho-oIm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1dH-3X-9qf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Consent to Release and/or Collect Medical information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbK-bk-1Yy">
+                                <rect key="frame" x="20" y="105" width="523" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Lwr-XN-F4h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8b-hu-Grr">
+                                <rect key="frame" x="20" y="164" width="560" height="343"/>
+                                <string key="text">I hereby authorize Caleo Health or any agent acting on behalf of the aforementioned to disclose or collect, verbal or written, any or all relevant medical information pertinent to my case to: medical/technical consultants; legal representatives; insurance carriers and third party payers involved in the case.
+By signing below, I hereby acknowledge that I have read and understand the above statements, and consent to the release of any or all relevant medical information pertinent to my case to: medical/technical consultants; legal representatives; insurance carriers and third party payers involved in the case. I reserve the right to inform my therapist or doctor of such, and withdraw my consent at anytime in whole or in part to the information within.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sTj-tN-oYJ">
+                                <rect key="frame" x="261" y="649" width="41" height="30"/>
+                                <state key="normal" title="Agree"/>
+                                <connections>
+                                    <segue destination="fDe-X0-UCa" kind="push" id="aZV-Ka-3sC"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="__________________________" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Kl-S9-q1r">
+                                <rect key="frame" x="39" y="570" width="197" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="197" id="wB1-Va-33D"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jim-2G-5rU">
+                                <rect key="frame" x="91" y="605" width="74" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8qc-sp-6G3">
+                                <rect key="frame" x="39" y="556" width="188" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="188" id="FVO-6C-Qbt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tbK-bk-1Yy" firstAttribute="top" secondItem="gOa-su-qCm" secondAttribute="bottom" constant="41" id="0oE-ww-HpV"/>
+                            <constraint firstItem="A8b-hu-Grr" firstAttribute="top" secondItem="tbK-bk-1Yy" secondAttribute="bottom" constant="38" id="2oQ-wE-VhP"/>
+                            <constraint firstItem="tbK-bk-1Yy" firstAttribute="leading" secondItem="A8b-hu-Grr" secondAttribute="leading" id="2on-cM-D62"/>
+                            <constraint firstItem="A8b-hu-Grr" firstAttribute="trailing" secondItem="1dH-3X-9qf" secondAttribute="trailingMargin" id="7Tj-FA-klZ"/>
+                            <constraint firstItem="8qc-sp-6G3" firstAttribute="leading" secondItem="7Kl-S9-q1r" secondAttribute="leading" id="Apa-zM-lho"/>
+                            <constraint firstItem="7Kl-S9-q1r" firstAttribute="top" secondItem="A8b-hu-Grr" secondAttribute="bottom" constant="63" id="E2w-vb-lyc"/>
+                            <constraint firstItem="7Kl-S9-q1r" firstAttribute="leading" secondItem="1dH-3X-9qf" secondAttribute="leadingMargin" constant="19" id="H6f-LQ-yIL"/>
+                            <constraint firstItem="Jim-2G-5rU" firstAttribute="top" secondItem="7Kl-S9-q1r" secondAttribute="bottom" constant="14" id="JbS-a1-1C2"/>
+                            <constraint firstItem="A8b-hu-Grr" firstAttribute="leading" secondItem="1dH-3X-9qf" secondAttribute="leadingMargin" id="KdQ-fq-tJj"/>
+                            <constraint firstItem="8qc-sp-6G3" firstAttribute="top" secondItem="A8b-hu-Grr" secondAttribute="bottom" constant="49" id="VvA-O7-bHk"/>
+                            <constraint firstItem="B8d-ho-oIm" firstAttribute="top" secondItem="sTj-tN-oYJ" secondAttribute="bottom" constant="321" id="XtT-Oc-w6m"/>
+                            <constraint firstItem="B8d-ho-oIm" firstAttribute="top" secondItem="A8b-hu-Grr" secondAttribute="bottom" constant="493" id="ZC8-Wk-Edm"/>
+                            <constraint firstItem="Jim-2G-5rU" firstAttribute="top" secondItem="8qc-sp-6G3" secondAttribute="bottom" constant="19" id="dhv-fi-VtP"/>
+                            <constraint firstItem="Jim-2G-5rU" firstAttribute="leading" secondItem="1dH-3X-9qf" secondAttribute="leadingMargin" constant="71" id="g1a-0t-LuV"/>
+                            <constraint firstItem="sTj-tN-oYJ" firstAttribute="centerX" secondItem="tbK-bk-1Yy" secondAttribute="centerX" id="jGP-LE-u3G"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tbK-bk-1Yy" secondAttribute="trailing" constant="37" id="pD0-1s-3P1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="6f1-Ls-Mlq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sok-Su-sBt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1734" y="228"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Lyp-pk-96w">
@@ -326,7 +541,44 @@ By clicking agree below, I hereby acknowledge that I have read and understand th
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4hS-xP-DhC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="73" y="33"/>
+            <point key="canvasLocation" x="-1286" y="28"/>
+        </scene>
+        <!--Release Collect Consent View Controller-->
+        <scene sceneID="jNR-Mn-Gvl">
+            <objects>
+                <viewController id="O39-WF-cdV" customClass="ReleaseCollectConsentViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BgJ-dd-LNF"/>
+                        <viewControllerLayoutGuide type="bottom" id="DuA-kr-RvV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="D6m-Qu-DYQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="tOz-RA-dk0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FcB-Vd-IHW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-474" y="744"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BYw-Wh-FC9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cJV-HT-IZg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="T7H-JS-6cZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="O39-WF-cdV" kind="relationship" relationship="rootViewController" id="oye-oS-O9A"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1l4-Jt-7dg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1286" y="744"/>
         </scene>
     </scenes>
 </document>

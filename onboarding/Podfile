@@ -9,5 +9,7 @@ pod 'Firebase'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
 pod 'Firebase/Messaging'
+pod 'SignatureView', '~> 1.1'
+pod 'ResearchKit', '~> 1.3'
 
 end

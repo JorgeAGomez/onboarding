@@ -67,12 +67,11 @@
     //Figure out if patient has health coverage
     healthCoverageRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Extended Health Coverage" rowType:XLFormRowDescriptorTypeSelectorSegmentedControl title:@"Do you have extended health coverage?"];
     healthCoverageRow.selectorOptions = @[@"Yes", @"No"];
-    healthCoverageRow.value = @"Yes";
+    healthCoverageRow.value = @"No";
     [healthCoverageSection addFormRow:healthCoverageRow];
   
   
     healthCoverageRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Insurance Company" rowType:XLFormRowDescriptorTypeText title:@"Insurance Company"];
-    [healthCoverageSection addFormRow:healthCoverageRow];
     _insuranceCompany = healthCoverageRow;
   
   
@@ -105,7 +104,6 @@
   controller.motorVehicleInjuryInformation = [NSDictionary dictionaryWithDictionary:_motorVehicleInjuryInformation];
   controller.healthCoverageInformation = [NSDictionary dictionaryWithDictionary:_healthCoverageInformation];
 
-  
 }
 
 - (IBAction)nextButton:(id)sender {

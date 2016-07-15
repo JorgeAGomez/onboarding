@@ -67,45 +67,39 @@
     //Figure out if is a work related injury.
     workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Work Related Injury" rowType:XLFormRowDescriptorTypeSelectorSegmentedControl title:@"Are you here due to work related injury?"];
     workInjuryRow.selectorOptions = @[@"Yes", @"No"];
-    workInjuryRow.value = @"Yes";
+    workInjuryRow.value = @"No";
     [workInjurySection addFormRow:workInjuryRow];
   
     //Date of Injury
     workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Date of Injury" rowType:XLFormRowDescriptorTypeDateInline title:@"Date of Injury"];
     workInjuryRow.value = [NSDate date];
     workInjuryRow.required = YES;
-    [workInjurySection addFormRow:workInjuryRow];
     _dateOfInjury = workInjuryRow;
   
     //WCB Claim Number
     workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"WCB Claim No." rowType:XLFormRowDescriptorTypeText title:@"WCB Claim No."];
     workInjuryRow.required = YES;
-    [workInjurySection addFormRow:workInjuryRow];
     _WCBClaim = workInjuryRow;
   
     //Employer
     workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Employer" rowType:XLFormRowDescriptorTypeText title:@"Employer"];
     workInjuryRow.required = YES;
-    [workInjurySection addFormRow:workInjuryRow];
     _Employer = workInjuryRow;
   
     //Phone number
     workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Employer Phone" rowType:XLFormRowDescriptorTypeText title:@"Phone No."];
-    [workInjurySection addFormRow:workInjuryRow];
     workInjuryRow.required = YES;
     _Phone = workInjuryRow;
   
     //Address
     workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Employer Address" rowType:XLFormRowDescriptorTypeText title:@"Address"];
     workInjuryRow.required = YES;
-    [workInjurySection addFormRow:workInjuryRow];
     _Address = workInjuryRow;
   
     //Can we contact the employer?
     workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Contact employer" rowType:XLFormRowDescriptorTypeSelectorSegmentedControl title:@"May we contact your employer?"];
     workInjuryRow.selectorOptions = @[@"Yes", @"No"];
     workInjuryRow.value = @"Yes";
-    [workInjurySection addFormRow:workInjuryRow];
     _contactEmployer = workInjuryRow;
   
     self.form = workInjuryForm;

@@ -431,7 +431,11 @@ XLFormRowDescriptor *generalCurrentSelectorRow;
 
 - (IBAction)doneButton:(id)sender {
 
+  
+
     ////**** Saving Personal Information *****////
+  
+    /*
     firstName = [_personalInformation objectForKey:@"First name"];
     lastName = [_personalInformation objectForKey:@"Last name"];
     address = [_personalInformation objectForKey:@"Address"];
@@ -507,6 +511,7 @@ XLFormRowDescriptor *generalCurrentSelectorRow;
     allergies = [_reportQuestionnarieInformation objectForKey:@"Allergies"];
     medications = [_reportQuestionnarieInformation objectForKey:@"Medication"];
     notes = [_reportQuestionnarieInformation objectForKey:@"Notes"];
+    */
   
   
   

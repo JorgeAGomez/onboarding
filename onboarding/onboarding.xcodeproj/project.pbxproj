@@ -19,9 +19,13 @@
 		D62E69D81D21E2F300AEE03C /* HealthCoverageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62E69D71D21E2F300AEE03C /* HealthCoverageViewController.m */; };
 		D62E69DC1D22F6B600AEE03C /* FirebaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D62E69DB1D22F6B600AEE03C /* FirebaseHelper.m */; };
 		D62E69E11D23182D00AEE03C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D62E69E01D23182D00AEE03C /* GoogleService-Info.plist */; };
+		D68CE7EF1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D68CE7EE1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.m */; };
+		D68CE7F21D2C2C7700E1A0EE /* ReleaseCollectConsentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D68CE7F11D2C2C7700E1A0EE /* ReleaseCollectConsentViewController.m */; };
+		D68CE7FC1D2C379100E1A0EE /* ConditionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D68CE7FB1D2C379100E1A0EE /* ConditionsViewController.m */; };
 		D6919D351D21AE4F00E0FCAB /* WorkInjuryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6919D341D21AE4F00E0FCAB /* WorkInjuryViewController.m */; };
 		D6919D381D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6919D371D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m */; };
 		D6F6AE4E1D25AFA600083F99 /* ReportQuestionnarieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F6AE4D1D25AFA600083F99 /* ReportQuestionnarieViewController.m */; };
+		D6FFFCF21D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FFFCF11D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,12 +51,20 @@
 		D62E69DA1D22F6B600AEE03C /* FirebaseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirebaseHelper.h; sourceTree = "<group>"; };
 		D62E69DB1D22F6B600AEE03C /* FirebaseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirebaseHelper.m; sourceTree = "<group>"; };
 		D62E69E01D23182D00AEE03C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D68CE7ED1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssessmentAndTreatmentViewController.h; sourceTree = "<group>"; };
+		D68CE7EE1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssessmentAndTreatmentViewController.m; sourceTree = "<group>"; };
+		D68CE7F01D2C2C7700E1A0EE /* ReleaseCollectConsentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseCollectConsentViewController.h; sourceTree = "<group>"; };
+		D68CE7F11D2C2C7700E1A0EE /* ReleaseCollectConsentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseCollectConsentViewController.m; sourceTree = "<group>"; };
+		D68CE7FA1D2C379100E1A0EE /* ConditionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionsViewController.h; sourceTree = "<group>"; };
+		D68CE7FB1D2C379100E1A0EE /* ConditionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConditionsViewController.m; sourceTree = "<group>"; };
 		D6919D331D21AE4F00E0FCAB /* WorkInjuryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkInjuryViewController.h; sourceTree = "<group>"; };
 		D6919D341D21AE4F00E0FCAB /* WorkInjuryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkInjuryViewController.m; sourceTree = "<group>"; };
 		D6919D361D21D58F00E0FCAB /* MotorVehicleAccidentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotorVehicleAccidentViewController.h; sourceTree = "<group>"; };
 		D6919D371D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotorVehicleAccidentViewController.m; sourceTree = "<group>"; };
 		D6F6AE4C1D25AFA600083F99 /* ReportQuestionnarieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportQuestionnarieViewController.h; sourceTree = "<group>"; };
 		D6F6AE4D1D25AFA600083F99 /* ReportQuestionnarieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportQuestionnarieViewController.m; sourceTree = "<group>"; };
+		D6FFFCF01D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralReportQuestinnarieViewController.h; sourceTree = "<group>"; };
+		D6FFFCF11D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralReportQuestinnarieViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,29 +108,15 @@
 		D62829F81D1F6622001D64FA /* onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				D62829FC1D1F6622001D64FA /* AppDelegate.h */,
-				D62829FD1D1F6622001D64FA /* AppDelegate.m */,
-				D616B3681D2054B500ABF52D /* FormViewController.h */,
-				D616B3691D2054B500ABF52D /* FormViewController.m */,
-				D616B36E1D20C16500ABF52D /* MedicalInformationViewController.h */,
-				D616B36F1D20C16500ABF52D /* MedicalInformationViewController.m */,
-				D6919D331D21AE4F00E0FCAB /* WorkInjuryViewController.h */,
-				D6919D341D21AE4F00E0FCAB /* WorkInjuryViewController.m */,
-				D6919D361D21D58F00E0FCAB /* MotorVehicleAccidentViewController.h */,
-				D6919D371D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m */,
-				D62E69D61D21E2F300AEE03C /* HealthCoverageViewController.h */,
-				D62E69D71D21E2F300AEE03C /* HealthCoverageViewController.m */,
-				D6F6AE4C1D25AFA600083F99 /* ReportQuestionnarieViewController.h */,
-				D6F6AE4D1D25AFA600083F99 /* ReportQuestionnarieViewController.m */,
-				D616B36B1D205B2C00ABF52D /* DateAndTimeValueTransformer.h */,
-				D616B36C1D205B2C00ABF52D /* DateAndTimeValueTransformer.m */,
-				D62E69DA1D22F6B600AEE03C /* FirebaseHelper.h */,
-				D62E69DB1D22F6B600AEE03C /* FirebaseHelper.m */,
-				D62E69E01D23182D00AEE03C /* GoogleService-Info.plist */,
-				D6282A021D1F6622001D64FA /* Main.storyboard */,
-				D6282A051D1F6622001D64FA /* Assets.xcassets */,
-				D6282A071D1F6622001D64FA /* LaunchScreen.storyboard */,
-				D6282A0A1D1F6622001D64FA /* Info.plist */,
+				D68CE7F31D2C2C8900E1A0EE /* Informed Consent */,
+				D68CE7F41D2C2C9C00E1A0EE /* Personal Information */,
+				D68CE7F51D2C2CCF00E1A0EE /* Medical Information */,
+				D68CE7F61D2C2CE300E1A0EE /* Injuries */,
+				D68CE7F71D2C2D0900E1A0EE /* Extended Coverage */,
+				D68CE7F81D2C373E00E1A0EE /* Conditions */,
+				D68CE7F91D2C374B00E1A0EE /* Health Report Questionnarie */,
+				D68CE7FD1D2C37A300E1A0EE /* Database */,
+				D68CE7FE1D2C37B200E1A0EE /* Main */,
 				D62829F91D1F6622001D64FA /* Supporting Files */,
 			);
 			path = onboarding;
@@ -130,6 +128,100 @@
 				D62829FA1D1F6622001D64FA /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D68CE7F31D2C2C8900E1A0EE /* Informed Consent */ = {
+			isa = PBXGroup;
+			children = (
+				D68CE7ED1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.h */,
+				D68CE7EE1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.m */,
+				D68CE7F01D2C2C7700E1A0EE /* ReleaseCollectConsentViewController.h */,
+				D68CE7F11D2C2C7700E1A0EE /* ReleaseCollectConsentViewController.m */,
+			);
+			name = "Informed Consent";
+			sourceTree = "<group>";
+		};
+		D68CE7F41D2C2C9C00E1A0EE /* Personal Information */ = {
+			isa = PBXGroup;
+			children = (
+				D616B3681D2054B500ABF52D /* FormViewController.h */,
+				D616B3691D2054B500ABF52D /* FormViewController.m */,
+			);
+			name = "Personal Information";
+			sourceTree = "<group>";
+		};
+		D68CE7F51D2C2CCF00E1A0EE /* Medical Information */ = {
+			isa = PBXGroup;
+			children = (
+				D616B36E1D20C16500ABF52D /* MedicalInformationViewController.h */,
+				D616B36F1D20C16500ABF52D /* MedicalInformationViewController.m */,
+			);
+			name = "Medical Information";
+			sourceTree = "<group>";
+		};
+		D68CE7F61D2C2CE300E1A0EE /* Injuries */ = {
+			isa = PBXGroup;
+			children = (
+				D6919D331D21AE4F00E0FCAB /* WorkInjuryViewController.h */,
+				D6919D341D21AE4F00E0FCAB /* WorkInjuryViewController.m */,
+				D6919D361D21D58F00E0FCAB /* MotorVehicleAccidentViewController.h */,
+				D6919D371D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m */,
+			);
+			name = Injuries;
+			sourceTree = "<group>";
+		};
+		D68CE7F71D2C2D0900E1A0EE /* Extended Coverage */ = {
+			isa = PBXGroup;
+			children = (
+				D62E69D61D21E2F300AEE03C /* HealthCoverageViewController.h */,
+				D62E69D71D21E2F300AEE03C /* HealthCoverageViewController.m */,
+			);
+			name = "Extended Coverage";
+			sourceTree = "<group>";
+		};
+		D68CE7F81D2C373E00E1A0EE /* Conditions */ = {
+			isa = PBXGroup;
+			children = (
+				D68CE7FA1D2C379100E1A0EE /* ConditionsViewController.h */,
+				D68CE7FB1D2C379100E1A0EE /* ConditionsViewController.m */,
+			);
+			name = Conditions;
+			sourceTree = "<group>";
+		};
+		D68CE7F91D2C374B00E1A0EE /* Health Report Questionnarie */ = {
+			isa = PBXGroup;
+			children = (
+				D6F6AE4C1D25AFA600083F99 /* ReportQuestionnarieViewController.h */,
+				D6F6AE4D1D25AFA600083F99 /* ReportQuestionnarieViewController.m */,
+				D6FFFCF01D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.h */,
+				D6FFFCF11D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.m */,
+			);
+			name = "Health Report Questionnarie";
+			sourceTree = "<group>";
+		};
+		D68CE7FD1D2C37A300E1A0EE /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				D62E69DA1D22F6B600AEE03C /* FirebaseHelper.h */,
+				D62E69DB1D22F6B600AEE03C /* FirebaseHelper.m */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		D68CE7FE1D2C37B200E1A0EE /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D62E69E01D23182D00AEE03C /* GoogleService-Info.plist */,
+				D6282A021D1F6622001D64FA /* Main.storyboard */,
+				D6282A051D1F6622001D64FA /* Assets.xcassets */,
+				D6282A071D1F6622001D64FA /* LaunchScreen.storyboard */,
+				D6282A0A1D1F6622001D64FA /* Info.plist */,
+				D62829FC1D1F6622001D64FA /* AppDelegate.h */,
+				D62829FD1D1F6622001D64FA /* AppDelegate.m */,
+				D616B36B1D205B2C00ABF52D /* DateAndTimeValueTransformer.h */,
+				D616B36C1D205B2C00ABF52D /* DateAndTimeValueTransformer.m */,
+			);
+			name = Main;
 			sourceTree = "<group>";
 		};
 		E2AC4113E0DE60FE85E16C5E /* Pods */ = {
@@ -269,9 +361,13 @@
 				D62829FE1D1F6622001D64FA /* AppDelegate.m in Sources */,
 				D62E69D81D21E2F300AEE03C /* HealthCoverageViewController.m in Sources */,
 				D62829FB1D1F6622001D64FA /* main.m in Sources */,
+				D68CE7FC1D2C379100E1A0EE /* ConditionsViewController.m in Sources */,
 				D616B36A1D2054B500ABF52D /* FormViewController.m in Sources */,
+				D68CE7F21D2C2C7700E1A0EE /* ReleaseCollectConsentViewController.m in Sources */,
 				D6919D351D21AE4F00E0FCAB /* WorkInjuryViewController.m in Sources */,
 				D6919D381D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m in Sources */,
+				D68CE7EF1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.m in Sources */,
+				D6FFFCF21D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.m in Sources */,
 				D616B3701D20C16500ABF52D /* MedicalInformationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
