@@ -58,23 +58,23 @@
   
     //First name
     personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"First name" rowType:XLFormRowDescriptorTypeText title:@"First name"];
-    //personalInformationRow.required = YES;
+    personalInformationRow.required = YES;
 
     [personalInfomartionSection addFormRow:personalInformationRow];
   
     //Last name
     personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Last name" rowType:XLFormRowDescriptorTypeText title:@"Last name"];
-    //personalInformationRow.required = YES;
+    personalInformationRow.required = YES;
     [personalInfomartionSection addFormRow:personalInformationRow];
   
     // Address
     personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Address" rowType:XLFormRowDescriptorTypeText title:@"Address"];
-    //personalInformationRow.required = YES;
+    personalInformationRow.required = YES;
     [personalInfomartionSection addFormRow:personalInformationRow];
   
     //City
     personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"City" rowType:XLFormRowDescriptorTypeText title:@"City"];
-    //personalInformationRow.required = YES;
+    personalInformationRow.required = YES;
     [personalInfomartionSection addFormRow:personalInformationRow];
   
     //Province
@@ -114,6 +114,25 @@
 
     //Cell phone
     personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Cell Phone #" rowType:XLFormRowDescriptorTypeText title:@"Cell Phone #"];
+  
+    //Select type of Phone #
+    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"SelectPhoneType" rowType:XLFormRowDescriptorTypeSelectorLeftRight];
+  
+    personalInformationRow.leftRightSelectorLeftOptionSelected = [XLFormOptionsObject formOptionsObjectWithValue:@(0) displayText:@"Home Phone #"];
+    NSArray * leftOptions =  @[[XLFormOptionsObject formOptionsObjectWithValue:@(0) displayText:@"Home Phone #"],
+                                [XLFormOptionsObject formOptionsObjectWithValue:@(1) displayText:@"Work Phone #"],
+                                [XLFormOptionsObject formOptionsObjectWithValue:@(2) displayText:@"Cell Phone #"]
+                                ];
+  
+    // create right selectors
+    NSMutableArray * leftRightSelectorOptions = [[NSMutableArray alloc] init];
+    NSMutableArray * mutableRightOptions = [leftOptions mutableCopy];
+    [mutableRightOptions removeObjectAtIndex:0];
+    
+  
+
+  
+  
   
     [personalInfomartionSection addFormRow:personalInformationRow];
   

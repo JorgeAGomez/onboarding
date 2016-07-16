@@ -24,6 +24,8 @@
 		D68CE7FC1D2C379100E1A0EE /* ConditionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D68CE7FB1D2C379100E1A0EE /* ConditionsViewController.m */; };
 		D6919D351D21AE4F00E0FCAB /* WorkInjuryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6919D341D21AE4F00E0FCAB /* WorkInjuryViewController.m */; };
 		D6919D381D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6919D371D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m */; };
+		D695D4BA1D3AB3370024DC34 /* LeftSelectorRightTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = D695D4B91D3AB3370024DC34 /* LeftSelectorRightTextField.xib */; };
+		D695D4BE1D3AB6E40024DC34 /* LeftSelectorRightTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D695D4BD1D3AB6E40024DC34 /* LeftSelectorRightTextField.m */; };
 		D6F6AE4E1D25AFA600083F99 /* ReportQuestionnarieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F6AE4D1D25AFA600083F99 /* ReportQuestionnarieViewController.m */; };
 		D6FFFCF21D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FFFCF11D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.m */; };
 /* End PBXBuildFile section */
@@ -61,6 +63,9 @@
 		D6919D341D21AE4F00E0FCAB /* WorkInjuryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkInjuryViewController.m; sourceTree = "<group>"; };
 		D6919D361D21D58F00E0FCAB /* MotorVehicleAccidentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotorVehicleAccidentViewController.h; sourceTree = "<group>"; };
 		D6919D371D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotorVehicleAccidentViewController.m; sourceTree = "<group>"; };
+		D695D4B91D3AB3370024DC34 /* LeftSelectorRightTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftSelectorRightTextField.xib; sourceTree = "<group>"; };
+		D695D4BC1D3AB6E40024DC34 /* LeftSelectorRightTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftSelectorRightTextField.h; sourceTree = "<group>"; };
+		D695D4BD1D3AB6E40024DC34 /* LeftSelectorRightTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSelectorRightTextField.m; sourceTree = "<group>"; };
 		D6F6AE4C1D25AFA600083F99 /* ReportQuestionnarieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportQuestionnarieViewController.h; sourceTree = "<group>"; };
 		D6F6AE4D1D25AFA600083F99 /* ReportQuestionnarieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportQuestionnarieViewController.m; sourceTree = "<group>"; };
 		D6FFFCF01D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralReportQuestinnarieViewController.h; sourceTree = "<group>"; };
@@ -144,6 +149,7 @@
 		D68CE7F41D2C2C9C00E1A0EE /* Personal Information */ = {
 			isa = PBXGroup;
 			children = (
+				D695D4BB1D3AB6940024DC34 /* CustomRow */,
 				D616B3681D2054B500ABF52D /* FormViewController.h */,
 				D616B3691D2054B500ABF52D /* FormViewController.m */,
 			);
@@ -224,6 +230,16 @@
 			name = Main;
 			sourceTree = "<group>";
 		};
+		D695D4BB1D3AB6940024DC34 /* CustomRow */ = {
+			isa = PBXGroup;
+			children = (
+				D695D4BC1D3AB6E40024DC34 /* LeftSelectorRightTextField.h */,
+				D695D4BD1D3AB6E40024DC34 /* LeftSelectorRightTextField.m */,
+				D695D4B91D3AB3370024DC34 /* LeftSelectorRightTextField.xib */,
+			);
+			name = CustomRow;
+			sourceTree = "<group>";
+		};
 		E2AC4113E0DE60FE85E16C5E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +311,7 @@
 			files = (
 				D6282A091D1F6622001D64FA /* LaunchScreen.storyboard in Resources */,
 				D62E69E11D23182D00AEE03C /* GoogleService-Info.plist in Resources */,
+				D695D4BA1D3AB3370024DC34 /* LeftSelectorRightTextField.xib in Resources */,
 				D6282A061D1F6622001D64FA /* Assets.xcassets in Resources */,
 				D6282A041D1F6622001D64FA /* Main.storyboard in Resources */,
 			);
@@ -364,6 +381,7 @@
 				D68CE7FC1D2C379100E1A0EE /* ConditionsViewController.m in Sources */,
 				D616B36A1D2054B500ABF52D /* FormViewController.m in Sources */,
 				D68CE7F21D2C2C7700E1A0EE /* ReleaseCollectConsentViewController.m in Sources */,
+				D695D4BE1D3AB6E40024DC34 /* LeftSelectorRightTextField.m in Sources */,
 				D6919D351D21AE4F00E0FCAB /* WorkInjuryViewController.m in Sources */,
 				D6919D381D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m in Sources */,
 				D68CE7EF1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.m in Sources */,
