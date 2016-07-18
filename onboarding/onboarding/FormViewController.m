@@ -10,6 +10,8 @@
 #import "XLForm.h"
 #import "DateAndTimeValueTransformer.h"
 #import "MedicalInformationViewController.h"
+#import "LeftSelectorRightTextField.h"
+#import <SHSPhoneComponent/SHSPhoneNumberFormatter+UserConfig.h>
 
 
 @interface FormViewController ()
@@ -46,36 +48,42 @@
 - (void)initializeForm
 {
     XLFormDescriptor *personalInformationForm;
-    XLFormSectionDescriptor *personalInfomartionSection;
+    XLFormSectionDescriptor *personalInformationSection;
     XLFormRowDescriptor *personalInformationRow;
   
     //personalInformationForm.assignFirstResponderOnShow = YES;
   
     personalInformationForm = [XLFormDescriptor formDescriptorWithTitle:@"Personal Information"];
-    personalInfomartionSection = [XLFormSectionDescriptor formSection];
-    personalInfomartionSection.title = @"Personal Information";
-    [personalInformationForm addFormSection:personalInfomartionSection];
+    personalInformationSection = [XLFormSectionDescriptor formSection];
+    personalInformationSection.title = @"Personal Information";
+    [personalInformationForm addFormSection:personalInformationSection];
   
     //First name
-    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"First name" rowType:XLFormRowDescriptorTypeText title:@"First name"];
+    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"First name" rowType:XLFormRowDescriptorTypeName title:@"First name"];
     personalInformationRow.required = YES;
-
-    [personalInfomartionSection addFormRow:personalInformationRow];
+    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
+    [personalInformationSection addFormRow:personalInformationRow];
   
     //Last name
-    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Last name" rowType:XLFormRowDescriptorTypeText title:@"Last name"];
+    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Last name" rowType:XLFormRowDescriptorTypeName title:@"Last name"];
     personalInformationRow.required = YES;
-    [personalInfomartionSection addFormRow:personalInformationRow];
+    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
+    [personalInformationSection
+    
+      addFormRow:personalInformationRow];
   
     // Address
     personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Address" rowType:XLFormRowDescriptorTypeText title:@"Address"];
+    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
     personalInformationRow.required = YES;
-    [personalInfomartionSection addFormRow:personalInformationRow];
+    [personalInformationSection addFormRow:personalInformationRow];
   
     //City
     personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"City" rowType:XLFormRowDescriptorTypeText title:@"City"];
+    personalInformationRow.value = @"Calgary";
     personalInformationRow.required = YES;
-    [personalInfomartionSection addFormRow:personalInformationRow];
+    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
+    [personalInformationSection addFormRow:personalInformationRow];
   
     //Province
     personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Province" rowType:XLFormRowDescriptorTypeSelectorPush title:@"Province"];
@@ -98,60 +106,50 @@
                             [XLFormOptionsObject formOptionsObjectWithValue:@(13) displayText:@"Saskatchewan"],
                             ];
 
-    //personalInformationRow.required = YES;
-    [personalInfomartionSection addFormRow:personalInformationRow];
+    personalInformationRow.required = YES;
+    [personalInformationSection addFormRow:personalInformationRow];
   
     //Postal Code
     personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Postal Code" rowType:XLFormRowDescriptorTypeText title:@"Postal Code"];
-    //personalInformationRow.required = YES;
-    [personalInfomartionSection addFormRow:personalInformationRow];
-
+    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
+    personalInformationRow.required = YES;
+    [personalInformationSection addFormRow:personalInformationRow];
   
-    //Home phone
-    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Home Phone #" rowType:XLFormRowDescriptorTypeText title:@"Home Phone #"];
+    //Select type of Home Phone #
+    SHSPhoneNumberFormatter *formatter = [[SHSPhoneNumberFormatter alloc] init];
+    [formatter setDefaultOutputPattern:@"(###) ###-####" imagePath:nil];
+    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Home Phone #" rowType:XLFormRowDescriptorTypePhone title:@"Home Phone #"];
+    personalInformationRow.valueFormatter = formatter;
+    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
+    personalInformationRow.useValueFormatterDuringInput = YES;
+    [personalInformationSection addFormRow:personalInformationRow];
   
-    [personalInfomartionSection addFormRow:personalInformationRow];
-
-    //Cell phone
-    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Cell Phone #" rowType:XLFormRowDescriptorTypeText title:@"Cell Phone #"];
+        //Select type of Cell Phone #
+    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Cell Phone #" rowType:XLFormRowDescriptorTypePhone title:@"Cell Phone #"];
+    personalInformationRow.valueFormatter = formatter;
+    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
+    personalInformationRow.useValueFormatterDuringInput = YES;
+    [personalInformationSection addFormRow:personalInformationRow];
   
-    //Select type of Phone #
-    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"SelectPhoneType" rowType:XLFormRowDescriptorTypeSelectorLeftRight];
-  
-    personalInformationRow.leftRightSelectorLeftOptionSelected = [XLFormOptionsObject formOptionsObjectWithValue:@(0) displayText:@"Home Phone #"];
-    NSArray * leftOptions =  @[[XLFormOptionsObject formOptionsObjectWithValue:@(0) displayText:@"Home Phone #"],
-                                [XLFormOptionsObject formOptionsObjectWithValue:@(1) displayText:@"Work Phone #"],
-                                [XLFormOptionsObject formOptionsObjectWithValue:@(2) displayText:@"Cell Phone #"]
-                                ];
-  
-    // create right selectors
-    NSMutableArray * leftRightSelectorOptions = [[NSMutableArray alloc] init];
-    NSMutableArray * mutableRightOptions = [leftOptions mutableCopy];
-    [mutableRightOptions removeObjectAtIndex:0];
-    
-  
-
-  
-  
-  
-    [personalInfomartionSection addFormRow:personalInformationRow];
-  
-    //Work phone
-    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Work Phone #" rowType:XLFormRowDescriptorTypeText title:@"Work Phone #"];
-    [personalInfomartionSection addFormRow:personalInformationRow];
-
+        //Select type of  Work Phone #
+    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Work Phone #" rowType:XLFormRowDescriptorTypePhone title:@"Work Phone #"];
+    personalInformationRow.valueFormatter = formatter;
+    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
+    personalInformationRow.useValueFormatterDuringInput = YES;
+    [personalInformationSection addFormRow:personalInformationRow];
 
     //Date of Birth
     personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Date of Birth" rowType:XLFormRowDescriptorTypeDateInline title:@"Date of Birth"];
     personalInformationRow.value = [NSDate new];
-    //personalInformationRow.required = YES;
-    [personalInfomartionSection addFormRow:personalInformationRow];
+    personalInformationRow.required = YES;
+    [personalInformationSection addFormRow:personalInformationRow];
   
     //PHN #
     personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"PHN No." rowType:XLFormRowDescriptorTypeText title:@"PHN No."];
-    //REquired?????
-    [personalInfomartionSection addFormRow:personalInformationRow];
-
+    //No, but remember patient to provide it ASAP
+    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
+    [personalInformationRow.cellConfigAtConfigure setObject:@"12345-6789" forKey:@"textField.placeholder"];
+    [personalInformationSection addFormRow:personalInformationRow];
     
     self.form = personalInformationForm;
   
@@ -203,9 +201,48 @@
     }
     _personalDictionary = [self formValues];
   
-    [self.tableView endEditing:YES];
-  
-    [self performSegueWithIdentifier:@"next" sender:self];
+    //Makes sure at least one phone is given
+    if([_personalDictionary[@"Home Phone #"] isEqual:[NSNull null]] && [_personalDictionary[@"Cell Phone #"] isEqual:[NSNull null]] && [_personalDictionary[@"Work Phone #"] isEqual:[NSNull null]])
+    {
+        UIAlertController * alert=   [UIAlertController
+                                       alertControllerWithTitle:@"Error"
+                                       message:@"Provide at least one phone number"
+                                       preferredStyle:UIAlertControllerStyleAlert];
+          
+         UIAlertAction* ok = [UIAlertAction
+                              actionWithTitle:@"OK"
+                              style:UIAlertActionStyleDefault
+                              handler:^(UIAlertAction * action)
+                              {
+                                  [alert dismissViewControllerAnimated:YES completion:nil];
+                                   
+                              }];
+          
+         [alert addAction:ok];
+          
+         [self presentViewController:alert animated:YES completion:nil];
+    }
+    else{
+      if([_personalDictionary[@"PHN No."] isEqual:[NSNull null]])
+      {
+          UIAlertController * alert=   [UIAlertController
+                                 alertControllerWithTitle:@"Reminder"
+                                 message:@"Please provide your PHN when possible"
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+          UIAlertAction* ok = [UIAlertAction
+                        actionWithTitle:@"OK"
+                        style:UIAlertActionStyleDefault
+                        handler:^(UIAlertAction * action)
+                        {
+                            [self.tableView endEditing:YES];
+                            [self performSegueWithIdentifier:@"next" sender:self];
+                        }];
+    
+          [alert addAction:ok];
+          [self presentViewController:alert animated:YES completion:nil];
+      }
+    }
 }
 
 - (IBAction)cancelPressed:(id)sender {

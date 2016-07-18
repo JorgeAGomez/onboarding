@@ -7,9 +7,10 @@
 //
 
 #import "XLFormBaseCell.h"
+#import <UIKit/UIKit.h>
 
 extern NSString * const XLFormRowDescriptorTypeLeftSelectRightText;
 
-@interface LeftSelectorRightTextField : XLFormBaseCell
+@interface LeftSelectorRightTextField : XLFormBaseCell 
 
 @end
