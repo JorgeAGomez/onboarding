@@ -76,9 +76,8 @@
     workInjuryRow.required = YES;
     _dateOfInjury = workInjuryRow;
   
-    //WCB Claim Number
+    //WCB Claim Number --> NOT required but need to be provided ASAP
     workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"WCB Claim No." rowType:XLFormRowDescriptorTypeText title:@"WCB Claim No."];
-    workInjuryRow.required = YES;
     _WCBClaim = workInjuryRow;
   
     //Employer
@@ -87,19 +86,17 @@
     _Employer = workInjuryRow;
   
     //Phone number
-    workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Employer Phone" rowType:XLFormRowDescriptorTypeText title:@"Phone No."];
-    workInjuryRow.required = YES;
+    workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Employer Phone" rowType:XLFormRowDescriptorTypeText title:@"Employer Phone No."];
     _Phone = workInjuryRow;
   
     //Address
     workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Employer Address" rowType:XLFormRowDescriptorTypeText title:@"Address"];
-    workInjuryRow.required = YES;
     _Address = workInjuryRow;
   
     //Can we contact the employer?
     workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Contact employer" rowType:XLFormRowDescriptorTypeSelectorSegmentedControl title:@"May we contact your employer?"];
     workInjuryRow.selectorOptions = @[@"Yes", @"No"];
-    workInjuryRow.value = @"Yes";
+    workInjuryRow.value = @"No";
     _contactEmployer = workInjuryRow;
   
     self.form = workInjuryForm;
@@ -145,6 +142,28 @@
 - (IBAction)nextButton:(id)sender {
   
     _workInjuryInformation = [self formValues];
+  
+    if([_workInjuryInformation[@"WCB Claim No."] isEqual:[NSNull null]])
+    {
+      UIAlertController * alert=   [UIAlertController
+                                     alertControllerWithTitle:@"Remainder"
+                                     message:@"WCB claim No. is not required but it needs to be provided when possible."
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+       UIAlertAction* ok = [UIAlertAction
+                            actionWithTitle:@"OK"
+                            style:UIAlertActionStyleDefault
+                            handler:^(UIAlertAction * action)
+                            {
+                                [alert dismissViewControllerAnimated:YES completion:nil];
+                                 
+                            }];
+        
+       [alert addAction:ok];
+        
+       [self presentViewController:alert animated:YES completion:nil];
+
+    }
     [self performSegueWithIdentifier:@"next2" sender:self];
 }
 @end

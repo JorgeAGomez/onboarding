@@ -10,6 +10,7 @@
 #import "XLForm.h"
 #import "DateAndTimeValueTransformer.h"
 #import "WorkInjuryViewController.h"
+#import <SHSPhoneComponent/SHSPhoneNumberFormatter+UserConfig.h>
 
 
 @interface MedicalInformationViewController ()
@@ -56,28 +57,33 @@
     [medicalInfoForm addFormSection:medicallInfoSection];
   
     //Emergency contact
-    medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Emergency Contact" rowType:XLFormRowDescriptorTypeText title:@"Emergency Contact"];
-    //medicalInfoRow.required = YES;
+    medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Emergency Contact" rowType:XLFormRowDescriptorTypeName title:@"Emergency Contact"];
+    medicalInfoRow.required = YES;
     [medicallInfoSection addFormRow:medicalInfoRow];
   
     //Emergency contact Phone No.
-    medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Contact Phone" rowType:XLFormRowDescriptorTypeText title:@"Contact Phone"];
-    //personalInformationRow.required = YES;
+    SHSPhoneNumberFormatter *formatter = [[SHSPhoneNumberFormatter alloc] init];
+    [formatter setDefaultOutputPattern:@"(###) ###-####" imagePath:nil];
+    medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Contact Phone" rowType:
+    XLFormRowDescriptorTypePhone title:@"Contact Phone"];
+    medicalInfoRow.valueFormatter = formatter;
+    [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
+    medicalInfoRow.useValueFormatterDuringInput = YES;
+    medicalInfoRow.required = YES;
+
     [medicallInfoSection addFormRow:medicalInfoRow];
   
     //Medical Doctor's Name
     medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Medical Doctor's Name" rowType:XLFormRowDescriptorTypeText title:@"Medical Doctor's Name"];
-    //personalInformationRow.required = YES;
+  
     [medicallInfoSection addFormRow:medicalInfoRow];
   
         //Emergency contact Phone No.
     medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Doctor Phone" rowType:XLFormRowDescriptorTypeText title:@"Doctor Phone"];
-    //personalInformationRow.required = YES;
     [medicallInfoSection addFormRow:medicalInfoRow];
   
     //Address
     medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Address" rowType:XLFormRowDescriptorTypeText title:@"Address"];
-    //personalInformationRow.required = YES;
     [medicallInfoSection addFormRow:medicalInfoRow];
   
     self.form = medicalInfoForm;
@@ -101,6 +107,8 @@
       return;
   }
   _medicalInformation = [self formValues];
+  
+
   [self performSegueWithIdentifier:@"next1" sender:self];
 }
 @end
