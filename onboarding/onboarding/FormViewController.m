@@ -227,7 +227,7 @@
       {
           UIAlertController * alert=   [UIAlertController
                                  alertControllerWithTitle:@"Reminder"
-                                 message:@"Please provide your PHN when possible"
+                                 message:@"PHN is not required. However, provide your PHN when possible"
                                  preferredStyle:UIAlertControllerStyleAlert];
     
           UIAlertAction* ok = [UIAlertAction

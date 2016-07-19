@@ -9,6 +9,7 @@
 #import <ResearchKit/ResearchKit.h>
 
 @interface ReleaseCollectConsentViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *collectInfoInitialsTextField;
 
 @end
 
