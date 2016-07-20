@@ -18,31 +18,32 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    [self test];
 }
 
--(void)test{
-  ORKConsentDocument *document = [ORKConsentDocument new];
-    ORKConsentSection *section1 =
-      [[ORKConsentSection alloc] initWithType:ORKConsentSectionTypeDataGathering];
-    section1.title = @"The title of the section goes here ...";
-    section1.summary = @"The summary about the section goes here ...";
-    section1.content = @"The content to show in learn more ...";
-
-    // Create additional section objects for later sections
-    document.sections = @[section1];
-
-    ORKVisualConsentStep *step =
-      [[ORKVisualConsentStep alloc] initWithIdentifier:@"visualConsent" document:document];
-  
-      [step consentDocument];
-
-    // Add the document to a visual consent step and/or a review step:
-    ORKVisualConsentStep *visualConsent =
-      [[ORKVisualConsentStep alloc] initWithIdentifier:@"visualConsent" document:document];
-  
-    [visualConsent consentDocument];
-
+- (IBAction)agreeTapped:(id)sender {
+  if([_collectInfoInitialsTextField.text isEqualToString:@""])
+  {
+      UIAlertController * alert=   [UIAlertController
+                                     alertControllerWithTitle:@"Sorry"
+                                     message:@"Initials are mandatory to agree with the release and/or collect medical information consent."
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+       UIAlertAction* ok = [UIAlertAction
+                            actionWithTitle:@"OK"
+                            style:UIAlertActionStyleDefault
+                            handler:^(UIAlertAction * action)
+                            {
+                                [alert dismissViewControllerAnimated:YES completion:nil];
+                            }];
+        
+       [alert addAction:ok];
+        
+       [self presentViewController:alert animated:YES completion:nil];
+  }
+  else{
+    [self performSegueWithIdentifier:@"agree2" sender:self];
+  }
 }
+
 
 @end

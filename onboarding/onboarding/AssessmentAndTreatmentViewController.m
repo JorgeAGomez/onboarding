@@ -24,5 +24,30 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)agreeTapped:(id)sender {
+  if([_assessmentInitialsTextField.text isEqualToString:@""])
+  {
+         UIAlertController * alert=   [UIAlertController
+                                     alertControllerWithTitle:@"Sorry"
+                                     message:@"Initials are mandatory to agree with the assessment and treatment consent."
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+       UIAlertAction* ok = [UIAlertAction
+                            actionWithTitle:@"OK"
+                            style:UIAlertActionStyleDefault
+                            handler:^(UIAlertAction * action)
+                            {
+                                [alert dismissViewControllerAnimated:YES completion:nil];
+                            }];
+        
+       [alert addAction:ok];
+        
+       [self presentViewController:alert animated:YES completion:nil];
+
+  }
+  else{
+    [self performSegueWithIdentifier:@"agree1" sender:self];
+  }
+}
 
 @end
