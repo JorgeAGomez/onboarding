@@ -71,7 +71,9 @@
     [healthCoverageSection addFormRow:healthCoverageRow];
   
   
-    healthCoverageRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Insurance Company" rowType:XLFormRowDescriptorTypeText title:@"Insurance Company"];
+    healthCoverageRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Insurance Company" rowType:XLFormRowDescriptorTypeName title:@"Insurance Company"];
+    healthCoverageRow.required = YES;
+    [healthCoverageRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
     _insuranceCompany = healthCoverageRow;
   
   
@@ -106,8 +108,14 @@
 
 }
 
-- (IBAction)nextButton:(id)sender {
+- (IBAction)nextButton:(id)sender
+{
+  NSArray * validationErrors = [self formValidationErrors];
+  if (validationErrors.count > 0){
+      [self showFormValidationError:[validationErrors firstObject]];
+      return;
+  }
   _healthCoverageInformation = [self formValues];
- [self performSegueWithIdentifier:@"next4" sender:self];
+  [self performSegueWithIdentifier:@"next4" sender:self];
 }
 @end

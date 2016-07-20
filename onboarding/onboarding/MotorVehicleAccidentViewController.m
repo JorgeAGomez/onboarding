@@ -9,6 +9,7 @@
 #import "MotorVehicleAccidentViewController.h"
 #import "XLForm.h"
 #import "HealthCoverageViewController.h"
+#import <SHSPhoneComponent/SHSPhoneNumberFormatter+UserConfig.h>
 
 
 @interface MotorVehicleAccidentViewController ()
@@ -77,36 +78,50 @@
     [carAccidentSection addFormRow:carAccidentRow];
   
   
-    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Insurence" rowType:XLFormRowDescriptorTypeText title:@"Insurance Company"];
+    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Insurence" rowType:XLFormRowDescriptorTypeName title:@"Insurance Company"];
+    [carAccidentRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
+    carAccidentRow.required = YES;
     _insurance = carAccidentRow;
   
     //Date of accident
     carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Date of accident" rowType:XLFormRowDescriptorTypeDateInline title:@"Date of accident"];
-    carAccidentRow.value = [NSDate new];
+    //carAccidentRow.value = [NSDate new];
     _date = carAccidentRow;
   
     //Claim / Policy number
-    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Claim/Policy #" rowType:XLFormRowDescriptorTypeText title:@"Claim/Policy #"];
+    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Claim/Policy #" rowType:XLFormRowDescriptorTypeNumber title:@"Claim/Policy #"];
+    [carAccidentRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
     _claim = carAccidentRow;
   
     //Adjuster
-    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Adjuster" rowType:XLFormRowDescriptorTypeText title:@"Adjuster"];
+    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Adjuster" rowType:XLFormRowDescriptorTypeName title:@"Adjuster Name"];
+    [carAccidentRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
     _adjuster = carAccidentRow;
   
     //Phone No.
-    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Phone No." rowType:XLFormRowDescriptorTypeText title:@"Phone No."];
+    SHSPhoneNumberFormatter *formatter = [[SHSPhoneNumberFormatter alloc] init];
+    [formatter setDefaultOutputPattern:@"(###) ###-####" imagePath:nil];
+    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Phone No." rowType:XLFormRowDescriptorTypePhone title:@"Phone No."];
+    carAccidentRow.valueFormatter = formatter;
+    carAccidentRow.useValueFormatterDuringInput = YES;
+    [carAccidentRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
     _phone = carAccidentRow;
   
     //Fax #
-    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Fax #" rowType:XLFormRowDescriptorTypeText title:@"Fax #"];
+    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Fax #" rowType:XLFormRowDescriptorTypePhone title:@"Fax #"];
+    [carAccidentRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
+    carAccidentRow.valueFormatter = formatter;
+    carAccidentRow.useValueFormatterDuringInput = YES;
     _fax = carAccidentRow;
   
     //Name on Policy
-    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Name on Policy" rowType:XLFormRowDescriptorTypeText title:@"Name on Policy"];
+    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Name on Policy" rowType:XLFormRowDescriptorTypeName title:@"Name on Policy"];
+    [carAccidentRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
     _policyName = carAccidentRow;
   
     //Legal Representative(if applicable)
     carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Legal Representative" rowType:XLFormRowDescriptorTypeText title:@"Legal Representative (if applicable)"];
+    [carAccidentRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
     _legalRepresentative = carAccidentRow;
 
     self.form = carAccidentForm;
@@ -156,7 +171,35 @@
 }
 
 - (IBAction)nextButton:(id)sender {
+    NSArray * validationErrors = [self formValidationErrors];
+    if (validationErrors.count > 0){
+        [self showFormValidationError:[validationErrors firstObject]];
+      
+        return;
+    }
+
   _motorVehicleInjuryInformation = [self formValues];
+  
+  if([_motorVehicleInjuryInformation[@"Claim/Policy #"] isEqual:[NSNull null]])
+  {
+      UIAlertController * alert=   [UIAlertController
+                                     alertControllerWithTitle:@"Remainder"
+                                     message:@"Please provide the Claim/Policy # in your next visit. Thanks."
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+       UIAlertAction* ok = [UIAlertAction
+                            actionWithTitle:@"OK"
+                            style:UIAlertActionStyleDefault
+                            handler:^(UIAlertAction * action)
+                            {
+                                [self performSegueWithIdentifier:@"next3" sender:self];
+
+                            }];
+        
+       [alert addAction:ok];
+        
+       [self presentViewController:alert animated:YES completion:nil];
+  }
   [self performSegueWithIdentifier:@"next3" sender:self];
 }
 @end

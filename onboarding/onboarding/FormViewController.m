@@ -140,7 +140,7 @@
 
     //Date of Birth
     personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Date of Birth" rowType:XLFormRowDescriptorTypeDateInline title:@"Date of Birth"];
-    personalInformationRow.value = [NSDate new];
+    //personalInformationRow.value = [NSDate new];
     personalInformationRow.required = YES;
     [personalInformationSection addFormRow:personalInformationRow];
   
