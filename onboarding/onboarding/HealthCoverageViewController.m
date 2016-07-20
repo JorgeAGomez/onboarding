@@ -9,7 +9,6 @@
 #import "HealthCoverageViewController.h"
 #import "XLForm.h"
 #import "FormViewController.h"
-#import "FirebaseHelper.h"
 #import "ReportQuestionnarieViewController.h"
 
 @interface HealthCoverageViewController ()

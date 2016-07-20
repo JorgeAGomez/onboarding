@@ -46,13 +46,6 @@
 - (void)initializeForm
 {
 
-    XLFormDescriptor *generalForm;
-    XLFormSectionDescriptor *generalSection;
-    XLFormRowDescriptor *generalRow;
-  
-  
-    generalForm = [XLFormDescriptor formDescriptorWithTitle:@"General"];
-    //generalSection = [];
 
 
 }
