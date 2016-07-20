@@ -9,6 +9,7 @@
 #import "WorkInjuryViewController.h"
 #import "XLForm.h"
 #import "MotorVehicleAccidentViewController.h"
+#import <SHSPhoneComponent/SHSPhoneNumberFormatter+UserConfig.h>
 
 @interface WorkInjuryViewController ()
 
@@ -86,7 +87,12 @@
     _Employer = workInjuryRow;
   
     //Phone number
+    SHSPhoneNumberFormatter *formatter = [[SHSPhoneNumberFormatter alloc] init];
+    [formatter setDefaultOutputPattern:@"(###) ###-####" imagePath:nil];
     workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Employer Phone" rowType:XLFormRowDescriptorTypeText title:@"Employer Phone No."];
+    workInjuryRow.valueFormatter = formatter;
+    [workInjuryRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
+    workInjuryRow.useValueFormatterDuringInput = YES;
     _Phone = workInjuryRow;
   
     //Address

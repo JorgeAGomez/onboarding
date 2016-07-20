@@ -145,9 +145,12 @@
     [personalInformationSection addFormRow:personalInformationRow];
   
     //PHN #
-    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"PHN No." rowType:XLFormRowDescriptorTypeText title:@"PHN No."];
-    //No, but remember patient to provide it ASAP
+    SHSPhoneNumberFormatter *PHNformatter = [[SHSPhoneNumberFormatter alloc] init];
+    [PHNformatter setDefaultOutputPattern:@"#####-####" imagePath:nil];
+    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"PHN No." rowType:XLFormRowDescriptorTypeNumber title:@"PHN No."];
+     personalInformationRow.valueFormatter = PHNformatter;
     [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
+    personalInformationRow.useValueFormatterDuringInput = YES;
     [personalInformationRow.cellConfigAtConfigure setObject:@"12345-6789" forKey:@"textField.placeholder"];
     [personalInformationSection addFormRow:personalInformationRow];
     
@@ -204,44 +207,48 @@
     //Makes sure at least one phone is given
     if([_personalDictionary[@"Home Phone #"] isEqual:[NSNull null]] && [_personalDictionary[@"Cell Phone #"] isEqual:[NSNull null]] && [_personalDictionary[@"Work Phone #"] isEqual:[NSNull null]])
     {
-        UIAlertController * alert=   [UIAlertController
-                                       alertControllerWithTitle:@"Error"
-                                       message:@"Provide at least one phone number"
-                                       preferredStyle:UIAlertControllerStyleAlert];
-          
-         UIAlertAction* ok = [UIAlertAction
-                              actionWithTitle:@"OK"
-                              style:UIAlertActionStyleDefault
-                              handler:^(UIAlertAction * action)
-                              {
-                                  [alert dismissViewControllerAnimated:YES completion:nil];
-                                   
-                              }];
-          
-         [alert addAction:ok];
-          
-         [self presentViewController:alert animated:YES completion:nil];
+      UIAlertController * alert=   [UIAlertController
+                                     alertControllerWithTitle:@"Error"
+                                     message:@"Provide at least one phone number"
+                                     preferredStyle:UIAlertControllerStyleAlert];
+        
+       UIAlertAction* ok = [UIAlertAction
+                            actionWithTitle:@"OK"
+                            style:UIAlertActionStyleDefault
+                            handler:^(UIAlertAction * action)
+                            {
+                                [alert dismissViewControllerAnimated:YES completion:nil];
+                                 
+                            }];
+        
+       [alert addAction:ok];
+        
+       [self presentViewController:alert animated:YES completion:nil];
     }
-    else{
-      if([_personalDictionary[@"PHN No."] isEqual:[NSNull null]])
-      {
-          UIAlertController * alert=   [UIAlertController
-                                 alertControllerWithTitle:@"Reminder"
-                                 message:@"PHN is not required. However, provide your PHN when possible"
-                                 preferredStyle:UIAlertControllerStyleAlert];
-    
-          UIAlertAction* ok = [UIAlertAction
-                        actionWithTitle:@"OK"
-                        style:UIAlertActionStyleDefault
-                        handler:^(UIAlertAction * action)
-                        {
-                            [self.tableView endEditing:YES];
-                            [self performSegueWithIdentifier:@"next" sender:self];
-                        }];
-    
-          [alert addAction:ok];
-          [self presentViewController:alert animated:YES completion:nil];
-      }
+    //if PersonalHealthNumber is not give, provide warning message
+    else if([_personalDictionary[@"PHN No."] isEqual:[NSNull null]])
+    {
+      UIAlertController * alert=   [UIAlertController
+                             alertControllerWithTitle:@"Reminder"
+                             message:@"PHN is not required. However, provide your PHN when possible"
+                             preferredStyle:UIAlertControllerStyleAlert];
+
+      UIAlertAction* ok = [UIAlertAction
+                    actionWithTitle:@"OK"
+                    style:UIAlertActionStyleDefault
+                    handler:^(UIAlertAction * action)
+                    {
+                        [self.tableView endEditing:YES];
+                        [self performSegueWithIdentifier:@"next" sender:self];
+                    }];
+
+      [alert addAction:ok];
+      [self presentViewController:alert animated:YES completion:nil];
+    }
+    else
+    {
+      [self.tableView endEditing:YES];
+      [self performSegueWithIdentifier:@"next" sender:self];
     }
 }
 

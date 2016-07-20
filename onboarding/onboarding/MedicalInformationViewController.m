@@ -58,6 +58,7 @@
   
     //Emergency contact
     medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Emergency Contact" rowType:XLFormRowDescriptorTypeName title:@"Emergency Contact"];
+    [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
     medicalInfoRow.required = YES;
     [medicallInfoSection addFormRow:medicalInfoRow];
   
@@ -65,7 +66,7 @@
     SHSPhoneNumberFormatter *formatter = [[SHSPhoneNumberFormatter alloc] init];
     [formatter setDefaultOutputPattern:@"(###) ###-####" imagePath:nil];
     medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Contact Phone" rowType:
-    XLFormRowDescriptorTypePhone title:@"Contact Phone"];
+    XLFormRowDescriptorTypePhone title:@"Emergency Contact Phone No."];
     medicalInfoRow.valueFormatter = formatter;
     [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
     medicalInfoRow.useValueFormatterDuringInput = YES;
@@ -75,15 +76,17 @@
   
     //Medical Doctor's Name
     medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Medical Doctor's Name" rowType:XLFormRowDescriptorTypeText title:@"Medical Doctor's Name"];
-  
+    [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
     [medicallInfoSection addFormRow:medicalInfoRow];
   
         //Emergency contact Phone No.
     medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Doctor Phone" rowType:XLFormRowDescriptorTypeText title:@"Doctor Phone"];
+    [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
     [medicallInfoSection addFormRow:medicalInfoRow];
   
     //Address
     medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Address" rowType:XLFormRowDescriptorTypeText title:@"Address"];
+    [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
     [medicallInfoSection addFormRow:medicalInfoRow];
   
     self.form = medicalInfoForm;
