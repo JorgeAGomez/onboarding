@@ -160,7 +160,7 @@
     if([_workInjuryInformation[@"WCB Claim No."] isEqual:[NSNull null]])
     {
       UIAlertController * alert=   [UIAlertController
-                                     alertControllerWithTitle:@"Remainder"
+                                     alertControllerWithTitle:@"Reminder"
                                      message:@"WCB claim No. is not required but it needs to be provided when possible."
                                      preferredStyle:UIAlertControllerStyleAlert];
         

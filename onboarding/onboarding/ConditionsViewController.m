@@ -8,8 +8,12 @@
 
 #import "ConditionsViewController.h"
 #import "XLForm.h"
+#import "ReportQuestionnarieViewController.h"
+#import "onboarding-Swift.h"
 
 @interface ConditionsViewController ()
+
+@property (nonatomic,strong) QuestionnarieVC *questionnarie;
 
 @end
 
@@ -24,7 +28,7 @@ XLFormRowDescriptor *medicationNewCell;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.contentInset = UIEdgeInsetsMake(44,0,0,0);
+    //self.tableView.contentInset = UIEdgeInsetsMake(60,0,0,0);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,7 +63,7 @@ XLFormRowDescriptor *medicationNewCell;
   
     conditionsForm.assignFirstResponderOnShow = YES;
   
-    conditionsForm = [XLFormDescriptor formDescriptorWithTitle:@"General"];
+    conditionsForm = [XLFormDescriptor formDescriptorWithTitle:@"Conditions"];
     conditionsSection = [XLFormSectionDescriptor formSection];
     conditionsSection.title = @"Check off any following conditions that you may be experiencing:";
     [conditionsForm addFormSection:conditionsSection];
@@ -177,6 +181,18 @@ XLFormRowDescriptor *medicationNewCell;
 
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+  _questionnarie = [[QuestionnarieVC alloc] init];
+  _questionnarie = [segue destinationViewController];
+  
+  _questionnarie.personalInformation = [NSDictionary dictionaryWithDictionary:_personalInformation];
+  _questionnarie.medicalInformation = [NSDictionary dictionaryWithDictionary:_medicalInformation];
+  _questionnarie.workInjuryInformation = [NSDictionary dictionaryWithDictionary:_workInjuryInformation];
+  _questionnarie.motorVehicleInjuryInformation = [NSDictionary dictionaryWithDictionary:_motorVehicleInjuryInformation];
+  _questionnarie.healthCoverageInformation = [NSDictionary dictionaryWithDictionary:_healthCoverageInformation];
+  _questionnarie.conditionsInformation = [NSDictionary dictionaryWithDictionary:_conditionsInformation];
+}
+
 -(void)formRowDescriptorValueHasChanged:(XLFormRowDescriptor *)rowDescriptor oldValue:(id)oldValue newValue:(id)newValue
 {
   [super formRowDescriptorValueHasChanged:rowDescriptor oldValue:oldValue newValue:newValue];
@@ -208,6 +224,26 @@ XLFormRowDescriptor *medicationNewCell;
       [self.form removeFormRow:medicationNewCell];
     }
   }
+}
+- (IBAction)nextTapped:(id)sender {
+  NSArray * validationErrors = [self formValidationErrors];
+  if (validationErrors.count > 0)
+  {
+      [self showFormValidationError:[validationErrors firstObject]];
+      return;
+  }
+  _conditionsInformation = [self formValues];
+  _questionnarie = [[QuestionnarieVC alloc] init];
+  _questionnarie.personalInformation = [NSDictionary dictionaryWithDictionary:_personalInformation];
+  _questionnarie.medicalInformation = [NSDictionary dictionaryWithDictionary:_medicalInformation];
+  _questionnarie.workInjuryInformation = [NSDictionary dictionaryWithDictionary:_workInjuryInformation];
+  _questionnarie.motorVehicleInjuryInformation = [NSDictionary dictionaryWithDictionary:_motorVehicleInjuryInformation];
+  _questionnarie.healthCoverageInformation = [NSDictionary dictionaryWithDictionary:_healthCoverageInformation];
+  _questionnarie.conditionsInformation = [NSDictionary dictionaryWithDictionary:_conditionsInformation];
+  //[self performSegueWithIdentifier:@"next5" sender:self];
+  [self.navigationController showViewController:_questionnarie sender:self];
+  
+  
 }
 
 @end

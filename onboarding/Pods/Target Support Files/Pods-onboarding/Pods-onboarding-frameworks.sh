@@ -82,3 +82,32 @@ strip_invalid_archs() {
   fi
 }
 
+
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/AFNetworking/AFNetworking.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/HMSegmentedControl/HMSegmentedControl.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/JVFloatLabeledTextField/JVFloatLabeledTextField.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MXPagerView/MXPagerView.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MXParallaxHeader/MXParallaxHeader.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MXSegmentedPager/MXSegmentedPager.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/ResearchKit/ResearchKit.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SHSPhoneComponent/SHSPhoneComponent.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SignatureView/SignatureView.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/XLData/XLData.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/XLForm/XLForm.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/XLPagerTabStrip/XLPagerTabStrip.framework"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/AFNetworking/AFNetworking.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/HMSegmentedControl/HMSegmentedControl.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/JVFloatLabeledTextField/JVFloatLabeledTextField.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MXPagerView/MXPagerView.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MXParallaxHeader/MXParallaxHeader.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/MXSegmentedPager/MXSegmentedPager.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/ResearchKit/ResearchKit.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SHSPhoneComponent/SHSPhoneComponent.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SignatureView/SignatureView.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/XLData/XLData.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/XLForm/XLForm.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/XLPagerTabStrip/XLPagerTabStrip.framework"
+fi

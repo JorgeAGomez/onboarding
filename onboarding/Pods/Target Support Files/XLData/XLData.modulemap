@@ -1,0 +1,6 @@
+framework module XLData {
+  umbrella header "XLData-umbrella.h"
+
+  export *
+  module * { export * }
+}

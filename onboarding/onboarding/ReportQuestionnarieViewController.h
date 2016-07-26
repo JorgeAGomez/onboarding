@@ -7,9 +7,11 @@
 //
 
 
-#import "XLFormViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface ReportQuestionnarieViewController : XLFormViewController
+
+@interface ReportQuestionnarieViewController : UIViewController
+
 @property (strong,nonatomic) NSDictionary *personalInformation;
 @property (strong, nonatomic) NSDictionary *medicalInformation;
 @property (strong,nonatomic) NSDictionary *workInjuryInformation;
@@ -17,6 +19,5 @@
 @property (strong, nonatomic) NSDictionary *healthCoverageInformation;
 @property (strong,nonatomic) NSDictionary *reportQuestionnarieInformation;
 
-- (IBAction)doneButton:(id)sender;
 
 @end

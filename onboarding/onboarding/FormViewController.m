@@ -10,7 +10,6 @@
 #import "XLForm.h"
 #import "DateAndTimeValueTransformer.h"
 #import "MedicalInformationViewController.h"
-#import "LeftSelectorRightTextField.h"
 #import <SHSPhoneComponent/SHSPhoneNumberFormatter+UserConfig.h>
 
 

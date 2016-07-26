@@ -10,6 +10,7 @@
 #import "XLForm.h"
 #import "FormViewController.h"
 #import "ReportQuestionnarieViewController.h"
+#import "ConditionsViewController.h"
 
 @interface HealthCoverageViewController ()
 
@@ -98,7 +99,7 @@
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-  ReportQuestionnarieViewController *controller = [segue destinationViewController];
+  ConditionsViewController *controller = [segue destinationViewController];
   controller.personalInformation = [NSDictionary dictionaryWithDictionary:_personalInformation];
   controller.medicalInformation = [NSDictionary dictionaryWithDictionary:_medicalInformation];
   controller.workInjuryInformation = [NSDictionary dictionaryWithDictionary:_workInjuryInformation];

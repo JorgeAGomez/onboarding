@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BBD5488CEC458C00D43DFFBF /* libPods-onboarding.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16F4CD1F81053AC228EA368C /* libPods-onboarding.a */; };
+		76AEF530F7526C1F720DCCF1 /* Pods_onboarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22170852A2DA036F66174C6F /* Pods_onboarding.framework */; };
 		D616B36A1D2054B500ABF52D /* FormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D616B3691D2054B500ABF52D /* FormViewController.m */; };
 		D616B36D1D205B2C00ABF52D /* DateAndTimeValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D616B36C1D205B2C00ABF52D /* DateAndTimeValueTransformer.m */; };
 		D616B3701D20C16500ABF52D /* MedicalInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D616B36F1D20C16500ABF52D /* MedicalInformationViewController.m */; };
@@ -16,22 +16,29 @@
 		D6282A041D1F6622001D64FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6282A021D1F6622001D64FA /* Main.storyboard */; };
 		D6282A061D1F6622001D64FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6282A051D1F6622001D64FA /* Assets.xcassets */; };
 		D6282A091D1F6622001D64FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6282A071D1F6622001D64FA /* LaunchScreen.storyboard */; };
+		D62A4D3D1D47C5BD00CDF4F8 /* ImmuneSystemInfectonTVCTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62A4D3C1D47C5BD00CDF4F8 /* ImmuneSystemInfectonTVCTableViewController.swift */; };
+		D62A4D3F1D47E98500CDF4F8 /* GastrointestinalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62A4D3E1D47E98500CDF4F8 /* GastrointestinalTableViewController.swift */; };
+		D62A4D411D47EBE900CDF4F8 /* CardiovascularTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62A4D401D47EBE900CDF4F8 /* CardiovascularTableViewController.swift */; };
+		D62A4D431D48022700CDF4F8 /* MultipleSectionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62A4D421D48022700CDF4F8 /* MultipleSectionsTableViewController.swift */; };
+		D62A4D451D480A0B00CDF4F8 /* NeuromusculoskeletalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62A4D441D480A0B00CDF4F8 /* NeuromusculoskeletalTableViewController.swift */; };
 		D62E69D81D21E2F300AEE03C /* HealthCoverageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62E69D71D21E2F300AEE03C /* HealthCoverageViewController.m */; };
 		D62E69DC1D22F6B600AEE03C /* FirebaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D62E69DB1D22F6B600AEE03C /* FirebaseHelper.m */; };
 		D62E69E11D23182D00AEE03C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D62E69E01D23182D00AEE03C /* GoogleService-Info.plist */; };
+		D66A3B481D46A78600E83DD7 /* GeneralTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66A3B471D46A78600E83DD7 /* GeneralTableViewController.swift */; };
+		D66A3B501D46B5B000E83DD7 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66A3B4F1D46B5B000E83DD7 /* PostCell.xib */; };
+		D66A3B521D46B62300E83DD7 /* PostCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66A3B511D46B62300E83DD7 /* PostCellTableViewCell.swift */; };
+		D67950CE1D46839B00539C90 /* QuestionnarieVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67950CD1D46839B00539C90 /* QuestionnarieVC.swift */; };
 		D68CE7EF1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D68CE7EE1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.m */; };
 		D68CE7F21D2C2C7700E1A0EE /* ReleaseCollectConsentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D68CE7F11D2C2C7700E1A0EE /* ReleaseCollectConsentViewController.m */; };
 		D68CE7FC1D2C379100E1A0EE /* ConditionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D68CE7FB1D2C379100E1A0EE /* ConditionsViewController.m */; };
 		D6919D351D21AE4F00E0FCAB /* WorkInjuryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6919D341D21AE4F00E0FCAB /* WorkInjuryViewController.m */; };
 		D6919D381D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6919D371D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m */; };
-		D695D4BA1D3AB3370024DC34 /* LeftSelectorRightTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = D695D4B91D3AB3370024DC34 /* LeftSelectorRightTextField.xib */; };
-		D695D4BE1D3AB6E40024DC34 /* LeftSelectorRightTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = D695D4BD1D3AB6E40024DC34 /* LeftSelectorRightTextField.m */; };
 		D6F6AE4E1D25AFA600083F99 /* ReportQuestionnarieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F6AE4D1D25AFA600083F99 /* ReportQuestionnarieViewController.m */; };
 		D6FFFCF21D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FFFCF11D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		16F4CD1F81053AC228EA368C /* libPods-onboarding.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-onboarding.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		22170852A2DA036F66174C6F /* Pods_onboarding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_onboarding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A8E8F5CC80144C5A4813635 /* Pods-onboarding.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onboarding.release.xcconfig"; path = "Pods/Target Support Files/Pods-onboarding/Pods-onboarding.release.xcconfig"; sourceTree = "<group>"; };
 		BFBA7F13F8F60CE9B8D5EB4B /* Pods-onboarding.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onboarding.debug.xcconfig"; path = "Pods/Target Support Files/Pods-onboarding/Pods-onboarding.debug.xcconfig"; sourceTree = "<group>"; };
 		D616B3681D2054B500ABF52D /* FormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormViewController.h; sourceTree = "<group>"; };
@@ -48,11 +55,21 @@
 		D6282A051D1F6622001D64FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6282A081D1F6622001D64FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6282A0A1D1F6622001D64FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D62A4D3C1D47C5BD00CDF4F8 /* ImmuneSystemInfectonTVCTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImmuneSystemInfectonTVCTableViewController.swift; sourceTree = "<group>"; };
+		D62A4D3E1D47E98500CDF4F8 /* GastrointestinalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GastrointestinalTableViewController.swift; sourceTree = "<group>"; };
+		D62A4D401D47EBE900CDF4F8 /* CardiovascularTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardiovascularTableViewController.swift; sourceTree = "<group>"; };
+		D62A4D421D48022700CDF4F8 /* MultipleSectionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleSectionsTableViewController.swift; sourceTree = "<group>"; };
+		D62A4D441D480A0B00CDF4F8 /* NeuromusculoskeletalTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeuromusculoskeletalTableViewController.swift; sourceTree = "<group>"; };
 		D62E69D61D21E2F300AEE03C /* HealthCoverageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthCoverageViewController.h; sourceTree = "<group>"; };
 		D62E69D71D21E2F300AEE03C /* HealthCoverageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthCoverageViewController.m; sourceTree = "<group>"; };
 		D62E69DA1D22F6B600AEE03C /* FirebaseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirebaseHelper.h; sourceTree = "<group>"; };
 		D62E69DB1D22F6B600AEE03C /* FirebaseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirebaseHelper.m; sourceTree = "<group>"; };
 		D62E69E01D23182D00AEE03C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D66A3B471D46A78600E83DD7 /* GeneralTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralTableViewController.swift; sourceTree = "<group>"; };
+		D66A3B4F1D46B5B000E83DD7 /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
+		D66A3B511D46B62300E83DD7 /* PostCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCellTableViewCell.swift; sourceTree = "<group>"; };
+		D67950CC1D46839A00539C90 /* onboarding-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "onboarding-Bridging-Header.h"; sourceTree = "<group>"; };
+		D67950CD1D46839B00539C90 /* QuestionnarieVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionnarieVC.swift; sourceTree = "<group>"; };
 		D68CE7ED1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssessmentAndTreatmentViewController.h; sourceTree = "<group>"; };
 		D68CE7EE1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssessmentAndTreatmentViewController.m; sourceTree = "<group>"; };
 		D68CE7F01D2C2C7700E1A0EE /* ReleaseCollectConsentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseCollectConsentViewController.h; sourceTree = "<group>"; };
@@ -63,9 +80,6 @@
 		D6919D341D21AE4F00E0FCAB /* WorkInjuryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkInjuryViewController.m; sourceTree = "<group>"; };
 		D6919D361D21D58F00E0FCAB /* MotorVehicleAccidentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotorVehicleAccidentViewController.h; sourceTree = "<group>"; };
 		D6919D371D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotorVehicleAccidentViewController.m; sourceTree = "<group>"; };
-		D695D4B91D3AB3370024DC34 /* LeftSelectorRightTextField.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftSelectorRightTextField.xib; sourceTree = "<group>"; };
-		D695D4BC1D3AB6E40024DC34 /* LeftSelectorRightTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftSelectorRightTextField.h; sourceTree = "<group>"; };
-		D695D4BD1D3AB6E40024DC34 /* LeftSelectorRightTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSelectorRightTextField.m; sourceTree = "<group>"; };
 		D6F6AE4C1D25AFA600083F99 /* ReportQuestionnarieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportQuestionnarieViewController.h; sourceTree = "<group>"; };
 		D6F6AE4D1D25AFA600083F99 /* ReportQuestionnarieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportQuestionnarieViewController.m; sourceTree = "<group>"; };
 		D6FFFCF01D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralReportQuestinnarieViewController.h; sourceTree = "<group>"; };
@@ -77,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBD5488CEC458C00D43DFFBF /* libPods-onboarding.a in Frameworks */,
+				76AEF530F7526C1F720DCCF1 /* Pods_onboarding.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +101,7 @@
 		333ACBB4229CCBAEB14696D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				16F4CD1F81053AC228EA368C /* libPods-onboarding.a */,
+				22170852A2DA036F66174C6F /* Pods_onboarding.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -149,7 +163,6 @@
 		D68CE7F41D2C2C9C00E1A0EE /* Personal Information */ = {
 			isa = PBXGroup;
 			children = (
-				D695D4BB1D3AB6940024DC34 /* CustomRow */,
 				D616B3681D2054B500ABF52D /* FormViewController.h */,
 				D616B3691D2054B500ABF52D /* FormViewController.m */,
 			);
@@ -201,6 +214,16 @@
 				D6F6AE4D1D25AFA600083F99 /* ReportQuestionnarieViewController.m */,
 				D6FFFCF01D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.h */,
 				D6FFFCF11D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.m */,
+				D67950CC1D46839A00539C90 /* onboarding-Bridging-Header.h */,
+				D67950CD1D46839B00539C90 /* QuestionnarieVC.swift */,
+				D66A3B471D46A78600E83DD7 /* GeneralTableViewController.swift */,
+				D62A4D3C1D47C5BD00CDF4F8 /* ImmuneSystemInfectonTVCTableViewController.swift */,
+				D62A4D3E1D47E98500CDF4F8 /* GastrointestinalTableViewController.swift */,
+				D62A4D401D47EBE900CDF4F8 /* CardiovascularTableViewController.swift */,
+				D62A4D421D48022700CDF4F8 /* MultipleSectionsTableViewController.swift */,
+				D62A4D441D480A0B00CDF4F8 /* NeuromusculoskeletalTableViewController.swift */,
+				D66A3B4F1D46B5B000E83DD7 /* PostCell.xib */,
+				D66A3B511D46B62300E83DD7 /* PostCellTableViewCell.swift */,
 			);
 			name = "Health Report Questionnarie";
 			sourceTree = "<group>";
@@ -228,16 +251,6 @@
 				D616B36C1D205B2C00ABF52D /* DateAndTimeValueTransformer.m */,
 			);
 			name = Main;
-			sourceTree = "<group>";
-		};
-		D695D4BB1D3AB6940024DC34 /* CustomRow */ = {
-			isa = PBXGroup;
-			children = (
-				D695D4BC1D3AB6E40024DC34 /* LeftSelectorRightTextField.h */,
-				D695D4BD1D3AB6E40024DC34 /* LeftSelectorRightTextField.m */,
-				D695D4B91D3AB3370024DC34 /* LeftSelectorRightTextField.xib */,
-			);
-			name = CustomRow;
 			sourceTree = "<group>";
 		};
 		E2AC4113E0DE60FE85E16C5E /* Pods */ = {
@@ -283,6 +296,7 @@
 				TargetAttributes = {
 					D62829F51D1F6622001D64FA = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = MB2Y6NS7E9;
 					};
 				};
 			};
@@ -311,7 +325,7 @@
 			files = (
 				D6282A091D1F6622001D64FA /* LaunchScreen.storyboard in Resources */,
 				D62E69E11D23182D00AEE03C /* GoogleService-Info.plist in Resources */,
-				D695D4BA1D3AB3370024DC34 /* LeftSelectorRightTextField.xib in Resources */,
+				D66A3B501D46B5B000E83DD7 /* PostCell.xib in Resources */,
 				D6282A061D1F6622001D64FA /* Assets.xcassets in Resources */,
 				D6282A041D1F6622001D64FA /* Main.storyboard in Resources */,
 			);
@@ -372,21 +386,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D66A3B521D46B62300E83DD7 /* PostCellTableViewCell.swift in Sources */,
+				D66A3B481D46A78600E83DD7 /* GeneralTableViewController.swift in Sources */,
+				D62A4D431D48022700CDF4F8 /* MultipleSectionsTableViewController.swift in Sources */,
 				D6F6AE4E1D25AFA600083F99 /* ReportQuestionnarieViewController.m in Sources */,
+				D67950CE1D46839B00539C90 /* QuestionnarieVC.swift in Sources */,
 				D62E69DC1D22F6B600AEE03C /* FirebaseHelper.m in Sources */,
 				D616B36D1D205B2C00ABF52D /* DateAndTimeValueTransformer.m in Sources */,
 				D62829FE1D1F6622001D64FA /* AppDelegate.m in Sources */,
 				D62E69D81D21E2F300AEE03C /* HealthCoverageViewController.m in Sources */,
+				D62A4D451D480A0B00CDF4F8 /* NeuromusculoskeletalTableViewController.swift in Sources */,
+				D62A4D411D47EBE900CDF4F8 /* CardiovascularTableViewController.swift in Sources */,
 				D62829FB1D1F6622001D64FA /* main.m in Sources */,
 				D68CE7FC1D2C379100E1A0EE /* ConditionsViewController.m in Sources */,
 				D616B36A1D2054B500ABF52D /* FormViewController.m in Sources */,
 				D68CE7F21D2C2C7700E1A0EE /* ReleaseCollectConsentViewController.m in Sources */,
-				D695D4BE1D3AB6E40024DC34 /* LeftSelectorRightTextField.m in Sources */,
 				D6919D351D21AE4F00E0FCAB /* WorkInjuryViewController.m in Sources */,
 				D6919D381D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m in Sources */,
+				D62A4D3F1D47E98500CDF4F8 /* GastrointestinalTableViewController.swift in Sources */,
 				D68CE7EF1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.m in Sources */,
 				D6FFFCF21D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.m in Sources */,
 				D616B3701D20C16500ABF52D /* MedicalInformationViewController.m in Sources */,
+				D62A4D3D1D47C5BD00CDF4F8 /* ImmuneSystemInfectonTVCTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,11 +520,17 @@
 			baseConfigurationReference = BFBA7F13F8F60CE9B8D5EB4B /* Pods-onboarding.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = onboarding/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = onboardingForm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "onboarding/onboarding-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -512,11 +539,16 @@
 			baseConfigurationReference = 6A8E8F5CC80144C5A4813635 /* Pods-onboarding.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = onboarding/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = onboardingForm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 2;
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "onboarding/onboarding-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

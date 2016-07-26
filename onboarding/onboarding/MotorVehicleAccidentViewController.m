@@ -183,7 +183,7 @@
   if([_motorVehicleInjuryInformation[@"Claim/Policy #"] isEqual:[NSNull null]])
   {
       UIAlertController * alert=   [UIAlertController
-                                     alertControllerWithTitle:@"Remainder"
+                                     alertControllerWithTitle:@"Reminder"
                                      message:@"Please provide the Claim/Policy # in your next visit. Thanks."
                                      preferredStyle:UIAlertControllerStyleAlert];
         
