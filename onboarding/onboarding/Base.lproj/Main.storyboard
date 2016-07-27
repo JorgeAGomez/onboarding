@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="DlD-RG-11R">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jdg-7O-TtI">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -15,11 +15,11 @@
                         <viewControllerLayoutGuide type="bottom" id="yZI-eL-jBf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="efA-em-7lT">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="AaR-ca-LTU">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="936"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                         </subviews>
@@ -55,11 +55,11 @@
                         <viewControllerLayoutGuide type="bottom" id="ovb-FR-Z6C"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="m6z-YB-Q8G">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BFq-ef-VUu">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="936"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -95,11 +95,11 @@
                         <viewControllerLayoutGuide type="bottom" id="mRc-dv-d7Y"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="myY-09-5px">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YYs-hL-xVX">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="936"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -135,11 +135,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Jnq-wd-igj"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TFa-UE-2HM">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ozK-03-9vQ">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="936"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -175,11 +175,11 @@
                         <viewControllerLayoutGuide type="bottom" id="IZR-55-kby"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JkO-oK-Rzl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M0b-uI-Hgb">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="936"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -254,11 +254,11 @@
                         <viewControllerLayoutGuide type="bottom" id="tdb-uk-N7u"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="56T-0C-NTD">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e6g-P6-Ezr">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="936"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -295,7 +295,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please return the iPad to main desk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lil-ef-UKA">
-                                <rect key="frame" x="90" y="403" width="420" height="31.5"/>
+                                <rect key="frame" x="90" y="403" width="420" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -377,72 +377,73 @@
                         <viewControllerLayoutGuide type="bottom" id="M0g-fR-bz8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4HT-Pw-xPW">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Cb-XW-Ter">
-                                <rect key="frame" x="20" y="88" width="538" height="0.0"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSN-4R-9Ud">
+                                <rect key="frame" x="255" y="340" width="90" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="93" id="VYw-jc-2kO"/>
-                                </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content">PLEASE ASSIST US TO PROVIDE YOU WITH OPTIMUM CARE BY CAREFULLY ANSWERING EACH SECTION OF THIS FORM. ALL INFORMATION ON THE FORM WILL BE KEPT CONFIDENTIAL.       </string>
-                                        <attributes>
-                                            <font key="NSFont" size="14" name="HelveticaNeue-MediumItalic"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bha-ez-2dn">
-                                <rect key="frame" x="20" y="105" width="560" height="0.0"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Dear Patient">
-                                        <attributes>
-                                            <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content">: Your information is confidential. We need this information so that we can better care for you. Your consent will help us determine if treatment in our office will benefit you. If we do not sincerely believe your condition will respond satisfactorily, we will not accept your case. In order for us to understand your condition properly, please be as neat and complete as possible while completing all form. </string>
-                                        <attributes>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSN-4R-9Ud">
-                                <rect key="frame" x="255" y="204" width="90" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Qz8-OE-0wC"/>
-                                    <constraint firstAttribute="width" constant="90" id="mQD-Yf-JcH"/>
+                                    <constraint firstAttribute="width" constant="90" id="tdL-ch-Ssd"/>
                                 </constraints>
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <segue destination="TLw-SB-JZh" kind="push" id="a3t-M6-RCc"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="of8-4q-LFT">
+                                <rect key="frame" x="20" y="96" width="560" height="202"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="202" id="6uM-uR-SPF"/>
+                                    <constraint firstAttribute="width" constant="560" id="c8x-FM-thB"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Dear Patient:">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> Your information is confidential. We need this information so that we can better care for you. Your consent will help us determine if treatment in our office will benefit you. If we do not sincerely believe your condition will respond satisfactorily, we will not accept your case. In order for us to understand your condition properly, please be as neat and complete as possible while completing all form.</string>
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Physio4DLogo" translatesAutoresizingMaskIntoConstraints="NO" id="RR8-ts-3Lq">
+                                <rect key="frame" x="377" y="499" width="110" height="103"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="JjG-lU-zZP"/>
+                                    <constraint firstAttribute="height" constant="103" id="PLI-v8-GfP"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CaleoLogo" translatesAutoresizingMaskIntoConstraints="NO" id="OIu-su-N29">
+                                <rect key="frame" x="89" y="500" width="216" height="114"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="114" id="0V4-7d-WtT"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="M0g-fR-bz8" firstAttribute="top" secondItem="OSN-4R-9Ud" secondAttribute="bottom" constant="495" id="2Bn-L4-q2J"/>
-                            <constraint firstItem="bha-ez-2dn" firstAttribute="top" secondItem="7Cb-XW-Ter" secondAttribute="bottom" constant="17" id="44B-oF-2Jd"/>
-                            <constraint firstItem="bha-ez-2dn" firstAttribute="centerX" secondItem="OSN-4R-9Ud" secondAttribute="centerX" id="5SS-mc-LiB"/>
-                            <constraint firstItem="bha-ez-2dn" firstAttribute="trailing" secondItem="4HT-Pw-xPW" secondAttribute="trailingMargin" id="EyQ-vL-oA0"/>
-                            <constraint firstItem="7Cb-XW-Ter" firstAttribute="leading" secondItem="4HT-Pw-xPW" secondAttribute="leadingMargin" id="NbN-kr-n93"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="7Cb-XW-Ter" secondAttribute="trailing" constant="22" id="TR0-s0-WAH"/>
-                            <constraint firstItem="7Cb-XW-Ter" firstAttribute="top" secondItem="yje-bo-pi8" secondAttribute="bottom" constant="24" id="aUe-be-7f8"/>
-                            <constraint firstItem="7Cb-XW-Ter" firstAttribute="leading" secondItem="bha-ez-2dn" secondAttribute="leading" id="b9L-Rt-8xk"/>
-                            <constraint firstItem="OSN-4R-9Ud" firstAttribute="top" secondItem="bha-ez-2dn" secondAttribute="bottom" constant="99" id="gbB-Eu-7EC"/>
+                            <constraint firstItem="of8-4q-LFT" firstAttribute="top" secondItem="yje-bo-pi8" secondAttribute="bottom" constant="32" id="4Zk-n1-TIV"/>
+                            <constraint firstItem="OSN-4R-9Ud" firstAttribute="top" secondItem="of8-4q-LFT" secondAttribute="bottom" constant="42" id="5FN-4p-kJ8"/>
+                            <constraint firstItem="RR8-ts-3Lq" firstAttribute="leading" secondItem="OIu-su-N29" secondAttribute="trailing" constant="72" id="5Yp-eq-Aav"/>
+                            <constraint firstItem="M0g-fR-bz8" firstAttribute="top" secondItem="RR8-ts-3Lq" secondAttribute="bottom" constant="398" id="Hmg-YT-wKa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RR8-ts-3Lq" secondAttribute="trailing" constant="93" id="IvL-p3-CnN"/>
+                            <constraint firstItem="OSN-4R-9Ud" firstAttribute="centerX" secondItem="of8-4q-LFT" secondAttribute="centerX" id="PFG-3t-Ahi"/>
+                            <constraint firstItem="OIu-su-N29" firstAttribute="leading" secondItem="4HT-Pw-xPW" secondAttribute="leadingMargin" constant="69" id="Y9l-JD-pMX"/>
+                            <constraint firstItem="of8-4q-LFT" firstAttribute="trailing" secondItem="4HT-Pw-xPW" secondAttribute="trailingMargin" id="mfl-qz-QE2"/>
+                            <constraint firstItem="M0g-fR-bz8" firstAttribute="top" secondItem="OIu-su-N29" secondAttribute="bottom" constant="386" id="t1q-hw-8P9"/>
+                            <constraint firstItem="of8-4q-LFT" firstAttribute="leading" secondItem="4HT-Pw-xPW" secondAttribute="leadingMargin" id="y7d-2B-uR4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Informed Consent" id="UOC-iA-W1B"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="1000"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWI-Br-xGy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -457,7 +458,7 @@
                         <viewControllerLayoutGuide type="bottom" id="dhE-cP-ruw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wT2-M8-Kfc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Consent to Assessment and Treatment" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5j-lS-XE1">
@@ -469,17 +470,17 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xh-pH-BN9">
-                                <rect key="frame" x="20" y="120" width="540" height="81.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Xh-pH-BN9">
+                                <rect key="frame" x="20" y="120" width="540" height="82"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="105" id="nSs-V3-hqy"/>
+                                    <constraint firstAttribute="height" constant="82" id="nSs-V3-hqy"/>
                                 </constraints>
                                 <string key="text">Physiotherapy, physical therapy has been subject to government reports and multidisciplinary studies and has been demonstrated to be highly effective treatment for joint pain, back and neck pain, headaches and other similar symptoms.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Guk-Uu-7Vy">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Guk-Uu-7Vy">
                                 <rect key="frame" x="20" y="217" width="540" height="206"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="206" id="4IZ-eq-biZ"/>
@@ -489,29 +490,29 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fP2-fb-SK4">
-                                <rect key="frame" x="20" y="421" width="540" height="162.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fP2-fb-SK4">
+                                <rect key="frame" x="20" y="421" width="540" height="163"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="219" id="trj-H5-kNg"/>
+                                    <constraint firstAttribute="height" constant="163" id="trj-H5-kNg"/>
                                 </constraints>
                                 <string key="text">I understand that, as is the case with most health care interventions, there is a certain inherent risk of complication associated with physiotherapy, acupuncture, physiotherapeutic and/or rehabilitative procedures, which may include but is not limited to skin irritation; bruising; muscle strains/sprains; disc injuries; infection and stroke. The risk of complication/injury associated with the aforementioned procedures is small and subsequently reduced when performed by a certified and/or licensed professional.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bc9-xy-Mew">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bc9-xy-Mew">
                                 <rect key="frame" x="270" y="592" width="41" height="30"/>
                                 <state key="normal" title="Agree"/>
                                 <connections>
                                     <action selector="agreeTapped:" destination="TLw-SB-JZh" eventType="touchUpInside" id="jtG-kd-bhA"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N5e-rU-gHs">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N5e-rU-gHs">
                                 <rect key="frame" x="56" y="592" width="97" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Initials" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfh-9h-NPV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initials" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfh-9h-NPV">
                                 <rect key="frame" x="80" y="621" width="49" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -528,20 +529,20 @@
                             <constraint firstItem="R5j-lS-XE1" firstAttribute="top" secondItem="JoV-Es-DWw" secondAttribute="bottom" constant="27" id="Uy7-3m-NZp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Guk-Uu-7Vy" secondAttribute="trailing" constant="20" id="XQb-pN-4Gg"/>
                             <constraint firstItem="R5j-lS-XE1" firstAttribute="leading" secondItem="5Xh-pH-BN9" secondAttribute="leading" id="Z6Y-s0-bac"/>
-                            <constraint firstItem="Guk-Uu-7Vy" firstAttribute="top" secondItem="5Xh-pH-BN9" secondAttribute="bottom" constant="16" id="bRr-h3-LFN"/>
+                            <constraint firstItem="Guk-Uu-7Vy" firstAttribute="top" secondItem="5Xh-pH-BN9" secondAttribute="bottom" constant="15" id="bRr-h3-LFN"/>
                             <constraint firstItem="Guk-Uu-7Vy" firstAttribute="leading" secondItem="wT2-M8-Kfc" secondAttribute="leadingMargin" id="c8p-mt-Lle"/>
                             <constraint firstItem="kfh-9h-NPV" firstAttribute="leading" secondItem="wT2-M8-Kfc" secondAttribute="leadingMargin" constant="60" id="cNw-8J-nGb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fP2-fb-SK4" secondAttribute="trailing" constant="20" id="ca4-ap-1ZE"/>
-                            <constraint firstItem="dhE-cP-ruw" firstAttribute="top" secondItem="kfh-9h-NPV" secondAttribute="bottom" constant="269" id="d5n-S3-Tgs"/>
+                            <constraint firstItem="dhE-cP-ruw" firstAttribute="top" secondItem="kfh-9h-NPV" secondAttribute="bottom" constant="358" id="d5n-S3-Tgs"/>
                             <constraint firstItem="fP2-fb-SK4" firstAttribute="centerX" secondItem="bc9-xy-Mew" secondAttribute="centerX" id="e4S-U1-QeB"/>
                             <constraint firstItem="N5e-rU-gHs" firstAttribute="top" secondItem="bc9-xy-Mew" secondAttribute="top" id="h2I-FP-Pfs"/>
                             <constraint firstItem="N5e-rU-gHs" firstAttribute="leading" secondItem="wT2-M8-Kfc" secondAttribute="leadingMargin" constant="36" id="kWe-7P-bIC"/>
-                            <constraint firstItem="Guk-Uu-7Vy" firstAttribute="top" secondItem="5Xh-pH-BN9" secondAttribute="bottom" constant="16" id="nke-vM-Xgh"/>
+                            <constraint firstItem="Guk-Uu-7Vy" firstAttribute="top" secondItem="5Xh-pH-BN9" secondAttribute="bottom" constant="15" id="nke-vM-Xgh"/>
                             <constraint firstItem="R5j-lS-XE1" firstAttribute="leading" secondItem="wT2-M8-Kfc" secondAttribute="leadingMargin" id="owy-SN-vdv"/>
                             <constraint firstItem="kfh-9h-NPV" firstAttribute="top" secondItem="N5e-rU-gHs" secondAttribute="bottom" constant="8" symbolic="YES" id="pTx-WA-nQG"/>
                             <constraint firstItem="N5e-rU-gHs" firstAttribute="centerX" secondItem="kfh-9h-NPV" secondAttribute="centerX" id="qSx-SH-AXa"/>
                             <constraint firstItem="Guk-Uu-7Vy" firstAttribute="leading" secondItem="fP2-fb-SK4" secondAttribute="leading" id="tNB-zD-6cL"/>
-                            <constraint firstItem="fP2-fb-SK4" firstAttribute="top" secondItem="5Xh-pH-BN9" secondAttribute="bottom" constant="220" id="uIn-9j-oQE"/>
+                            <constraint firstItem="fP2-fb-SK4" firstAttribute="top" secondItem="5Xh-pH-BN9" secondAttribute="bottom" constant="219" id="uIn-9j-oQE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5Xh-pH-BN9" secondAttribute="trailing" constant="20" id="ufx-Rg-Bd9"/>
                             <constraint firstItem="5Xh-pH-BN9" firstAttribute="leading" secondItem="wT2-M8-Kfc" secondAttribute="leadingMargin" id="vuu-km-GnD"/>
                         </constraints>
@@ -565,10 +566,10 @@
                         <viewControllerLayoutGuide type="bottom" id="B8d-ho-oIm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1dH-3X-9qf">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Consent to Release and/or Collect Medical information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbK-bk-1Yy">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Consent to Release and/or Collect Medical information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbK-bk-1Yy">
                                 <rect key="frame" x="20" y="105" width="523" height="7"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="URm-QL-Zmd"/>
@@ -578,13 +579,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sTj-tN-oYJ">
-                                <rect key="frame" x="280" y="174" width="41" height="30"/>
+                                <rect key="frame" x="280" y="574" width="41" height="30"/>
                                 <state key="normal" title="Agree"/>
                                 <connections>
                                     <action selector="agreeTapped:" destination="6K6-bj-YGc" eventType="touchUpInside" id="bqV-q9-rHZ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Initials" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTr-ZQ-wID">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Initials" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTr-ZQ-wID">
                                 <rect key="frame" x="87" y="165" width="58" height="0.0"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="Jmi-1F-K7M"/>
@@ -593,7 +594,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8b-hu-Grr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8b-hu-Grr">
                                 <rect key="frame" x="20" y="120" width="560" height="0.0"/>
                                 <string key="text">I hereby authorize Caleo Health or any agent acting on behalf of the aforementioned to disclose or collect, verbal or written, any or all relevant medical information pertinent to my case to: medical/technical consultants; legal representatives; insurance carriers and third party payers involved in the case.
 By typing your initials, I hereby acknowledge that I have read and understand the above statements, and consent to the release of any or all relevant medical information pertinent to my case to: medical/technical consultants; legal representatives; insurance carriers and third party payers involved in the case. I reserve the right to inform my therapist or doctor of such, and withdraw my consent at anytime in whole or in part to the information within.</string>
@@ -601,7 +602,7 @@ By typing your initials, I hereby acknowledge that I have read and understand th
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7q7-P1-4J3">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7q7-P1-4J3">
                                 <rect key="frame" x="62" y="164" width="111" height="0.0"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="hJM-RO-Hns"/>
@@ -716,4 +717,8 @@ By typing your initials, I hereby acknowledge that I have read and understand th
             <point key="canvasLocation" x="6043" y="12"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CaleoLogo" width="792" height="612"/>
+        <image name="Physio4DLogo" width="283" height="283"/>
+    </resources>
 </document>
