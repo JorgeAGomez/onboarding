@@ -146,7 +146,7 @@
     //PHN #
     SHSPhoneNumberFormatter *PHNformatter = [[SHSPhoneNumberFormatter alloc] init];
     [PHNformatter setDefaultOutputPattern:@"#####-####" imagePath:nil];
-    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"PHN No." rowType:XLFormRowDescriptorTypeNumber title:@"PHN No."];
+    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"PHN No." rowType:XLFormRowDescriptorTypeNumber title:@"Personal Health Number (PHN)"];
      personalInformationRow.valueFormatter = PHNformatter;
     [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentRight) forKey:@"textField.textAlignment"];
     personalInformationRow.useValueFormatterDuringInput = YES;
@@ -229,7 +229,7 @@
     {
       UIAlertController * alert=   [UIAlertController
                              alertControllerWithTitle:@"Reminder"
-                             message:@"PHN is not required. However, provide your PHN when possible"
+                             message:@"PHN is not required. However, provide your PHN as soon as possible"
                              preferredStyle:UIAlertControllerStyleAlert];
 
       UIAlertAction* ok = [UIAlertAction

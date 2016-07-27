@@ -28,7 +28,7 @@ XLFormRowDescriptor *medicationNewCell;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //self.tableView.contentInset = UIEdgeInsetsMake(60,0,0,0);
+    self.tableView.contentInset = UIEdgeInsetsMake(30,0,0,0);
 }
 
 - (void)didReceiveMemoryWarning {
