@@ -21,69 +21,62 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mhy-wI-OVR">
-                    <rect key="frame" x="585" y="8" width="28" height="28"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="28" id="ZEC-CQ-5Hi"/>
-                    </constraints>
-                    <state key="normal" image="Oval"/>
-                    <connections>
-                        <action selector="circleTapped:" destination="wZM-gs-r7y" eventType="touchUpInside" id="9NX-OA-NIQ"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heN-hP-eVB">
                     <rect key="frame" x="647" y="8" width="28" height="28"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="28" id="uxX-VD-X7w"/>
                     </constraints>
-                    <state key="normal" image="Rectangle"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="7"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="squareTapped:" destination="wZM-gs-r7y" eventType="touchUpInside" id="cwe-uW-Rld"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OvalSelected" translatesAutoresizingMaskIntoConstraints="NO" id="0dl-wQ-WCK">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mhy-wI-OVR">
                     <rect key="frame" x="585" y="8" width="28" height="28"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SquareSelected" translatesAutoresizingMaskIntoConstraints="NO" id="tCe-tP-NhA">
-                    <rect key="frame" x="647" y="8" width="28" height="28"/>
-                </imageView>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="28" id="ZEC-CQ-5Hi"/>
+                    </constraints>
+                    <color key="tintColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="14"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="circleTapped:" destination="wZM-gs-r7y" eventType="touchUpInside" id="9NX-OA-NIQ"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="RLp-36-iZb" firstAttribute="leading" secondItem="wZM-gs-r7y" secondAttribute="leadingMargin" id="0sq-Q4-jzO"/>
                 <constraint firstItem="Mhy-wI-OVR" firstAttribute="leading" secondItem="RLp-36-iZb" secondAttribute="trailing" constant="236" id="4Qz-4o-7fq"/>
-                <constraint firstItem="0dl-wQ-WCK" firstAttribute="trailing" secondItem="Mhy-wI-OVR" secondAttribute="trailing" id="4xp-4I-pII"/>
-                <constraint firstItem="0dl-wQ-WCK" firstAttribute="bottom" secondItem="Mhy-wI-OVR" secondAttribute="bottom" id="897-5O-pzN"/>
                 <constraint firstItem="Mhy-wI-OVR" firstAttribute="top" secondItem="heN-hP-eVB" secondAttribute="top" id="9BJ-cM-i5d"/>
                 <constraint firstItem="RLp-36-iZb" firstAttribute="bottom" secondItem="Mhy-wI-OVR" secondAttribute="bottom" constant="-4" id="Cq1-ba-TSW"/>
                 <constraint firstItem="heN-hP-eVB" firstAttribute="leading" secondItem="Mhy-wI-OVR" secondAttribute="trailing" constant="34" id="MqZ-DW-XlM"/>
-                <constraint firstItem="0dl-wQ-WCK" firstAttribute="leading" secondItem="Mhy-wI-OVR" secondAttribute="leading" id="R3k-9G-7OE"/>
                 <constraint firstItem="Mhy-wI-OVR" firstAttribute="centerY" secondItem="wZM-gs-r7y" secondAttribute="centerY" id="U7x-bd-SDJ"/>
-                <constraint firstItem="tCe-tP-NhA" firstAttribute="top" secondItem="heN-hP-eVB" secondAttribute="top" id="W33-Jw-Qme"/>
                 <constraint firstItem="RLp-36-iZb" firstAttribute="top" secondItem="wZM-gs-r7y" secondAttribute="top" constant="11" id="gxT-X6-ZQ9"/>
-                <constraint firstItem="0dl-wQ-WCK" firstAttribute="top" secondItem="Mhy-wI-OVR" secondAttribute="top" id="hso-8Z-WeK"/>
                 <constraint firstItem="Mhy-wI-OVR" firstAttribute="bottom" secondItem="heN-hP-eVB" secondAttribute="bottom" id="nBk-Cr-Qc5"/>
-                <constraint firstItem="tCe-tP-NhA" firstAttribute="bottom" secondItem="heN-hP-eVB" secondAttribute="bottom" id="rOm-po-X2U"/>
-                <constraint firstItem="tCe-tP-NhA" firstAttribute="leading" secondItem="heN-hP-eVB" secondAttribute="leading" id="veT-2S-ZgX"/>
-                <constraint firstItem="tCe-tP-NhA" firstAttribute="trailing" secondItem="heN-hP-eVB" secondAttribute="trailing" id="vtz-1s-Yf5"/>
                 <constraint firstItem="RLp-36-iZb" firstAttribute="centerY" secondItem="Mhy-wI-OVR" secondAttribute="centerY" constant="-0.5" id="wUd-iG-RWN"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="circleButton" destination="Mhy-wI-OVR" id="9dZ-XL-au1"/>
-                <outlet property="ovalSelectedImage" destination="0dl-wQ-WCK" id="hst-Fw-lwx"/>
                 <outlet property="squareButton" destination="heN-hP-eVB" id="Z5S-Xi-sWf"/>
-                <outlet property="squareSelectedImage" destination="tCe-tP-NhA" id="tcZ-75-c0u"/>
                 <outlet property="titleLabel" destination="RLp-36-iZb" id="rtf-0O-2nt"/>
             </connections>
             <point key="canvasLocation" x="-57" y="-44.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="Oval" width="42" height="42"/>
-        <image name="OvalSelected" width="42" height="42"/>
-        <image name="Rectangle" width="40" height="40"/>
-        <image name="SquareSelected" width="40" height="40"/>
-    </resources>
 </document>

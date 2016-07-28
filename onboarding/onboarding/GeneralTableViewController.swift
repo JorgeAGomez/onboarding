@@ -62,28 +62,16 @@ class GeneralTableViewController: UITableViewController, IndicatorInfoProvider {
         return general.count
     }
   
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-    {
-        //let cell = tableView .cellForRowAtIndexPath(indexPath) as! PostCellTableViewCell
-        //cell.selected = false
-    }
-  
-    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath)
-    {
-      //let cell = tableView.cellForRowAtIndexPath(indexPath) as! PostCellTableViewCell
-      //cell.selected = false
-    }
-  
-  
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
       let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! PostCellTableViewCell
       cell.selectionStyle = UITableViewCellSelectionStyle.None
       cell.contentView.userInteractionEnabled = false
-      cell.circleButton.titleLabel?.hidden = true
       cell.titleLabel.text = general[indexPath.row] as? String
-      cell.ovalSelectedImage.hidden = true
-      cell.squareSelectedImage.hidden = true
+      cell.circleButton.layer.borderWidth = 1
+      let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
+      cell.circleButton.layer.borderColor = myColor.CGColor
+      cell.squareButton.layer.borderColor = myColor.CGColor
       
       return cell
     }

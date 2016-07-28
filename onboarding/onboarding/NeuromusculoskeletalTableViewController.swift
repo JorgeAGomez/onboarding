@@ -120,6 +120,13 @@ class NeuromusculoskeletalTableViewController: UITableViewController, IndicatorI
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! PostCellTableViewCell
       
+      cell.selectionStyle = UITableViewCellSelectionStyle.None
+      cell.contentView.userInteractionEnabled = false
+      cell.circleButton.layer.borderWidth = 1
+      let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
+      cell.circleButton.layer.borderColor = myColor.CGColor
+      cell.squareButton.layer.borderColor = myColor.CGColor
+      
       if(indexPath.section == 0)
       {
         cell.titleLabel.text = headNeck[indexPath.row] as? String

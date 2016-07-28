@@ -10,15 +10,12 @@ import UIKit
 
 class PostCellTableViewCell: UITableViewCell {
 
-  @IBOutlet weak var squareSelectedImage: UIImageView!
-  @IBOutlet weak var ovalSelectedImage: UIImageView!
   
   @IBOutlet weak var titleLabel: UILabel!
   
   @IBOutlet weak var circleButton: UIButton!
   @IBOutlet weak var squareButton: UIButton!
-  
-  
+  let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -29,29 +26,24 @@ class PostCellTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-  @IBAction func circleTapped(sender: AnyObject) {
-      if(ovalSelectedImage.hidden)
-      {
-        ovalSelectedImage.hidden = false
-        circleButton.hidden = true
-      }
-      else
-      {
-        ovalSelectedImage.hidden = true
-        circleButton.hidden = false
-      }
+  @IBAction func circleTapped(sender: AnyObject)
+  {
+    if(circleButton.backgroundColor == myColor){
+      circleButton.backgroundColor = UIColor.whiteColor()
+    }
+    else{
+      circleButton.backgroundColor = myColor
+    }
   }
 
   @IBAction func squareTapped(sender: AnyObject)
   {
-      if(squareSelectedImage.hidden)
-      {
-        squareSelectedImage.hidden = false
-        squareButton.hidden = true
-      }
-      else{
-        squareSelectedImage.hidden = true
-        squareButton.hidden = false
-      }
+    if(squareButton.backgroundColor == myColor){
+      squareButton.backgroundColor = UIColor.whiteColor()
+    }
+    else{
+      squareButton.backgroundColor = myColor
+    }
   }
+
 }
