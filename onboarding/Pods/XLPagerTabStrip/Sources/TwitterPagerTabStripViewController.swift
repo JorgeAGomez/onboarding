@@ -27,11 +27,11 @@ import Foundation
 public struct TwitterPagerTabStripSettings {
     
     public struct Style {
-        public var dotColor = UIColor.blackColor()
-        public var selectedDotColor = UIColor.redColor()
-        public var portraitTitleFont = UIFont.systemFontOfSize(20)
-        public var landscapeTitleFont = UIFont.systemFontOfSize(17)
-        public var titleColor = UIColor.blackColor()
+        public var dotColor = UIColor(white: 1, alpha: 0.4)
+        public var selectedDotColor = UIColor.whiteColor()
+        public var portraitTitleFont = UIFont.systemFontOfSize(18)
+        public var landscapeTitleFont = UIFont.systemFontOfSize(15)
+        public var titleColor = UIColor.whiteColor()
     }
     
     public var style = Style()

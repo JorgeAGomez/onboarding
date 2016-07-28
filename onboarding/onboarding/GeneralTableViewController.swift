@@ -11,6 +11,8 @@ import XLPagerTabStrip
 
 class GeneralTableViewController: UITableViewController, IndicatorInfoProvider {
   
+    var cellSelected = false
+    var whichCell = 0
     var general = []
     let cellIdentifier = "Cell"
     var blackTheme = false
@@ -31,9 +33,9 @@ class GeneralTableViewController: UITableViewController, IndicatorInfoProvider {
       
         general = ["Diabetes","Hypoglycemia","Stress / Depression","Epilepsy / Seizures", "Skin conditions / Rashes","Alcoholism","High Cholesterol","Parkinson's disease","Heart disease","Cancer","Osteoarthritis","Ulcers","Anemia / Fatigue", "Multiple Sclerosis","Thyroid","Osteoporosis"]
         tableView.registerNib(UINib(nibName: "PostCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: cellIdentifier)
+        tableView.allowsMultipleSelection = true
         if blackTheme {
             tableView.backgroundColor = UIColor(red: 15/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1.0)
-          
         }
     }
   
@@ -60,22 +62,34 @@ class GeneralTableViewController: UITableViewController, IndicatorInfoProvider {
         return general.count
     }
   
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        //let cell = tableView .cellForRowAtIndexPath(indexPath) as! PostCellTableViewCell
+        //cell.selected = false
+    }
+  
+    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath)
+    {
+      //let cell = tableView.cellForRowAtIndexPath(indexPath) as! PostCellTableViewCell
+      //cell.selected = false
+    }
+  
+  
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
       let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! PostCellTableViewCell
-      
+      cell.selectionStyle = UITableViewCellSelectionStyle.None
+      cell.contentView.userInteractionEnabled = false
+      cell.circleButton.titleLabel?.hidden = true
       cell.titleLabel.text = general[indexPath.row] as? String
-      //cell.circleButton.hidden = true
-      //cell.squareButton.highlighted = true
+      cell.ovalSelectedImage.hidden = true
+      cell.squareSelectedImage.hidden = true
       
       return cell
     }
-
         // MARK: - IndicatorInfoProvider
 
     func indicatorInfoForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return itemInfo
     }
-
-
 }

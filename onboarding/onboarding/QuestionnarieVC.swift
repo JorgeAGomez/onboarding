@@ -22,9 +22,11 @@ let swiftColor = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
 var isReload = false
   
   public override func viewDidLoad() {
+    settings.style.selectedDotColor = UIColor.redColor()
+    settings.style.dotColor = UIColor.blackColor()
+    settings.style.titleColor = UIColor.blackColor()
     super.viewDidLoad()
     self.navigationItem.hidesBackButton = true;
-    //self.view.backgroundColor = UIColor.blackColor()
   }
   
   public override func viewControllersForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
@@ -35,9 +37,6 @@ var isReload = false
         let child_4 = CardiovascularTableViewController(style: .Plain, itemInfo: "Cardiovascular")
         let child_5 = MultipleSectionsTableViewController(style: .Grouped, itemInfo: "Multiple")
         let child_6 = NeuromusculoskeletalTableViewController(style: .Grouped, itemInfo: "Neuromusculoskeletal")
-        //let child_7
-        //let child_8
-        //let child_9
         
         guard isReload else {
             return [child_1,child_2, child_3,child_4,child_5,child_6]
