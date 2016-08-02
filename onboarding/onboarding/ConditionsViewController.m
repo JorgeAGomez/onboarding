@@ -105,7 +105,7 @@ XLFormRowDescriptor *medicationNewCell;
     [conditionsSection addFormRow:conditionsRow];
   
     conditionsRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Skin conditions/Rashes" rowType:XLFormRowDescriptorTypeBooleanCheck];
-    conditionsRow.title = @"Skin conditions/Rashes";
+    conditionsRow.title = @"Skin conditions / Rashes";
     [conditionsSection addFormRow:conditionsRow];
   
     conditionsRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Mid back Pain" rowType:XLFormRowDescriptorTypeBooleanCheck];
@@ -125,7 +125,7 @@ XLFormRowDescriptor *medicationNewCell;
     [conditionsSection addFormRow:conditionsRow];
   
     conditionsRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Anemia/Fatigue" rowType:XLFormRowDescriptorTypeBooleanCheck];
-    conditionsRow.title = @"Anemia/Fatigue";
+    conditionsRow.title = @"Anemia / Fatigue";
     [conditionsSection addFormRow:conditionsRow];
   
     conditionsRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Low Back Pain / stiffness" rowType:XLFormRowDescriptorTypeBooleanCheck];
@@ -137,24 +137,29 @@ XLFormRowDescriptor *medicationNewCell;
     [conditionsSection addFormRow:conditionsRow];
   
     conditionsRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Numbness/tingling in legs / feet" rowType:XLFormRowDescriptorTypeBooleanCheck];
-    conditionsRow.title = @"Numbness/tingling in legs / feet";
+    conditionsRow.title = @"Numbness / tingling in legs / feet";
     [conditionsSection addFormRow:conditionsRow];
   
     conditionsRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Numbness/tingling in arms / hands" rowType:XLFormRowDescriptorTypeBooleanCheck];
-    conditionsRow.title = @"Numbness/tingling in arms / hands";
+    conditionsRow.title = @"Numbness / tingling in arms / hands";
     [conditionsSection addFormRow:conditionsRow];
   
     conditionsRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Dizziness" rowType:XLFormRowDescriptorTypeBooleanCheck];
     conditionsRow.title = @"Dizziness";
     [conditionsSection addFormRow:conditionsRow];
   
-    conditionsRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Allergies" rowType:XLFormRowDescriptorTypeBooleanCheck];
-    conditionsRow.title = @"Allergies";
+    //conditionsRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Allergies" rowType:XLFormRowDescriptorTypeBooleanCheck];
+    //conditionsRow.title = @"Do you have any allergies?";
+  
+    conditionsRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Allergies" rowType:XLFormRowDescriptorTypeSelectorSegmentedControl title:@"Do you have allergies?"];
+    conditionsRow.selectorOptions = @[@"Yes", @"No"];
+    conditionsRow.value = @"No";
     [conditionsSection addFormRow:conditionsRow];
     allergiesChecked = conditionsRow;
   
-    conditionsRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Medications" rowType:XLFormRowDescriptorTypeBooleanCheck];
-    conditionsRow.title = @"Taking medications?";
+    conditionsRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Medications" rowType:XLFormRowDescriptorTypeSelectorSegmentedControl title:@"Are you taking medications?"];
+    conditionsRow.selectorOptions = @[@"Yes", @"No"];
+    conditionsRow.value = @"No";
     [conditionsSection addFormRow:conditionsRow];
     medicationChecked = conditionsRow;
   
@@ -199,8 +204,7 @@ XLFormRowDescriptor *medicationNewCell;
   //checks if allergies cell has been tapped
   if([rowDescriptor.tag isEqualToString:@"Allergies"])
   {
-    BOOL checked = [newValue boolValue];
-    if(checked == 1)
+    if([newValue isEqualToString:@"Yes"])
     {
         //if cell is checked add new cell
         [self.form addFormRow:allergiesNewCell afterRow:allergiesChecked];
@@ -214,8 +218,8 @@ XLFormRowDescriptor *medicationNewCell;
   //check if medication cell has been tapped
   if([rowDescriptor.tag isEqualToString:@"Medications"])
   {
-    BOOL checked = [newValue boolValue];
-    if(checked == 1)
+    
+    if([newValue isEqualToString:@"Yes"])
     {
       [self.form addFormRow:medicationNewCell afterRow:medicationChecked];
     }

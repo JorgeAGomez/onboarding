@@ -9,7 +9,7 @@
 import UIKit
 import XLPagerTabStrip
 
-class NeuromusculoskeletalTableViewController: UITableViewController, IndicatorInfoProvider {
+public class NeuromusculoskeletalTableViewController: UITableViewController, IndicatorInfoProvider {
 
     var headNeck = []
     var shoulder = []
@@ -27,13 +27,17 @@ class NeuromusculoskeletalTableViewController: UITableViewController, IndicatorI
       super.init(style: style)
     }
   
-    required init?(coder aDecoder: NSCoder)
+    required public init?(coder aDecoder: NSCoder)
     {
       fatalError("init(coder:) has not been implemented")
     }
 
   
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
+        let doneButton = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(self.sayHello))
+        self.navigationItem.rightBarButtonItem = doneButton
+      
+        
         super.viewDidLoad()
         headNeck = ["Headaches","Neck Pain / stiffness","Pinched nerve","Jaw Pain / TMJ","Arthritis in neck"]
         shoulder = ["Shoulder pain","Can't raise arm"," arthritis","Bursitis","Clicking / popping"]
@@ -45,22 +49,28 @@ class NeuromusculoskeletalTableViewController: UITableViewController, IndicatorI
         if blackTheme {
             tableView.backgroundColor = UIColor(red: 15/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1.0)
         }
+      
+
+    }
+  
+    func sayHello()
+    {
+      self.performSegueWithIdentifier("go", sender: self)
     }
 
-
-    override func didReceiveMemoryWarning() {
+    public override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    public override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 6
     }
   
-        override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    public override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
       if(section == 0)
       {
@@ -88,7 +98,7 @@ class NeuromusculoskeletalTableViewController: UITableViewController, IndicatorI
       }
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       
       if(section == 0)
       {
@@ -117,7 +127,7 @@ class NeuromusculoskeletalTableViewController: UITableViewController, IndicatorI
     }
 
   
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    public override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! PostCellTableViewCell
       
       cell.selectionStyle = UITableViewCellSelectionStyle.None
@@ -147,7 +157,7 @@ class NeuromusculoskeletalTableViewController: UITableViewController, IndicatorI
       {
         cell.titleLabel.text = armshands[indexPath.row] as? String
       }
-      else
+      if(indexPath.section == 5)
       {
         cell.titleLabel.text = hipsLegsFeet[indexPath.row] as? String
       }
@@ -156,7 +166,7 @@ class NeuromusculoskeletalTableViewController: UITableViewController, IndicatorI
  
     // MARK: - IndicatorInfoProvider
 
-    func indicatorInfoForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    public func indicatorInfoForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return itemInfo
     }
 }

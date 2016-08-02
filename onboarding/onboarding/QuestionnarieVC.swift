@@ -27,6 +27,7 @@ var isReload = false
     settings.style.titleColor = UIColor.blackColor()
     super.viewDidLoad()
     self.navigationItem.hidesBackButton = true;
+
   }
   
   public override func viewControllersForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
@@ -35,7 +36,7 @@ var isReload = false
         let child_2 = ImmuneSystemInfectonTVCTableViewController(style: .Plain, itemInfo: "Immune System / infection")
         let child_3 = GastrointestinalTableViewController(style: .Plain, itemInfo: "Gastrointestinal")
         let child_4 = CardiovascularTableViewController(style: .Plain, itemInfo: "Cardiovascular")
-        let child_5 = MultipleSectionsTableViewController(style: .Grouped, itemInfo: "Multiple")
+        let child_5 = MultipleSectionsTableViewController(style: .Grouped, itemInfo: "Other Systems")
         let child_6 = NeuromusculoskeletalTableViewController(style: .Grouped, itemInfo: "Neuromusculoskeletal")
         
         guard isReload else {

@@ -37,6 +37,7 @@ class GeneralTableViewController: UITableViewController, IndicatorInfoProvider {
         if blackTheme {
             tableView.backgroundColor = UIColor(red: 15/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1.0)
         }
+        
     }
   
     override func viewWillAppear(animated: Bool) {

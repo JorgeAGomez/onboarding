@@ -24,6 +24,9 @@
 		D62E69D81D21E2F300AEE03C /* HealthCoverageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62E69D71D21E2F300AEE03C /* HealthCoverageViewController.m */; };
 		D62E69DC1D22F6B600AEE03C /* FirebaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D62E69DB1D22F6B600AEE03C /* FirebaseHelper.m */; };
 		D62E69E11D23182D00AEE03C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D62E69E01D23182D00AEE03C /* GoogleService-Info.plist */; };
+		D64C6E7A1D4AD99F00ABB8BA /* SubmitScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64C6E791D4AD99F00ABB8BA /* SubmitScreenViewController.swift */; };
+		D64C6E7D1D4B8F0D00ABB8BA /* ConsentIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C6E7C1D4B8F0D00ABB8BA /* ConsentIntroViewController.m */; };
+		D64C6E7F1D4B9DB500ABB8BA /* ConsentFirstPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64C6E7E1D4B9DB500ABB8BA /* ConsentFirstPageViewController.swift */; };
 		D66A3B481D46A78600E83DD7 /* GeneralTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66A3B471D46A78600E83DD7 /* GeneralTableViewController.swift */; };
 		D66A3B501D46B5B000E83DD7 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66A3B4F1D46B5B000E83DD7 /* PostCell.xib */; };
 		D66A3B521D46B62300E83DD7 /* PostCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66A3B511D46B62300E83DD7 /* PostCellTableViewCell.swift */; };
@@ -65,6 +68,10 @@
 		D62E69DA1D22F6B600AEE03C /* FirebaseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirebaseHelper.h; sourceTree = "<group>"; };
 		D62E69DB1D22F6B600AEE03C /* FirebaseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirebaseHelper.m; sourceTree = "<group>"; };
 		D62E69E01D23182D00AEE03C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D64C6E791D4AD99F00ABB8BA /* SubmitScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitScreenViewController.swift; sourceTree = "<group>"; };
+		D64C6E7B1D4B8F0D00ABB8BA /* ConsentIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsentIntroViewController.h; sourceTree = "<group>"; };
+		D64C6E7C1D4B8F0D00ABB8BA /* ConsentIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsentIntroViewController.m; sourceTree = "<group>"; };
+		D64C6E7E1D4B9DB500ABB8BA /* ConsentFirstPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentFirstPageViewController.swift; sourceTree = "<group>"; };
 		D66A3B471D46A78600E83DD7 /* GeneralTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralTableViewController.swift; sourceTree = "<group>"; };
 		D66A3B4F1D46B5B000E83DD7 /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		D66A3B511D46B62300E83DD7 /* PostCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCellTableViewCell.swift; sourceTree = "<group>"; };
@@ -80,10 +87,10 @@
 		D6919D341D21AE4F00E0FCAB /* WorkInjuryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkInjuryViewController.m; sourceTree = "<group>"; };
 		D6919D361D21D58F00E0FCAB /* MotorVehicleAccidentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotorVehicleAccidentViewController.h; sourceTree = "<group>"; };
 		D6919D371D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotorVehicleAccidentViewController.m; sourceTree = "<group>"; };
-		D6F6AE4C1D25AFA600083F99 /* ReportQuestionnarieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportQuestionnarieViewController.h; sourceTree = "<group>"; };
-		D6F6AE4D1D25AFA600083F99 /* ReportQuestionnarieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportQuestionnarieViewController.m; sourceTree = "<group>"; };
-		D6FFFCF01D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralReportQuestinnarieViewController.h; sourceTree = "<group>"; };
-		D6FFFCF11D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralReportQuestinnarieViewController.m; sourceTree = "<group>"; };
+		D6F6AE4C1D25AFA600083F99 /* ReportQuestionnarieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReportQuestionnarieViewController.h; path = onboarding/ReportQuestionnarieViewController.h; sourceTree = "<group>"; };
+		D6F6AE4D1D25AFA600083F99 /* ReportQuestionnarieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReportQuestionnarieViewController.m; path = onboarding/ReportQuestionnarieViewController.m; sourceTree = "<group>"; };
+		D6FFFCF01D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GeneralReportQuestinnarieViewController.h; path = onboarding/GeneralReportQuestinnarieViewController.h; sourceTree = "<group>"; };
+		D6FFFCF11D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GeneralReportQuestinnarieViewController.m; path = onboarding/GeneralReportQuestinnarieViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +117,10 @@
 			isa = PBXGroup;
 			children = (
 				D62829F81D1F6622001D64FA /* onboarding */,
+				D6F6AE4C1D25AFA600083F99 /* ReportQuestionnarieViewController.h */,
+				D6F6AE4D1D25AFA600083F99 /* ReportQuestionnarieViewController.m */,
+				D6FFFCF01D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.h */,
+				D6FFFCF11D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.m */,
 				D62829F71D1F6622001D64FA /* Products */,
 				E2AC4113E0DE60FE85E16C5E /* Pods */,
 				333ACBB4229CCBAEB14696D9 /* Frameworks */,
@@ -156,6 +167,9 @@
 				D68CE7EE1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.m */,
 				D68CE7F01D2C2C7700E1A0EE /* ReleaseCollectConsentViewController.h */,
 				D68CE7F11D2C2C7700E1A0EE /* ReleaseCollectConsentViewController.m */,
+				D64C6E7B1D4B8F0D00ABB8BA /* ConsentIntroViewController.h */,
+				D64C6E7C1D4B8F0D00ABB8BA /* ConsentIntroViewController.m */,
+				D64C6E7E1D4B9DB500ABB8BA /* ConsentFirstPageViewController.swift */,
 			);
 			name = "Informed Consent";
 			sourceTree = "<group>";
@@ -210,10 +224,6 @@
 		D68CE7F91D2C374B00E1A0EE /* Health Report Questionnarie */ = {
 			isa = PBXGroup;
 			children = (
-				D6F6AE4C1D25AFA600083F99 /* ReportQuestionnarieViewController.h */,
-				D6F6AE4D1D25AFA600083F99 /* ReportQuestionnarieViewController.m */,
-				D6FFFCF01D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.h */,
-				D6FFFCF11D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.m */,
 				D67950CC1D46839A00539C90 /* onboarding-Bridging-Header.h */,
 				D67950CD1D46839B00539C90 /* QuestionnarieVC.swift */,
 				D66A3B471D46A78600E83DD7 /* GeneralTableViewController.swift */,
@@ -224,6 +234,7 @@
 				D62A4D441D480A0B00CDF4F8 /* NeuromusculoskeletalTableViewController.swift */,
 				D66A3B4F1D46B5B000E83DD7 /* PostCell.xib */,
 				D66A3B511D46B62300E83DD7 /* PostCellTableViewCell.swift */,
+				D64C6E791D4AD99F00ABB8BA /* SubmitScreenViewController.swift */,
 			);
 			name = "Health Report Questionnarie";
 			sourceTree = "<group>";
@@ -387,11 +398,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D66A3B521D46B62300E83DD7 /* PostCellTableViewCell.swift in Sources */,
+				D64C6E7F1D4B9DB500ABB8BA /* ConsentFirstPageViewController.swift in Sources */,
 				D66A3B481D46A78600E83DD7 /* GeneralTableViewController.swift in Sources */,
 				D62A4D431D48022700CDF4F8 /* MultipleSectionsTableViewController.swift in Sources */,
 				D6F6AE4E1D25AFA600083F99 /* ReportQuestionnarieViewController.m in Sources */,
 				D67950CE1D46839B00539C90 /* QuestionnarieVC.swift in Sources */,
 				D62E69DC1D22F6B600AEE03C /* FirebaseHelper.m in Sources */,
+				D64C6E7A1D4AD99F00ABB8BA /* SubmitScreenViewController.swift in Sources */,
 				D616B36D1D205B2C00ABF52D /* DateAndTimeValueTransformer.m in Sources */,
 				D62829FE1D1F6622001D64FA /* AppDelegate.m in Sources */,
 				D62E69D81D21E2F300AEE03C /* HealthCoverageViewController.m in Sources */,
@@ -405,6 +418,7 @@
 				D6919D381D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m in Sources */,
 				D62A4D3F1D47E98500CDF4F8 /* GastrointestinalTableViewController.swift in Sources */,
 				D68CE7EF1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.m in Sources */,
+				D64C6E7D1D4B8F0D00ABB8BA /* ConsentIntroViewController.m in Sources */,
 				D6FFFCF21D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.m in Sources */,
 				D616B3701D20C16500ABF52D /* MedicalInformationViewController.m in Sources */,
 				D62A4D3D1D47C5BD00CDF4F8 /* ImmuneSystemInfectonTVCTableViewController.swift in Sources */,
