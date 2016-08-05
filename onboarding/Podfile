@@ -15,5 +15,6 @@ pod 'MXSegmentedPager', '~> 3.0'
 
 use_frameworks! 
 pod 'XLPagerTabStrip', '~> 5.0'
+pod 'SimplePDF', '~> 1.0'
 
 end

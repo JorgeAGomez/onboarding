@@ -9,17 +9,23 @@
 import UIKit
 import XLPagerTabStrip
 
-class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoProvider {
+var multipleDic = [String:String]()
+var multipleData = [String:[String:String]]()
 
+class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoProvider {
+  
     var nervousSystem = []
     var respiratory = []
     var bloodSugar = []
     var eyeEarNoseThroat = []
     var urinaryTract = []
+    var multiple = []
   
     let cellIdentifier = "Cell"
     var blackTheme = false
     var itemInfo = IndicatorInfo(title: "View")
+    let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
+
   
     init(style: UITableViewStyle, itemInfo: IndicatorInfo)
     {
@@ -32,7 +38,6 @@ class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoP
       fatalError("init(coder:) has not been implemented")
     }
 
-
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -42,17 +47,43 @@ class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoP
         eyeEarNoseThroat = ["Vision Problems","Hoarseness","Nose Bleeding","Ear Pain","Dental Problems","Hearing Loss","Store Throat","Ringing in Ear(s)"]
         urinaryTract = ["Blood in Urine","Bladder Infection","Inability to Control Urination"," Kidney Stones","Painful Urination"]
       
+        multiple = ["Dizziness / Lightheaded","Fainting","Discoordination","Memory Loss","Chronic Cough","Spitting Blood","Difficulty Breathing","Shortness of Breath","Asthma","Spitting up Phlegm","Emphysema","Irritable before Meals","Palpitations if miss meals","Gets shaky if hungry","Awaken from sleep","Vision Problems","Hoarseness","Nose Bleeding","Ear Pain","Dental Problems","Hearing Loss","Store Throat","Ringing in Ear(s)","Blood in Urine","Bladder Infection","Inability to Control Urination"," Kidney Stones","Painful Urination"]
+      
         tableView.registerNib(UINib(nibName: "PostCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: cellIdentifier)
         if blackTheme {
             tableView.backgroundColor = UIColor(red: 15/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1.0)
           
         }
+      
+        for i in multiple{
+          multipleDic = ["previously":"No","presently":"No"]
+          multipleData.updateValue(multipleDic, forKey: i as! String)
+        }
 
     }
   
-    override func didReceiveMemoryWarning() {
+    override func viewWillDisappear(animated: Bool)
+    {
+      for cells in tableView.visibleCells{
+        let cell = cells as! PostCellTableViewCell
+        if(cell.circleButton.backgroundColor == myColor){
+          multipleData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
+        }
+        else{
+          multipleData[cell.titleLabel.text!]!.updateValue("No", forKey: "previously")
+        }
+        if(cell.squareButton.backgroundColor == myColor){
+          multipleData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "presently")
+        }
+        else{
+          multipleData[cell.titleLabel.text!]!.updateValue("No", forKey: "presently")
+        }
+      }
+    }
+  
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
-      
     }
 
     // MARK: - Table view data source
@@ -115,9 +146,9 @@ class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoP
       cell.selectionStyle = UITableViewCellSelectionStyle.None
       cell.contentView.userInteractionEnabled = false
       cell.circleButton.layer.borderWidth = 1
-      let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
       cell.circleButton.layer.borderColor = myColor.CGColor
       cell.squareButton.layer.borderColor = myColor.CGColor
+
       
       if(indexPath.section == 0)
       {

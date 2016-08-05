@@ -9,11 +9,17 @@
 import UIKit
 import XLPagerTabStrip
 
+var immuneDic = [String:String]()
+var immuneData = [String:[String:String]]()
+var immuneSystemInfection = []
+
 class ImmuneSystemInfectonTVCTableViewController: UITableViewController, IndicatorInfoProvider {
   
-    var immuneSystemInfection = []
+
+    
     let cellIdentifier = "Cell"
     var blackTheme = false
+    let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
     var itemInfo = IndicatorInfo(title: "View")
   
     init(style: UITableViewStyle, itemInfo: IndicatorInfo)
@@ -33,7 +39,11 @@ class ImmuneSystemInfectonTVCTableViewController: UITableViewController, Indicat
       super.viewDidLoad()
       immuneSystemInfection = ["HIV (AIDS)","Pneumonia","Allergies / sinus troubles","Catch colds / flue easily","Rheumatoid Arthritis","Venereal Disease","Tuberculosis","Rheumatic Fever"]
       tableView.registerNib(UINib(nibName: "PostCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: cellIdentifier)
-      
+      for i in immuneSystemInfection
+      {
+        immuneDic = ["previously":"No","presently":"No"]
+        immuneData.updateValue(immuneDic, forKey: i as! String)
+      }
 
     }
 
@@ -42,6 +52,32 @@ class ImmuneSystemInfectonTVCTableViewController: UITableViewController, Indicat
         super.didReceiveMemoryWarning()
     }
 
+  
+    override func viewWillDisappear(animated: Bool)
+    {
+      for cell in tableView.visibleCells{
+      let cells = cell as! PostCellTableViewCell
+      if(cells.circleButton.backgroundColor == myColor)
+      {
+        immuneData[cells.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
+      }
+      else
+      {
+        immuneData[cells.titleLabel.text!]!.updateValue("No", forKey: "previously")
+      }
+        
+      if(cells.squareButton.backgroundColor == myColor)
+      {
+        immuneData[cells.titleLabel.text!]!.updateValue("Yes", forKey: "presently")
+      }
+      else
+      {
+        immuneData[cells.titleLabel.text!]!.updateValue("No", forKey: "presently")
+      }
+        
+      }
+    }
+  
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int
@@ -61,10 +97,8 @@ class ImmuneSystemInfectonTVCTableViewController: UITableViewController, Indicat
       cell.contentView.userInteractionEnabled = false
       cell.titleLabel.text = immuneSystemInfection[indexPath.row] as? String
       cell.circleButton.layer.borderWidth = 1
-      let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
       cell.circleButton.layer.borderColor = myColor.CGColor
       cell.squareButton.layer.borderColor = myColor.CGColor
-      
       return cell
     }
   

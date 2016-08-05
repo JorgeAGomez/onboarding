@@ -1,3 +1,4 @@
+
 //
 //  QuestionnarieVC.swift
 //  onboarding
@@ -8,6 +9,7 @@
 
 import Foundation
 import XLPagerTabStrip
+import SimplePDF
 
 public class QuestionnarieVC: TwitterPagerTabStripViewController {
 
@@ -17,17 +19,16 @@ var workInjuryInformation = [:]
 var motorVehicleInjuryInformation = [:]
 var healthCoverageInformation = [:]
 var conditionsInformation = [:]
-let swiftColor = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
+let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
 
 var isReload = false
   
   public override func viewDidLoad() {
-    settings.style.selectedDotColor = UIColor.redColor()
+    settings.style.selectedDotColor = myColor
     settings.style.dotColor = UIColor.blackColor()
     settings.style.titleColor = UIColor.blackColor()
     super.viewDidLoad()
-    self.navigationItem.hidesBackButton = true;
-
+    self.navigationItem.hidesBackButton = true
   }
   
   public override func viewControllersForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
@@ -58,4 +59,35 @@ var isReload = false
     
     }
   
+  @IBOutlet weak var nextButton: UIBarButtonItem!
+  
+  
+  @IBAction func nextButton(sender: AnyObject) {
+      let A4paperSize = CGSize(width: 595, height: 842)
+      let pdf = SimplePDF(pageSize: A4paperSize, pageMargin: 20.0)
+      var generalString = ""
+      for data in dic1 {
+        generalString.appendContentsOf(data.0)
+        pdf.addText(generalString)
+        pdf.addLineSeparator()
+      }
+    
+      pdf.addLineSeparator(height: 30) // or pdf.addLineSeparator() default height is 1.0
+      pdf.addLineSpace(20)
+    
+    if let documentDirectories = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first {
+    
+    let fileName = "example.pdf"
+    let documentsFileName = documentDirectories + "/" + fileName
+    
+    let pdfData = pdf.generatePDFdata()
+    do{
+        try pdfData.writeToFile(documentsFileName, options: .DataWritingAtomic)
+        print("\nThe generated pdf can be found at:")
+        print("\n\t\(documentsFileName)\n")
+    }catch{
+        print(error)
+    }
+}
+  }
 }

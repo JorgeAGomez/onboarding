@@ -8,6 +8,10 @@
 
 import UIKit
 import XLPagerTabStrip
+import SimplePDF
+
+var neuroDic = [String:String]()
+var neuroData = [String:[String:String]]()
 
 public class NeuromusculoskeletalTableViewController: UITableViewController, IndicatorInfoProvider {
 
@@ -17,9 +21,13 @@ public class NeuromusculoskeletalTableViewController: UITableViewController, Ind
     var lowback = []
     var armshands = []
     var hipsLegsFeet = []
+    var neuro = []
+  
     let cellIdentifier = "Cell"
     var blackTheme = false
     var itemInfo = IndicatorInfo(title: "View")
+    let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
+  
   
     init(style: UITableViewStyle, itemInfo: IndicatorInfo)
     {
@@ -31,26 +39,48 @@ public class NeuromusculoskeletalTableViewController: UITableViewController, Ind
     {
       fatalError("init(coder:) has not been implemented")
     }
-
   
-    public override func viewDidLoad() {
-        let doneButton = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(self.sayHello))
-        self.navigationItem.rightBarButtonItem = doneButton
-      
-        
+    public override func viewDidLoad()
+    {
         super.viewDidLoad()
+      
+
         headNeck = ["Headaches","Neck Pain / stiffness","Pinched nerve","Jaw Pain / TMJ","Arthritis in neck"]
         shoulder = ["Shoulder pain","Can't raise arm"," arthritis","Bursitis","Clicking / popping"]
         midback = ["Mid back Pain","Pain between shoulders","Muscle spasms","Sharp stabbing pain"]
         lowback = ["Low Back Pain","Low Back stiffness","Tailbone pain","Muscle Spasms","Pinched nerve"]
         armshands = ["Pain in elbow / arm","Pain in forearm","Pain in hands / fingers","Arthritis / swollen hands","Cold hands","Carpal Tunnel","Tingling in hands","Loss of grip strength"]
         hipsLegsFeet = ["Pain in buttock","Pain in hip / knee joint","Cold feet","Tingling in feet","Arthritis","Sprain / strain","Pain down leg(s)","Tingling in leg(s)","Swollen ankle / feet","Pain in ankle / feet","Loss of leg strength","Muscles cramps"]
+      
+        neuro = ["Headaches","Neck Pain / stiffness","Pinched nerve","Jaw Pain / TMJ","Arthritis in neck","Shoulder pain","Can't raise arm"," arthritis","Bursitis","Clicking / popping","Mid back Pain","Pain between shoulders","Muscle spasms","Sharp stabbing pain","Low Back Pain","Low Back stiffness","Tailbone pain","Muscle Spasms","Pinched nerve","Pain in elbow / arm","Pain in forearm","Pain in hands / fingers","Arthritis / swollen hands","Cold hands","Carpal Tunnel","Tingling in hands","Loss of grip strength","Pain in buttock","Pain in hip / knee joint","Cold feet","Tingling in feet","Arthritis","Sprain / strain","Pain down leg(s)","Tingling in leg(s)","Swollen ankle / feet","Pain in ankle / feet","Loss of leg strength","Muscles cramps"]
+      
         tableView.registerNib(UINib(nibName: "PostCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: cellIdentifier)
         if blackTheme {
             tableView.backgroundColor = UIColor(red: 15/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1.0)
         }
-      
-
+        for i in neuro
+        {
+          neuroDic = ["previously":"No","presently":"No"]
+          neuroData.updateValue(neuroDic, forKey: i as! String)
+        }
+    }
+  
+    override public func viewWillDisappear(animated: Bool) {
+      for cells in tableView.visibleCells {
+        let cell = cells as! PostCellTableViewCell
+        if(cell.circleButton.backgroundColor == myColor){
+          neuroData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
+        }
+        else{
+          neuroData[cell.titleLabel.text!]!.updateValue("No", forKey: "previously")
+        }
+        if(cell.squareButton.backgroundColor == myColor){
+          neuroData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "presently")
+        }
+        else{
+          neuroData[cell.titleLabel.text!]!.updateValue("No", forKey: "presently")
+        }
+      }
     }
   
     func sayHello()
@@ -133,9 +163,10 @@ public class NeuromusculoskeletalTableViewController: UITableViewController, Ind
       cell.selectionStyle = UITableViewCellSelectionStyle.None
       cell.contentView.userInteractionEnabled = false
       cell.circleButton.layer.borderWidth = 1
-      let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
       cell.circleButton.layer.borderColor = myColor.CGColor
       cell.squareButton.layer.borderColor = myColor.CGColor
+      cell.circleButton.tag = 5
+      cell.squareButton.tag = 5
       
       if(indexPath.section == 0)
       {
@@ -169,4 +200,6 @@ public class NeuromusculoskeletalTableViewController: UITableViewController, Ind
     public func indicatorInfoForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return itemInfo
     }
+  
+
 }

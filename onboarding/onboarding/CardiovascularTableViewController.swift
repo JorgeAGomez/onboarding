@@ -9,12 +9,16 @@
 import UIKit
 import XLPagerTabStrip
 
+var cardioDic = [String:String]()
+var cardioData = [String:[String:String]]()
+var cardiovascular = []
+
 class CardiovascularTableViewController: UITableViewController,IndicatorInfoProvider {
 
-    var cardiovascular = []
     let cellIdentifier = "Cell"
     var blackTheme = false
     var itemInfo = IndicatorInfo(title: "View")
+    let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
   
     init(style: UITableViewStyle, itemInfo: IndicatorInfo)
     {
@@ -28,19 +32,48 @@ class CardiovascularTableViewController: UITableViewController,IndicatorInfoProv
     }
 
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        cardiovascular = ["Irregular Heartbeat","Stroke / Heart attack","Low Blood Pressure","High Blood Pressure","Palpitations","Swelling Ankles","Pain / Pressure in Chest","Shortness of Breath"]
-        tableView.registerNib(UINib(nibName: "PostCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: cellIdentifier)
-        if blackTheme {
-            tableView.backgroundColor = UIColor(red: 15/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1.0)
-        }
+    override func viewDidLoad()
+    {
+      super.viewDidLoad()
+      cardiovascular = ["Irregular Heartbeat","Stroke / Heart attack","Low Blood Pressure","High Blood Pressure","Palpitations","Swelling Ankles","Pain / Pressure in Chest","Shortness of Breath"]
+      tableView.registerNib(UINib(nibName: "PostCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: cellIdentifier)
+      if blackTheme
+      {
+        tableView.backgroundColor = UIColor(red: 15/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1.0)
+      }
+      
+      for i in cardiovascular
+      {
+        cardioDic = ["previously":"No","presently":"No"]
+        cardioData.updateValue(cardioDic, forKey: i as! String)
+      }
     }
   
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func didReceiveMemoryWarning()
+    {
+      super.didReceiveMemoryWarning()
+      // Dispose of any resources that can be recreated.
     }
+  
+    override func viewWillDisappear(animated: Bool)
+    {
+      for cells in tableView.visibleCells{
+        let cell = cells as! PostCellTableViewCell
+        if(cell.circleButton.backgroundColor == myColor){
+          cardioData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
+        }
+        else{
+          cardioData[cell.titleLabel.text!]!.updateValue("No", forKey: "presently")
+        }
+        if(cell.squareButton.backgroundColor == myColor){
+          cardioData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
+        }
+        else{
+          cardioData[cell.titleLabel.text!]!.updateValue("No", forKey: "presently")
+        }
+      }
+    }
+  
 
     // MARK: - Table view data source
 
@@ -60,7 +93,6 @@ class CardiovascularTableViewController: UITableViewController,IndicatorInfoProv
       cell.contentView.userInteractionEnabled = false
       cell.titleLabel.text = cardiovascular[indexPath.row] as? String
       cell.circleButton.layer.borderWidth = 1
-      let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
       cell.circleButton.layer.borderColor = myColor.CGColor
       cell.squareButton.layer.borderColor = myColor.CGColor
 

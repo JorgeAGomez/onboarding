@@ -29,8 +29,8 @@ public struct TwitterPagerTabStripSettings {
     public struct Style {
         public var dotColor = UIColor(white: 1, alpha: 0.4)
         public var selectedDotColor = UIColor.whiteColor()
-        public var portraitTitleFont = UIFont.systemFontOfSize(18)
-        public var landscapeTitleFont = UIFont.systemFontOfSize(15)
+        public var portraitTitleFont = UIFont.systemFontOfSize(20)
+        public var landscapeTitleFont = UIFont.systemFontOfSize(16)
         public var titleColor = UIColor.whiteColor()
     }
     
@@ -157,8 +157,8 @@ public class TwitterPagerTabStripViewController: PagerTabStripViewController, Pa
     private lazy var pageControl: FXPageControl = { [unowned self] in
         let pageControl = FXPageControl()
         pageControl.backgroundColor = .clearColor()
-        pageControl.dotSize = 3.8
-        pageControl.dotSpacing = 4.0
+        pageControl.dotSize = 5.5
+        pageControl.dotSpacing = 5.0
         pageControl.dotColor = self.settings.style.dotColor
         pageControl.selectedDotColor = self.settings.style.selectedDotColor
         pageControl.userInteractionEnabled = false
