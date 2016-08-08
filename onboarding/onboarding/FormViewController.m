@@ -203,6 +203,8 @@
         return;
     }
     _personalDictionary = [self formValues];
+    XLFormOptionsObject *province = [_personalDictionary objectForKey:@"Province"];
+    [_personalDictionary setValue:province.displayText forKey:@"Province"];
   
     //Makes sure at least one phone is given
     if([_personalDictionary[@"Home Phone #"] isEqual:[NSNull null]] && [_personalDictionary[@"Cell Phone #"] isEqual:[NSNull null]] && [_personalDictionary[@"Work Phone #"] isEqual:[NSNull null]])

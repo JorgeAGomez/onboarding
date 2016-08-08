@@ -237,6 +237,8 @@ XLFormRowDescriptor *medicationNewCell;
       return;
   }
   _conditionsInformation = [self formValues];
+  //NSLog(@"%@",[self formValues]);
+  //NSLog(@"%@",_conditionsInformation);
   _questionnarie = [[QuestionnarieVC alloc] init];
   _questionnarie.personalInformation = [NSDictionary dictionaryWithDictionary:_personalInformation];
   _questionnarie.medicalInformation = [NSDictionary dictionaryWithDictionary:_medicalInformation];
@@ -244,7 +246,6 @@ XLFormRowDescriptor *medicationNewCell;
   _questionnarie.motorVehicleInjuryInformation = [NSDictionary dictionaryWithDictionary:_motorVehicleInjuryInformation];
   _questionnarie.healthCoverageInformation = [NSDictionary dictionaryWithDictionary:_healthCoverageInformation];
   _questionnarie.conditionsInformation = [NSDictionary dictionaryWithDictionary:_conditionsInformation];
-  //[self performSegueWithIdentifier:@"next5" sender:self];
   [self.navigationController showViewController:_questionnarie sender:self];
   
   

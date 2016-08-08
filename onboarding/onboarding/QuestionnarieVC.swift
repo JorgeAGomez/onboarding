@@ -89,12 +89,23 @@ var isReload = false
       let city = personalInformation["City"]!
       let postalCode = personalInformation["Postal Code"]!
       let province = personalInformation["Province"]!
+      let homePhone = personalInformation["Home Phone #"]!
+      let cellPhone = personalInformation["Cell Phone #"]!
+      let workPhone = personalInformation["Work Phone #"]!
+      let DOB = personalInformation["Date of Birth"]!
+      let PHN = personalInformation["PHN No."]!
     
-    
+      let emergencyContact = medicalInformation["Emergency Contact"]!
+      let contactPhone = medicalInformation["Contact Phone"]!
+      let doctorName = medicalInformation["Medical Doctor's Name"]!
+      let doctorPhone = medicalInformation["Doctor Phone"]!
+      let doctorAddress = medicalInformation["Address"]!
+  
+      
       let logoImage = UIImage(named:"CaleoLogo201x80")!
       pdf.addImage(logoImage)
       pdf.addLineSpace(18)
-      pdf.setFont(UIFont(name: "HelveticaNeue", size: 30)!)
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 22)!)
       pdf.setContentAlignment(.Center)
       pdf.addText("INFORMED CONSENT")
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
@@ -103,7 +114,7 @@ var isReload = false
       pdf.setContentAlignment(.Left)
       pdf.addText("Dear patient: Your information is confidential. We need this information so that we can better care for you. Your consent will help us determine if treatment in our office will benefit you. If we do not sincerely believe your condition will respond satisfactorily, we will not accept your case. In order for us to understand your condition properly, please be as neat and complete as possible while completing all form.")
       pdf.addLineSpace(30)
-      pdf.setFont(UIFont(name: "HelveticaNeue", size: 20)!)
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
       pdf.addText("Consent to Assessment and Treatment")
       pdf.addLineSeparator()
       pdf.addLineSpace(15)
@@ -130,7 +141,7 @@ var isReload = false
       pdf.beginNewPage()
       pdf.addImage(logoImage)
       pdf.addLineSpace(18)
-      pdf.setFont(UIFont(name: "HelveticaNeue", size: 20)!)
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
       pdf.addText("Consent to Release and/or Collect Medical information")
       pdf.addLineSeparator()
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
@@ -149,26 +160,160 @@ var isReload = false
       pdf.addImage(logoImage)
       pdf.addLineSpace(18)
       pdf.setContentAlignment(.Center)
-      pdf.setFont(UIFont(name: "HelveticaNeue", size: 30)!)
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 22)!)
       pdf.addText("New Patient Information Form")
       pdf.addLineSpace(15)
       pdf.setContentAlignment(.Left)
-      pdf.setFont(UIFont(name: "HelveticaNeue", size: 20)!)
+    
+      // PERSONAL INFORMATION
+    
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
       pdf.addText("Personal Information")
       pdf.addLineSeparator()
       pdf.addLineSpace(15)
-      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 11)!)
       pdf.addText("PLEASE ASSIST US TO PROVIDE YOU WITH OPTIMUM CARE BY CAREFULLY ANSWERING EACH SECTION OF THIS FORM. ALL INFORMATION ON THE FORM WILL BE KEPT CONFIDENTIAL.")
       pdf.addLineSpace(15)
-      pdf.setFont(UIFont(name: "HelveticaNeue", size: 14)!)
-      pdf.addText("First name: \(firstName)               Last name: \(lastName)")
-      pdf.addLineSpace(8)
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+      pdf.addText("First name: \(firstName)        Last name: \(lastName)")
+      pdf.addLineSpace(4)
       pdf.addText("Address: \(address)")
-      pdf.addLineSpace(8)
-      pdf.addText("City / Province: \(city)               Postal Code: \(postalCode)")
-      pdf.addLineSpace(8)
-      pdf.addText("Home Phone #: ")
+      pdf.addLineSpace(4)
+      pdf.addText("City / Province: \(city), \(province)        Postal Code: \(postalCode)")
+      pdf.addLineSpace(4)
+      pdf.addText("Home Phone #: \(homePhone)        Cell Phone #: \(cellPhone)        Work Phone: \(workPhone)")
+      pdf.addLineSpace(4)
+      let stringDOB = dateFormatter.stringFromDate(DOB as! NSDate)
+      pdf.addText("Date of birth: \(stringDOB)        PHN #: \(PHN)")
+      pdf.addLineSpace(15)
+    
+      // MEDICAL INFORMATION
+    
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+      pdf.addText("Medical Information")
+      pdf.addLineSeparator()
+      pdf.addLineSpace(15)
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+      pdf.addText("Emergency Contact Name: \(emergencyContact)        Emergency Contact Phone #: \(contactPhone)")
+      pdf.addLineSpace(4)
+      pdf.addText("Medical Doctor's Name: \(doctorName)        Phone #: \(doctorPhone)")
+      pdf.addLineSpace(4)
+      pdf.addText("Address: \(doctorAddress)")
+      pdf.addLineSpace(15)
+    
+    
+      if((workInjuryInformation["Work Related Injury"]!).isEqualToString("Yes")){
+        
+        let dateInjury = workInjuryInformation["Date of Injury"]!
+        let WCB = workInjuryInformation["WCB Claim No."]!
+        let employer  = workInjuryInformation["Employer"]!
+        let phoneNumber = workInjuryInformation["Employer Phone"]!
+        let employerAddress = workInjuryInformation["Employer Address"]!
+        let canContact = workInjuryInformation["Contact employer"]!
 
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+        pdf.addText("Work Related Injury")
+        pdf.addLineSeparator()
+        pdf.addLineSpace(15)
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+        let stringDateInjury = dateFormatter.stringFromDate(dateInjury as! NSDate)
+        pdf.addText("Date of Injury: \(stringDateInjury)        WCB Claim #: \(WCB)")
+        pdf.addLineSpace(4)
+        pdf.addText("Employer: \(employer)         Phone #: \(phoneNumber)")
+        pdf.addLineSpace(4)
+        pdf.addText("Address: \(employerAddress)        May we contact your employer? \(canContact)")
+        pdf.addLineSpace(15)
+        
+      }
+      else{
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+        pdf.addText("Medical Information")
+        pdf.addLineSeparator()
+        pdf.addLineSpace(15)
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+        pdf.addText("N/A")
+        pdf.addLineSpace(15)
+      }
+    
+      if(motorVehicleInjuryInformation["Motor Vehicle Injury"]!.isEqualToString("Yes")){
+        let insuranceCompany = motorVehicleInjuryInformation["Insurence"]!
+        let accidentDate = motorVehicleInjuryInformation["Date of accident"]!
+        let claimNumber = motorVehicleInjuryInformation["Claim/Policy #"]!
+        let adjuster = motorVehicleInjuryInformation["Adjuster"]!
+        let adjusterPhone = motorVehicleInjuryInformation["Phone No."]!
+        let fax = motorVehicleInjuryInformation["Fax #"]!
+        let namePolicy = motorVehicleInjuryInformation["Name on Policy"]!
+        let legalRep = motorVehicleInjuryInformation["Legal Representative"]!
+        
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+        pdf.addText("Motor Vehicle Accident")
+        pdf.addLineSeparator()
+        pdf.addLineSpace(15)
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+        let stringAccidentDate = dateFormatter.stringFromDate(accidentDate as! NSDate)
+        pdf.addText("Insurance Company: \(insuranceCompany)        Date of Injury: \(stringAccidentDate)")
+        pdf.addLineSpace(4)
+        pdf.addText("Claim / Policy #: \(claimNumber)        Adjuster: \(adjuster)")
+        pdf.addLineSpace(4)
+        pdf.addText("Phone #: \(adjusterPhone)        Fax #: \(fax)")
+        pdf.addLineSpace(4)
+        pdf.addText("Name on Policy: \(namePolicy)        Legal Representative(if applicable): \(legalRep)")
+        pdf.addLineSpace(15)
+      }
+      else{
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+        pdf.addText("Motor Vehicle Accident")
+        pdf.addLineSeparator()
+        pdf.addLineSpace(15)
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+        pdf.addText("N/A")
+        pdf.addLineSpace(15)
+      }
+    
+      if(healthCoverageInformation["Extended Health Coverage"]!.isEqualToString("Yes")){
+        let insuranceCompany = healthCoverageInformation["Extended Health Coverage"]!
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+        pdf.addText("Extended Health Coverage")
+        pdf.addLineSeparator()
+        pdf.addLineSpace(15)
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+        pdf.addText("Insurance Company: \(insuranceCompany)")
+        pdf.addLineSpace(15)
+      
+      }
+      else{
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+        pdf.addText("Extended Health Coverage")
+        pdf.addLineSeparator()
+        pdf.addLineSpace(15)
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+        pdf.addText("N/A")
+        pdf.addLineSpace(15)
+      }
+    
+    
+      pdf.addText("Check off any of the following conditions that you may be experiencing:")
+      pdf.addLineSeparator()
+      pdf.addLineSpace(4)
+    
+      let image = UIImage(named: "CaleoLogo201x80")
+      let dataArray = [["Neck Pain / Stifness", ],["Test3", "Test4"]]
+      pdf.addTable(2, columnCount: 2, rowHeight: 100.0, columnWidth: 25.0, tableLineWidth: 0.0, font: UIFont.systemFontOfSize(8.0), dataArray: dataArray)
+    
+      for i in conditionsInformation.allKeys{
+        if(conditionsInformation[i as! String]!.isEqual(NSNull())){
+          pdf.addText("\(i as! String):  ")
+        }
+      }
+    
+    
+      
+    
+    
+    
+    
+    
+ 
     if let documentDirectories = NSSearchPathForDirectoriesInDomains( .DesktopDirectory, .UserDomainMask, true).first {
     
     let fileName = "onboardingForm.pdf"
