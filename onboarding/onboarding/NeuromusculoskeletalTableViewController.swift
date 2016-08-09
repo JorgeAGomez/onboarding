@@ -65,6 +65,8 @@ public class NeuromusculoskeletalTableViewController: UITableViewController, Ind
         }
     }
   
+    
+  
     override public func viewWillDisappear(animated: Bool) {
       for cells in tableView.visibleCells {
         let cell = cells as! PostCellTableViewCell

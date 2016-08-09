@@ -457,16 +457,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="bOE-Ua-qRU">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="oO9-qx-olk">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="hAm-rM-QTQ">
                             <connections>
-                                <action selector="nextButton:" destination="Er4-uc-kf9" id="McS-ZV-FJW"/>
+                                <action selector="doneButton:" destination="Er4-uc-kf9" id="C02-Kc-02L"/>
+                                <segue destination="8eR-rC-0LV" kind="show" identifier="gotonext" id="JdQ-Ig-a82"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="containerView" destination="hTQ-l4-MNy" id="4Cf-lh-KlN"/>
-                        <outlet property="nextButton" destination="oO9-qx-olk" id="h7L-y5-OV3"/>
-                        <segue destination="8eR-rC-0LV" kind="push" identifier="go" id="dg4-sD-Hkf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OSB-Fl-mHb" userLabel="First Responder" sceneMemberID="firstResponder"/>

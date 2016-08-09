@@ -110,6 +110,13 @@ public class TwitterPagerTabStripViewController: PagerTabStripViewController, Pa
         
         // update page control page
         pageControl.currentPage = currentIndex
+        if(childTitleLabels[currentIndex].text == "Neuromusculoskeletal"){
+          self.navigationItem.rightBarButtonItem?.title = "Done"
+          self.navigationItem.rightBarButtonItem?.enabled = true
+        }
+        else{
+          self.navigationItem.rightBarButtonItem?.enabled = false
+        }
     }
     
     public override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
@@ -171,6 +178,7 @@ public class TwitterPagerTabStripViewController: PagerTabStripViewController, Pa
         // remove all child view controller header labels
         childTitleLabels.forEach { $0.removeFromSuperview() }
         childTitleLabels.removeAll()
+      
         for (index, item) in viewControllers.enumerate() {
             let child = item as! IndicatorInfoProvider
             let indicatorInfo = child.indicatorInfoForPagerTabStrip(self)
@@ -186,6 +194,9 @@ public class TwitterPagerTabStripViewController: PagerTabStripViewController, Pa
             navTitleLabel.textColor = settings.style.titleColor
             titleScrollView.addSubview(navTitleLabel)
             childTitleLabels.append(navTitleLabel)
+            if(indicatorInfo.title == "General"){
+              item.navigationItem.rightBarButtonItem?.title = "WooHo"
+            }
         }
     }
     

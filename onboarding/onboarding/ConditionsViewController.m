@@ -169,13 +169,13 @@ XLFormRowDescriptor *medicationNewCell;
     [conditionsSection addFormRow:conditionsRow];
   
   
-    conditionsRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"AllergiesTextField" rowType:XLFormRowDescriptorTypeText];
+    conditionsRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"AllergiesText" rowType:XLFormRowDescriptorTypeText];
     [conditionsRow.cellConfigAtConfigure setObject:@"Please list all your allergies here..." forKey:@"textField.placeholder"];
     conditionsRow.required = YES;
     allergiesNewCell = conditionsRow;
   
   
-    conditionsRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"MedicationTextField" rowType:XLFormRowDescriptorTypeText];
+    conditionsRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"MedicationsText" rowType:XLFormRowDescriptorTypeText];
     [conditionsRow.cellConfigAtConfigure setObject:@"Please list any medications you are currently taken..." forKey:@"textField.placeholder"];
     conditionsRow.required = YES;
     medicationNewCell = conditionsRow;
@@ -237,8 +237,20 @@ XLFormRowDescriptor *medicationNewCell;
       return;
   }
   _conditionsInformation = [self formValues];
-  //NSLog(@"%@",[self formValues]);
-  //NSLog(@"%@",_conditionsInformation);
+  
+  if(![_conditionsInformation[@"Allergies"] isEqualToString:@"No"])
+  {
+    NSString *allegiesValue = [_conditionsInformation valueForKey:@"AllergiesText"];
+    [_conditionsInformation setValue:allegiesValue forKey:@"Allergies"];
+    [_conditionsInformation setValue:nil forKey:@"AllergiesText"];
+  }
+  
+  if(![_conditionsInformation[@"Medications"] isEqualToString:@"No"]){
+    NSString *medicationsValue = [_conditionsInformation valueForKey:@"MedicationsText"];
+    [_conditionsInformation setValue:medicationsValue forKey:@"Medications"];
+    [_conditionsInformation setValue:nil forKey:@"MedicationsText"];
+  }
+  
   _questionnarie = [[QuestionnarieVC alloc] init];
   _questionnarie.personalInformation = [NSDictionary dictionaryWithDictionary:_personalInformation];
   _questionnarie.medicalInformation = [NSDictionary dictionaryWithDictionary:_medicalInformation];

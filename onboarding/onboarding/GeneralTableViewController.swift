@@ -20,7 +20,7 @@ class GeneralTableViewController: UITableViewController, IndicatorInfoProvider {
     var itemInfo = IndicatorInfo(title: "View")
     let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
 
-    init(style: UITableViewStyle, itemInfo: IndicatorInfo)
+    init(title: String, style: UITableViewStyle, itemInfo: IndicatorInfo)
     {
       self.itemInfo = itemInfo
       super.init(style: style)
@@ -49,7 +49,13 @@ class GeneralTableViewController: UITableViewController, IndicatorInfoProvider {
       {
         tableView.backgroundColor = UIColor(red: 15/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1.0)
       }
+    }
+  
+    override func viewDidAppear(animated: Bool) {
       
+      let newB = UIBarButtonItem()
+      newB.title = "NewTitle"
+      self.navigationItem.rightBarButtonItem = newB
     }
 
     override func didReceiveMemoryWarning()
