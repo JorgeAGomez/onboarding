@@ -13,6 +13,11 @@ var generalDic = [String:String]()
 var dic1 = [String:[String:String]]()
 var general = []
 
+let blackCircleCode = 0x026AB
+let blackSquareCode = 0x02B1B
+let circleScalar = UnicodeScalar(blackCircleCode)
+let squareScalar = UnicodeScalar(blackSquareCode)
+
 class GeneralTableViewController: UITableViewController, IndicatorInfoProvider {
 
     let cellIdentifier = "Cell"
@@ -20,7 +25,7 @@ class GeneralTableViewController: UITableViewController, IndicatorInfoProvider {
     var itemInfo = IndicatorInfo(title: "View")
     let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
 
-    init(title: String, style: UITableViewStyle, itemInfo: IndicatorInfo)
+    init(style: UITableViewStyle, itemInfo: IndicatorInfo)
     {
       self.itemInfo = itemInfo
       super.init(style: style)
@@ -111,6 +116,12 @@ class GeneralTableViewController: UITableViewController, IndicatorInfoProvider {
       
       return cell
     }
+  
+        override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    {
+        return "Please check: \(circleScalar) for previously had and \(squareScalar) for presently have"
+    }
+  
         // MARK: - IndicatorInfoProvider
 
     func indicatorInfoForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {

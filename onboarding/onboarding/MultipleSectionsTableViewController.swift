@@ -99,17 +99,21 @@ class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoP
     {
         if(section == 0)
         {
-         return nervousSystem.count
+         return 0
         }
-        if(section == 1)
+        if(section == 1 )
         {
-          return respiratory.count
+          return nervousSystem.count
         }
         if(section == 2)
         {
-          return bloodSugar.count
+          return respiratory.count
         }
         if(section == 3)
+        {
+          return bloodSugar.count
+        }
+        if(section == 4)
         {
           return eyeEarNoseThroat.count
         }
@@ -122,17 +126,21 @@ class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoP
     {
       if(section == 0)
       {
-        return "Nervous System"
+        return "Please check: \(circleScalar) for previously had and \(squareScalar) for presently have"
       }
       if(section == 1)
       {
-       return "Respiratory"
+        return "Nervous System"
       }
       if(section == 2)
       {
-        return "Blood Sugar"
+       return "Respiratory"
       }
       if(section == 3)
+      {
+        return "Blood Sugar"
+      }
+      if(section == 4)
       {
         return "Eye, Ear, Nose and Throat"
       }
@@ -152,23 +160,23 @@ class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoP
       cell.squareButton.layer.borderColor = myColor.CGColor
 
       
-      if(indexPath.section == 0)
+      if(indexPath.section == 1)
       {
         cell.titleLabel.text = nervousSystem[indexPath.row] as? String
       }
-      if(indexPath.section == 1)
+      if(indexPath.section == 2)
       {
         cell.titleLabel.text = respiratory[indexPath.row] as? String
       }
-      if(indexPath.section == 2)
+      if(indexPath.section == 3)
       {
         cell.titleLabel.text = bloodSugar[indexPath.row] as? String
       }
-      if(indexPath.section == 3)
+      if(indexPath.section == 4)
       {
         cell.titleLabel.text = eyeEarNoseThroat[indexPath.row] as? String
       }
-      if(indexPath.section == 4)
+      if(indexPath.section == 5)
       {
         cell.titleLabel.text = urinaryTract[indexPath.row] as? String
       }

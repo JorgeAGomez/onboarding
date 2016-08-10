@@ -13,6 +13,8 @@ var immuneDic = [String:String]()
 var immuneData = [String:[String:String]]()
 var immuneSystemInfection = []
 
+
+
 class ImmuneSystemInfectonTVCTableViewController: UITableViewController, IndicatorInfoProvider {
   
 
@@ -100,6 +102,11 @@ class ImmuneSystemInfectonTVCTableViewController: UITableViewController, Indicat
       cell.circleButton.layer.borderColor = myColor.CGColor
       cell.squareButton.layer.borderColor = myColor.CGColor
       return cell
+    }
+  
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    {
+        return "Please check: \(circleScalar) for previously had and \(squareScalar) for presently have"
     }
   
     // MARK: - IndicatorInfoProvider

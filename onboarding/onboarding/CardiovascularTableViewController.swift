@@ -13,6 +13,7 @@ var cardioDic = [String:String]()
 var cardioData = [String:[String:String]]()
 var cardiovascular = []
 
+
 class CardiovascularTableViewController: UITableViewController,IndicatorInfoProvider {
 
     let cellIdentifier = "Cell"
@@ -97,6 +98,11 @@ class CardiovascularTableViewController: UITableViewController,IndicatorInfoProv
       cell.squareButton.layer.borderColor = myColor.CGColor
 
       return cell
+    }
+  
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    {
+        return "Please check: \(circleScalar) for previously had and \(squareScalar) for presently have"
     }
   
         // MARK: - IndicatorInfoProvider

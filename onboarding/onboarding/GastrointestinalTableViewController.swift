@@ -13,6 +13,7 @@ var gastroDic = [String:String]()
 var gastroData = [String:[String:String]]()
 var gastrointestinal = []
 
+
 class GastrointestinalTableViewController: UITableViewController,IndicatorInfoProvider {
   
     let cellIdentifier = "Cell"
@@ -99,6 +100,11 @@ class GastrointestinalTableViewController: UITableViewController,IndicatorInfoPr
       cell.circleButton.layer.borderColor = myColor.CGColor
       cell.squareButton.layer.borderColor = myColor.CGColor
       return cell
+    }
+  
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    {
+        return "Please check: \(circleScalar) for previously had and \(squareScalar) for presently have"
     }
   
         // MARK: - IndicatorInfoProvider

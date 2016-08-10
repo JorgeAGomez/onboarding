@@ -38,6 +38,20 @@ var isReload = false
     
     self.navigationItem.hidesBackButton = true
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: self, action: #selector(doneTapped))
+    
+    // Create the alert controller
+    let alertController = UIAlertController(title: "Instructions", message: "Swipe left and right to nagivate through the questionnarie", preferredStyle: .Alert)
+
+    // Create the actions
+    
+    let okAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+
+    // Add the actions
+    alertController.addAction(okAction)
+
+    // Present the controller
+    self.presentViewController(alertController, animated: true, completion: nil)
+
 
   }
   
@@ -47,10 +61,10 @@ var isReload = false
   
   public override func viewControllersForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         
-        let child_1 = GeneralTableViewController(title: "A", style: .Plain, itemInfo: "General")
-        let child_2 = ImmuneSystemInfectonTVCTableViewController(style: .Plain, itemInfo: "Immune System / infection")
-        let child_3 = GastrointestinalTableViewController(style: .Plain, itemInfo: "Gastrointestinal")
-        let child_4 = CardiovascularTableViewController(style: .Plain, itemInfo: "Cardiovascular")
+        let child_1 = GeneralTableViewController(style: .Grouped, itemInfo: "General")
+        let child_2 = ImmuneSystemInfectonTVCTableViewController(style: .Grouped, itemInfo: "Immune System / infection")
+        let child_3 = GastrointestinalTableViewController(style: .Grouped, itemInfo: "Gastrointestinal")
+        let child_4 = CardiovascularTableViewController(style: .Grouped, itemInfo: "Cardiovascular")
         let child_5 = MultipleSectionsTableViewController(style: .Grouped, itemInfo: "Other Systems")
         let child_6 = NeuromusculoskeletalTableViewController(style: .Grouped, itemInfo: "Neuromusculoskeletal")
         
@@ -302,8 +316,10 @@ var isReload = false
     
         let blackCircleCode = 0x026AB
         let box_with_checkMark = 0x02611
+        let blackSquareCode = 0x02B1B
         let circleScalar = UnicodeScalar(blackCircleCode)
         let checkMarkScalar = UnicodeScalar(box_with_checkMark)
+        let squareScalar = UnicodeScalar(blackSquareCode)
     
     
     
@@ -312,6 +328,12 @@ var isReload = false
     
       let emptyCircle = String.fontAwesomeIconWithName(FontAwesome.Github)
       print(emptyCircle)
+    
+      let conditionData = [["Neck Pain / stiffness","\(checkMarkScalar)"],["Arthritis in neck","\(checkMarkScalar)"],["Headaches", ""],["Jaw Pain / TMJ","\(checkMarkScalar)"]]
+    
+      pdf.addTable(4, columnCount: 2, rowHeight: 20, columnWidth: 130, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: conditionData)
+    
+      pdf.addLineSpace(20)
     
       for i in conditionsInformation.allKeys{
         if(conditionsInformation[i as! String]!.isEqual(NSNull()) || conditionsInformation[i as! String]!.isEqual(false))
@@ -349,7 +371,7 @@ var isReload = false
       pdf.addLineSeparator()
       pdf.addLineSpace(15)
       for i in general{
-        pdf.addText("\(i as! String):    \(circleScalar)")
+        pdf.addText("\(i as! String):    \(circleScalar)     \(squareScalar)")
       }
       pdf.addLineSpace(15)
     
@@ -358,6 +380,11 @@ var isReload = false
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
       pdf.addLineSeparator()
       pdf.addLineSpace(15)
+    
+      let arrayData = [["Condition","Previously had","Presently have"],["HIV(AIDS)","\(circleScalar)","\(squareScalar)"],["Pneumonia","\(circleScalar)","\(squareScalar)"],["Allergies / sinus troubles","","\(squareScalar)"],["Catch colds / flue Easily","\(circleScalar)",""]]
+      pdf.addTable(5, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: arrayData)
+      pdf.addLineSpace(20)
+    
       for i in immuneSystemInfection{
         pdf.addText("\(i as! String)")
       }
@@ -492,6 +519,47 @@ var isReload = false
         pdf.addText("\(i as! String)")
       }
       pdf.addLineSpace(15)
+    
+    /*if let documentDirectories = NSSearchPathForDirectoriesInDomains( .DocumentDirectory, .UserDomainMask, true).first {
+    
+    let fileName = "onboardingForm.pdf"
+    let documentsFileName = documentDirectories + "/" + fileName
+    
+    let pdfData = pdf.generatePDFdata()
+    
+
+    
+    do{
+        try pdfData.writeToFile(documentsFileName, options: .DataWritingAtomic)
+        print("\nThe generated pdf can be found at:")
+        print("\n\t\(documentsFileName)\n")
+    }catch{
+        print(error)
+    }
+    
+    let mailComposer = MFMailComposeViewController()
+    mailComposer.mailComposeDelegate = self
+
+    //Set to recipients
+    mailComposer.setToRecipients(["jorge_gomez12@hotmail.com"])
+
+    //Set the subject
+    mailComposer.setSubject("email with document pdf")
+
+    //set mail body
+    mailComposer.setMessageBody("Check the PDF file.", isHTML: true)
+    
+    mailComposer.addAttachmentData(pdfData, mimeType: "pdf", fileName: "onboarding.pdf")
+  
+    self.presentViewController(mailComposer, animated: true, completion: nil)
+
+    }
+    
+    //this will compose and present mail to user
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?)
+    {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }*/
     
     
     if let documentDirectories = NSSearchPathForDirectoriesInDomains( .DesktopDirectory, .UserDomainMask, true).first {
