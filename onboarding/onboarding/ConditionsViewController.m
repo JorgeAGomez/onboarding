@@ -26,6 +26,7 @@ XLFormRowDescriptor *medicationChecked;
 XLFormRowDescriptor *medicationNewCell;
 
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.contentInset = UIEdgeInsetsMake(30,0,0,0);
@@ -250,6 +251,14 @@ XLFormRowDescriptor *medicationNewCell;
     [_conditionsInformation setValue:medicationsValue forKey:@"Medications"];
     [_conditionsInformation setValue:nil forKey:@"MedicationsText"];
   }
+  
+  /*
+  for(id key in _conditionsInformation){
+    if([_conditionsInformation[key] isEqual:@(NO)]){
+      [_conditionsInformation setValue:@"No" forKey:key];
+    }
+  }*/
+
   
   _questionnarie = [[QuestionnarieVC alloc] init];
   _questionnarie.personalInformation = [NSDictionary dictionaryWithDictionary:_personalInformation];

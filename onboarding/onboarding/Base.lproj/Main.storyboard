@@ -354,10 +354,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="Er4-uc-kf9" kind="push" identifier="goToQues" id="R0d-Vc-rg7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QXK-rw-7qr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6134" y="28"/>
+            <point key="canvasLocation" x="6594" y="36"/>
         </scene>
         <!--Submit Screen View Controller-->
         <scene sceneID="hdp-JY-UgY">
@@ -456,26 +459,20 @@
                             <constraint firstItem="hTQ-l4-MNy" firstAttribute="top" secondItem="6XX-hk-2xv" secondAttribute="bottom" constant="-64" id="waq-wr-4iS"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="bOE-Ua-qRU">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="hAm-rM-QTQ">
-                            <connections>
-                                <action selector="doneButton:" destination="Er4-uc-kf9" id="C02-Kc-02L"/>
-                                <segue destination="8eR-rC-0LV" kind="show" identifier="gotonext" id="JdQ-Ig-a82"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="bOE-Ua-qRU"/>
                     <connections>
                         <outlet property="containerView" destination="hTQ-l4-MNy" id="4Cf-lh-KlN"/>
+                        <segue destination="8eR-rC-0LV" kind="push" identifier="nextScreen" id="YN5-VQ-r3m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OSB-Fl-mHb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7769" y="4"/>
+            <point key="canvasLocation" x="7521" y="44"/>
         </scene>
         <!--Informed Consent-->
         <scene sceneID="FuA-2W-bkh">
             <objects>
-                <viewController storyboardIdentifier="consent" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8eR-rC-0LV" customClass="ConsentFirstPageViewController" customModule="onboarding" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="goNext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8eR-rC-0LV" customClass="ConsentFirstPageViewController" customModule="onboarding" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yje-bo-pi8"/>
                         <viewControllerLayoutGuide type="bottom" id="M0g-fR-bz8"/>
@@ -553,7 +550,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWI-Br-xGy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8696" y="79"/>
+            <point key="canvasLocation" x="8309" y="244"/>
         </scene>
         <!--Informed Consent-->
         <scene sceneID="ZPZ-4V-Qiu">
@@ -801,25 +798,6 @@ By initialing below, I hereby acknowledge that I have read and understood the pr
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1l4-Jt-7dg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-467" y="900"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="GQS-G3-VPb">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DlD-RG-11R" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="UPx-f4-vX1"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yTr-cB-1ke">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Er4-uc-kf9" kind="relationship" relationship="rootViewController" id="NNK-8b-YVI"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MxG-M6-fLZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6855" y="12"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pLf-3E-gjD">
