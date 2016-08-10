@@ -11,4 +11,5 @@
 
 @interface ReleaseCollectConsentViewController : UIViewController
 
+//extern NSString *consentInitials;
 @end

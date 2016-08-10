@@ -11,15 +11,17 @@ import XLPagerTabStrip
 
 var multipleDic = [String:String]()
 var multipleData = [String:[String:String]]()
+var multiple = []
+var nervousSystem = []
+var respiratory = []
+var bloodSugar = []
+var eyeEarNoseThroat = []
+var urinaryTract = []
 
 class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoProvider {
   
-    var nervousSystem = []
-    var respiratory = []
-    var bloodSugar = []
-    var eyeEarNoseThroat = []
-    var urinaryTract = []
-    var multiple = []
+
+  
   
     let cellIdentifier = "Cell"
     var blackTheme = false

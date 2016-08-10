@@ -19,12 +19,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)viewDidDisappear:(BOOL)animated{
+  //treatmentInitials = _assessmentInitialsTextField.text;
 }
+
+
 - (IBAction)agreeTapped:(id)sender {
   if([_assessmentInitialsTextField.text isEqualToString:@""])
   {

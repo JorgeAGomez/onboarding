@@ -8,6 +8,7 @@
 #import "ReleaseCollectConsentViewController.h"
 #import <ResearchKit/ResearchKit.h>
 
+
 @interface ReleaseCollectConsentViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *collectInfoInitialsTextField;
 
@@ -18,6 +19,15 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+  //consentInitials = _collectInfoInitialsTextField.text;
+}
+
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  
 }
 
 - (IBAction)agreeTapped:(id)sender {

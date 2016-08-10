@@ -78,50 +78,50 @@
     [carAccidentSection addFormRow:carAccidentRow];
   
   
-    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Insurence" rowType:XLFormRowDescriptorTypeName title:@"Insurance Company"];
-    [carAccidentRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Insurence" rowType:XLFormRowDescriptorTypeName title:@"Insurance Company:"];
+    [carAccidentRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     carAccidentRow.required = YES;
     _insurance = carAccidentRow;
   
     //Date of accident
-    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Date of accident" rowType:XLFormRowDescriptorTypeDateInline title:@"Date of accident"];
+    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Date of accident" rowType:XLFormRowDescriptorTypeDateInline title:@"Date of accident:"];
     //carAccidentRow.value = [NSDate new];
     _date = carAccidentRow;
   
     //Claim / Policy number
-    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Claim/Policy #" rowType:XLFormRowDescriptorTypeNumber title:@"Claim/Policy #"];
-    [carAccidentRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Claim/Policy #" rowType:XLFormRowDescriptorTypeNumber title:@"Claim/Policy #:"];
+    [carAccidentRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     _claim = carAccidentRow;
   
     //Adjuster
-    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Adjuster" rowType:XLFormRowDescriptorTypeName title:@"Adjuster Name"];
-    [carAccidentRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Adjuster" rowType:XLFormRowDescriptorTypeName title:@"Adjuster Name:"];
+    [carAccidentRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     _adjuster = carAccidentRow;
   
     //Phone No.
     SHSPhoneNumberFormatter *formatter = [[SHSPhoneNumberFormatter alloc] init];
     [formatter setDefaultOutputPattern:@"(###) ###-####" imagePath:nil];
-    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Phone No." rowType:XLFormRowDescriptorTypePhone title:@"Phone #"];
+    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Phone No." rowType:XLFormRowDescriptorTypePhone title:@"Phone #:"];
     carAccidentRow.valueFormatter = formatter;
     carAccidentRow.useValueFormatterDuringInput = YES;
-    [carAccidentRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    [carAccidentRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     _phone = carAccidentRow;
   
     //Fax #
-    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Fax #" rowType:XLFormRowDescriptorTypePhone title:@"Fax #"];
-    [carAccidentRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Fax #" rowType:XLFormRowDescriptorTypePhone title:@"Fax #:"];
+    [carAccidentRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     carAccidentRow.valueFormatter = formatter;
     carAccidentRow.useValueFormatterDuringInput = YES;
     _fax = carAccidentRow;
   
     //Name on Policy
-    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Name on Policy" rowType:XLFormRowDescriptorTypeName title:@"Name on Policy"];
-    [carAccidentRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Name on Policy" rowType:XLFormRowDescriptorTypeName title:@"Name on Policy:"];
+    [carAccidentRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     _policyName = carAccidentRow;
   
     //Legal Representative(if applicable)
-    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Legal Representative" rowType:XLFormRowDescriptorTypeText title:@"Legal Representative (if applicable)"];
-    [carAccidentRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Legal Representative" rowType:XLFormRowDescriptorTypeText title:@"Legal Representative (if applicable):"];
+    [carAccidentRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     _legalRepresentative = carAccidentRow;
 
     self.form = carAccidentForm;

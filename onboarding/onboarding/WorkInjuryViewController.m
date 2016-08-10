@@ -72,34 +72,34 @@
     [workInjurySection addFormRow:workInjuryRow];
   
     //Date of Injury
-    workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Date of Injury" rowType:XLFormRowDescriptorTypeDateInline title:@"Date of Injury"];
+    workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Date of Injury" rowType:XLFormRowDescriptorTypeDateInline title:@"Date of Injury:"];
     //workInjuryRow.value = [NSDate date];
     workInjuryRow.required = YES;
     _dateOfInjury = workInjuryRow;
   
     //WCB Claim Number --> NOT required but need to be provided ASAP
-    workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"WCB Claim No." rowType:XLFormRowDescriptorTypeNumber title:@"WCB Claim #"];
-    [workInjuryRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"WCB Claim No." rowType:XLFormRowDescriptorTypeNumber title:@"WCB Claim #:"];
+    [workInjuryRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     _WCBClaim = workInjuryRow;
   
     //Employer
-    workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Employer" rowType:XLFormRowDescriptorTypeName title:@"Employer"];
-    [workInjuryRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Employer" rowType:XLFormRowDescriptorTypeName title:@"Employer:"];
+    [workInjuryRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     workInjuryRow.required = YES;
     _Employer = workInjuryRow;
   
     //Phone number
     SHSPhoneNumberFormatter *formatter = [[SHSPhoneNumberFormatter alloc] init];
     [formatter setDefaultOutputPattern:@"(###) ###-####" imagePath:nil];
-    workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Employer Phone" rowType:XLFormRowDescriptorTypeText title:@"Employer Phone #"];
-    [workInjuryRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Employer Phone" rowType:XLFormRowDescriptorTypeText title:@"Employer Phone #:"];
+    [workInjuryRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     workInjuryRow.valueFormatter = formatter;
     workInjuryRow.useValueFormatterDuringInput = YES;
     _Phone = workInjuryRow;
   
     //Address
-    workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Employer Address" rowType:XLFormRowDescriptorTypeText title:@"Address"];
-    [workInjuryRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Employer Address" rowType:XLFormRowDescriptorTypeText title:@"Address:"];
+    [workInjuryRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     _Address = workInjuryRow;
   
     //Can we contact the employer?

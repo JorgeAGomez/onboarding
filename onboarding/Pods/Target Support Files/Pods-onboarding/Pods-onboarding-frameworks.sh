@@ -85,6 +85,7 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/AFNetworking/AFNetworking.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/FontAwesome.swift/FontAwesome_swift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/HMSegmentedControl/HMSegmentedControl.framework"
   install_framework "$BUILT_PRODUCTS_DIR/JVFloatLabeledTextField/JVFloatLabeledTextField.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MXPagerView/MXPagerView.framework"
@@ -100,6 +101,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/AFNetworking/AFNetworking.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/FontAwesome.swift/FontAwesome_swift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/HMSegmentedControl/HMSegmentedControl.framework"
   install_framework "$BUILT_PRODUCTS_DIR/JVFloatLabeledTextField/JVFloatLabeledTextField.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MXPagerView/MXPagerView.framework"

@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FontAwesome.swift-FontAwesome.swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FontAwesome.swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>HMSegmentedControl.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,32 +92,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>13F6A761D41DE6517CBD951B84CCF1C1</key>
+		<key>0483ED0494989515DDCD6CE7FDD70DEA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>15C018A58B4C14D1962285A8532F0252</key>
+		<key>079693DF9BC072D920F84AF63E64CBD4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1B7E4C8749E6E829DEE71B4EFCC8B234</key>
+		<key>1FE2578FF0805299395CF2A0206BB671</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1EE505D59887EB43940C8B019C466C91</key>
+		<key>24E455500CFC12E3784552804EDD6C41</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3500C8FDD343FE66437113FE472BE711</key>
+		<key>32868E36D4FF9D681B6F1C1D47E18B0F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>47156DBD4D88B8F5CBA7C4970295F47E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>4878C70B21CA37D7CB8A476BF986741B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>62437863F2D9089A8BB6136F37EAFE14</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,12 +152,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C4FD086AC3AC29F52FFBCE712BCC0EC6</key>
+		<key>C1AC3319DDA0BDCD1904A8DC1D6C5AB7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C65248259A1E2BD7BA2867DBA0F87BC1</key>
+		<key>C886419C515CF117524071DA11D50148</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -147,12 +167,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D414F88E4BF115BC798829CABDFE2AB7</key>
+		<key>EF4F067C2D0E135B80299B089E168BDA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FA733758EF5B0F419D03EC188F8DB300</key>
+		<key>F316F515362DDA807AF91A1913C345B0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

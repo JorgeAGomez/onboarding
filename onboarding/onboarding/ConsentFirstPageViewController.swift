@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import FontAwesome_swift
 
 class ConsentFirstPageViewController: UIViewController {
 
+  @IBOutlet weak var labelText: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+  
+  
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

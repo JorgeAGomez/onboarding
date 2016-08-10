@@ -57,8 +57,8 @@
     [medicalInfoForm addFormSection:medicallInfoSection];
   
     //Emergency contact
-    medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Emergency Contact" rowType:XLFormRowDescriptorTypeName title:@"Emergency Contact Name"];
-    [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Emergency Contact" rowType:XLFormRowDescriptorTypeName title:@"Emergency Contact Name:"];
+    [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentCenter) forKey:@"textField.textAlignment"];
     medicalInfoRow.required = YES;
     [medicallInfoSection addFormRow:medicalInfoRow];
   
@@ -66,29 +66,29 @@
     SHSPhoneNumberFormatter *formatter = [[SHSPhoneNumberFormatter alloc] init];
     [formatter setDefaultOutputPattern:@"(###) ###-####" imagePath:nil];
     medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Contact Phone" rowType:
-    XLFormRowDescriptorTypePhone title:@"Emergency Contact Phone #"];
+    XLFormRowDescriptorTypePhone title:@"Emergency Contact Phone #:"];
     medicalInfoRow.valueFormatter = formatter;
-    [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentCenter) forKey:@"textField.textAlignment"];
     medicalInfoRow.useValueFormatterDuringInput = YES;
     medicalInfoRow.required = YES;
 
     [medicallInfoSection addFormRow:medicalInfoRow];
   
     //Medical Doctor's Name
-    medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Medical Doctor's Name" rowType:XLFormRowDescriptorTypeName title:@"Medical Doctor's Name"];
-    [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Medical Doctor's Name" rowType:XLFormRowDescriptorTypeName title:@"Medical Doctor's Name:"];
+    [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentCenter) forKey:@"textField.textAlignment"];
     [medicallInfoSection addFormRow:medicalInfoRow];
   
         //Emergency contact Phone No.
-    medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Doctor Phone" rowType:XLFormRowDescriptorTypePhone title:@"Doctor Phone #"];
+    medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Doctor Phone" rowType:XLFormRowDescriptorTypePhone title:@"Doctor Phone #:"];
     medicalInfoRow.valueFormatter = formatter;
     medicalInfoRow.useValueFormatterDuringInput = YES;
-    [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentCenter) forKey:@"textField.textAlignment"];
     [medicallInfoSection addFormRow:medicalInfoRow];
   
     //Address
-    medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Address" rowType:XLFormRowDescriptorTypeText title:@"Address"];
-    [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Address" rowType:XLFormRowDescriptorTypeText title:@"Address:"];
+    [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentCenter) forKey:@"textField.textAlignment"];
     [medicallInfoSection addFormRow:medicalInfoRow];
   
     self.form = medicalInfoForm;

@@ -59,35 +59,36 @@
     [personalInformationForm addFormSection:personalInformationSection];
   
     //First name
-    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"First name" rowType:XLFormRowDescriptorTypeName title:@"First name"];
+    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"First name" rowType:XLFormRowDescriptorTypeName title:@"First name:"];
     personalInformationRow.required = YES;
-    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     [personalInformationSection addFormRow:personalInformationRow];
   
     //Last name
-    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Last name" rowType:XLFormRowDescriptorTypeName title:@"Last name"];
+    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Last name" rowType:XLFormRowDescriptorTypeName title:@"Last name:"];
     personalInformationRow.required = YES;
-    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     [personalInformationSection
     
       addFormRow:personalInformationRow];
   
     // Address
-    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Address" rowType:XLFormRowDescriptorTypeText title:@"Address"];
-    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Address" rowType:XLFormRowDescriptorTypeText title:@"Address:"];
+    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     personalInformationRow.required = YES;
     [personalInformationSection addFormRow:personalInformationRow];
   
     //City
-    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"City" rowType:XLFormRowDescriptorTypeText title:@"City"];
+    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"City" rowType:XLFormRowDescriptorTypeText title:@"City:"];
     personalInformationRow.value = @"Calgary";
     personalInformationRow.required = YES;
-    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     [personalInformationSection addFormRow:personalInformationRow];
   
     //Province
-    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Province" rowType:XLFormRowDescriptorTypeSelectorPush title:@"Province"];
+    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Province" rowType:XLFormRowDescriptorTypeSelectorPush title:@"Province:"];
     personalInformationRow.value = [XLFormOptionsObject formOptionsObjectWithValue:@(0) displayText:@"Alberta"];
+    //[personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
 
     personalInformationRow.selectorTitle = @"Province";
     personalInformationRow.selectorOptions =
@@ -110,36 +111,36 @@
     [personalInformationSection addFormRow:personalInformationRow];
   
     //Postal Code
-    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Postal Code" rowType:XLFormRowDescriptorTypeText title:@"Postal Code"];
-    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Postal Code" rowType:XLFormRowDescriptorTypeText title:@"Postal Code:"];
+    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     personalInformationRow.required = YES;
     [personalInformationSection addFormRow:personalInformationRow];
   
     //Select type of Home Phone #
     SHSPhoneNumberFormatter *formatter = [[SHSPhoneNumberFormatter alloc] init];
     [formatter setDefaultOutputPattern:@"(###) ###-####" imagePath:nil];
-    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Home Phone #" rowType:XLFormRowDescriptorTypePhone title:@"Home Phone #"];
+    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Home Phone #" rowType:XLFormRowDescriptorTypePhone title:@"Home Phone #:"];
     personalInformationRow.valueFormatter = formatter;
-    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     personalInformationRow.useValueFormatterDuringInput = YES;
     [personalInformationSection addFormRow:personalInformationRow];
   
         //Select type of Cell Phone #
-    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Cell Phone #" rowType:XLFormRowDescriptorTypePhone title:@"Cell Phone #"];
+    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Cell Phone #" rowType:XLFormRowDescriptorTypePhone title:@"Cell Phone #:"];
     personalInformationRow.valueFormatter = formatter;
-    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     personalInformationRow.useValueFormatterDuringInput = YES;
     [personalInformationSection addFormRow:personalInformationRow];
   
         //Select type of  Work Phone #
-    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Work Phone #" rowType:XLFormRowDescriptorTypePhone title:@"Work Phone #"];
+    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Work Phone #" rowType:XLFormRowDescriptorTypePhone title:@"Work Phone #:"];
     personalInformationRow.valueFormatter = formatter;
-    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     personalInformationRow.useValueFormatterDuringInput = YES;
     [personalInformationSection addFormRow:personalInformationRow];
 
     //Date of Birth
-    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Date of Birth" rowType:XLFormRowDescriptorTypeDateInline title:@"Date of Birth"];
+    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Date of Birth" rowType:XLFormRowDescriptorTypeDateInline title:@"Date of Birth:"];
     //personalInformationRow.value = [NSDate new];
     personalInformationRow.required = YES;
     [personalInformationSection addFormRow:personalInformationRow];
@@ -147,9 +148,9 @@
     //PHN #
     SHSPhoneNumberFormatter *PHNformatter = [[SHSPhoneNumberFormatter alloc] init];
     [PHNformatter setDefaultOutputPattern:@"#####-####" imagePath:nil];
-    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"PHN No." rowType:XLFormRowDescriptorTypeNumber title:@"Personal Health Number (PHN)"];
+    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"PHN No." rowType:XLFormRowDescriptorTypeNumber title:@"Personal Health Number (PHN):"];
      personalInformationRow.valueFormatter = PHNformatter;
-    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentLeft) forKey:@"textField.textAlignment"];
+    [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     personalInformationRow.useValueFormatterDuringInput = YES;
     [personalInformationRow.cellConfigAtConfigure setObject:@"12345-6789" forKey:@"textField.placeholder"];
     [personalInformationSection addFormRow:personalInformationRow];

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '1EE505D59887EB43940C8B019C466C91'
+               BlueprintIdentifier = 'C886419C515CF117524071DA11D50148'
                BlueprintName = 'XLData'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'XLData.framework'>

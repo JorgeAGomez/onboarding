@@ -12,17 +12,18 @@ import SimplePDF
 
 var neuroDic = [String:String]()
 var neuroData = [String:[String:String]]()
+var neuro = []
+var headNeck = []
+var shoulder = []
+var midback = []
+var lowback = []
+var armshands = []
+var hipsLegsFeet = []
 
 public class NeuromusculoskeletalTableViewController: UITableViewController, IndicatorInfoProvider {
 
-    var headNeck = []
-    var shoulder = []
-    var midback = []
-    var lowback = []
-    var armshands = []
-    var hipsLegsFeet = []
-    var neuro = []
-  
+
+    
     let cellIdentifier = "Cell"
     var blackTheme = false
     var itemInfo = IndicatorInfo(title: "View")

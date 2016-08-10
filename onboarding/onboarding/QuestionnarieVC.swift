@@ -11,6 +11,7 @@ import Foundation
 import XLPagerTabStrip
 import SimplePDF
 import MessageUI
+import FontAwesome_swift
 
 public class QuestionnarieVC: TwitterPagerTabStripViewController, MFMailComposeViewControllerDelegate {
 
@@ -122,7 +123,7 @@ var isReload = false
       pdf.addLineSpace(15)
       pdf.addText("By initialing below, I hereby acknowledge that I have read and understood the preceding statements. I have also had an opportunity to ask questions and address any concerns in regards to its content. I intend this consent form to serve as written consent throughout the entire course of treatment of my present condition and for any future condition(s) for which I may seek treatment at Caleo Health. If at any time I decide that I am unwilling to engage or continue with these procedures, I reserve the right to inform my therapist or doctor of such, and withdraw my consent at anytime in any or all forms of evaluation and/or treatment.")
       pdf.addLineSpace(15)
-      pdf.addText("Patient's / Guarantor's Initials: ______")
+      pdf.addText("Patient's / Guarantor's Initials: \(firstName) \(lastName)")
       let date = NSDate()
       let dateFormatter = NSDateFormatter()
       dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -143,9 +144,9 @@ var isReload = false
       pdf.addLineSpace(15)
       pdf.addText("By signing below, I hereby acknowledge that I have read and understand the above statements, and consent to the release of any or all relevant medical information pertinent to my case to: medical/technical consultants; legal representatives; insurance carriers and third party payers involved in the case. I reserve the right to inform my therapist or doctor of such, and withdraw my consent at anytime in whole or in part to the information within.")
       pdf.addLineSpace(15)
-      pdf.addText("Patient's / Guarantor's Initials: ______")
+      pdf.addText("Patient's / Guarantor's Initials: \(firstName) \(lastName)")
       pdf.addText("Date: \(stringDate)")
-      pdf.addText("Consent reviewed with patient: Therapist's Signature / Initirals or Office stamp: ______")
+      pdf.addText("Consent reviewed with patient: Therapist's Signature / Initials or Office stamp: ______")
     
       ////////////
     
@@ -285,14 +286,37 @@ var isReload = false
       }
     
       pdf.beginNewPage()
+      pdf.addImage(logoImage)
+      pdf.addLineSpace(18)
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 22)!)
+      pdf.setContentAlignment(.Center)
+      pdf.addText("Conditions")
+      pdf.setContentAlignment(.Left)
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+      pdf.addLineSeparator()
+      pdf.addLineSpace(15)
       pdf.addText("Check off any of the following conditions that you may be experiencing:")
       pdf.addLineSeparator()
       pdf.addLineSpace(15)
-
+    
+    
+        let blackCircleCode = 0x026AB
+        let box_with_checkMark = 0x02611
+        let circleScalar = UnicodeScalar(blackCircleCode)
+        let checkMarkScalar = UnicodeScalar(box_with_checkMark)
+    
+    
+    
+      let emptycircleIcon = String.fontAwesomeIconWithCode("(&#xf10c;)")
+      print(emptycircleIcon)
+    
+      let emptyCircle = String.fontAwesomeIconWithName(FontAwesome.Github)
+      print(emptyCircle)
+    
       for i in conditionsInformation.allKeys{
         if(conditionsInformation[i as! String]!.isEqual(NSNull()) || conditionsInformation[i as! String]!.isEqual(false))
         {
-          pdf.addText("\(i as! String):   No")
+          pdf.addText("\(i as! String):   \(checkMarkScalar)")
         }
         else{
           if(i.isEqualToString("Allergies") || i.isEqualToString("Medications"))
@@ -305,7 +329,171 @@ var isReload = false
         }
       }
     
- 
+      //QUESTIONNARIE
+    
+      pdf.beginNewPage()
+      pdf.addImage(logoImage)
+      pdf.addLineSpace(18)
+      pdf.setContentAlignment(.Center)
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 22)!)
+      pdf.addText("Health Report Questinnarie")
+      pdf.addLineSpace(15)
+      pdf.setContentAlignment(.Left)
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+      pdf.addText("For the following conditions please check: CIRCLE for previously had and SQUARE for presently have")
+      pdf.addLineSpace(15)
+    
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+      pdf.addText("General")
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+      pdf.addLineSeparator()
+      pdf.addLineSpace(15)
+      for i in general{
+        pdf.addText("\(i as! String):    \(circleScalar)")
+      }
+      pdf.addLineSpace(15)
+    
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+      pdf.addText("Immune System / infection")
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+      pdf.addLineSeparator()
+      pdf.addLineSpace(15)
+      for i in immuneSystemInfection{
+        pdf.addText("\(i as! String)")
+      }
+      pdf.addLineSpace(15)
+    
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+      pdf.addText("Gastrointestinal")
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+      pdf.addLineSeparator()
+      pdf.addLineSpace(15)
+      for i in gastrointestinal{
+        pdf.addText("\(i as! String)")
+      }
+      pdf.addLineSpace(15)
+    
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+      pdf.addText("Cardiovascular")
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+      pdf.addLineSeparator()
+      pdf.addLineSpace(15)
+      for i in cardiovascular{
+        pdf.addText("\(i as! String)")
+      }
+      pdf.addLineSpace(15)
+    
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+      pdf.addText("Nervous System")
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+      pdf.addLineSeparator()
+      pdf.addLineSpace(15)
+      for i in nervousSystem{
+        pdf.addText("\(i as! String)")
+      }
+      pdf.addLineSpace(15)
+    
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+      pdf.addText("Respiratory")
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+      pdf.addLineSeparator()
+      pdf.addLineSpace(15)
+      for i in respiratory{
+        pdf.addText("\(i as! String)")
+      }
+      pdf.addLineSpace(15)
+    
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+      pdf.addText("Blood Sugar")
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+      pdf.addLineSeparator()
+      pdf.addLineSpace(15)
+      for i in bloodSugar{
+        pdf.addText("\(i as! String)")
+      }
+      pdf.addLineSpace(15)
+    
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+      pdf.addText("Eye, Ear, Nose and Throat")
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+      pdf.addLineSeparator()
+      pdf.addLineSpace(15)
+      for i in eyeEarNoseThroat{
+        pdf.addText("\(i as! String)")
+      }
+      pdf.addLineSpace(15)
+    
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+      pdf.addText("Urinary Tract")
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+      pdf.addLineSeparator()
+      pdf.addLineSpace(15)
+      for i in urinaryTract{
+        pdf.addText("\(i as! String)")
+      }
+      pdf.addLineSpace(15)
+    
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+      pdf.addText("Head & Neck")
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+      pdf.addLineSeparator()
+      pdf.addLineSpace(15)
+      for i in headNeck{
+        pdf.addText("\(i as! String)")
+      }
+      pdf.addLineSpace(15)
+    
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+      pdf.addText("Shoulder")
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+      pdf.addLineSeparator()
+      pdf.addLineSpace(15)
+      for i in shoulder{
+        pdf.addText("\(i as! String)")
+      }
+      pdf.addLineSpace(15)
+    
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+      pdf.addText("Mid-Back")
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+      pdf.addLineSeparator()
+      pdf.addLineSpace(15)
+      for i in midback{
+        pdf.addText("\(i as! String)")
+      }
+      pdf.addLineSpace(15)
+    
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+      pdf.addText("Low Back")
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+      pdf.addLineSeparator()
+      pdf.addLineSpace(15)
+      for i in lowback{
+        pdf.addText("\(i as! String)")
+      }
+      pdf.addLineSpace(15)
+    
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+      pdf.addText("Arms & Hands")
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+      pdf.addLineSeparator()
+      pdf.addLineSpace(15)
+      for i in armshands{
+        pdf.addText("\(i as! String)")
+      }
+      pdf.addLineSpace(15)
+    
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+      pdf.addText("Hips, Legs & Feet")
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+      pdf.addLineSeparator()
+      pdf.addLineSpace(15)
+      for i in hipsLegsFeet{
+        pdf.addText("\(i as! String)")
+      }
+      pdf.addLineSpace(15)
+    
+    
     if let documentDirectories = NSSearchPathForDirectoriesInDomains( .DesktopDirectory, .UserDomainMask, true).first {
     
     let fileName = "onboardingForm.pdf"

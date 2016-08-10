@@ -3,3 +3,5 @@
 //
 
 #import "ConsentintroViewController.h"
+#import "AssessmentAndTreatmentViewController.h"
+#import "ReleaseCollectConsentViewController.h"
