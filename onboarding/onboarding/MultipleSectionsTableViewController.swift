@@ -12,11 +12,27 @@ import XLPagerTabStrip
 var multipleDic = [String:String]()
 var multipleData = [String:[String:String]]()
 var multiple = []
+
 var nervousSystem = []
+var nervousData = [String:[String:String]]()
+var nervousDic = [String:String]()
+
 var respiratory = []
+var respiratoryData = [String:[String:String]]()
+var respiratoryDic = [String:String]()
+
+
 var bloodSugar = []
+var bloodSugarData = [String:[String:String]]()
+var bloodSugarDic = [String:String]()
+
 var eyeEarNoseThroat = []
+var eyeEarNoseThroatData = [String:[String:String]]()
+var eyeEarNoseThroatDic = [String:String]()
+
 var urinaryTract = []
+var urinaryTractData = [String:[String:String]]()
+var urinaryTractDic = [String:String]()
 
 class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoProvider {
   
@@ -61,6 +77,32 @@ class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoP
           multipleDic = ["previously":"No","presently":"No"]
           multipleData.updateValue(multipleDic, forKey: i as! String)
         }
+      
+      
+        for i in nervousSystem{
+          nervousDic = ["previously":"No","presently":"No"]
+          nervousData.updateValue(nervousDic, forKey: i as! String)
+        }
+      
+        for i in respiratory{
+          respiratoryDic = ["previously":"No","presently":"No"]
+          respiratoryData.updateValue(respiratoryDic, forKey: i as! String)
+        }
+      
+        for i in bloodSugar{
+          bloodSugarDic = ["previously":"No","presently":"No"]
+          bloodSugarData.updateValue(bloodSugarDic, forKey: i as! String)
+        }
+      
+        for i in eyeEarNoseThroat{
+          eyeEarNoseThroatDic = ["previously":"No","presently":"No"]
+          eyeEarNoseThroatData.updateValue(eyeEarNoseThroatDic, forKey: i as! String)
+        }
+      
+        for i in urinaryTract{
+          urinaryTractDic = ["previously":"No","presently":"No"]
+          urinaryTractData.updateValue(urinaryTractDic, forKey: i as! String)
+        }
 
     }
   
@@ -68,17 +110,90 @@ class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoP
     {
       for cells in tableView.visibleCells{
         let cell = cells as! PostCellTableViewCell
-        if(cell.circleButton.backgroundColor == myColor){
-          multipleData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
+        
+        //NERVOUS
+        if(cell.circleButton.tag == 0 && cell.squareButton.tag == 0)
+        {
+          if(cell.circleButton.backgroundColor == myColor){
+            nervousData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
+          }
+          else{
+            nervousData[cell.titleLabel.text!]!.updateValue("No", forKey: "previously")
+          }
+          if(cell.squareButton.backgroundColor == myColor){
+            nervousData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "presently")
+          }
+          else{
+            nervousData[cell.titleLabel.text!]!.updateValue("No", forKey: "presently")
+          }
         }
-        else{
-          multipleData[cell.titleLabel.text!]!.updateValue("No", forKey: "previously")
+        
+        //RESPIRATORY
+        if(cell.circleButton.tag == 1 && cell.squareButton.tag == 1)
+        {
+          if(cell.circleButton.backgroundColor == myColor){
+            respiratoryData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
+          }
+          else{
+            respiratoryData[cell.titleLabel.text!]!.updateValue("No", forKey: "previously")
+          }
+          if(cell.squareButton.backgroundColor == myColor){
+            respiratoryData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "presently")
+          }
+          else{
+            respiratoryData[cell.titleLabel.text!]!.updateValue("No", forKey: "presently")
+          }
         }
-        if(cell.squareButton.backgroundColor == myColor){
-          multipleData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "presently")
+        
+        //BLOOD SUGAR
+        if(cell.circleButton.tag == 2 && cell.squareButton.tag == 2)
+        {
+          if(cell.circleButton.backgroundColor == myColor){
+            bloodSugarData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
+          }
+          else{
+            bloodSugarData[cell.titleLabel.text!]!.updateValue("No", forKey: "previously")
+          }
+          if(cell.squareButton.backgroundColor == myColor){
+            bloodSugarData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "presently")
+          }
+          else{
+            bloodSugarData[cell.titleLabel.text!]!.updateValue("No", forKey: "presently")
+          }
         }
-        else{
-          multipleData[cell.titleLabel.text!]!.updateValue("No", forKey: "presently")
+        
+        //EYE EAR NOSE AND THROAT
+        if(cell.circleButton.tag == 3 && cell.squareButton.tag == 3)
+        {
+          if(cell.circleButton.backgroundColor == myColor){
+            eyeEarNoseThroatData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
+          }
+          else{
+            eyeEarNoseThroatData[cell.titleLabel.text!]!.updateValue("No", forKey: "previously")
+          }
+          if(cell.squareButton.backgroundColor == myColor){
+            eyeEarNoseThroatData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "presently")
+          }
+          else{
+            eyeEarNoseThroatData[cell.titleLabel.text!]!.updateValue("No", forKey: "presently")
+          }
+        }
+        
+        //URINARY TRACT
+        if(cell.circleButton.tag == 4 && cell.squareButton.tag == 4)
+        {
+          if(cell.circleButton.backgroundColor == myColor){
+            urinaryTractData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
+          }
+          else{
+            urinaryTractData[cell.titleLabel.text!]!.updateValue("No", forKey: "previously")
+          }
+          if(cell.squareButton.backgroundColor == myColor){
+            urinaryTractData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "presently")
+          }
+          else{
+            urinaryTractData[cell.titleLabel.text!]!.updateValue("No", forKey: "presently")
+          }
         }
       }
     }
@@ -92,7 +207,7 @@ class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoP
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
       
-        return 5
+        return 6
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -163,22 +278,32 @@ class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoP
       if(indexPath.section == 1)
       {
         cell.titleLabel.text = nervousSystem[indexPath.row] as? String
+        cell.circleButton.tag = 0
+        cell.squareButton.tag = 0
       }
       if(indexPath.section == 2)
       {
         cell.titleLabel.text = respiratory[indexPath.row] as? String
+        cell.circleButton.tag = 1
+        cell.squareButton.tag = 1
       }
       if(indexPath.section == 3)
       {
         cell.titleLabel.text = bloodSugar[indexPath.row] as? String
+        cell.circleButton.tag = 2
+        cell.squareButton.tag = 2
       }
       if(indexPath.section == 4)
       {
         cell.titleLabel.text = eyeEarNoseThroat[indexPath.row] as? String
+        cell.circleButton.tag = 3
+        cell.squareButton.tag = 3
       }
       if(indexPath.section == 5)
       {
         cell.titleLabel.text = urinaryTract[indexPath.row] as? String
+        cell.circleButton.tag = 4
+        cell.squareButton.tag = 4
       }
       return cell
     }

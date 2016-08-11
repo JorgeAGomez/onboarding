@@ -88,28 +88,9 @@ var isReload = false
     }
   
   func doneTapped(){
-    
-      print(dic1)
-      print(" ")
-      print(" ")
-      print(immuneData)
-      print(" ")
-      print(" ")
-      print(gastroData)
-      print(" ")
-      print(" ")
-      print(cardioData)
-      print(" ")
-      print(" ")
-      print(multipleData)
-      print(" ")
-      print(" ")
-      print(neuroData)
-      print(" ")
-      print(" ")
-  
+      
       let firstPage = CGSize(width: 650, height: 842)
-      let pdf = SimplePDF(pageSize: firstPage, pageMargin: 20.0)
+      let pdf = SimplePDF(pageSize: firstPage, pageMargin: 33.0)
     
       let firstName = personalInformation["First name"]!
       let lastName = personalInformation["Last name"]!
@@ -255,7 +236,7 @@ var isReload = false
       }
       else{
         pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
-        pdf.addText("Medical Information")
+        pdf.addText("Work Related Injury")
         pdf.addLineSeparator()
         pdf.addLineSpace(15)
         pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
@@ -334,14 +315,12 @@ var isReload = false
       pdf.addLineSpace(15)
     
     
-        let blackCircleCode = 0x026AB
-        let box_with_checkMark = 0x02611
-        let blackSquareCode = 0x02B1B
-        let circleScalar = UnicodeScalar(blackCircleCode)
-        let checkMarkScalar = UnicodeScalar(box_with_checkMark)
-        let squareScalar = UnicodeScalar(blackSquareCode)
-    
-    
+      let blackCircleCode = 0x026AB
+      let box_with_checkMark = 0x02611
+      let blackSquareCode = 0x02B1B
+      let circleScalar = UnicodeScalar(blackCircleCode)
+      let checkMarkScalar = UnicodeScalar(box_with_checkMark)
+      let squareScalar = UnicodeScalar(blackSquareCode)
     
       let emptycircleIcon = String.fontAwesomeIconWithCode("(&#xf10c;)")
       print(emptycircleIcon)
@@ -383,7 +362,7 @@ var isReload = false
       pdf.addLineSpace(18)
       pdf.setContentAlignment(.Center)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 22)!)
-      pdf.addText("Health Report Questinnarie")
+      pdf.addText("Health Report Questionnarie")
       pdf.addLineSpace(15)
       pdf.setContentAlignment(.Left)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
@@ -397,9 +376,11 @@ var isReload = false
       pdf.addLineSpace(15)
     
     
+      //GENERAL
       var finalGeneral = [[String]]()
+      let firstRow = ["Conditions","Previously had","Presently have"]
+      finalGeneral.append(firstRow)
       for i in dic1{
-        print(i.0)
         var temp = [String]()
         temp.append(i.0)
         let previouslyData = i.1["previously"]
@@ -416,100 +397,283 @@ var isReload = false
         else{
           temp.append(" ")
         }
-        finalGeneral.append(temp)
-        print(finalGeneral)
+        if(!(temp[1] == " " && temp[2] == " ")){
+          finalGeneral.append(temp)
+        }
       }
     
+      pdf.addTable(finalGeneral.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: finalGeneral)
     
-    
-    
+      //IMMUNE SYSTEM / INFECTION
       pdf.addLineSpace(15)
-    
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
       pdf.addText("Immune System / infection")
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
       pdf.addLineSeparator()
       pdf.addLineSpace(15)
     
-      let arrayData = [["Condition","Previously had","Presently have"],["HIV(AIDS)","\(circleScalar)","\(squareScalar)"],["Pneumonia","\(circleScalar)","\(squareScalar)"],["Allergies / sinus troubles","","\(squareScalar)"],["Catch colds / flue Easily","\(circleScalar)",""]]
-      pdf.addTable(5, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: arrayData)
-      pdf.addLineSpace(20)
-    
-      for i in immuneSystemInfection{
-        pdf.addText("\(i as! String)")
+      var immuneFinal = [["Condition","Previously had","Presently have"]]
+      for i in immuneData{
+        var temp = [String]()
+        temp.append(i.0)
+        let previouslyData = i.1["previously"]
+        let presentlyData = i.1["presently"]
+        if(previouslyData == "Yes"){
+          temp.append("\(circleScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(presentlyData == "Yes"){
+          temp.append("\(squareScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(!(temp[1] == " " && temp[2] == " ")){
+          immuneFinal.append(temp)
+        }
       }
-      pdf.addLineSpace(15)
+      pdf.addTable(immuneFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: immuneFinal)
     
+    
+      //GASTROINSTESTINAL
+
+      pdf.addLineSpace(15)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
       pdf.addText("Gastrointestinal")
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
       pdf.addLineSeparator()
       pdf.addLineSpace(15)
-      for i in gastrointestinal{
-        pdf.addText("\(i as! String)")
-      }
-      pdf.addLineSpace(15)
     
+      var gastroFinal = [["Condition","Previously had","Presently have"]]
+      for i in gastroData
+      {
+        var temp = [String]()
+        temp.append(i.0)
+        let previouslyData = i.1["previously"]
+        let presentlyData = i.1["presently"]
+        if(previouslyData == "Yes"){
+          temp.append("\(circleScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(presentlyData == "Yes"){
+          temp.append("\(squareScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(!(temp[1] == " " && temp[2] == " ")){
+          gastroFinal.append(temp)
+        }
+      }
+      pdf.addTable(gastroFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: gastroFinal)
+    
+    
+      //CARDIOVASCULAR
+    
+      pdf.addLineSpace(15)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
       pdf.addText("Cardiovascular")
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
       pdf.addLineSeparator()
       pdf.addLineSpace(15)
-      for i in cardiovascular{
-        pdf.addText("\(i as! String)")
-      }
-      pdf.addLineSpace(15)
     
+      var cardioFinal = [["Condition","Previously had","Presently have"]]
+    
+      for i in cardioData
+      {
+        var temp = [String]()
+        temp.append(i.0)
+        let previouslyData = i.1["previously"]
+        let presentlyData = i.1["presently"]
+        if(previouslyData == "Yes"){
+          temp.append("\(circleScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(presentlyData == "Yes"){
+          temp.append("\(squareScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(!(temp[1] == " " && temp[2] == " ")){
+          cardioFinal.append(temp)
+        }
+      }
+      pdf.addTable(cardioFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: cardioFinal)
+    
+      //OTHER SYSTEMS
+      //NERVOUS SYSTEM
+      pdf.addLineSpace(15)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
       pdf.addText("Nervous System")
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
       pdf.addLineSeparator()
       pdf.addLineSpace(15)
-      for i in nervousSystem{
-        pdf.addText("\(i as! String)")
+      var nervousFinal = [["Condition","Previously had","Presently have"]]
+      for i in nervousData
+      {
+        var temp = [String]()
+        temp.append(i.0)
+        let previouslyData = i.1["previously"]
+        let presentlyData = i.1["presently"]
+        if(previouslyData == "Yes"){
+          temp.append("\(circleScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(presentlyData == "Yes"){
+          temp.append("\(squareScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(!(temp[1] == " " && temp[2] == " ")){
+          nervousFinal.append(temp)
+        }
       }
-      pdf.addLineSpace(15)
+      pdf.addTable(nervousFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: nervousFinal)
     
+      //RESPIRATORY
+      pdf.addLineSpace(15)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
       pdf.addText("Respiratory")
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
       pdf.addLineSeparator()
       pdf.addLineSpace(15)
-      for i in respiratory{
-        pdf.addText("\(i as! String)")
+      var respiratoryFinal = [["Condition","Previously had","Presently have"]]
+      for i in respiratoryData
+      {
+        var temp = [String]()
+        temp.append(i.0)
+        let previouslyData = i.1["previously"]
+        let presentlyData = i.1["presently"]
+        if(previouslyData == "Yes"){
+          temp.append("\(circleScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(presentlyData == "Yes"){
+          temp.append("\(squareScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(!(temp[1] == " " && temp[2] == " ")){
+          respiratoryFinal.append(temp)
+        }
       }
-      pdf.addLineSpace(15)
+      pdf.addTable(respiratoryFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: respiratoryFinal)
     
+    
+      //BLOOD SUGAR
+      pdf.addLineSpace(15)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
-      pdf.addText("Blood Sugar")
+      pdf.addText("Blood sugar")
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
       pdf.addLineSeparator()
       pdf.addLineSpace(15)
-      for i in bloodSugar{
-        pdf.addText("\(i as! String)")
+      var bloodSugarFinal = [["Condition","Previously had","Presently have"]]
+      for i in bloodSugarData
+      {
+        var temp = [String]()
+        temp.append(i.0)
+        let previouslyData = i.1["previously"]
+        let presentlyData = i.1["presently"]
+        if(previouslyData == "Yes"){
+          temp.append("\(circleScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(presentlyData == "Yes"){
+          temp.append("\(squareScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(!(temp[1] == " " && temp[2] == " ")){
+          bloodSugarFinal.append(temp)
+        }
       }
-      pdf.addLineSpace(15)
+      pdf.addTable(bloodSugarFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: bloodSugarFinal)
     
+      //EYE EAR NOSE AND THROAT
+      pdf.addLineSpace(15)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
       pdf.addText("Eye, Ear, Nose and Throat")
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
       pdf.addLineSeparator()
       pdf.addLineSpace(15)
-      for i in eyeEarNoseThroat{
-        pdf.addText("\(i as! String)")
+      var eyeEarNoseThroatFinal = [["Condition","Previously had","Presently have"]]
+      for i in eyeEarNoseThroatData
+      {
+        var temp = [String]()
+        temp.append(i.0)
+        let previouslyData = i.1["previously"]
+        let presentlyData = i.1["presently"]
+        if(previouslyData == "Yes"){
+          temp.append("\(circleScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(presentlyData == "Yes"){
+          temp.append("\(squareScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(!(temp[1] == " " && temp[2] == " ")){
+          eyeEarNoseThroatFinal.append(temp)
+        }
       }
-      pdf.addLineSpace(15)
+      pdf.addTable(eyeEarNoseThroatFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: eyeEarNoseThroatFinal)
     
+      pdf.beginNewPage()
+      pdf.addLineSpace(15)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
       pdf.addText("Urinary Tract")
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
       pdf.addLineSeparator()
       pdf.addLineSpace(15)
-      for i in urinaryTract{
-        pdf.addText("\(i as! String)")
+      var urinaryTractFinal = [["Condition","Previously had","Presently have"]]
+      for i in urinaryTractData
+      {
+        var temp = [String]()
+        temp.append(i.0)
+        let previouslyData = i.1["previously"]
+        let presentlyData = i.1["presently"]
+        if(previouslyData == "Yes"){
+          temp.append("\(circleScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(presentlyData == "Yes"){
+          temp.append("\(squareScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(!(temp[1] == " " && temp[2] == " ")){
+          urinaryTractFinal.append(temp)
+        }
       }
+      pdf.addTable(urinaryTractFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: urinaryTractFinal)
       pdf.addLineSpace(15)
     
+    
+    
+    
+    /*
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
       pdf.addText("Head & Neck")
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
@@ -568,7 +732,7 @@ var isReload = false
       for i in hipsLegsFeet{
         pdf.addText("\(i as! String)")
       }
-      pdf.addLineSpace(15)
+      pdf.addLineSpace(15)*/
     
     /*if let documentDirectories = NSSearchPathForDirectoriesInDomains( .DocumentDirectory, .UserDomainMask, true).first {
     
