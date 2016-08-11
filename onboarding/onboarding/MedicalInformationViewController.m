@@ -58,7 +58,7 @@
   
     //Emergency contact
     medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Emergency Contact" rowType:XLFormRowDescriptorTypeName title:@"Emergency Contact Name:"];
-    [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentCenter) forKey:@"textField.textAlignment"];
+    [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     medicalInfoRow.required = YES;
     [medicallInfoSection addFormRow:medicalInfoRow];
   
@@ -68,7 +68,7 @@
     medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Contact Phone" rowType:
     XLFormRowDescriptorTypePhone title:@"Emergency Contact Phone #:"];
     medicalInfoRow.valueFormatter = formatter;
-    [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentCenter) forKey:@"textField.textAlignment"];
+    [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     medicalInfoRow.useValueFormatterDuringInput = YES;
     medicalInfoRow.required = YES;
 

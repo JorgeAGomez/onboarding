@@ -88,6 +88,26 @@ var isReload = false
     }
   
   func doneTapped(){
+    
+      print(dic1)
+      print(" ")
+      print(" ")
+      print(immuneData)
+      print(" ")
+      print(" ")
+      print(gastroData)
+      print(" ")
+      print(" ")
+      print(cardioData)
+      print(" ")
+      print(" ")
+      print(multipleData)
+      print(" ")
+      print(" ")
+      print(neuroData)
+      print(" ")
+      print(" ")
+  
       let firstPage = CGSize(width: 650, height: 842)
       let pdf = SimplePDF(pageSize: firstPage, pageMargin: 20.0)
     
@@ -338,15 +358,20 @@ var isReload = false
       for i in conditionsInformation.allKeys{
         if(conditionsInformation[i as! String]!.isEqual(NSNull()) || conditionsInformation[i as! String]!.isEqual(false))
         {
-          pdf.addText("\(i as! String):   \(checkMarkScalar)")
+          continue
         }
         else{
           if(i.isEqualToString("Allergies") || i.isEqualToString("Medications"))
           {
-            pdf.addText("\(i as! String):   \(conditionsInformation[i as! String]!)")
+            if(conditionsInformation[i as! String]!.isEqualToString("No")){
+              continue
+            }
+            else{
+              pdf.addText("\(i as! String):   \(conditionsInformation[i as! String]!)")
+            }
           }
           else{
-            pdf.addText("\(i as! String):    Yes")
+            pdf.addText("\(i as! String):    \(checkMarkScalar)")
           }
         }
       }
@@ -370,9 +395,34 @@ var isReload = false
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
       pdf.addLineSeparator()
       pdf.addLineSpace(15)
-      for i in general{
-        pdf.addText("\(i as! String):    \(circleScalar)     \(squareScalar)")
+    
+    
+      var finalGeneral = [[String]]()
+      for i in dic1{
+        print(i.0)
+        var temp = [String]()
+        temp.append(i.0)
+        let previouslyData = i.1["previously"]
+        let presentlyData = i.1["presently"]
+        if(previouslyData == "Yes"){
+          temp.append("\(circleScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(presentlyData == "Yes"){
+          temp.append("\(squareScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        finalGeneral.append(temp)
+        print(finalGeneral)
       }
+    
+    
+    
+    
       pdf.addLineSpace(15)
     
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
