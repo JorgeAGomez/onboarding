@@ -104,9 +104,12 @@ var isReload = false
     
     }
   
-  func doneTapped(){
+    func doneTapped(){
   
-      let firstPage = CGSize(width: 650, height: 842)
+      performSegueWithIdentifier("nextScreen", sender: self)
+      
+    
+     /* let firstPage = CGSize(width: 650, height: 842)
       let pdf = SimplePDF(pageSize: firstPage, pageMargin: 33.0)
     
       let firstName = personalInformation["First name"]!
@@ -945,6 +948,6 @@ var isReload = false
     }catch{
         print(error)
     }
-    }
+    }*/
   }
 }

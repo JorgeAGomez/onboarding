@@ -355,7 +355,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="Er4-uc-kf9" kind="push" identifier="goToQues" id="R0d-Vc-rg7"/>
+                        <segue destination="Er4-uc-kf9" kind="push" identifier="nexT" id="R0d-Vc-rg7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QXK-rw-7qr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -462,7 +462,7 @@
                     <navigationItem key="navigationItem" id="bOE-Ua-qRU"/>
                     <connections>
                         <outlet property="containerView" destination="hTQ-l4-MNy" id="4Cf-lh-KlN"/>
-                        <segue destination="8eR-rC-0LV" kind="push" identifier="nextScreen" id="YN5-VQ-r3m"/>
+                        <segue destination="8eR-rC-0LV" kind="show" identifier="nextScreen" action="showDetailViewController:sender:" id="YN5-VQ-r3m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OSB-Fl-mHb" userLabel="First Responder" sceneMemberID="firstResponder"/>

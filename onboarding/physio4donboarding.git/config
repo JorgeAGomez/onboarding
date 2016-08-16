@@ -1,0 +1,11 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "origin"]
+	url = https://JorgeAGomez@bitbucket.org/Physio4D/physio4donboarding.git
+	fetch = +refs/*:refs/*
+	mirror = true
+	pushurl = git@github.com:JorgeAGomez/onboarding.git
