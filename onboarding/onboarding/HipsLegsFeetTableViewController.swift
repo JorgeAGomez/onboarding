@@ -59,20 +59,17 @@ class HipsLegsFeetTableViewController: UITableViewController, IndicatorInfoProvi
         let cell = cells as! PostCellTableViewCell
 
         //HIPS LEGS FEET
-        if(cell.circleButton.tag == 0  && cell.squareButton.tag == 0)
-        {
-            if(cell.circleButton.backgroundColor == myColor){
-              hipsData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
-            }
-            else{
-              hipsData[cell.titleLabel.text!]!.updateValue("No", forKey: "previously")
-            }
-            if(cell.squareButton.backgroundColor == myColor){
-              hipsData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "presently")
-            }
-            else{
-              hipsData[cell.titleLabel.text!]!.updateValue("No", forKey: "presently")
-            }
+        if(cell.circleButton.backgroundColor == myColor){
+          hipsData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
+        }
+        else{
+          hipsData[cell.titleLabel.text!]!.updateValue("No", forKey: "previously")
+        }
+        if(cell.squareButton.backgroundColor == myColor){
+          hipsData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "presently")
+        }
+        else{
+          hipsData[cell.titleLabel.text!]!.updateValue("No", forKey: "presently")
         }
       }
     }
@@ -82,10 +79,6 @@ class HipsLegsFeetTableViewController: UITableViewController, IndicatorInfoProvi
       if(section == 0)
       {
         return "Please check: \(circleScalar) for previously had and \(squareScalar) for presently have"
-      }
-      if(section == 1)
-      {
-        return "Arms & Hands"
       }
       else
       {
@@ -121,8 +114,6 @@ class HipsLegsFeetTableViewController: UITableViewController, IndicatorInfoProvi
       if(indexPath.section == 1)
       {
         cell.titleLabel.text = hipsLegsFeet[indexPath.row] as? String
-        cell.circleButton.tag = 0
-        cell.squareButton.tag = 0
       }
         return cell
     }

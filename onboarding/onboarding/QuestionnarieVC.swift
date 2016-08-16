@@ -339,35 +339,41 @@ var isReload = false
       let checkMarkScalar = UnicodeScalar(box_with_checkMark)
       let squareScalar = UnicodeScalar(blackSquareCode)
     
-      let conditionData = [["Neck Pain / stiffness","\(checkMarkScalar)"],["Arthritis in neck","\(checkMarkScalar)"],["Headaches", ""],["Jaw Pain / TMJ","\(checkMarkScalar)"]]
     
-      pdf.addTable(4, columnCount: 2, rowHeight: 20, columnWidth: 130, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: conditionData)
-    
-      pdf.addLineSpace(20)
-    
-      for i in conditionsInformation.allKeys{
-        if(conditionsInformation[i as! String]!.isEqual(NSNull()) || conditionsInformation[i as! String]!.isEqual(false))
-        {
+      var finalCondition = [[String]]()
+      print(conditionsInformation)
+      for i in conditionsInformation {
+        var temp = [String]()
+        print(i.key)
+        print(i.value)
+        if(i.key.isEqualToString("Medications") && !i.value.isEqual("No")){
+          temp.append(i.key as! String)
+          temp.append(i.value as! String)
+          finalCondition.append(temp)
           continue
         }
-        else{
-          if(i.isEqualToString("Allergies") || i.isEqualToString("Medications"))
-          {
-            if(conditionsInformation[i as! String]!.isEqualToString("No")){
-              continue
-            }
-            else{
-              pdf.addText("\(i as! String):   \(conditionsInformation[i as! String]!)")
-            }
+        if(i.key.isEqualToString("Allergies") && !i.value.isEqual("No")){
+          temp.append(i.key as! String)
+          temp.append(i.value as! String)
+          finalCondition.append(temp)
+          continue
+        }
+        if(!i.value .isEqual((NSNull()))){
+          if(i.value.isEqual("No")){
+            continue
           }
           else{
-            pdf.addText("\(i as! String):    \(checkMarkScalar)")
+            temp.append(i.key as! String)
+            temp.append("\(checkMarkScalar)")
+            finalCondition.append(temp)
           }
         }
       }
     
-      //QUESTIONNARIE
+      pdf.addTable(finalCondition.count, columnCount: 2, rowHeight: 20, columnWidth: 160, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: finalCondition)
+      pdf.addLineSpace(20)
     
+      //QUESTIONNARIE
       pdf.beginNewPage()
       pdf.addImage(logoImage)
       pdf.addLineSpace(18)
@@ -615,7 +621,8 @@ var isReload = false
         }
       }
       pdf.addTable(bloodSugarFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: bloodSugarFinal)
-      pdf.addText(" ")
+    
+      pdf.beginNewPage()
     
       //EYE EAR NOSE AND THROAT
       pdf.addLineSpace(15)
@@ -649,7 +656,6 @@ var isReload = false
       }
       pdf.addTable(eyeEarNoseThroatFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: eyeEarNoseThroatFinal)
     
-      pdf.beginNewPage()
       pdf.addLineSpace(15)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
       pdf.addText("Urinary Tract")
