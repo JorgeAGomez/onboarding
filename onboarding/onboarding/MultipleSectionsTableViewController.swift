@@ -26,20 +26,10 @@ var bloodSugar = []
 var bloodSugarData = [String:[String:String]]()
 var bloodSugarDic = [String:String]()
 
-var eyeEarNoseThroat = []
-var eyeEarNoseThroatData = [String:[String:String]]()
-var eyeEarNoseThroatDic = [String:String]()
-
-var urinaryTract = []
-var urinaryTractData = [String:[String:String]]()
-var urinaryTractDic = [String:String]()
 
 class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoProvider {
   
-
-  
-  
-    let cellIdentifier = "Cell"
+    let cellIdentifier = "Multiple"
     var blackTheme = false
     var itemInfo = IndicatorInfo(title: "View")
     let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
@@ -62,8 +52,7 @@ class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoP
         nervousSystem = ["Dizziness / Lightheaded","Fainting","Discoordination","Memory Loss"]
         respiratory = ["Chronic Cough","Spitting Blood","Difficulty Breathing","Shortness of Breath","Asthma","Spitting up Phlegm","Emphysema"]
         bloodSugar = ["Irritable before Meals","Palpitations if miss meals","Gets shaky if hungry","Awaken from sleep"]
-        eyeEarNoseThroat = ["Vision Problems","Hoarseness","Nose Bleeding","Ear Pain","Dental Problems","Hearing Loss","Store Throat","Ringing in Ear(s)"]
-        urinaryTract = ["Blood in Urine","Bladder Infection","Inability to Control Urination"," Kidney Stones","Painful Urination"]
+        
       
         multiple = ["Dizziness / Lightheaded","Fainting","Discoordination","Memory Loss","Chronic Cough","Spitting Blood","Difficulty Breathing","Shortness of Breath","Asthma","Spitting up Phlegm","Emphysema","Irritable before Meals","Palpitations if miss meals","Gets shaky if hungry","Awaken from sleep","Vision Problems","Hoarseness","Nose Bleeding","Ear Pain","Dental Problems","Hearing Loss","Store Throat","Ringing in Ear(s)","Blood in Urine","Bladder Infection","Inability to Control Urination"," Kidney Stones","Painful Urination"]
       
@@ -92,16 +81,6 @@ class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoP
         for i in bloodSugar{
           bloodSugarDic = ["previously":"No","presently":"No"]
           bloodSugarData.updateValue(bloodSugarDic, forKey: i as! String)
-        }
-      
-        for i in eyeEarNoseThroat{
-          eyeEarNoseThroatDic = ["previously":"No","presently":"No"]
-          eyeEarNoseThroatData.updateValue(eyeEarNoseThroatDic, forKey: i as! String)
-        }
-      
-        for i in urinaryTract{
-          urinaryTractDic = ["previously":"No","presently":"No"]
-          urinaryTractData.updateValue(urinaryTractDic, forKey: i as! String)
         }
 
     }
@@ -161,40 +140,6 @@ class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoP
             bloodSugarData[cell.titleLabel.text!]!.updateValue("No", forKey: "presently")
           }
         }
-        
-        //EYE EAR NOSE AND THROAT
-        if(cell.circleButton.tag == 3 && cell.squareButton.tag == 3)
-        {
-          if(cell.circleButton.backgroundColor == myColor){
-            eyeEarNoseThroatData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
-          }
-          else{
-            eyeEarNoseThroatData[cell.titleLabel.text!]!.updateValue("No", forKey: "previously")
-          }
-          if(cell.squareButton.backgroundColor == myColor){
-            eyeEarNoseThroatData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "presently")
-          }
-          else{
-            eyeEarNoseThroatData[cell.titleLabel.text!]!.updateValue("No", forKey: "presently")
-          }
-        }
-        
-        //URINARY TRACT
-        if(cell.circleButton.tag == 4 && cell.squareButton.tag == 4)
-        {
-          if(cell.circleButton.backgroundColor == myColor){
-            urinaryTractData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
-          }
-          else{
-            urinaryTractData[cell.titleLabel.text!]!.updateValue("No", forKey: "previously")
-          }
-          if(cell.squareButton.backgroundColor == myColor){
-            urinaryTractData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "presently")
-          }
-          else{
-            urinaryTractData[cell.titleLabel.text!]!.updateValue("No", forKey: "presently")
-          }
-        }
       }
     }
   
@@ -207,7 +152,7 @@ class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoP
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
       
-        return 6
+        return 4
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -224,18 +169,11 @@ class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoP
         {
           return respiratory.count
         }
-        if(section == 3)
+        else
         {
           return bloodSugar.count
         }
-        if(section == 4)
-        {
-          return eyeEarNoseThroat.count
-        }
-        else
-        {
-          return urinaryTract.count
-        }
+
     }
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
@@ -251,17 +189,9 @@ class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoP
       {
        return "Respiratory"
       }
-      if(section == 3)
-      {
-        return "Blood Sugar"
-      }
-      if(section == 4)
-      {
-        return "Eye, Ear, Nose and Throat"
-      }
       else
       {
-        return "Urinary Tract"
+        return "Blood Sugar"
       }
     }
 
@@ -273,7 +203,6 @@ class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoP
       cell.circleButton.layer.borderWidth = 1
       cell.circleButton.layer.borderColor = myColor.CGColor
       cell.squareButton.layer.borderColor = myColor.CGColor
-
       
       if(indexPath.section == 1)
       {
@@ -293,18 +222,7 @@ class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoP
         cell.circleButton.tag = 2
         cell.squareButton.tag = 2
       }
-      if(indexPath.section == 4)
-      {
-        cell.titleLabel.text = eyeEarNoseThroat[indexPath.row] as? String
-        cell.circleButton.tag = 3
-        cell.squareButton.tag = 3
-      }
-      if(indexPath.section == 5)
-      {
-        cell.titleLabel.text = urinaryTract[indexPath.row] as? String
-        cell.circleButton.tag = 4
-        cell.squareButton.tag = 4
-      }
+
       return cell
     }
     

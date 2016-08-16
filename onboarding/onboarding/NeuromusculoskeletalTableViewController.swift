@@ -8,21 +8,26 @@
 
 import UIKit
 import XLPagerTabStrip
-import SimplePDF
+
 
 var neuroDic = [String:String]()
 var neuroData = [String:[String:String]]()
 var neuro = []
+
 var headNeck = []
+var headNeckDic = [String:String]()
+var headNeckData = [String:[String:String]]()
+
 var shoulder = []
+var shoulderDic = [String:String]()
+var shoulderData = [String:[String:String]]()
+
 var midback = []
-var lowback = []
-var armshands = []
-var hipsLegsFeet = []
+var midDic = [String:String]()
+var midData = [String:[String:String]]()
+
 
 public class NeuromusculoskeletalTableViewController: UITableViewController, IndicatorInfoProvider {
-
-
     
     let cellIdentifier = "Cell"
     var blackTheme = false
@@ -47,11 +52,8 @@ public class NeuromusculoskeletalTableViewController: UITableViewController, Ind
       
 
         headNeck = ["Headaches","Neck Pain / stiffness","Pinched nerve","Jaw Pain / TMJ","Arthritis in neck"]
-        shoulder = ["Shoulder pain","Can't raise arm"," arthritis","Bursitis","Clicking / popping"]
+        shoulder = ["Shoulder pain","Can't raise arm","Arthritis","Bursitis","Clicking / popping"]
         midback = ["Mid back Pain","Pain between shoulders","Muscle spasms","Sharp stabbing pain"]
-        lowback = ["Low Back Pain","Low Back stiffness","Tailbone pain","Muscle Spasms","Pinched nerve"]
-        armshands = ["Pain in elbow / arm","Pain in forearm","Pain in hands / fingers","Arthritis / swollen hands","Cold hands","Carpal Tunnel","Tingling in hands","Loss of grip strength"]
-        hipsLegsFeet = ["Pain in buttock","Pain in hip / knee joint","Cold feet","Tingling in feet","Arthritis","Sprain / strain","Pain down leg(s)","Tingling in leg(s)","Swollen ankle / feet","Pain in ankle / feet","Loss of leg strength","Muscles cramps"]
       
         neuro = ["Headaches","Neck Pain / stiffness","Pinched nerve","Jaw Pain / TMJ","Arthritis in neck","Shoulder pain","Can't raise arm"," arthritis","Bursitis","Clicking / popping","Mid back Pain","Pain between shoulders","Muscle spasms","Sharp stabbing pain","Low Back Pain","Low Back stiffness","Tailbone pain","Muscle Spasms","Pinched nerve","Pain in elbow / arm","Pain in forearm","Pain in hands / fingers","Arthritis / swollen hands","Cold hands","Carpal Tunnel","Tingling in hands","Loss of grip strength","Pain in buttock","Pain in hip / knee joint","Cold feet","Tingling in feet","Arthritis","Sprain / strain","Pain down leg(s)","Tingling in leg(s)","Swollen ankle / feet","Pain in ankle / feet","Loss of leg strength","Muscles cramps"]
       
@@ -64,6 +66,25 @@ public class NeuromusculoskeletalTableViewController: UITableViewController, Ind
           neuroDic = ["previously":"No","presently":"No"]
           neuroData.updateValue(neuroDic, forKey: i as! String)
         }
+
+        for i in headNeck
+        {
+          headNeckDic = ["previously":"No","presently":"No"]
+          headNeckData.updateValue(headNeckDic, forKey: i as! String)
+        }
+
+        for i in shoulder
+        {
+          shoulderDic = ["previously":"No","presently":"No"]
+          shoulderData.updateValue(shoulderDic, forKey: i as! String)
+        }
+      
+        for i in midback
+        {
+          midDic = ["previously":"No","presently":"No"]
+          midData.updateValue(midDic, forKey: i as! String)
+        }
+
     }
   
     
@@ -71,18 +92,59 @@ public class NeuromusculoskeletalTableViewController: UITableViewController, Ind
     override public func viewWillDisappear(animated: Bool) {
       for cells in tableView.visibleCells {
         let cell = cells as! PostCellTableViewCell
-        if(cell.circleButton.backgroundColor == myColor){
-          neuroData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
+        
+        //HEAD NECK
+        if(cell.circleButton.tag == 0 && cell.squareButton.tag == 0)
+        {
+            if(cell.circleButton.backgroundColor == myColor){
+              headNeckData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
+            }
+            else{
+              headNeckData[cell.titleLabel.text!]!.updateValue("No", forKey: "previously")
+            }
+            if(cell.squareButton.backgroundColor == myColor){
+              headNeckData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "presently")
+            }
+            else{
+              headNeckData[cell.titleLabel.text!]!.updateValue("No", forKey: "presently")
+            }
         }
-        else{
-          neuroData[cell.titleLabel.text!]!.updateValue("No", forKey: "previously")
+        
+        //SHOULDER
+        if(cell.circleButton.tag == 1 && cell.squareButton.tag == 1)
+        {
+            if(cell.circleButton.backgroundColor == myColor){
+              shoulderData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
+            }
+            else{
+              shoulderData[cell.titleLabel.text!]!.updateValue("No", forKey: "previously")
+            }
+            if(cell.squareButton.backgroundColor == myColor){
+              shoulderData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "presently")
+            }
+            else{
+              shoulderData[cell.titleLabel.text!]!.updateValue("No", forKey: "presently")
+            }
         }
-        if(cell.squareButton.backgroundColor == myColor){
-          neuroData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "presently")
+        
+        //MID BACK
+        if(cell.circleButton.tag == 2 && cell.squareButton.tag == 2)
+        {
+            if(cell.circleButton.backgroundColor == myColor){
+              midData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
+            }
+            else{
+              midData[cell.titleLabel.text!]!.updateValue("No", forKey: "previously")
+            }
+            if(cell.squareButton.backgroundColor == myColor){
+              midData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "presently")
+            }
+            else{
+              midData[cell.titleLabel.text!]!.updateValue("No", forKey: "presently")
+            }
         }
-        else{
-          neuroData[cell.titleLabel.text!]!.updateValue("No", forKey: "presently")
-        }
+        
+
       }
     }
   
@@ -100,34 +162,26 @@ public class NeuromusculoskeletalTableViewController: UITableViewController, Ind
 
     public override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 6
+        return 4
     }
   
     public override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
       if(section == 0)
       {
-        return "Head & Neck"
+        return "Please check: \(circleScalar) for previously had and \(squareScalar) for presently have"
       }
       if(section == 1)
       {
-       return "Shoulder"
+        return "Head & Neck"
       }
       if(section == 2)
       {
-        return "Mid-Back"
-      }
-      if(section == 3)
-      {
-        return "Low-Back"
-      }
-      if(section == 4)
-      {
-        return "Arms & Hands"
+       return "Shoulder"
       }
       else
       {
-        return "Hips, Legs & Feet"
+        return "Mid-Back"
       }
     }
 
@@ -135,27 +189,19 @@ public class NeuromusculoskeletalTableViewController: UITableViewController, Ind
       
       if(section == 0)
       {
-        return headNeck.count
+        return 0
       }
       if(section == 1)
       {
-        return shoulder.count
+        return headNeck.count
       }
       if(section == 2)
       {
-        return midback.count
-      }
-      if(section == 3)
-      {
-        return lowback.count
-      }
-      if(section == 4)
-      {
-        return armshands.count
+        return shoulder.count
       }
       else
       {
-        return hipsLegsFeet.count
+        return midback.count
       }
     }
 
@@ -168,33 +214,26 @@ public class NeuromusculoskeletalTableViewController: UITableViewController, Ind
       cell.circleButton.layer.borderWidth = 1
       cell.circleButton.layer.borderColor = myColor.CGColor
       cell.squareButton.layer.borderColor = myColor.CGColor
-      cell.circleButton.tag = 5
-      cell.squareButton.tag = 5
       
-      if(indexPath.section == 0)
-      {
-        cell.titleLabel.text = headNeck[indexPath.row] as? String
-      }
       if(indexPath.section == 1)
       {
-        cell.titleLabel.text = shoulder[indexPath.row] as? String
+        cell.titleLabel.text = headNeck[indexPath.row] as? String
+        cell.circleButton.tag = 0
+        cell.squareButton.tag = 0
       }
       if(indexPath.section == 2)
       {
-        cell.titleLabel.text = midback[indexPath.row] as? String
+        cell.titleLabel.text = shoulder[indexPath.row] as? String
+        cell.circleButton.tag = 1
+        cell.squareButton.tag = 1
       }
       if(indexPath.section == 3)
       {
-        cell.titleLabel.text = lowback[indexPath.row] as? String
+        cell.titleLabel.text = midback[indexPath.row] as? String
+        cell.circleButton.tag = 2
+        cell.squareButton.tag = 2
       }
-      if(indexPath.section == 4)
-      {
-        cell.titleLabel.text = armshands[indexPath.row] as? String
-      }
-      if(indexPath.section == 5)
-      {
-        cell.titleLabel.text = hipsLegsFeet[indexPath.row] as? String
-      }
+
       return cell
     }
  

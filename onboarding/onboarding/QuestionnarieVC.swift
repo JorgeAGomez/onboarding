@@ -11,7 +11,30 @@ import Foundation
 import XLPagerTabStrip
 import SimplePDF
 import MessageUI
-import FontAwesome_swift
+
+
+//Adding this extension to String class all these are true: (Use to get initials from firstName and lastName)
+//                      "abcde"[0] == "a"
+//                      "abcde"[0...2] == "abc"
+//                      "abcde"[2..<4] == "cd"
+
+
+extension String {
+
+  subscript (i: Int) -> Character {
+    return self[self.startIndex.advancedBy(i)]
+  }
+
+  subscript (i: Int) -> String {
+    return String(self[i] as Character)
+  }
+
+  subscript (r: Range<Int>) -> String {
+    let start = startIndex.advancedBy(r.startIndex)
+    let end = start.advancedBy(r.endIndex - r.startIndex)
+    return self[Range(start ..< end)]
+  }
+}
 
 public class QuestionnarieVC: TwitterPagerTabStripViewController, MFMailComposeViewControllerDelegate {
 
@@ -24,12 +47,10 @@ var conditionsInformation = [:]
 let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
 
 var temp = false
-
-
 var isReload = false
   
-  public override func viewDidLoad() {
-  
+  public override func viewDidLoad()
+  {
     settings.style.selectedDotColor = myColor
     settings.style.dotColor = UIColor.blackColor()
     settings.style.titleColor = UIColor.blackColor()
@@ -43,7 +64,6 @@ var isReload = false
     let alertController = UIAlertController(title: "Instructions", message: "Swipe left and right to nagivate through the questionnarie", preferredStyle: .Alert)
 
     // Create the actions
-    
     let okAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
 
     // Add the actions
@@ -51,12 +71,6 @@ var isReload = false
 
     // Present the controller
     self.presentViewController(alertController, animated: true, completion: nil)
-
-
-  }
-  
-  public override func viewDidAppear(animated: Bool) {
-  
   }
   
   public override func viewControllersForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
@@ -66,13 +80,16 @@ var isReload = false
         let child_3 = GastrointestinalTableViewController(style: .Grouped, itemInfo: "Gastrointestinal")
         let child_4 = CardiovascularTableViewController(style: .Grouped, itemInfo: "Cardiovascular")
         let child_5 = MultipleSectionsTableViewController(style: .Grouped, itemInfo: "Other Systems")
-        let child_6 = NeuromusculoskeletalTableViewController(style: .Grouped, itemInfo: "Neuromusculoskeletal")
-        
+        let child_6 = SecondMultipleTableViewController(style: .Grouped, itemInfo: "Other Systems")
+        let child_7 = NeuromusculoskeletalTableViewController(style: .Grouped, itemInfo: "Neuromusculoskeletal")
+        let child_8 = SecondNeuroTableViewController(style: .Grouped, itemInfo: "Neuromusculoskeletal II")
+        let child_9 = HipsLegsFeetTableViewController(style: .Grouped, itemInfo: "Hips, Legs and Feet")
+    
         guard isReload else {
-            return [child_1,child_2, child_3,child_4,child_5,child_6]
+            return [child_1,child_2, child_3,child_4,child_5,child_6,child_7, child_8,child_9]
         }
         
-        var childViewControllers = [child_1,child_2,child_3,child_4,child_5,child_6]
+        var childViewControllers = [child_1,child_2,child_3,child_4,child_5,child_6,child_7,child_8,child_9]
         
         for (index, _) in childViewControllers.enumerate(){
             let nElements = childViewControllers.count - index
@@ -82,13 +99,13 @@ var isReload = false
             }
         }
         reloadPagerTabStripView()
-        let nItems = 1 + (rand() % 6)
+        let nItems = 1 + (rand() % 9)
         return Array(childViewControllers.prefix(Int(nItems)))
     
     }
   
   func doneTapped(){
-      
+  
       let firstPage = CGSize(width: 650, height: 842)
       let pdf = SimplePDF(pageSize: firstPage, pageMargin: 33.0)
     
@@ -321,12 +338,6 @@ var isReload = false
       let circleScalar = UnicodeScalar(blackCircleCode)
       let checkMarkScalar = UnicodeScalar(box_with_checkMark)
       let squareScalar = UnicodeScalar(blackSquareCode)
-    
-      let emptycircleIcon = String.fontAwesomeIconWithCode("(&#xf10c;)")
-      print(emptycircleIcon)
-    
-      let emptyCircle = String.fontAwesomeIconWithName(FontAwesome.Github)
-      print(emptyCircle)
     
       let conditionData = [["Neck Pain / stiffness","\(checkMarkScalar)"],["Arthritis in neck","\(checkMarkScalar)"],["Headaches", ""],["Jaw Pain / TMJ","\(checkMarkScalar)"]]
     
@@ -604,6 +615,7 @@ var isReload = false
         }
       }
       pdf.addTable(bloodSugarFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: bloodSugarFinal)
+      pdf.addText(" ")
     
       //EYE EAR NOSE AND THROAT
       pdf.addLineSpace(15)
@@ -668,70 +680,208 @@ var isReload = false
         }
       }
       pdf.addTable(urinaryTractFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: urinaryTractFinal)
+    
+      //HEAD & NECK
+      pdf.addLineSpace(19)
+      pdf.setContentAlignment(.Center)
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 18)!)
+      pdf.addText("Neuromusculoskeletal")
+      pdf.setContentAlignment(.Left)
       pdf.addLineSpace(15)
-    
-    
-    
-    
-    /*
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
       pdf.addText("Head & Neck")
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
       pdf.addLineSeparator()
       pdf.addLineSpace(15)
-      for i in headNeck{
-        pdf.addText("\(i as! String)")
+      var headNeckFinal = [["Condition","Previously had","Presently have"]]
+      for i in headNeckData
+      {
+        var temp = [String]()
+        temp.append(i.0)
+        let previouslyData = i.1["previously"]
+        let presentlyData = i.1["presently"]
+        if(previouslyData == "Yes"){
+          temp.append("\(circleScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(presentlyData == "Yes"){
+          temp.append("\(squareScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(!(temp[1] == " " && temp[2] == " ")){
+          headNeckFinal.append(temp)
+        }
       }
-      pdf.addLineSpace(15)
+      pdf.addTable(headNeckFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: headNeckFinal)
     
+      //SHOULDER
+      pdf.addLineSpace(15)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
       pdf.addText("Shoulder")
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
       pdf.addLineSeparator()
       pdf.addLineSpace(15)
-      for i in shoulder{
-        pdf.addText("\(i as! String)")
+      var shoulderFinal = [["Condition","Previously had","Presently have"]]
+      for i in shoulderData
+      {
+        var temp = [String]()
+        temp.append(i.0)
+        let previouslyData = i.1["previously"]
+        let presentlyData = i.1["presently"]
+        if(previouslyData == "Yes"){
+          temp.append("\(circleScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(presentlyData == "Yes"){
+          temp.append("\(squareScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(!(temp[1] == " " && temp[2] == " ")){
+          shoulderFinal.append(temp)
+        }
       }
-      pdf.addLineSpace(15)
+      pdf.addTable(shoulderFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: shoulderFinal)
     
+      //MID BACK
+      pdf.addLineSpace(15)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
       pdf.addText("Mid-Back")
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
       pdf.addLineSeparator()
       pdf.addLineSpace(15)
-      for i in midback{
-        pdf.addText("\(i as! String)")
+      var midFinal = [["Condition","Previously had","Presently have"]]
+      for i in midData
+      {
+        var temp = [String]()
+        temp.append(i.0)
+        let previouslyData = i.1["previously"]
+        let presentlyData = i.1["presently"]
+        if(previouslyData == "Yes"){
+          temp.append("\(circleScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(presentlyData == "Yes"){
+          temp.append("\(squareScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(!(temp[1] == " " && temp[2] == " ")){
+          midFinal.append(temp)
+        }
       }
+      pdf.addTable(midFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: midFinal)
+
+      //LOW BACK
       pdf.addLineSpace(15)
-    
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
-      pdf.addText("Low Back")
+      pdf.addText("Low-Back")
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
       pdf.addLineSeparator()
       pdf.addLineSpace(15)
-      for i in lowback{
-        pdf.addText("\(i as! String)")
+      var lowFinal = [["Condition","Previously had","Presently have"]]
+      for i in lowData
+      {
+        var temp = [String]()
+        temp.append(i.0)
+        let previouslyData = i.1["previously"]
+        let presentlyData = i.1["presently"]
+        if(previouslyData == "Yes"){
+          temp.append("\(circleScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(presentlyData == "Yes"){
+          temp.append("\(squareScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(!(temp[1] == " " && temp[2] == " ")){
+          lowFinal.append(temp)
+        }
       }
-      pdf.addLineSpace(15)
+      pdf.addTable(lowFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: lowFinal)
     
+      //ARMS AND HANDS
+      pdf.addLineSpace(15)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
       pdf.addText("Arms & Hands")
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
       pdf.addLineSeparator()
       pdf.addLineSpace(15)
-      for i in armshands{
-        pdf.addText("\(i as! String)")
+      var armsFinal = [["Condition","Previously had","Presently have"]]
+      for i in armsData
+      {
+        var temp = [String]()
+        temp.append(i.0)
+        let previouslyData = i.1["previously"]
+        let presentlyData = i.1["presently"]
+        if(previouslyData == "Yes"){
+          temp.append("\(circleScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(presentlyData == "Yes"){
+          temp.append("\(squareScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(!(temp[1] == " " && temp[2] == " ")){
+          armsFinal.append(temp)
+        }
       }
-      pdf.addLineSpace(15)
+      pdf.addTable(armsFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: armsFinal)
     
+    
+      //HIPS LEGS FEET
+      pdf.addLineSpace(15)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
-      pdf.addText("Hips, Legs & Feet")
+      pdf.addText("Hips, Legs and Feet")
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
       pdf.addLineSeparator()
       pdf.addLineSpace(15)
-      for i in hipsLegsFeet{
-        pdf.addText("\(i as! String)")
+      var hipsFinal = [["Condition","Previously had","Presently have"]]
+      for i in hipsData
+      {
+        var temp = [String]()
+        temp.append(i.0)
+        let previouslyData = i.1["previously"]
+        let presentlyData = i.1["presently"]
+        if(previouslyData == "Yes"){
+          temp.append("\(circleScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(presentlyData == "Yes"){
+          temp.append("\(squareScalar)")
+        }
+        else{
+          temp.append(" ")
+        }
+        if(!(temp[1] == " " && temp[2] == " ")){
+          hipsFinal.append(temp)
+        }
       }
+      pdf.addTable(hipsFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: hipsFinal)
+      pdf.addLineSpace(15)
+    
+    /*
+
       pdf.addLineSpace(15)*/
     
     /*if let documentDirectories = NSSearchPathForDirectoriesInDomains( .DocumentDirectory, .UserDomainMask, true).first {
@@ -790,7 +940,5 @@ var isReload = false
         print(error)
     }
     }
-    
   }
-
 }

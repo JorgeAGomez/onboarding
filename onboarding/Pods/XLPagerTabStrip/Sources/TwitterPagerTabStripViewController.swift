@@ -110,7 +110,8 @@ public class TwitterPagerTabStripViewController: PagerTabStripViewController, Pa
         
         // update page control page
         pageControl.currentPage = currentIndex
-        if(childTitleLabels[currentIndex].text == "Neuromusculoskeletal"){
+        self.navigationItem.rightBarButtonItem?.enabled = false
+        if(childTitleLabels[currentIndex].text == "Hips, Legs and Feet"){
           self.navigationItem.rightBarButtonItem?.title = "Done"
           self.navigationItem.rightBarButtonItem?.enabled = true
         }
