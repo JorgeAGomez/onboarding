@@ -9,7 +9,6 @@
 #import "HealthCoverageViewController.h"
 #import "XLForm.h"
 #import "FormViewController.h"
-#import "ReportQuestionnarieViewController.h"
 #import "ConditionsViewController.h"
 
 @interface HealthCoverageViewController ()

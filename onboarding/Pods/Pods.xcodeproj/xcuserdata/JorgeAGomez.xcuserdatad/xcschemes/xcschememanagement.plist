@@ -9,37 +9,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>FontAwesome.swift-FontAwesome.swift.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>FontAwesome.swift.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>HMSegmentedControl.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>JVFloatLabeledTextField.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>MXPagerView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>MXParallaxHeader.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>MXSegmentedPager.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -49,17 +19,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>ResearchKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>SHSPhoneComponent.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>SignatureView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -92,32 +52,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0483ED0494989515DDCD6CE7FDD70DEA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>079693DF9BC072D920F84AF63E64CBD4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1FE2578FF0805299395CF2A0206BB671</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>24E455500CFC12E3784552804EDD6C41</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>32868E36D4FF9D681B6F1C1D47E18B0F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>47156DBD4D88B8F5CBA7C4970295F47E</key>
+		<key>113672AD1B44945593FE449117856C5A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -127,12 +62,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>62437863F2D9089A8BB6136F37EAFE14</key>
+		<key>58EA154521FB44683D65C3B224594839</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>71C1DF39EE1271EA1147F993CA1439A0</key>
+		<key>5F69B7CBDB2D21208C4F7444CAA831AB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,37 +77,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AB5983EA001CF635B04348D3D4F0F5D5</key>
+		<key>918650F9C7E7F49B8B20C5B5B52F6C6D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AE58340C183B963C900C9FF91F7C3E95</key>
+		<key>A033C8C80841A2C27479D315463251AB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C1AC3319DDA0BDCD1904A8DC1D6C5AB7</key>
+		<key>DC71A00F1357404D6924AB0C86B81C0A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C886419C515CF117524071DA11D50148</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D079D9AA985DDABC43ED482FC2FB3E00</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EF4F067C2D0E135B80299B089E168BDA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F316F515362DDA807AF91A1913C345B0</key>
+		<key>F61C0091E73B703BF46B520B6F53A10A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

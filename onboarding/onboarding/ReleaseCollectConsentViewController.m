@@ -6,7 +6,7 @@
 //
 
 #import "ReleaseCollectConsentViewController.h"
-#import <ResearchKit/ResearchKit.h>
+
 
 
 @interface ReleaseCollectConsentViewController ()

@@ -22,6 +22,9 @@ class SubmitScreenViewController: UIViewController {
   
   @IBAction func submitButton(sender: AnyObject)
   {
+    
+    
+  
     // Create the alert controller
     let alertController = UIAlertController(title: "Thank you", message: "Please return iPad to the main desk", preferredStyle: .Alert)
 

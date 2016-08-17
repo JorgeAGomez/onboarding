@@ -8,7 +8,7 @@
 
 #import "ConditionsViewController.h"
 #import "XLForm.h"
-#import "ReportQuestionnarieViewController.h"
+
 #import "onboarding-Swift.h"
 
 @interface ConditionsViewController ()

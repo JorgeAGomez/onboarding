@@ -39,8 +39,6 @@
 		D68CE7FC1D2C379100E1A0EE /* ConditionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D68CE7FB1D2C379100E1A0EE /* ConditionsViewController.m */; };
 		D6919D351D21AE4F00E0FCAB /* WorkInjuryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6919D341D21AE4F00E0FCAB /* WorkInjuryViewController.m */; };
 		D6919D381D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6919D371D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m */; };
-		D6F6AE4E1D25AFA600083F99 /* ReportQuestionnarieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F6AE4D1D25AFA600083F99 /* ReportQuestionnarieViewController.m */; };
-		D6FFFCF21D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FFFCF11D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,10 +91,6 @@
 		D6919D341D21AE4F00E0FCAB /* WorkInjuryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkInjuryViewController.m; sourceTree = "<group>"; };
 		D6919D361D21D58F00E0FCAB /* MotorVehicleAccidentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotorVehicleAccidentViewController.h; sourceTree = "<group>"; };
 		D6919D371D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotorVehicleAccidentViewController.m; sourceTree = "<group>"; };
-		D6F6AE4C1D25AFA600083F99 /* ReportQuestionnarieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReportQuestionnarieViewController.h; path = onboarding/ReportQuestionnarieViewController.h; sourceTree = "<group>"; };
-		D6F6AE4D1D25AFA600083F99 /* ReportQuestionnarieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReportQuestionnarieViewController.m; path = onboarding/ReportQuestionnarieViewController.m; sourceTree = "<group>"; };
-		D6FFFCF01D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GeneralReportQuestinnarieViewController.h; path = onboarding/GeneralReportQuestinnarieViewController.h; sourceTree = "<group>"; };
-		D6FFFCF11D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GeneralReportQuestinnarieViewController.m; path = onboarding/GeneralReportQuestinnarieViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,10 +117,6 @@
 			isa = PBXGroup;
 			children = (
 				D62829F81D1F6622001D64FA /* onboarding */,
-				D6F6AE4C1D25AFA600083F99 /* ReportQuestionnarieViewController.h */,
-				D6F6AE4D1D25AFA600083F99 /* ReportQuestionnarieViewController.m */,
-				D6FFFCF01D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.h */,
-				D6FFFCF11D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.m */,
 				D62829F71D1F6622001D64FA /* Products */,
 				E2AC4113E0DE60FE85E16C5E /* Pods */,
 				333ACBB4229CCBAEB14696D9 /* Frameworks */,
@@ -411,7 +401,6 @@
 				D64C6E7F1D4B9DB500ABB8BA /* ConsentFirstPageViewController.swift in Sources */,
 				D66A3B481D46A78600E83DD7 /* GeneralTableViewController.swift in Sources */,
 				D62A4D431D48022700CDF4F8 /* MultipleSectionsTableViewController.swift in Sources */,
-				D6F6AE4E1D25AFA600083F99 /* ReportQuestionnarieViewController.m in Sources */,
 				D67950CE1D46839B00539C90 /* QuestionnarieVC.swift in Sources */,
 				D62E69DC1D22F6B600AEE03C /* FirebaseHelper.m in Sources */,
 				D64C6E7A1D4AD99F00ABB8BA /* SubmitScreenViewController.swift in Sources */,
@@ -431,7 +420,6 @@
 				D67313041D63622F00DE45DB /* HipsLegsFeetTableViewController.swift in Sources */,
 				D68CE7EF1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.m in Sources */,
 				D64C6E7D1D4B8F0D00ABB8BA /* ConsentIntroViewController.m in Sources */,
-				D6FFFCF21D2ACBA500E6ADBF /* GeneralReportQuestinnarieViewController.m in Sources */,
 				D616B3701D20C16500ABF52D /* MedicalInformationViewController.m in Sources */,
 				D62A4D3D1D47C5BD00CDF4F8 /* ImmuneSystemInfectonTVCTableViewController.swift in Sources */,
 			);

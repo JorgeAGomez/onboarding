@@ -11,6 +11,8 @@ import Foundation
 import XLPagerTabStrip
 import SimplePDF
 import MessageUI
+import FirebaseDatabase
+import FirebaseStorage
 
 
 //Adding this extension to String class all these are true: (Use to get initials from firstName and lastName)
@@ -106,10 +108,7 @@ var isReload = false
   
     func doneTapped(){
   
-      performSegueWithIdentifier("nextScreen", sender: self)
-      
-    
-     /* let firstPage = CGSize(width: 650, height: 842)
+     let firstPage = CGSize(width: 650, height: 842)
       let pdf = SimplePDF(pageSize: firstPage, pageMargin: 33.0)
     
       let firstName = personalInformation["First name"]!
@@ -935,19 +934,24 @@ var isReload = false
     }*/
     
     
-    if let documentDirectories = NSSearchPathForDirectoriesInDomains( .DesktopDirectory, .UserDomainMask, true).first {
-    
-    let fileName = "onboardingForm.pdf"
-    var documentsFileName = documentDirectories + "/" + fileName
-    documentsFileName = "/Users/JorgeAGomez/Desktop/" + fileName
     let pdfData = pdf.generatePDFdata()
     do{
-        try pdfData.writeToFile(documentsFileName, options: .DataWritingAtomic)
-        print("\nThe generated pdf can be found at:")
-        print("\n\t\(documentsFileName)\n")
-    }catch{
-        print(error)
+      
+        let storage = FIRStorage.storage()
+        let storageReference = storage.referenceForURL("gs://project-4839952831808961167.appspot.com")
+      
+        let pdfFile: NSData = pdfData
+        let pdfReference = storageReference.child("\(PHN)/onboarding.pdf")
+        let uploadTask = pdfReference.putData(pdfFile, metadata: nil) { pdfFile, error in
+          if(error != nil){
+            print("An error has occcurred")
+            print(error)
+          }
+          else{
+            let downloadURL = pdfFile!.downloadURL
+            print(downloadURL)
+          }
+        }
+      }
     }
-    }*/
   }
-}
