@@ -185,7 +185,7 @@ var isReload = false
       
       print(homePhone)
       
-      let logoImage = UIImage(named:"CaleoLogo201x80")!
+      let logoImage = UIImage(named:"CaleoLogo133x53")!
       pdf.addImage(logoImage)
       pdf.addLineSpace(18)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 22)!)
@@ -235,7 +235,7 @@ var isReload = false
       pdf.addLineSpace(15)
       pdf.addText("Patient's / Guarantor's Initials: \(firstName) \(lastName)")
       pdf.addText("Date: \(stringDate)")
-      pdf.addText("Consent reviewed with patient: Therapist's Signature / Initials or Office stamp: ______")
+      //pdf.addText("Consent reviewed with patient: Therapist's Signature / Initials or Office stamp: ______")
     
       ////////////
     
@@ -426,14 +426,35 @@ var isReload = false
           }
         }
       }
+      if(finalCondition.count == 0){
+        borderSize = 0.0
+        pdf.addText("No conditions recorded")
+      }
     
-      pdf.addTable(finalCondition.count, columnCount: 2, rowHeight: 20, columnWidth: 160, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: finalCondition)
+      pdf.addTable(finalCondition.count, columnCount: 2, rowHeight: 20, columnWidth: 200, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: finalCondition)
       pdf.addLineSpace(20)
     
       //QUESTIONNARIE
+      
       pdf.beginNewPage()
     
       //GENERAL
+      pdf.addImage(logoImage)
+      pdf.addLineSpace(18)
+      pdf.setContentAlignment(.Center)
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 22)!)
+      pdf.addText("Health Report Questionnarie")
+      pdf.addLineSpace(15)
+      pdf.setContentAlignment(.Left)
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+      pdf.addText("For the following conditions please check: \(circleScalar) for previously had and \(squareScalar) for presently have")
+      pdf.addLineSpace(15)
+    
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+      pdf.addText("General")
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+      pdf.addLineSeparator()
+      pdf.addLineSpace(15)
       var finalGeneral = [[String]]()
       let firstRow = ["Conditions","Previously had","Presently have"]
       finalGeneral.append(firstRow)
@@ -460,34 +481,25 @@ var isReload = false
       }
       
       //If no conditions are checked, then removeAll() to not show the table.
-      if(finalGeneral.count == 1){
+      if(finalGeneral.count < 2)
+      {
         finalGeneral.removeAll()
-        borderSize = 0.0
+        pdf.addText("N/A")
       }
-      else{
-        pdf.addImage(logoImage)
-        pdf.addLineSpace(18)
-        pdf.setContentAlignment(.Center)
-        pdf.setFont(UIFont(name: "HelveticaNeue", size: 22)!)
-        pdf.addText("Health Report Questionnarie")
-        pdf.addLineSpace(15)
-        pdf.setContentAlignment(.Left)
-        pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
-        pdf.addText("For the following conditions please check: \(circleScalar) for previously had and \(squareScalar) for presently have")
-        pdf.addLineSpace(15)
+      else
+      {
+        pdf.addTable(finalGeneral.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: finalGeneral)
+      }
       
+      
+    
+      //IMMUNE SYSTEM / INFECTION
+        pdf.addLineSpace(15)
         pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
-        pdf.addText("General")
+        pdf.addText("Immune System / infection")
         pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
         pdf.addLineSeparator()
         pdf.addLineSpace(15)
-        borderSize = 1.0
-        }
-      
-      pdf.addTable(finalGeneral.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: finalGeneral)
-    
-      //IMMUNE SYSTEM / INFECTION
-
     
       var immuneFinal = [["Condition","Previously had","Presently have"]]
       for i in immuneData{
@@ -512,26 +524,26 @@ var isReload = false
         }
       }
       
-      if(immuneFinal.count == 1)
+      if(immuneFinal.count < 2)
       {
         immuneFinal.removeAll()
-        borderSize = 0.0
+        pdf.addText("N/A")
       }
-      else{
-        pdf.addLineSpace(15)
-        pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
-        pdf.addText("Immune System / infection")
-        pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
-        pdf.addLineSeparator()
-        pdf.addLineSpace(15)
-        borderSize = 1.0
+      else
+      {
+        pdf.addTable(immuneFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: immuneFinal)
       }
       
-      pdf.addTable(immuneFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: immuneFinal)
+      
     
     
       //GASTROINSTESTINAL
-
+        pdf.addLineSpace(15)
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+        pdf.addText("Gastrointestinal")
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+        pdf.addLineSeparator()
+        pdf.addLineSpace(15)
 
     
       var gastroFinal = [["Condition","Previously had","Presently have"]]
@@ -558,24 +570,26 @@ var isReload = false
         }
       }
       
-      if(gastroFinal.count == 1){
+      if(gastroFinal.count < 2){
         gastroFinal.removeAll()
-        borderSize = 0.0
+        pdf.addText("N/A")
       }
-      else{
-        pdf.addLineSpace(15)
-        pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
-        pdf.addText("Gastrointestinal")
-        pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
-        pdf.addLineSeparator()
-        pdf.addLineSpace(15)
-        borderSize = 1.0
+      else
+      {
+        pdf.addTable(gastroFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: gastroFinal)
       }
       
-      pdf.addTable(gastroFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: gastroFinal)
+      
     
     
       //CARDIOVASCULAR
+      
+        pdf.addLineSpace(15)
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+        pdf.addText("Cardiovascular")
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+        pdf.addLineSeparator()
+        pdf.addLineSpace(15)
     
       var cardioFinal = [["Condition","Previously had","Presently have"]]
     
@@ -602,25 +616,25 @@ var isReload = false
         }
       }
       
-      if(cardioFinal.count == 1){
+      if(cardioFinal.count < 2){
         cardioFinal.removeAll()
-        borderSize = 0.0
+        pdf.addText("N/A")
       }
-      else{
-        pdf.addLineSpace(15)
-        pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
-        pdf.addText("Cardiovascular")
-        pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
-        pdf.addLineSeparator()
-        pdf.addLineSpace(15)
-        borderSize = 1.0
+      else
+      {
+        pdf.addTable(cardioFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: cardioFinal)
       }
-      pdf.addTable(cardioFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: cardioFinal)
+      
     
       //OTHER SYSTEMS
       //NERVOUS SYSTEM
-
-      
+      pdf.addLineSpace(15)
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+      pdf.addText("Nervous System")
+      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+      pdf.addLineSeparator()
+      pdf.addLineSpace(15)
+    
       var nervousFinal = [["Condition","Previously had","Presently have"]]
       for i in nervousData
       {
@@ -645,24 +659,21 @@ var isReload = false
         }
       }
       
-      if(nervousFinal.count == 1){
+      if(nervousFinal.count < 2)
+      {
         nervousFinal.removeAll()
-        borderSize = 0.0
+        pdf.addText("N/A")
       }
-      else{
-        pdf.addLineSpace(15)
-        pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
-        pdf.addText("Nervous System")
-        pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
-        pdf.addLineSeparator()
-        pdf.addLineSpace(15)
-        borderSize = 1.0
+      else
+      {
+        pdf.addTable(nervousFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: nervousFinal)
       }
       
-      pdf.addTable(nervousFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: nervousFinal)
+      
     
-      borderSize =  1 ///CONTINUE HERE!!
+      
       //RESPIRATORY
+      borderSize = 1.0
       pdf.addLineSpace(15)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
       pdf.addText("Respiratory")
@@ -692,10 +703,18 @@ var isReload = false
           respiratoryFinal.append(temp)
         }
       }
-      pdf.addTable(respiratoryFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: respiratoryFinal)
-    
+      
+      if(respiratoryFinal.count < 2){
+        respiratoryFinal.removeAll()
+        pdf.addText("N/A")
+      }
+      else{
+        pdf.addTable(respiratoryFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: respiratoryFinal)
+      }
+     
     
       //BLOOD SUGAR
+      borderSize = 1.0
       pdf.addLineSpace(15)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
       pdf.addText("Blood sugar")
@@ -725,11 +744,17 @@ var isReload = false
           bloodSugarFinal.append(temp)
         }
       }
-      pdf.addTable(bloodSugarFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: bloodSugarFinal)
-    
-      pdf.beginNewPage()
-    
+      if(bloodSugarFinal.count < 2){
+        bloodSugarFinal.removeAll()
+        pdf.addText("N/A")
+      }
+      else{
+        pdf.addTable(bloodSugarFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: bloodSugarFinal)
+      }
+      
+      
       //EYE EAR NOSE AND THROAT
+      borderSize = 1.0
       pdf.addLineSpace(15)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
       pdf.addText("Eye, Ear, Nose and Throat")
@@ -759,8 +784,18 @@ var isReload = false
           eyeEarNoseThroatFinal.append(temp)
         }
       }
-      pdf.addTable(eyeEarNoseThroatFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: eyeEarNoseThroatFinal)
+      
+      if(eyeEarNoseThroatFinal.count < 2){
+        eyeEarNoseThroatFinal.removeAll()
+        pdf.addText("N/A")
+      }
+      else{
+        pdf.addTable(eyeEarNoseThroatFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: eyeEarNoseThroatFinal)
+      }
+      
     
+    
+      //URINARY TRACT
       pdf.addLineSpace(15)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
       pdf.addText("Urinary Tract")
@@ -790,8 +825,16 @@ var isReload = false
           urinaryTractFinal.append(temp)
         }
       }
-      pdf.addTable(urinaryTractFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: urinaryTractFinal)
-    
+      
+      if(urinaryTractFinal.count == 1){
+        urinaryTractFinal.removeAll()
+        pdf.addText("N/A")
+      }
+      else{
+        pdf.addTable(urinaryTractFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: urinaryTractFinal)
+      }
+      
+      
       //HEAD & NECK
       pdf.addLineSpace(19)
       pdf.setContentAlignment(.Center)
@@ -827,7 +870,15 @@ var isReload = false
           headNeckFinal.append(temp)
         }
       }
-      pdf.addTable(headNeckFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: headNeckFinal)
+      if(headNeckFinal.count == 1){
+        headNeckFinal.removeAll()
+        pdf.addText("N/A")
+      }
+      else{
+        pdf.addTable(headNeckFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: headNeckFinal)
+      }
+      
+      
     
       //SHOULDER
       pdf.addLineSpace(15)
@@ -859,7 +910,15 @@ var isReload = false
           shoulderFinal.append(temp)
         }
       }
-      pdf.addTable(shoulderFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: shoulderFinal)
+      
+      if(shoulderFinal.count == 1){
+        shoulderFinal.removeAll()
+        pdf.addText("N/A")
+      }
+      else{
+        pdf.addTable(shoulderFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: shoulderFinal)
+      }
+      
     
       //MID BACK
       pdf.addLineSpace(15)
@@ -891,7 +950,16 @@ var isReload = false
           midFinal.append(temp)
         }
       }
-      pdf.addTable(midFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: midFinal)
+      
+      if(midFinal.count == 1){
+        midFinal.removeAll()
+        pdf.addText("N/A")
+      }
+      else{
+        pdf.addTable(midFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: midFinal)
+      }
+      
+     
 
       //LOW BACK
       pdf.addLineSpace(15)
@@ -923,7 +991,16 @@ var isReload = false
           lowFinal.append(temp)
         }
       }
-      pdf.addTable(lowFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: lowFinal)
+      
+      if(lowFinal.count == 1){
+        lowFinal.removeAll()
+        pdf.addText("N/A")
+      }
+      else{
+        pdf.addTable(lowFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: lowFinal)
+      }
+      
+      
     
       //ARMS AND HANDS
       pdf.addLineSpace(15)
@@ -955,7 +1032,14 @@ var isReload = false
           armsFinal.append(temp)
         }
       }
-      pdf.addTable(armsFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: armsFinal)
+      if(armsFinal.count == 1){
+        armsFinal.removeAll()
+        pdf.addText("N/A")
+      }
+      else{
+        pdf.addTable(armsFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: armsFinal)
+      }
+      
     
     
       //HIPS LEGS FEET
@@ -988,7 +1072,15 @@ var isReload = false
           hipsFinal.append(temp)
         }
       }
-      pdf.addTable(hipsFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: hipsFinal)
+      
+      if(hipsFinal.count == 1){
+        hipsFinal.removeAll()
+        pdf.addText("N/A")
+      }
+      else{
+        pdf.addTable(hipsFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: hipsFinal)
+      }
+      
       pdf.addLineSpace(15)
     
     //FIREBASE PERSONAL INFORMATION 
