@@ -29,7 +29,7 @@
   self.tableView.contentInset = UIEdgeInsetsMake(44,0,0,0);
 }
 
-- (void)didReceiveMemoryWarning {
+-(void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -116,9 +116,9 @@
 {
   if([segue.identifier isEqualToString:@"next2"]){
     MotorVehicleAccidentViewController *controller = [segue destinationViewController];
-    controller.personalInformation = [NSDictionary dictionaryWithDictionary:_personalInformation];
-    controller.medicalInformation = [NSDictionary dictionaryWithDictionary:_medicalInformation];
-    controller.workInjuryInformation = [NSDictionary dictionaryWithDictionary:_workInjuryInformation];
+    controller.personalInformation = [NSMutableDictionary dictionaryWithDictionary:_personalInformation];
+    controller.medicalInformation = [NSMutableDictionary dictionaryWithDictionary:_medicalInformation];
+    controller.workInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:_workInjuryInformation];
   }
 }
 
@@ -155,7 +155,7 @@
       
         return;
     }
-    _workInjuryInformation = [self formValues];
+    _workInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:[self formValues]];
   
     if([_workInjuryInformation[@"WCB Claim No."] isEqual:[NSNull null]])
     {

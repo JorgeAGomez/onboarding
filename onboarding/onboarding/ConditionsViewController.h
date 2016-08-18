@@ -10,12 +10,12 @@
 
 @interface ConditionsViewController : XLFormViewController
 
-@property (strong,nonatomic) NSDictionary *personalInformation;
-@property (strong, nonatomic) NSDictionary *medicalInformation;
-@property (strong,nonatomic) NSDictionary *workInjuryInformation;
-@property (strong,nonatomic) NSDictionary *motorVehicleInjuryInformation;
-@property (strong, nonatomic) NSDictionary *healthCoverageInformation;
-@property (strong, nonatomic) NSDictionary *conditionsInformation;
+@property (strong,nonatomic) NSMutableDictionary *personalInformation;
+@property (strong, nonatomic) NSMutableDictionary *medicalInformation;
+@property (strong,nonatomic) NSMutableDictionary *workInjuryInformation;
+@property (strong,nonatomic) NSMutableDictionary *motorVehicleInjuryInformation;
+@property (strong, nonatomic) NSMutableDictionary *healthCoverageInformation;
+@property (strong, nonatomic) NSMutableDictionary *conditionsInformation;
 
 
 @end

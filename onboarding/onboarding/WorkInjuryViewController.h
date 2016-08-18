@@ -14,8 +14,8 @@
 
 @interface WorkInjuryViewController : XLFormViewController
 - (IBAction)nextButton:(id)sender;
-@property (strong,nonatomic) NSDictionary *personalInformation;
-@property (strong, nonatomic) NSDictionary *medicalInformation;
-@property (strong,nonatomic) NSDictionary *workInjuryInformation;
+@property (strong,nonatomic) NSMutableDictionary *personalInformation;
+@property (strong, nonatomic) NSMutableDictionary *medicalInformation;
+@property (strong,nonatomic) NSMutableDictionary *workInjuryInformation;
 
 @end

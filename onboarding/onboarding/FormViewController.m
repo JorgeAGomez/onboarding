@@ -26,7 +26,6 @@
   self.tableView.contentInset = UIEdgeInsetsMake(44,0,0,0);
 }
 
-
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
     self = [super initWithCoder:coder];
@@ -190,7 +189,7 @@
   //PASS dictionary with personal Info!!
   if([segue.identifier isEqualToString:@"next"]){
     MedicalInformationViewController *controller = [segue destinationViewController];
-    controller.personalInformation = [NSDictionary dictionaryWithDictionary:_personalDictionary];
+    controller.personalInformation = [NSMutableDictionary dictionaryWithDictionary:_personalInformation];
   }
 }
 
@@ -203,12 +202,13 @@
       
         return;
     }
-    _personalDictionary = [self formValues];
-    XLFormOptionsObject *province = [_personalDictionary objectForKey:@"Province"];
-    [_personalDictionary setValue:province.displayText forKey:@"Province"];
+    _personalInformation = [NSMutableDictionary dictionaryWithDictionary:[self formValues]];
+  
+    XLFormOptionsObject *province = [_personalInformation objectForKey:@"Province"];
+    [_personalInformation setValue:province.displayText forKey:@"Province"];
   
     //Makes sure at least one phone is given
-    if([_personalDictionary[@"Home Phone #"] isEqual:[NSNull null]] && [_personalDictionary[@"Cell Phone #"] isEqual:[NSNull null]] && [_personalDictionary[@"Work Phone #"] isEqual:[NSNull null]])
+    if([_personalInformation[@"Home Phone #"] isEqual:[NSNull null]] && [_personalInformation[@"Cell Phone #"] isEqual:[NSNull null]] && [_personalInformation[@"Work Phone #"] isEqual:[NSNull null]])
     {
       UIAlertController * alert=   [UIAlertController
                                      alertControllerWithTitle:@"Error"
@@ -229,7 +229,7 @@
        [self presentViewController:alert animated:YES completion:nil];
     }
     //if PersonalHealthNumber is not give, provide warning message
-    else if([_personalDictionary[@"PHN No."] isEqual:[NSNull null]])
+    else if([_personalInformation[@"PHN No."] isEqual:[NSNull null]])
     {
       UIAlertController * alert=   [UIAlertController
                              alertControllerWithTitle:@"Reminder"

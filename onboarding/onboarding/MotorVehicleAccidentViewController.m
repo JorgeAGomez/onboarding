@@ -132,10 +132,10 @@
 {
   if([segue.identifier isEqualToString:@"next3"]){
     HealthCoverageViewController *controller = [segue destinationViewController];
-    controller.personalInformation = [NSDictionary dictionaryWithDictionary:_personalInformation];
-    controller.medicalInformation = [NSDictionary dictionaryWithDictionary:_medicalInformation];
-    controller.workInjuryInformation = [NSDictionary dictionaryWithDictionary:_workInjuryInformation];
-    controller.motorVehicleInjuryInformation = [NSDictionary dictionaryWithDictionary:_motorVehicleInjuryInformation];
+    controller.personalInformation = [NSMutableDictionary dictionaryWithDictionary:_personalInformation];
+    controller.medicalInformation = [NSMutableDictionary dictionaryWithDictionary:_medicalInformation];
+    controller.workInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:_workInjuryInformation];
+    controller.motorVehicleInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:_motorVehicleInjuryInformation];
     
   }
 }
@@ -178,7 +178,7 @@
         return;
     }
 
-  _motorVehicleInjuryInformation = [self formValues];
+  _motorVehicleInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:[self formValues]];
   
   if([_motorVehicleInjuryInformation[@"Claim/Policy #"] isEqual:[NSNull null]])
   {

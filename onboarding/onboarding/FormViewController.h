@@ -15,7 +15,7 @@
 @interface FormViewController : XLFormViewController
 
 
-@property (strong, nonatomic) NSDictionary *personalDictionary;
+@property (strong, nonatomic) NSMutableDictionary *personalInformation;
 
 - (IBAction)nextButton:(id)sender;
 

@@ -11,7 +11,7 @@
 @interface MedicalInformationViewController : XLFormViewController
 
 - (IBAction)nextButton:(id)sender;
-@property (strong,nonatomic) NSDictionary *personalInformation;
-@property (strong, nonatomic) NSDictionary *medicalInformation;
+@property (strong,nonatomic) NSMutableDictionary *personalInformation;
+@property (strong, nonatomic) NSMutableDictionary *medicalInformation;
 
 @end

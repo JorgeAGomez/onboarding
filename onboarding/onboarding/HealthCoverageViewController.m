@@ -99,11 +99,11 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
   ConditionsViewController *controller = [segue destinationViewController];
-  controller.personalInformation = [NSDictionary dictionaryWithDictionary:_personalInformation];
-  controller.medicalInformation = [NSDictionary dictionaryWithDictionary:_medicalInformation];
-  controller.workInjuryInformation = [NSDictionary dictionaryWithDictionary:_workInjuryInformation];
-  controller.motorVehicleInjuryInformation = [NSDictionary dictionaryWithDictionary:_motorVehicleInjuryInformation];
-  controller.healthCoverageInformation = [NSDictionary dictionaryWithDictionary:_healthCoverageInformation];
+  controller.personalInformation = [NSMutableDictionary dictionaryWithDictionary:_personalInformation];
+  controller.medicalInformation = [NSMutableDictionary dictionaryWithDictionary:_medicalInformation];
+  controller.workInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:_workInjuryInformation];
+  controller.motorVehicleInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:_motorVehicleInjuryInformation];
+  controller.healthCoverageInformation = [NSMutableDictionary dictionaryWithDictionary:_healthCoverageInformation];
 
 }
 
@@ -114,7 +114,7 @@
       [self showFormValidationError:[validationErrors firstObject]];
       return;
   }
-  _healthCoverageInformation = [self formValues];
+  _healthCoverageInformation = [NSMutableDictionary dictionaryWithDictionary:[self formValues]];
   [self performSegueWithIdentifier:@"next4" sender:self];
 }
 @end

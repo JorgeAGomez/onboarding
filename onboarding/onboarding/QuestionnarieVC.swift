@@ -40,12 +40,12 @@ extension String {
 
 public class QuestionnarieVC: TwitterPagerTabStripViewController, MFMailComposeViewControllerDelegate {
 
-var personalInformation = [:]
-var medicalInformation = [:]
-var workInjuryInformation = [:]
-var motorVehicleInjuryInformation = [:]
-var healthCoverageInformation = [:]
-var conditionsInformation = [:]
+var personalInformation = NSMutableDictionary()
+var medicalInformation = NSMutableDictionary()
+var workInjuryInformation = NSMutableDictionary()
+var motorVehicleInjuryInformation = NSMutableDictionary()
+var healthCoverageInformation = NSMutableDictionary()
+var conditionsInformation = NSMutableDictionary()
 let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
 
 var temp = false
@@ -73,6 +73,9 @@ var isReload = false
 
     // Present the controller
     self.presentViewController(alertController, animated: true, completion: nil)
+    
+    
+    
   }
   
   public override func viewControllersForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
@@ -107,9 +110,59 @@ var isReload = false
     }
   
     func doneTapped(){
-  
-     let firstPage = CGSize(width: 650, height: 842)
+      
+      let firstPage = CGSize(width: 650, height: 842)
       let pdf = SimplePDF(pageSize: firstPage, pageMargin: 33.0)
+      var borderSize : CGFloat = 1.0
+      
+      /*
+      
+            NSMutableArray *keys = [[NSMutableArray alloc]init];
+      for(id key in _personalInformation)
+      {
+          if([_personalInformation[key] isEqual:[NSNull null]]){
+            [keys addObject:key];
+          }
+      }
+
+      for(id object in keys)
+      {
+        [_personalInformation removeObjectForKey:object];
+        [_personalInformation setValue:@".." forKey:object];
+      }
+      
+      
+      */
+      
+      //PERSONAL INFORMATION
+      let personalKeys = NSMutableArray()
+      for i in personalInformation{
+        if(i.value.isEqual(NSNull())){
+          personalKeys.addObject(i.key)
+        }
+      }
+      for object in personalKeys
+      {
+        personalInformation.removeObjectForKey(object)
+        personalInformation.setValue(" ", forKey: object as! String)
+      }
+      
+      //MEDICAL INFORMATION
+      let medicalKeys = NSMutableArray()
+      for i in medicalInformation
+      {
+        if(i.value.isEqual(NSNull()))
+        {
+          medicalKeys.addObject(i.key)
+        }
+      }
+      
+      for object in medicalKeys
+      {
+        medicalInformation.removeObjectForKey(object)
+        medicalInformation.setValue(" ", forKey: object as! String)
+      }
+      
     
       let firstName = personalInformation["First name"]!
       let lastName = personalInformation["Last name"]!
@@ -128,7 +181,9 @@ var isReload = false
       let doctorName = medicalInformation["Medical Doctor's Name"]!
       let doctorPhone = medicalInformation["Doctor Phone"]!
       let doctorAddress = medicalInformation["Address"]!
-  
+    
+      
+      print(homePhone)
       
       let logoImage = UIImage(named:"CaleoLogo201x80")!
       pdf.addImage(logoImage)
@@ -209,7 +264,7 @@ var isReload = false
       pdf.addLineSpace(4)
       pdf.addText("City / Province: \(city), \(province)        Postal Code: \(postalCode)")
       pdf.addLineSpace(4)
-      pdf.addText("Home Phone #: \(homePhone)        Cell Phone #: \(cellPhone)        Work Phone: \(workPhone)")
+      pdf.addText("Home Phone #: \(homePhone)        Cell Phone #: \(cellPhone)        Work Phone #: \(workPhone)")
       pdf.addLineSpace(4)
       let stringDOB = dateFormatter.stringFromDate(DOB as! NSDate)
       pdf.addText("Date of birth: \(stringDOB)        PHN #: \(PHN)")
@@ -377,23 +432,6 @@ var isReload = false
     
       //QUESTIONNARIE
       pdf.beginNewPage()
-      pdf.addImage(logoImage)
-      pdf.addLineSpace(18)
-      pdf.setContentAlignment(.Center)
-      pdf.setFont(UIFont(name: "HelveticaNeue", size: 22)!)
-      pdf.addText("Health Report Questionnarie")
-      pdf.addLineSpace(15)
-      pdf.setContentAlignment(.Left)
-      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
-      pdf.addText("For the following conditions please check: CIRCLE for previously had and SQUARE for presently have")
-      pdf.addLineSpace(15)
-    
-      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
-      pdf.addText("General")
-      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
-      pdf.addLineSeparator()
-      pdf.addLineSpace(15)
-    
     
       //GENERAL
       var finalGeneral = [[String]]()
@@ -420,16 +458,36 @@ var isReload = false
           finalGeneral.append(temp)
         }
       }
-    
-      pdf.addTable(finalGeneral.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: finalGeneral)
+      
+      //If no conditions are checked, then removeAll() to not show the table.
+      if(finalGeneral.count == 1){
+        finalGeneral.removeAll()
+        borderSize = 0.0
+      }
+      else{
+        pdf.addImage(logoImage)
+        pdf.addLineSpace(18)
+        pdf.setContentAlignment(.Center)
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 22)!)
+        pdf.addText("Health Report Questionnarie")
+        pdf.addLineSpace(15)
+        pdf.setContentAlignment(.Left)
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+        pdf.addText("For the following conditions please check: \(circleScalar) for previously had and \(squareScalar) for presently have")
+        pdf.addLineSpace(15)
+      
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+        pdf.addText("General")
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+        pdf.addLineSeparator()
+        pdf.addLineSpace(15)
+        borderSize = 1.0
+        }
+      
+      pdf.addTable(finalGeneral.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: finalGeneral)
     
       //IMMUNE SYSTEM / INFECTION
-      pdf.addLineSpace(15)
-      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
-      pdf.addText("Immune System / infection")
-      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
-      pdf.addLineSeparator()
-      pdf.addLineSpace(15)
+
     
       var immuneFinal = [["Condition","Previously had","Presently have"]]
       for i in immuneData{
@@ -453,17 +511,28 @@ var isReload = false
           immuneFinal.append(temp)
         }
       }
-      pdf.addTable(immuneFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: immuneFinal)
+      
+      if(immuneFinal.count == 1)
+      {
+        immuneFinal.removeAll()
+        borderSize = 0.0
+      }
+      else{
+        pdf.addLineSpace(15)
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+        pdf.addText("Immune System / infection")
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+        pdf.addLineSeparator()
+        pdf.addLineSpace(15)
+        borderSize = 1.0
+      }
+      
+      pdf.addTable(immuneFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: immuneFinal)
     
     
       //GASTROINSTESTINAL
 
-      pdf.addLineSpace(15)
-      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
-      pdf.addText("Gastrointestinal")
-      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
-      pdf.addLineSeparator()
-      pdf.addLineSpace(15)
+
     
       var gastroFinal = [["Condition","Previously had","Presently have"]]
       for i in gastroData
@@ -488,17 +557,25 @@ var isReload = false
           gastroFinal.append(temp)
         }
       }
-      pdf.addTable(gastroFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: gastroFinal)
+      
+      if(gastroFinal.count == 1){
+        gastroFinal.removeAll()
+        borderSize = 0.0
+      }
+      else{
+        pdf.addLineSpace(15)
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+        pdf.addText("Gastrointestinal")
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+        pdf.addLineSeparator()
+        pdf.addLineSpace(15)
+        borderSize = 1.0
+      }
+      
+      pdf.addTable(gastroFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: gastroFinal)
     
     
       //CARDIOVASCULAR
-    
-      pdf.addLineSpace(15)
-      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
-      pdf.addText("Cardiovascular")
-      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
-      pdf.addLineSeparator()
-      pdf.addLineSpace(15)
     
       var cardioFinal = [["Condition","Previously had","Presently have"]]
     
@@ -524,16 +601,26 @@ var isReload = false
           cardioFinal.append(temp)
         }
       }
-      pdf.addTable(cardioFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: cardioFinal)
+      
+      if(cardioFinal.count == 1){
+        cardioFinal.removeAll()
+        borderSize = 0.0
+      }
+      else{
+        pdf.addLineSpace(15)
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+        pdf.addText("Cardiovascular")
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+        pdf.addLineSeparator()
+        pdf.addLineSpace(15)
+        borderSize = 1.0
+      }
+      pdf.addTable(cardioFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: cardioFinal)
     
       //OTHER SYSTEMS
       //NERVOUS SYSTEM
-      pdf.addLineSpace(15)
-      pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
-      pdf.addText("Nervous System")
-      pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
-      pdf.addLineSeparator()
-      pdf.addLineSpace(15)
+
+      
       var nervousFinal = [["Condition","Previously had","Presently have"]]
       for i in nervousData
       {
@@ -557,8 +644,24 @@ var isReload = false
           nervousFinal.append(temp)
         }
       }
-      pdf.addTable(nervousFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: nervousFinal)
+      
+      if(nervousFinal.count == 1){
+        nervousFinal.removeAll()
+        borderSize = 0.0
+      }
+      else{
+        pdf.addLineSpace(15)
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
+        pdf.addText("Nervous System")
+        pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
+        pdf.addLineSeparator()
+        pdf.addLineSpace(15)
+        borderSize = 1.0
+      }
+      
+      pdf.addTable(nervousFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: nervousFinal)
     
+      borderSize =  1 ///CONTINUE HERE!!
       //RESPIRATORY
       pdf.addLineSpace(15)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
@@ -589,7 +692,7 @@ var isReload = false
           respiratoryFinal.append(temp)
         }
       }
-      pdf.addTable(respiratoryFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: respiratoryFinal)
+      pdf.addTable(respiratoryFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: respiratoryFinal)
     
     
       //BLOOD SUGAR
@@ -622,7 +725,7 @@ var isReload = false
           bloodSugarFinal.append(temp)
         }
       }
-      pdf.addTable(bloodSugarFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: bloodSugarFinal)
+      pdf.addTable(bloodSugarFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: bloodSugarFinal)
     
       pdf.beginNewPage()
     
@@ -656,7 +759,7 @@ var isReload = false
           eyeEarNoseThroatFinal.append(temp)
         }
       }
-      pdf.addTable(eyeEarNoseThroatFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: eyeEarNoseThroatFinal)
+      pdf.addTable(eyeEarNoseThroatFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: eyeEarNoseThroatFinal)
     
       pdf.addLineSpace(15)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
@@ -687,7 +790,7 @@ var isReload = false
           urinaryTractFinal.append(temp)
         }
       }
-      pdf.addTable(urinaryTractFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: urinaryTractFinal)
+      pdf.addTable(urinaryTractFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: urinaryTractFinal)
     
       //HEAD & NECK
       pdf.addLineSpace(19)
@@ -724,7 +827,7 @@ var isReload = false
           headNeckFinal.append(temp)
         }
       }
-      pdf.addTable(headNeckFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: headNeckFinal)
+      pdf.addTable(headNeckFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: headNeckFinal)
     
       //SHOULDER
       pdf.addLineSpace(15)
@@ -756,7 +859,7 @@ var isReload = false
           shoulderFinal.append(temp)
         }
       }
-      pdf.addTable(shoulderFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: shoulderFinal)
+      pdf.addTable(shoulderFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: shoulderFinal)
     
       //MID BACK
       pdf.addLineSpace(15)
@@ -788,7 +891,7 @@ var isReload = false
           midFinal.append(temp)
         }
       }
-      pdf.addTable(midFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: midFinal)
+      pdf.addTable(midFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: midFinal)
 
       //LOW BACK
       pdf.addLineSpace(15)
@@ -820,7 +923,7 @@ var isReload = false
           lowFinal.append(temp)
         }
       }
-      pdf.addTable(lowFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: lowFinal)
+      pdf.addTable(lowFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: lowFinal)
     
       //ARMS AND HANDS
       pdf.addLineSpace(15)
@@ -852,7 +955,7 @@ var isReload = false
           armsFinal.append(temp)
         }
       }
-      pdf.addTable(armsFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: armsFinal)
+      pdf.addTable(armsFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: armsFinal)
     
     
       //HIPS LEGS FEET
@@ -885,70 +988,26 @@ var isReload = false
           hipsFinal.append(temp)
         }
       }
-      pdf.addTable(hipsFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: 1, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: hipsFinal)
+      pdf.addTable(hipsFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: hipsFinal)
       pdf.addLineSpace(15)
     
-    /*
-
-      pdf.addLineSpace(15)*/
-    
-    /*if let documentDirectories = NSSearchPathForDirectoriesInDomains( .DocumentDirectory, .UserDomainMask, true).first {
-    
-    let fileName = "onboardingForm.pdf"
-    let documentsFileName = documentDirectories + "/" + fileName
-    
-    let pdfData = pdf.generatePDFdata()
-    
-
-    
-    do{
-        try pdfData.writeToFile(documentsFileName, options: .DataWritingAtomic)
-        print("\nThe generated pdf can be found at:")
-        print("\n\t\(documentsFileName)\n")
-    }catch{
-        print(error)
-    }
-    
-    let mailComposer = MFMailComposeViewController()
-    mailComposer.mailComposeDelegate = self
-
-    //Set to recipients
-    mailComposer.setToRecipients(["jorge_gomez12@hotmail.com"])
-
-    //Set the subject
-    mailComposer.setSubject("email with document pdf")
-
-    //set mail body
-    mailComposer.setMessageBody("Check the PDF file.", isHTML: true)
-    
-    mailComposer.addAttachmentData(pdfData, mimeType: "pdf", fileName: "onboarding.pdf")
-  
-    self.presentViewController(mailComposer, animated: true, completion: nil)
-
-    }
-    
-    //this will compose and present mail to user
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?)
-    {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }*/
+    //FIREBASE PERSONAL INFORMATION 
     
     
     let pdfData = pdf.generatePDFdata()
     do{
-      
         let storage = FIRStorage.storage()
         let storageReference = storage.referenceForURL("gs://project-4839952831808961167.appspot.com")
       
         let pdfFile: NSData = pdfData
-        let pdfReference = storageReference.child("\(PHN)/onboarding.pdf")
+        let pdfReference = storageReference.child("PatientsOnboardingForms/\(firstName)\(lastName).pdf/")
         let uploadTask = pdfReference.putData(pdfFile, metadata: nil) { pdfFile, error in
           if(error != nil){
             print("An error has occcurred")
             print(error)
           }
           else{
-            let downloadURL = pdfFile!.downloadURL
+            let downloadURL = pdfFile!.downloadURL()
             print(downloadURL)
           }
         }

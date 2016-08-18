@@ -8,7 +8,6 @@
 
 #import "ConditionsViewController.h"
 #import "XLForm.h"
-
 #import "onboarding-Swift.h"
 
 @interface ConditionsViewController ()
@@ -36,6 +35,7 @@ XLFormRowDescriptor *medicationNewCell;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
@@ -237,7 +237,7 @@ XLFormRowDescriptor *medicationNewCell;
       [self showFormValidationError:[validationErrors firstObject]];
       return;
   }
-  _conditionsInformation = [self formValues];
+  _conditionsInformation = [NSMutableDictionary dictionaryWithDictionary:[self formValues]];;
   
   if(![_conditionsInformation[@"Allergies"] isEqualToString:@"No"])
   {
@@ -252,21 +252,28 @@ XLFormRowDescriptor *medicationNewCell;
     [_conditionsInformation setValue:nil forKey:@"MedicationsText"];
   }
   
-  /*
-  for(id key in _conditionsInformation){
-    if([_conditionsInformation[key] isEqual:@(NO)]){
-      [_conditionsInformation setValue:@"No" forKey:key];
-    }
-  }*/
 
   
   _questionnarie = [[QuestionnarieVC alloc] init];
-  _questionnarie.personalInformation = [NSDictionary dictionaryWithDictionary:_personalInformation];
-  _questionnarie.medicalInformation = [NSDictionary dictionaryWithDictionary:_medicalInformation];
-  _questionnarie.workInjuryInformation = [NSDictionary dictionaryWithDictionary:_workInjuryInformation];
-  _questionnarie.motorVehicleInjuryInformation = [NSDictionary dictionaryWithDictionary:_motorVehicleInjuryInformation];
-  _questionnarie.healthCoverageInformation = [NSDictionary dictionaryWithDictionary:_healthCoverageInformation];
-  _questionnarie.conditionsInformation = [NSDictionary dictionaryWithDictionary:_conditionsInformation];
+  _questionnarie.personalInformation = [NSMutableDictionary dictionaryWithDictionary:_personalInformation];
+  _questionnarie.medicalInformation = [NSMutableDictionary dictionaryWithDictionary:_medicalInformation];
+  _questionnarie.workInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:_workInjuryInformation];
+  _questionnarie.motorVehicleInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:_motorVehicleInjuryInformation];
+  _questionnarie.healthCoverageInformation = [NSMutableDictionary dictionaryWithDictionary:_healthCoverageInformation];
+  _questionnarie.conditionsInformation = [NSMutableDictionary dictionaryWithDictionary:_conditionsInformation];
+  
+  /*
+  SendGrid *sendgrid = [SendGrid apiUser:@"jorgeaalejandrog" apiKey:@"viR2CyYHThqBsDZI1Bc6dw"];
+  
+  SendGridEmail *email = [[SendGridEmail alloc] init];
+  email.to = @"jorgealejandrogomez22@gmail.com";
+  email.from = @"jorge_gomez12@hotmail.com";
+  email.subject = @"Hello World";
+  email.html = @"<h1>My first email through SendGrid</h1>";
+  email.text = @"My first email through SendGrid";
+  [sendgrid sendWithWeb:email];
+  */
+  
   [self.navigationController showViewController:_questionnarie sender:self];
   
   

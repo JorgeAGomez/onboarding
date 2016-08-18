@@ -24,6 +24,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SMTPAPI.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SendGrid.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SimplePDF.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,7 +62,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>113672AD1B44945593FE449117856C5A</key>
+		<key>0A0FD0056FEF5F9F8E0F687454000668</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0D0180FC2B69CE6904C442BDFF4F981A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1208A55880705B11A4327E5B1FE83D82</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,12 +82,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>58EA154521FB44683D65C3B224594839</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5F69B7CBDB2D21208C4F7444CAA831AB</key>
+		<key>516718166FBC393B3FEF754F1EAE2506</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,22 +92,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>918650F9C7E7F49B8B20C5B5B52F6C6D</key>
+		<key>BCC2CF59D7AB93437CBD207E696AB050</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A033C8C80841A2C27479D315463251AB</key>
+		<key>CDA7CB92FF07397ECE4798776A2E9195</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DC71A00F1357404D6924AB0C86B81C0A</key>
+		<key>D2F3CBDC46598F6190C799BCA89A1466</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F61C0091E73B703BF46B520B6F53A10A</key>
+		<key>E4D3317903000C0D064D2A8972BD2101</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F007C978A417791F39481375B0C43B87</key>
 		<dict>
 			<key>primary</key>
 			<true/>

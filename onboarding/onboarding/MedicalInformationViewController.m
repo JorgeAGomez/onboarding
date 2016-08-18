@@ -23,7 +23,9 @@
 -(void)viewDidLoad{
   [super viewDidLoad];
   self.tableView.contentInset = UIEdgeInsetsMake(44,0,0,0);
+
 }
+
 
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
@@ -99,8 +101,8 @@
 {
     if([segue.identifier isEqualToString:@"next1"]){
       WorkInjuryViewController *controller = [segue destinationViewController];
-      controller.personalInformation = [NSDictionary dictionaryWithDictionary:_personalInformation];
-      controller.medicalInformation = [NSDictionary dictionaryWithDictionary:_medicalInformation];
+      controller.personalInformation = [NSMutableDictionary dictionaryWithDictionary:_personalInformation];
+      controller.medicalInformation = [NSMutableDictionary dictionaryWithDictionary:_medicalInformation];
     }
 }
 
@@ -111,7 +113,7 @@
       [self showFormValidationError:[validationErrors firstObject]];
       return;
   }
-  _medicalInformation = [self formValues];
+  _medicalInformation = [NSMutableDictionary dictionaryWithDictionary:[self formValues]];
   
   if([_medicalInformation[@"Medical Doctor's Name"] isEqual:[NSNull null]])
   {
