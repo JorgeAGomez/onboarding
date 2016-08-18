@@ -63,7 +63,7 @@ var isReload = false
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: self, action: #selector(doneTapped))
     
     // Create the alert controller
-    let alertController = UIAlertController(title: "Instructions", message: "Swipe left and right to nagivate through the questionnarie", preferredStyle: .Alert)
+    let alertController = UIAlertController(title: "Instructions", message: "Swipe the screen left or right to nagivate through the questionnarie", preferredStyle: .Alert)
 
     // Create the actions
     let okAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
@@ -107,32 +107,14 @@ var isReload = false
         let nItems = 1 + (rand() % 9)
         return Array(childViewControllers.prefix(Int(nItems)))
     
-    }
-  
-    func doneTapped(){
+  }
+
+  func doneTapped(){
       
       let firstPage = CGSize(width: 650, height: 842)
       let pdf = SimplePDF(pageSize: firstPage, pageMargin: 33.0)
       var borderSize : CGFloat = 1.0
-      
-      /*
-      
-            NSMutableArray *keys = [[NSMutableArray alloc]init];
-      for(id key in _personalInformation)
-      {
-          if([_personalInformation[key] isEqual:[NSNull null]]){
-            [keys addObject:key];
-          }
-      }
-
-      for(id object in keys)
-      {
-        [_personalInformation removeObjectForKey:object];
-        [_personalInformation setValue:@".." forKey:object];
-      }
-      
-      
-      */
+    
       
       //PERSONAL INFORMATION
       let personalKeys = NSMutableArray()
@@ -162,7 +144,39 @@ var isReload = false
         medicalInformation.removeObjectForKey(object)
         medicalInformation.setValue(" ", forKey: object as! String)
       }
+    
+      //WORK RELATED INJURY
+      let workKeys = NSMutableArray()
+      for i in workInjuryInformation
+      {
+        if(i.value.isEqual(NSNull()))
+        {
+          workKeys.addObject(i.key)
+        }
+      }
       
+      for object in workKeys
+      {
+        workInjuryInformation.removeObjectForKey(object)
+        workInjuryInformation.setValue(" ", forKey: object as! String)
+      }
+    
+      //CAR ACCIDENT
+      let carKeys = NSMutableArray()
+      for i in motorVehicleInjuryInformation
+      {
+        if(i.value.isEqual(NSNull()))
+        {
+          carKeys.addObject(i.key)
+        }
+      }
+      
+      for object in medicalKeys
+      {
+        motorVehicleInjuryInformation.removeObjectForKey(object)
+        motorVehicleInjuryInformation.setValue(" ", forKey: object as! String)
+      }
+    
     
       let firstName = personalInformation["First name"]!
       let lastName = personalInformation["Last name"]!
@@ -182,8 +196,6 @@ var isReload = false
       let doctorPhone = medicalInformation["Doctor Phone"]!
       let doctorAddress = medicalInformation["Address"]!
     
-      
-      print(homePhone)
       
       let logoImage = UIImage(named:"CaleoLogo133x53")!
       pdf.addImage(logoImage)
@@ -398,11 +410,8 @@ var isReload = false
     
     
       var finalCondition = [[String]]()
-      print(conditionsInformation)
       for i in conditionsInformation {
         var temp = [String]()
-        print(i.key)
-        print(i.value)
         if(i.key.isEqualToString("Medications") && !i.value.isEqual("No")){
           temp.append(i.key as! String)
           temp.append(i.value as! String)
@@ -1100,7 +1109,7 @@ var isReload = false
           }
           else{
             let downloadURL = pdfFile!.downloadURL()
-            print(downloadURL)
+            print(downloadURL!)
           }
         }
       }
