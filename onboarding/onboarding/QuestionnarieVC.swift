@@ -110,12 +110,7 @@ var isReload = false
   }
 
   func doneTapped(){
-      
-      let firstPage = CGSize(width: 650, height: 842)
-      let pdf = SimplePDF(pageSize: firstPage, pageMargin: 33.0)
-      var borderSize : CGFloat = 1.0
     
-      
       //PERSONAL INFORMATION
       let personalKeys = NSMutableArray()
       for i in personalInformation{
@@ -126,7 +121,7 @@ var isReload = false
       for object in personalKeys
       {
         personalInformation.removeObjectForKey(object)
-        personalInformation.setValue(" ", forKey: object as! String)
+        personalInformation.setValue("", forKey: object as! String)
       }
       
       //MEDICAL INFORMATION
@@ -142,7 +137,7 @@ var isReload = false
       for object in medicalKeys
       {
         medicalInformation.removeObjectForKey(object)
-        medicalInformation.setValue(" ", forKey: object as! String)
+        medicalInformation.setValue("", forKey: object as! String)
       }
     
       //WORK RELATED INJURY
@@ -158,7 +153,7 @@ var isReload = false
       for object in workKeys
       {
         workInjuryInformation.removeObjectForKey(object)
-        workInjuryInformation.setValue(" ", forKey: object as! String)
+        workInjuryInformation.setValue("", forKey: object as! String)
       }
     
       //CAR ACCIDENT
@@ -174,28 +169,45 @@ var isReload = false
       for object in medicalKeys
       {
         motorVehicleInjuryInformation.removeObjectForKey(object)
-        motorVehicleInjuryInformation.setValue(" ", forKey: object as! String)
+        motorVehicleInjuryInformation.setValue("", forKey: object as! String)
       }
     
+      let firstName = personalInformation["First name"] as! String
+      let lastName = personalInformation["Last name"] as! String
+      let address = personalInformation["Address"] as! String
+      let city = personalInformation["City"] as! String
+      let postalCode = personalInformation["Postal Code"] as! String
+      let province = personalInformation["Province"] as! String
+      let homePhone = personalInformation["Home Phone #"] as! String
+      let cellPhone = personalInformation["Cell Phone #"] as! String
+      let workPhone = personalInformation["Work Phone #"] as! String
+      let DOB = personalInformation["Date of Birth"]
+      let PHN = personalInformation["PHN No."] as! String
     
-      let firstName = personalInformation["First name"]!
-      let lastName = personalInformation["Last name"]!
-      let address = personalInformation["Address"]!
-      let city = personalInformation["City"]!
-      let postalCode = personalInformation["Postal Code"]!
-      let province = personalInformation["Province"]!
-      let homePhone = personalInformation["Home Phone #"]!
-      let cellPhone = personalInformation["Cell Phone #"]!
-      let workPhone = personalInformation["Work Phone #"]!
-      let DOB = personalInformation["Date of Birth"]!
-      let PHN = personalInformation["PHN No."]!
+      let emergencyContact = medicalInformation["Emergency Contact"] as! String
+      let contactPhone = medicalInformation["Contact Phone"] as! String
+      let doctorName = medicalInformation["Medical Doctor's Name"] as! String
+      let doctorPhone = medicalInformation["Doctor Phone"] as! String
+      let doctorAddress = medicalInformation["Address"] as! String
     
-      let emergencyContact = medicalInformation["Emergency Contact"]!
-      let contactPhone = medicalInformation["Contact Phone"]!
-      let doctorName = medicalInformation["Medical Doctor's Name"]!
-      let doctorPhone = medicalInformation["Doctor Phone"]!
-      let doctorAddress = medicalInformation["Address"]!
+      let dateFormatter = NSDateFormatter()
+      dateFormatter.dateFormat = "yyyy-MM-dd"
     
+      /////////////////////FIREBASE
+    
+      FirebaseHelperSwift.personalInformation(firstName, lastName: lastName, address: address, city: city, postalCode: postalCode, province: province, homePhone: homePhone, cellPhone: cellPhone, workPhone: workPhone, DOB: DOB as! NSDate, PHN: PHN)
+
+      FirebaseHelperSwift.medicalInformation(emergencyContact, emergencyPhoneNumber: contactPhone, medicalDoctorName: doctorName, doctorPhoneNumber: doctorPhone, address: doctorAddress)
+    
+      
+      ////////////////////
+    
+  
+  
+      
+      let firstPage = CGSize(width: 650, height: 842)
+      let pdf = SimplePDF(pageSize: firstPage, pageMargin: 33.0)
+      var borderSize : CGFloat = 1.0
       
       let logoImage = UIImage(named:"CaleoLogo133x53")!
       pdf.addImage(logoImage)
@@ -226,8 +238,6 @@ var isReload = false
       pdf.addLineSpace(15)
       pdf.addText("Patient's / Guarantor's Initials: \(firstName) \(lastName)")
       let date = NSDate()
-      let dateFormatter = NSDateFormatter()
-      dateFormatter.dateFormat = "yyyy-MM-dd"
       let stringDate = dateFormatter.stringFromDate(date)
       pdf.addText("Date: \(stringDate)")
     
@@ -499,8 +509,6 @@ var isReload = false
       {
         pdf.addTable(finalGeneral.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: finalGeneral)
       }
-      
-      
     
       //IMMUNE SYSTEM / INFECTION
         pdf.addLineSpace(15)

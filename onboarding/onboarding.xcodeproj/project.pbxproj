@@ -39,6 +39,7 @@
 		D68CE7FC1D2C379100E1A0EE /* ConditionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D68CE7FB1D2C379100E1A0EE /* ConditionsViewController.m */; };
 		D6919D351D21AE4F00E0FCAB /* WorkInjuryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6919D341D21AE4F00E0FCAB /* WorkInjuryViewController.m */; };
 		D6919D381D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6919D371D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m */; };
+		D6B1DF661D6768190026664F /* FirebaseHelperSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B1DF651D6768190026664F /* FirebaseHelperSwift.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		D6919D341D21AE4F00E0FCAB /* WorkInjuryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkInjuryViewController.m; sourceTree = "<group>"; };
 		D6919D361D21D58F00E0FCAB /* MotorVehicleAccidentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotorVehicleAccidentViewController.h; sourceTree = "<group>"; };
 		D6919D371D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotorVehicleAccidentViewController.m; sourceTree = "<group>"; };
+		D6B1DF651D6768190026664F /* FirebaseHelperSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseHelperSwift.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +245,7 @@
 			children = (
 				D62E69DA1D22F6B600AEE03C /* FirebaseHelper.h */,
 				D62E69DB1D22F6B600AEE03C /* FirebaseHelper.m */,
+				D6B1DF651D6768190026664F /* FirebaseHelperSwift.swift */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				D62829FE1D1F6622001D64FA /* AppDelegate.m in Sources */,
 				D62E69D81D21E2F300AEE03C /* HealthCoverageViewController.m in Sources */,
 				D62A4D451D480A0B00CDF4F8 /* NeuromusculoskeletalTableViewController.swift in Sources */,
+				D6B1DF661D6768190026664F /* FirebaseHelperSwift.swift in Sources */,
 				D62A4D411D47EBE900CDF4F8 /* CardiovascularTableViewController.swift in Sources */,
 				D62829FB1D1F6622001D64FA /* main.m in Sources */,
 				D68CE7FC1D2C379100E1A0EE /* ConditionsViewController.m in Sources */,
