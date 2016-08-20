@@ -172,6 +172,7 @@ var isReload = false
         motorVehicleInjuryInformation.setValue("", forKey: object as! String)
       }
     
+      //PERSONAL INFORMATION
       let firstName = personalInformation["First name"] as! String
       let lastName = personalInformation["Last name"] as! String
       let address = personalInformation["Address"] as! String
@@ -184,27 +185,53 @@ var isReload = false
       let DOB = personalInformation["Date of Birth"]
       let PHN = personalInformation["PHN No."] as! String
     
+      //MEDICAL INFORMATION
       let emergencyContact = medicalInformation["Emergency Contact"] as! String
       let contactPhone = medicalInformation["Contact Phone"] as! String
       let doctorName = medicalInformation["Medical Doctor's Name"] as! String
       let doctorPhone = medicalInformation["Doctor Phone"] as! String
       let doctorAddress = medicalInformation["Address"] as! String
     
+      //WORK RELATED INJURY
+      let dateInjury = workInjuryInformation["Date of Injury"] as! NSDate
+      let WCB = workInjuryInformation["WCB Claim No."] as! String
+      let employer  = workInjuryInformation["Employer"] as! String
+      let phoneNumber = workInjuryInformation["Employer Phone"] as! String
+      let employerAddress = workInjuryInformation["Employer Address"] as! String
+      let canContact = workInjuryInformation["Contact employer"] as! String
+    
+      //MOTOR VEHICLE ACCIDENT
+      let insuranceCompany = motorVehicleInjuryInformation["Insurence"] as! String
+      let accidentDate = motorVehicleInjuryInformation["Date of accident"] as! NSDate
+      let claimNumber = motorVehicleInjuryInformation["Claim/Policy #"] as! String
+      let adjuster = motorVehicleInjuryInformation["Adjuster"] as! String
+      let adjusterPhone = motorVehicleInjuryInformation["Phone No."] as! String
+      let fax = motorVehicleInjuryInformation["Fax #"] as! String
+      let namePolicy = motorVehicleInjuryInformation["Name on Policy"] as! String
+      let legalRep = motorVehicleInjuryInformation["Legal Representative"] as! String
+    
+      //HEALTH COVERAGE
+      let insuranceCompanyCoverage = healthCoverageInformation["Extended Health Coverage"] as! String
+    
       let dateFormatter = NSDateFormatter()
       dateFormatter.dateFormat = "yyyy-MM-dd"
     
-      /////////////////////FIREBASE
+    
+      /********* FIREBASE ************/
     
       FirebaseHelperSwift.personalInformation(firstName, lastName: lastName, address: address, city: city, postalCode: postalCode, province: province, homePhone: homePhone, cellPhone: cellPhone, workPhone: workPhone, DOB: DOB as! NSDate, PHN: PHN)
 
       FirebaseHelperSwift.medicalInformation(emergencyContact, emergencyPhoneNumber: contactPhone, medicalDoctorName: doctorName, doctorPhoneNumber: doctorPhone, address: doctorAddress)
     
-      
-      ////////////////////
+      FirebaseHelperSwift.workRelatedInjury(dateInjury, WCBClaimNumber: WCB, employer: employer, employerPhoneNumber: phoneNumber, address: employerAddress, mayContactEmployer: canContact)
     
-  
-  
+      FirebaseHelperSwift.motorVehicleAccident(insuranceCompany, dateOfAccident: accidentDate, claimPolicyNumber: claimNumber, adjuster: adjuster, phoneNumber: adjusterPhone, faxNumber: fax, nameOnPolicy: namePolicy, legalRepresentative: legalRep)
+    
+      FirebaseHelperSwift.healthCoverage(insuranceCompanyCoverage)
+    
       
+      /*****************************/
+    
       let firstPage = CGSize(width: 650, height: 842)
       let pdf = SimplePDF(pageSize: firstPage, pageMargin: 33.0)
       var borderSize : CGFloat = 1.0
@@ -309,13 +336,6 @@ var isReload = false
     
       if((workInjuryInformation["Work Related Injury"]!).isEqualToString("Yes")){
         
-        let dateInjury = workInjuryInformation["Date of Injury"]!
-        let WCB = workInjuryInformation["WCB Claim No."]!
-        let employer  = workInjuryInformation["Employer"]!
-        let phoneNumber = workInjuryInformation["Employer Phone"]!
-        let employerAddress = workInjuryInformation["Employer Address"]!
-        let canContact = workInjuryInformation["Contact employer"]!
-
         pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
         pdf.addText("Work Related Injury")
         pdf.addLineSeparator()
@@ -341,14 +361,6 @@ var isReload = false
       }
     
       if(motorVehicleInjuryInformation["Motor Vehicle Injury"]!.isEqualToString("Yes")){
-        let insuranceCompany = motorVehicleInjuryInformation["Insurence"]!
-        let accidentDate = motorVehicleInjuryInformation["Date of accident"]!
-        let claimNumber = motorVehicleInjuryInformation["Claim/Policy #"]!
-        let adjuster = motorVehicleInjuryInformation["Adjuster"]!
-        let adjusterPhone = motorVehicleInjuryInformation["Phone No."]!
-        let fax = motorVehicleInjuryInformation["Fax #"]!
-        let namePolicy = motorVehicleInjuryInformation["Name on Policy"]!
-        let legalRep = motorVehicleInjuryInformation["Legal Representative"]!
         
         pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
         pdf.addText("Motor Vehicle Accident")
@@ -376,13 +388,13 @@ var isReload = false
       }
     
       if(healthCoverageInformation["Extended Health Coverage"]!.isEqualToString("Yes")){
-        let insuranceCompany = healthCoverageInformation["Extended Health Coverage"]!
+        
         pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
         pdf.addText("Extended Health Coverage")
         pdf.addLineSeparator()
         pdf.addLineSpace(15)
         pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
-        pdf.addText("Insurance Company: \(insuranceCompany)")
+        pdf.addText("Insurance Company: \(insuranceCompanyCoverage)")
         pdf.addLineSpace(15)
       
       }
@@ -550,9 +562,6 @@ var isReload = false
       {
         pdf.addTable(immuneFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: immuneFinal)
       }
-      
-      
-    
     
       //GASTROINSTESTINAL
         pdf.addLineSpace(15)
@@ -595,9 +604,6 @@ var isReload = false
       {
         pdf.addTable(gastroFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: gastroFinal)
       }
-      
-      
-    
     
       //CARDIOVASCULAR
       
@@ -685,10 +691,7 @@ var isReload = false
       {
         pdf.addTable(nervousFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: nervousFinal)
       }
-      
-      
     
-      
       //RESPIRATORY
       borderSize = 1.0
       pdf.addLineSpace(15)

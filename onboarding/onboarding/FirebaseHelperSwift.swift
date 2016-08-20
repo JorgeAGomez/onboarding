@@ -18,6 +18,8 @@ var nameId = String()
 
 class FirebaseHelperSwift{
 
+//PERSONAL INFORMATION
+
 static func personalInformation(firstName: String, lastName: String, address: String, city: String, postalCode: String, province: String, homePhone: String, cellPhone: String, workPhone: String, DOB: NSDate, PHN: String){
   let dbReference = FIRDatabase.database().reference()
   
@@ -43,6 +45,8 @@ static func personalInformation(firstName: String, lastName: String, address: St
                                                                                                                                            "PHN":PHN])
 }
 
+//MEDICAL INFORMATION
+
 static func medicalInformation(emergencyContact: String, emergencyPhoneNumber: String, medicalDoctorName: String, doctorPhoneNumber: String, address: String){
   let dbReference = FIRDatabase.database().reference()
   dbReference.child("patientInformation").child("\(homePhoneId)\(cellPhoneId)\(workPhoneId)\(nameId)").child("medicalInformation").setValue(["emergencyContact":emergencyContact,
@@ -51,6 +55,9 @@ static func medicalInformation(emergencyContact: String, emergencyPhoneNumber: S
                                                                                                                                              "doctorPhoneNumber":doctorPhoneNumber,
                                                                                                                                              "address":address])
 }
+
+
+//WORK RELATED INJURY
 
 static func workRelatedInjury(dateOfInjury: NSDate, WCBClaimNumber: String, employer: String, employerPhoneNumber: String, address: String, mayContactEmployer:String){
   let dbReference = FIRDatabase.database().reference()
@@ -64,6 +71,8 @@ static func workRelatedInjury(dateOfInjury: NSDate, WCBClaimNumber: String, empl
                                                                                                                                             "address":address,
                                                                                                                                             "mayContactEmployer":mayContactEmployer])
 }
+
+//MOTOR VEHICLE ACCIDENT
 
 static func motorVehicleAccident(insuranceCompany: String, dateOfAccident: NSDate, claimPolicyNumber: String, adjuster: String, phoneNumber: String, faxNumber: String, nameOnPolicy: String, legalRepresentative: String){
   let dbReference = FIRDatabase.database().reference()
@@ -80,8 +89,12 @@ static func motorVehicleAccident(insuranceCompany: String, dateOfAccident: NSDat
                                                                                                                                                "legalRepresentative":legalRepresentative])
 }
 
-static func healthCoverage(){
+//EXTENDED HEALTH COVERAGE
 
+static func healthCoverage(insuranceCompany: String){
+  let dbReference = FIRDatabase.database().reference()
+  dbReference.child("patientInformation").child("\(homePhoneId)\(cellPhoneId)\(workPhoneId)\(nameId)").child("motorVehicleAccident").child("healthCoverage").setValue(["insuranceCompany":insuranceCompany])
 }
+
 
 }
