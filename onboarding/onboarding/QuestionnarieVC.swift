@@ -47,12 +47,10 @@ var motorVehicleInjuryInformation = NSMutableDictionary()
 var healthCoverageInformation = NSMutableDictionary()
 var conditionsInformation = NSMutableDictionary()
 let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
-
 var temp = false
 var isReload = false
   
-  public override func viewDidLoad()
-  {
+  public override func viewDidLoad(){
     settings.style.selectedDotColor = myColor
     settings.style.dotColor = UIColor.blackColor()
     settings.style.titleColor = UIColor.blackColor()
@@ -73,9 +71,6 @@ var isReload = false
 
     // Present the controller
     self.presentViewController(alertController, animated: true, completion: nil)
-    
-    
-    
   }
   
   public override func viewControllersForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
@@ -89,11 +84,9 @@ var isReload = false
         let child_7 = NeuromusculoskeletalTableViewController(style: .Grouped, itemInfo: "Neuromusculoskeletal")
         let child_8 = SecondNeuroTableViewController(style: .Grouped, itemInfo: "Neuromusculoskeletal II")
         let child_9 = HipsLegsFeetTableViewController(style: .Grouped, itemInfo: "Hips, Legs and Feet")
-    
         guard isReload else {
             return [child_1,child_2, child_3,child_4,child_5,child_6,child_7, child_8,child_9]
         }
-        
         var childViewControllers = [child_1,child_2,child_3,child_4,child_5,child_6,child_7,child_8,child_9]
         
         for (index, _) in childViewControllers.enumerate(){
@@ -108,8 +101,15 @@ var isReload = false
         return Array(childViewControllers.prefix(Int(nItems)))
     
   }
-
+  
+  public override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    //let controller : ConsentFirstPageViewController = ConsentFirstPageViewController()
+    //controller.PloPlo = personalInformation.mutableCopy() as! NSMutableDictionary
+  }
+  
   func doneTapped(){
+  
+    //performSegueWithIdentifier("gogo", sender: self)
     
       //PERSONAL INFORMATION
       let personalKeys = NSMutableArray()
@@ -193,44 +193,52 @@ var isReload = false
       let doctorAddress = medicalInformation["Address"] as! String
     
       //WORK RELATED INJURY
-      let dateInjury = workInjuryInformation["Date of Injury"] as! NSDate
-      let WCB = workInjuryInformation["WCB Claim No."] as! String
-      let employer  = workInjuryInformation["Employer"] as! String
-      let phoneNumber = workInjuryInformation["Employer Phone"] as! String
-      let employerAddress = workInjuryInformation["Employer Address"] as! String
-      let canContact = workInjuryInformation["Contact employer"] as! String
+      var dateInjury = NSDate()
+      var WCB = String()
+      var employer = String()
+      var phoneNumber = String()
+      var employerAddress = String()
+      var canContact = String()
+    
+      if((workInjuryInformation["Work Related Injury"]!.isEqualToString("Yes")))
+      {
+        dateInjury = workInjuryInformation["Date of Injury"] as! NSDate
+        WCB = workInjuryInformation["WCB Claim No."] as! String
+        employer  = workInjuryInformation["Employer"] as! String
+        phoneNumber = workInjuryInformation["Employer Phone"] as! String
+        employerAddress = workInjuryInformation["Employer Address"] as! String
+        canContact = workInjuryInformation["Contact employer"] as! String
+      }
     
       //MOTOR VEHICLE ACCIDENT
-      let insuranceCompany = motorVehicleInjuryInformation["Insurence"] as! String
-      let accidentDate = motorVehicleInjuryInformation["Date of accident"] as! NSDate
-      let claimNumber = motorVehicleInjuryInformation["Claim/Policy #"] as! String
-      let adjuster = motorVehicleInjuryInformation["Adjuster"] as! String
-      let adjusterPhone = motorVehicleInjuryInformation["Phone No."] as! String
-      let fax = motorVehicleInjuryInformation["Fax #"] as! String
-      let namePolicy = motorVehicleInjuryInformation["Name on Policy"] as! String
-      let legalRep = motorVehicleInjuryInformation["Legal Representative"] as! String
+      var insuranceCompany = String()
+      var accidentDate = NSDate()
+      var claimNumber = String()
+      var adjuster = String()
+      var adjusterPhone = String()
+      var fax = String()
+      var namePolicy = String()
+      var legalRep = String()
+    
+      if(motorVehicleInjuryInformation["Motor Vehicle Injury"]!.isEqualToString("Yes")){
+        insuranceCompany = motorVehicleInjuryInformation["Insurence"] as! String
+        accidentDate = motorVehicleInjuryInformation["Date of accident"] as! NSDate
+        claimNumber = motorVehicleInjuryInformation["Claim/Policy #"] as! String
+        adjuster = motorVehicleInjuryInformation["Adjuster"] as! String
+        adjusterPhone = motorVehicleInjuryInformation["Phone No."] as! String
+        fax = motorVehicleInjuryInformation["Fax #"] as! String
+        namePolicy = motorVehicleInjuryInformation["Name on Policy"] as! String
+        legalRep = motorVehicleInjuryInformation["Legal Representative"] as! String
+      }
     
       //HEALTH COVERAGE
-      let insuranceCompanyCoverage = healthCoverageInformation["Extended Health Coverage"] as! String
-    
+      var insuranceCompanyCoverage = String()
+      if(healthCoverageInformation["Extended Health Coverage"]!.isEqualToString("Yes")){
+        insuranceCompanyCoverage = healthCoverageInformation["Extended Health Coverage"] as! String
+      }
+      
       let dateFormatter = NSDateFormatter()
       dateFormatter.dateFormat = "yyyy-MM-dd"
-    
-    
-      /********* FIREBASE ************/
-    
-      FirebaseHelperSwift.personalInformation(firstName, lastName: lastName, address: address, city: city, postalCode: postalCode, province: province, homePhone: homePhone, cellPhone: cellPhone, workPhone: workPhone, DOB: DOB as! NSDate, PHN: PHN)
-
-      FirebaseHelperSwift.medicalInformation(emergencyContact, emergencyPhoneNumber: contactPhone, medicalDoctorName: doctorName, doctorPhoneNumber: doctorPhone, address: doctorAddress)
-    
-      FirebaseHelperSwift.workRelatedInjury(dateInjury, WCBClaimNumber: WCB, employer: employer, employerPhoneNumber: phoneNumber, address: employerAddress, mayContactEmployer: canContact)
-    
-      FirebaseHelperSwift.motorVehicleAccident(insuranceCompany, dateOfAccident: accidentDate, claimPolicyNumber: claimNumber, adjuster: adjuster, phoneNumber: adjusterPhone, faxNumber: fax, nameOnPolicy: namePolicy, legalRepresentative: legalRep)
-    
-      FirebaseHelperSwift.healthCoverage(insuranceCompanyCoverage)
-    
-      
-      /*****************************/
     
       let firstPage = CGSize(width: 650, height: 842)
       let pdf = SimplePDF(pageSize: firstPage, pageMargin: 33.0)
@@ -341,7 +349,7 @@ var isReload = false
         pdf.addLineSeparator()
         pdf.addLineSpace(15)
         pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
-        let stringDateInjury = dateFormatter.stringFromDate(dateInjury as! NSDate)
+        let stringDateInjury = dateFormatter.stringFromDate(dateInjury)
         pdf.addText("Date of Injury: \(stringDateInjury)        WCB Claim #: \(WCB)")
         pdf.addLineSpace(4)
         pdf.addText("Employer: \(employer)         Phone #: \(phoneNumber)")
@@ -367,7 +375,7 @@ var isReload = false
         pdf.addLineSeparator()
         pdf.addLineSpace(15)
         pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
-        let stringAccidentDate = dateFormatter.stringFromDate(accidentDate as! NSDate)
+        let stringAccidentDate = dateFormatter.stringFromDate(accidentDate)
         pdf.addText("Insurance Company: \(insuranceCompany)        Date of Injury: \(stringAccidentDate)")
         pdf.addLineSpace(4)
         pdf.addText("Claim / Policy #: \(claimNumber)        Adjuster: \(adjuster)")
@@ -1103,9 +1111,6 @@ var isReload = false
       
       pdf.addLineSpace(15)
     
-    //FIREBASE PERSONAL INFORMATION 
-    
-    
     let pdfData = pdf.generatePDFdata()
     do{
         let storage = FIRStorage.storage()
@@ -1124,5 +1129,52 @@ var isReload = false
           }
         }
       }
+    
+  
+      /********* FIREBASE ************/
+    
+      FirebaseHelperSwift.personalInformation(firstName, lastName: lastName, address: address, city: city, postalCode: postalCode, province: province, homePhone: homePhone, cellPhone: cellPhone, workPhone: workPhone, DOB: DOB as! NSDate, PHN: PHN)
+
+      FirebaseHelperSwift.medicalInformation(emergencyContact, emergencyPhoneNumber: contactPhone, medicalDoctorName: doctorName, doctorPhoneNumber: doctorPhone, address: doctorAddress)
+    
+      FirebaseHelperSwift.workRelatedInjury(dateInjury, WCBClaimNumber: WCB, employer: employer, employerPhoneNumber: phoneNumber, address: employerAddress, mayContactEmployer: canContact)
+    
+      FirebaseHelperSwift.motorVehicleAccident(insuranceCompany, dateOfAccident: accidentDate, claimPolicyNumber: claimNumber, adjuster: adjuster, phoneNumber: adjusterPhone, faxNumber: fax, nameOnPolicy: namePolicy, legalRepresentative: legalRep)
+    
+      FirebaseHelperSwift.healthCoverage(insuranceCompanyCoverage)
+    
+      FirebaseHelperSwift.conditions(finalCondition)
+    
+      FirebaseHelperSwift.questGeneral(finalGeneral)
+    
+      FirebaseHelperSwift.questImmune(immuneFinal)
+    
+      FirebaseHelperSwift.questGastro(gastroFinal)
+    
+      FirebaseHelperSwift.questCardio(cardioFinal)
+    
+      FirebaseHelperSwift.questNervous(nervousFinal)
+    
+      FirebaseHelperSwift.questRespiratory(respiratoryFinal)
+    
+      FirebaseHelperSwift.questBloodSugar(bloodSugarFinal)
+    
+      FirebaseHelperSwift.questEyeEarNoseThroat(eyeEarNoseThroatFinal)
+    
+      FirebaseHelperSwift.questUrinary(urinaryTractFinal)
+    
+      FirebaseHelperSwift.questHeadNeck(headNeckFinal)
+    
+      FirebaseHelperSwift.questShoulder(shoulderFinal)
+    
+      FirebaseHelperSwift.questMidBack(midFinal)
+    
+      FirebaseHelperSwift.questLowBack(lowFinal)
+    
+      FirebaseHelperSwift.questArmsHands(armsFinal)
+    
+      FirebaseHelperSwift.questHipsLegsFeets(hipsFinal)
+    
+      /*****************************/
     }
   }

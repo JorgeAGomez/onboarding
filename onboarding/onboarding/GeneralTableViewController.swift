@@ -22,7 +22,7 @@ class GeneralTableViewController: UITableViewController, IndicatorInfoProvider {
 
     let cellIdentifier = "Cell"
     var blackTheme = false
-    var itemInfo = IndicatorInfo(title: "View")
+    var itemInfo = IndicatorInfo(title: "General")
     let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
 
     init(style: UITableViewStyle, itemInfo: IndicatorInfo)
@@ -38,7 +38,6 @@ class GeneralTableViewController: UITableViewController, IndicatorInfoProvider {
 
     override func viewDidLoad()
     {
-     
       super.viewDidLoad()
       general = ["Diabetes","Hypoglycemia","Stress / Depression","Epilepsy / Seizures", "Skin conditions / Rashes","Alcoholism","High Cholesterol","Parkinson's disease","Heart disease","Cancer","Osteoarthritis","Ulcers","Anemia / Fatigue", "Multiple Sclerosis","Thyroid","Osteoporosis"]
 

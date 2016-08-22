@@ -10,7 +10,6 @@ import UIKit
 
 class SubmitScreenViewController: UIViewController {
 
-    let controller = ConsentIntroViewController()
     override func viewDidLoad() {
       super.viewDidLoad()
     }

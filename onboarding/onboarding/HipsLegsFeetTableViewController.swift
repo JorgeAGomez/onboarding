@@ -118,6 +118,10 @@ class HipsLegsFeetTableViewController: UITableViewController, IndicatorInfoProvi
         return cell
     }
   
+    func buttonTapped(){
+      self.navigationController!.performSegueWithIdentifier("gogo", sender: self)
+    }
+  
     // MARK: - IndicatorInfoProvider
 
     func indicatorInfoForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {

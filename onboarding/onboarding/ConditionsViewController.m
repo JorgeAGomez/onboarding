@@ -262,21 +262,9 @@ XLFormRowDescriptor *medicationNewCell;
   _questionnarie.healthCoverageInformation = [NSMutableDictionary dictionaryWithDictionary:_healthCoverageInformation];
   _questionnarie.conditionsInformation = [NSMutableDictionary dictionaryWithDictionary:_conditionsInformation];
   
-  /*
-  SendGrid *sendgrid = [SendGrid apiUser:@"jorgeaalejandrog" apiKey:@"viR2CyYHThqBsDZI1Bc6dw"];
-  
-  SendGridEmail *email = [[SendGridEmail alloc] init];
-  email.to = @"jorgealejandrogomez22@gmail.com";
-  email.from = @"jorge_gomez12@hotmail.com";
-  email.subject = @"Hello World";
-  email.html = @"<h1>My first email through SendGrid</h1>";
-  email.text = @"My first email through SendGrid";
-  [sendgrid sendWithWeb:email];
-  */
-  
   [self.navigationController showViewController:_questionnarie sender:self];
   
-  
+  //[self performSegueWithIdentifier:@"nexT" sender:self];
 }
 
 @end
