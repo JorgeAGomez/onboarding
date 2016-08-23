@@ -191,12 +191,12 @@ XLFormRowDescriptor *medicationNewCell;
   _questionnarie = [[QuestionnarieVC alloc] init];
   _questionnarie = [segue destinationViewController];
   
-  _questionnarie.personalInformation = [NSDictionary dictionaryWithDictionary:_personalInformation];
-  _questionnarie.medicalInformation = [NSDictionary dictionaryWithDictionary:_medicalInformation];
-  _questionnarie.workInjuryInformation = [NSDictionary dictionaryWithDictionary:_workInjuryInformation];
-  _questionnarie.motorVehicleInjuryInformation = [NSDictionary dictionaryWithDictionary:_motorVehicleInjuryInformation];
-  _questionnarie.healthCoverageInformation = [NSDictionary dictionaryWithDictionary:_healthCoverageInformation];
-  _questionnarie.conditionsInformation = [NSDictionary dictionaryWithDictionary:_conditionsInformation];
+  _questionnarie.personalInformation = [NSMutableDictionary dictionaryWithDictionary:_personalInformation];
+  _questionnarie.medicalInformation = [NSMutableDictionary dictionaryWithDictionary:_medicalInformation];
+  _questionnarie.workInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:_workInjuryInformation];
+  _questionnarie.motorVehicleInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:_motorVehicleInjuryInformation];
+  _questionnarie.healthCoverageInformation = [NSMutableDictionary dictionaryWithDictionary:_healthCoverageInformation];
+  _questionnarie.conditionsInformation = [NSMutableDictionary dictionaryWithDictionary:_conditionsInformation];
 }
 
 -(void)formRowDescriptorValueHasChanged:(XLFormRowDescriptor *)rowDescriptor oldValue:(id)oldValue newValue:(id)newValue
@@ -262,9 +262,11 @@ XLFormRowDescriptor *medicationNewCell;
   _questionnarie.healthCoverageInformation = [NSMutableDictionary dictionaryWithDictionary:_healthCoverageInformation];
   _questionnarie.conditionsInformation = [NSMutableDictionary dictionaryWithDictionary:_conditionsInformation];
   
-  [self.navigationController showViewController:_questionnarie sender:self];
+  [self.navigationController pushViewController:_questionnarie animated:true];
   
-  //[self performSegueWithIdentifier:@"nexT" sender:self];
+ // [self.navigationController performSegueWithIdentifier:@"ploplo" sender:self];
+  
+  
 }
 
 @end

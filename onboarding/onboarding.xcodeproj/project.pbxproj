@@ -27,6 +27,8 @@
 		D64C6E7A1D4AD99F00ABB8BA /* SubmitScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64C6E791D4AD99F00ABB8BA /* SubmitScreenViewController.swift */; };
 		D64C6E7D1D4B8F0D00ABB8BA /* ConsentIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C6E7C1D4B8F0D00ABB8BA /* ConsentIntroViewController.m */; };
 		D64C6E7F1D4B9DB500ABB8BA /* ConsentFirstPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64C6E7E1D4B9DB500ABB8BA /* ConsentFirstPageViewController.swift */; };
+		D6665DA11D6CF53F005E62A3 /* consentFirstScreenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6665DA01D6CF53F005E62A3 /* consentFirstScreenView.xib */; };
+		D6665DA31D6CF5A7005E62A3 /* consentFirstScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6665DA21D6CF5A7005E62A3 /* consentFirstScreenView.swift */; };
 		D66A3B481D46A78600E83DD7 /* GeneralTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66A3B471D46A78600E83DD7 /* GeneralTableViewController.swift */; };
 		D66A3B501D46B5B000E83DD7 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66A3B4F1D46B5B000E83DD7 /* PostCell.xib */; };
 		D66A3B521D46B62300E83DD7 /* PostCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66A3B511D46B62300E83DD7 /* PostCellTableViewCell.swift */; };
@@ -74,6 +76,8 @@
 		D64C6E7B1D4B8F0D00ABB8BA /* ConsentIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsentIntroViewController.h; sourceTree = "<group>"; };
 		D64C6E7C1D4B8F0D00ABB8BA /* ConsentIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsentIntroViewController.m; sourceTree = "<group>"; };
 		D64C6E7E1D4B9DB500ABB8BA /* ConsentFirstPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentFirstPageViewController.swift; sourceTree = "<group>"; };
+		D6665DA01D6CF53F005E62A3 /* consentFirstScreenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = consentFirstScreenView.xib; sourceTree = "<group>"; };
+		D6665DA21D6CF5A7005E62A3 /* consentFirstScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = consentFirstScreenView.swift; sourceTree = "<group>"; };
 		D66A3B471D46A78600E83DD7 /* GeneralTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralTableViewController.swift; sourceTree = "<group>"; };
 		D66A3B4F1D46B5B000E83DD7 /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		D66A3B511D46B62300E83DD7 /* PostCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCellTableViewCell.swift; sourceTree = "<group>"; };
@@ -168,6 +172,8 @@
 				D64C6E7B1D4B8F0D00ABB8BA /* ConsentIntroViewController.h */,
 				D64C6E7C1D4B8F0D00ABB8BA /* ConsentIntroViewController.m */,
 				D64C6E7E1D4B9DB500ABB8BA /* ConsentFirstPageViewController.swift */,
+				D6665DA01D6CF53F005E62A3 /* consentFirstScreenView.xib */,
+				D6665DA21D6CF5A7005E62A3 /* consentFirstScreenView.swift */,
 			);
 			name = "Informed Consent";
 			sourceTree = "<group>";
@@ -340,6 +346,7 @@
 				D62E69E11D23182D00AEE03C /* GoogleService-Info.plist in Resources */,
 				D66A3B501D46B5B000E83DD7 /* PostCell.xib in Resources */,
 				D6282A061D1F6622001D64FA /* Assets.xcassets in Resources */,
+				D6665DA11D6CF53F005E62A3 /* consentFirstScreenView.xib in Resources */,
 				D6282A041D1F6622001D64FA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +422,7 @@
 				D62A4D411D47EBE900CDF4F8 /* CardiovascularTableViewController.swift in Sources */,
 				D62829FB1D1F6622001D64FA /* main.m in Sources */,
 				D68CE7FC1D2C379100E1A0EE /* ConditionsViewController.m in Sources */,
+				D6665DA31D6CF5A7005E62A3 /* consentFirstScreenView.swift in Sources */,
 				D67313001D6361D300DE45DB /* SecondMultipleTableViewController.swift in Sources */,
 				D616B36A1D2054B500ABF52D /* FormViewController.m in Sources */,
 				D68CE7F21D2C2C7700E1A0EE /* ReleaseCollectConsentViewController.m in Sources */,

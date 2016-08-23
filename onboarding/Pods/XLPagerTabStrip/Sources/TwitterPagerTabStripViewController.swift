@@ -24,6 +24,7 @@
 
 import Foundation
 
+
 public struct TwitterPagerTabStripSettings {
     
     public struct Style {
@@ -110,6 +111,7 @@ public class TwitterPagerTabStripViewController: PagerTabStripViewController, Pa
         
         // update page control page
         pageControl.currentPage = currentIndex
+        self.navigationItem.rightBarButtonItem?.title = "Done"
         self.navigationItem.rightBarButtonItem?.enabled = false
         if(childTitleLabels[currentIndex].text == "Hips, Legs and Feet"){
           self.navigationItem.rightBarButtonItem?.title = "Done"
@@ -118,8 +120,9 @@ public class TwitterPagerTabStripViewController: PagerTabStripViewController, Pa
         else{
           self.navigationItem.rightBarButtonItem?.enabled = false
         }
+      
     }
-    
+  
     public override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         guard object === titleView && keyPath == "frame" && change?[NSKeyValueChangeKindKey] as? UInt == NSKeyValueChange.Setting.rawValue else { return }
         let oldRect = change![NSKeyValueChangeOldKey]!.CGRectValue
@@ -195,9 +198,6 @@ public class TwitterPagerTabStripViewController: PagerTabStripViewController, Pa
             navTitleLabel.textColor = settings.style.titleColor
             titleScrollView.addSubview(navTitleLabel)
             childTitleLabels.append(navTitleLabel)
-            if(indicatorInfo.title == "General"){
-              item.navigationItem.rightBarButtonItem?.title = "WooHo"
-            }
         }
     }
     

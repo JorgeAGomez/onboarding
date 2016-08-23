@@ -20,7 +20,6 @@ import FirebaseStorage
 //                      "abcde"[0...2] == "abc"
 //                      "abcde"[2..<4] == "cd"
 
-
 extension String {
 
   subscript (i: Int) -> Character {
@@ -59,6 +58,7 @@ var isReload = false
     
     self.navigationItem.hidesBackButton = true
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: self, action: #selector(doneTapped))
+    self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Help", style: .Plain, target: self, action: #selector(helpTapped))
     
     // Create the alert controller
     let alertController = UIAlertController(title: "Instructions", message: "Swipe the screen left or right to nagivate through the questionnarie", preferredStyle: .Alert)
@@ -107,10 +107,27 @@ var isReload = false
     //controller.PloPlo = personalInformation.mutableCopy() as! NSMutableDictionary
   }
   
+  func helpTapped(){
+        // Create the alert controller
+    let alertController = UIAlertController(title: "Instructions", message: "Swipe the screen left or right to nagivate through the questionnarie", preferredStyle: .Alert)
+
+    // Create the actions
+    let okAction = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+
+    // Add the actions
+    alertController.addAction(okAction)
+
+    // Present the controller
+    self.presentViewController(alertController, animated: true, completion: nil)
+  }
+  
+  
   func doneTapped(){
   
-    //performSegueWithIdentifier("gogo", sender: self)
+    let controller : ConsentFirstPageViewController = ConsentFirstPageViewController()
+    self.navigationController?.showViewController(controller, sender: self)
     
+  /*
       //PERSONAL INFORMATION
       let personalKeys = NSMutableArray()
       for i in personalInformation{
@@ -1176,5 +1193,5 @@ var isReload = false
       FirebaseHelperSwift.questHipsLegsFeets(hipsFinal)
     
       /*****************************/
-    }
+    */}
   }

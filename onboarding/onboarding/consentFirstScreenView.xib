@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="consentFirstScreenView" customModule="onboarding" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CaleoLogo" translatesAutoresizingMaskIntoConstraints="NO" id="1gN-XP-W3o">
+                    <rect key="frame" x="217" y="316" width="334" height="177"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="177" id="Jfy-3F-pUb"/>
+                        <constraint firstAttribute="width" constant="334" id="lww-3i-zlN"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Physio4DLogo" translatesAutoresizingMaskIntoConstraints="NO" id="fQ6-aw-DgU">
+                    <rect key="frame" x="260" y="566" width="303" height="178"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="178" id="pXB-R7-Xnb"/>
+                        <constraint firstAttribute="width" constant="303" id="wPo-j3-3bH"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFA-3c-jOY">
+                    <rect key="frame" x="83" y="84" width="621" height="165"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="165" id="5JR-50-m8q"/>
+                        <constraint firstAttribute="width" constant="621" id="co4-17-fHA"/>
+                    </constraints>
+                    <attributedString key="attributedText">
+                        <fragment content="Dear Patient">
+                            <attributes>
+                                <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                    <tabStops>
+                                        <textTab alignment="left" location="28">
+                                            <options/>
+                                        </textTab>
+                                        <textTab alignment="left" location="56">
+                                            <options/>
+                                        </textTab>
+                                        <textTab alignment="left" location="84">
+                                            <options/>
+                                        </textTab>
+                                        <textTab alignment="left" location="112">
+                                            <options/>
+                                        </textTab>
+                                        <textTab alignment="left" location="140">
+                                            <options/>
+                                        </textTab>
+                                        <textTab alignment="left" location="168">
+                                            <options/>
+                                        </textTab>
+                                        <textTab alignment="left" location="196">
+                                            <options/>
+                                        </textTab>
+                                        <textTab alignment="left" location="224">
+                                            <options/>
+                                        </textTab>
+                                        <textTab alignment="left" location="252">
+                                            <options/>
+                                        </textTab>
+                                        <textTab alignment="left" location="280">
+                                            <options/>
+                                        </textTab>
+                                        <textTab alignment="left" location="308">
+                                            <options/>
+                                        </textTab>
+                                        <textTab alignment="left" location="336">
+                                            <options/>
+                                        </textTab>
+                                    </tabStops>
+                                </paragraphStyle>
+                            </attributes>
+                        </fragment>
+                        <fragment>
+                            <string key="content">: Your information is confidential. We need this information so that we can better care for you. Your consent will help us determine if treatment in our office will benefit you. If we do not sincerely believe your condition will respond satisfactorily, we will not accept your case. In order for us to understand your condition properly, please be as neat and complete as possible while completing all form.</string>
+                            <attributes>
+                                <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                    <tabStops>
+                                        <textTab alignment="left" location="28">
+                                            <options/>
+                                        </textTab>
+                                        <textTab alignment="left" location="56">
+                                            <options/>
+                                        </textTab>
+                                        <textTab alignment="left" location="84">
+                                            <options/>
+                                        </textTab>
+                                        <textTab alignment="left" location="112">
+                                            <options/>
+                                        </textTab>
+                                        <textTab alignment="left" location="140">
+                                            <options/>
+                                        </textTab>
+                                        <textTab alignment="left" location="168">
+                                            <options/>
+                                        </textTab>
+                                        <textTab alignment="left" location="196">
+                                            <options/>
+                                        </textTab>
+                                        <textTab alignment="left" location="224">
+                                            <options/>
+                                        </textTab>
+                                        <textTab alignment="left" location="252">
+                                            <options/>
+                                        </textTab>
+                                        <textTab alignment="left" location="280">
+                                            <options/>
+                                        </textTab>
+                                        <textTab alignment="left" location="308">
+                                            <options/>
+                                        </textTab>
+                                        <textTab alignment="left" location="336">
+                                            <options/>
+                                        </textTab>
+                                    </tabStops>
+                                </paragraphStyle>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="QFA-3c-jOY" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="9.5" id="Aip-h3-T6g"/>
+                <constraint firstItem="fQ6-aw-DgU" firstAttribute="centerX" secondItem="1gN-XP-W3o" secondAttribute="centerX" constant="27.5" id="D68-fW-DEK"/>
+                <constraint firstItem="fQ6-aw-DgU" firstAttribute="top" secondItem="1gN-XP-W3o" secondAttribute="bottom" constant="73" id="TA2-iG-Hng"/>
+                <constraint firstItem="1gN-XP-W3o" firstAttribute="centerX" secondItem="QFA-3c-jOY" secondAttribute="centerX" constant="-9.5" id="U8o-vo-Fxl"/>
+                <constraint firstItem="1gN-XP-W3o" firstAttribute="top" secondItem="QFA-3c-jOY" secondAttribute="bottom" constant="67" id="v6y-jC-oxw"/>
+                <constraint firstItem="QFA-3c-jOY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="84" id="vhc-KY-AQq"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="346" y="325"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="CaleoLogo" width="792" height="612"/>
+        <image name="Physio4DLogo" width="327" height="347"/>
+    </resources>
+</document>
