@@ -78,7 +78,7 @@
     _dateOfInjury = workInjuryRow;
   
     //WCB Claim Number --> NOT required but need to be provided ASAP
-    workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"WCB Claim No." rowType:XLFormRowDescriptorTypeNumber title:@"WCB Claim #:"];
+    workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"WCB Claim No." rowType:XLFormRowDescriptorTypeText title:@"WCB Claim #:"];
     [workInjuryRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     _WCBClaim = workInjuryRow;
   

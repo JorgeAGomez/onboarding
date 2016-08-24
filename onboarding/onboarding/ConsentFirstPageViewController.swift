@@ -14,17 +14,18 @@ public class ConsentFirstPageViewController: UIViewController {
   
     public override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Patient Consent"
+        self.navigationItem.title = ""
         self.navigationItem.hidesBackButton = true
         self.view.backgroundColor = UIColor.whiteColor()
         let newView = consentFirstScreenView()
-        newView.frame = CGRect(x:60.0, y: 0.0, width: 600, height: 600)
+        newView.frame = CGRect(x:90.0, y: 0.0, width: 600, height: 600)
         self.view.addSubview(newView)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
+        //self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
     }
 
     func nextTapped(){
-      self.navigationController?.pushViewController(ReleaseCollectConsentViewController(), animated: true)
+      let controller = ConsentSecondPageViewController()
+      self.showViewController(controller, sender: self)
     }
   
 }

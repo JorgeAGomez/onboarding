@@ -48,6 +48,7 @@ var conditionsInformation = NSMutableDictionary()
 let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
 var temp = false
 var isReload = false
+var downloadURL = NSURL()
   
   public override func viewDidLoad(){
     settings.style.selectedDotColor = myColor
@@ -55,6 +56,7 @@ var isReload = false
     settings.style.titleColor = UIColor.blackColor()
     
     super.viewDidLoad()
+    
     
     self.navigationItem.hidesBackButton = true
     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: self, action: #selector(doneTapped))
@@ -71,6 +73,8 @@ var isReload = false
 
     // Present the controller
     self.presentViewController(alertController, animated: true, completion: nil)
+    
+    
   }
   
   public override func viewControllersForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
@@ -121,13 +125,52 @@ var isReload = false
     self.presentViewController(alertController, animated: true, completion: nil)
   }
   
+  /*func sendEmail(){
+            func configuredMailComposeViewController() -> MFMailComposeViewController {
+                let mailComposerVC = MFMailComposeViewController()
+                mailComposerVC.mailComposeDelegate = QuestionnarieVC() // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+                
+                mailComposerVC.setToRecipients(["physio4D@icloud.com"])
+                mailComposerVC.setSubject("Sending you an in-app e-mail...")
+                mailComposerVC.setMessageBody("Click link to access patient PDF file:", isHTML: false)
+                
+                return mailComposerVC
+            }
+            
+            func showSendMailErrorAlert() {
+                let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
+                sendMailErrorAlert.show()
+            }
+            
+              func mailComposeController(controller:MFMailComposeViewController, didFinishWithResult result:MFMailComposeResult, error:NSError) {
+                switch result.rawValue {
+                case MFMailComposeResultCancelled.rawValue:
+                    print("Mail cancelled")
+                case MFMailComposeResultSaved.rawValue:
+                    print("Mail saved")
+                case MFMailComposeResultSent.rawValue:
+                    print("Mail sent")
+                case MFMailComposeResultFailed.rawValue:
+                    print("Mail sent failure: \(error.localizedDescription)")
+                default:
+                    break
+                }
+                self.dismissViewControllerAnimated(false, completion: nil)
+            }
+    
+            let mailComposeViewController = configuredMailComposeViewController()
+            if MFMailComposeViewController.canSendMail() {
+              self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+            }
+            else {
+              showSendMailErrorAlert()
+            }
+
+  }*/
+  
   
   func doneTapped(){
-  
-    let controller : ConsentFirstPageViewController = ConsentFirstPageViewController()
-    self.navigationController?.showViewController(controller, sender: self)
     
-  /*
       //PERSONAL INFORMATION
       let personalKeys = NSMutableArray()
       for i in personalInformation{
@@ -1128,6 +1171,7 @@ var isReload = false
       
       pdf.addLineSpace(15)
     
+    
     let pdfData = pdf.generatePDFdata()
     do{
         let storage = FIRStorage.storage()
@@ -1141,13 +1185,12 @@ var isReload = false
             print(error)
           }
           else{
-            let downloadURL = pdfFile!.downloadURL()
-            print(downloadURL!)
+            self.downloadURL = pdfFile!.downloadURL()!
           }
         }
       }
     
-  
+    
       /********* FIREBASE ************/
     
       FirebaseHelperSwift.personalInformation(firstName, lastName: lastName, address: address, city: city, postalCode: postalCode, province: province, homePhone: homePhone, cellPhone: cellPhone, workPhone: workPhone, DOB: DOB as! NSDate, PHN: PHN)
@@ -1193,5 +1236,8 @@ var isReload = false
       FirebaseHelperSwift.questHipsLegsFeets(hipsFinal)
     
       /*****************************/
-    */}
+    
+      let controller : ConsentFirstPageViewController = ConsentFirstPageViewController()
+      self.navigationController?.showViewController(controller, sender: self)
+    }
   }
