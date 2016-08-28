@@ -25,15 +25,19 @@ var midDic = [String:String]()
 var midData = [String:[String:String]]()
 
 
-public class NeuromusculoskeletalTableViewController: UITableViewController {
-    
+class NeuromusculoskeletalTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+  
+  
+    @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "Cell"
     let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
   
-    public override func viewDidLoad()
+    override func viewDidLoad()
     {
         super.viewDidLoad()
       
+        self.navigationItem.title = "Neuromusculoskeletal"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
 
         headNeck = ["Headaches","Neck Pain / stiffness","Pinched nerve","Jaw Pain / TMJ","Arthritis in neck"]
         shoulder = ["Shoulder pain","Can't raise arm","Arthritis","Bursitis","Clicking / popping"]
@@ -67,9 +71,16 @@ public class NeuromusculoskeletalTableViewController: UITableViewController {
 
     }
   
-    
+    func nextTapped(){
+      self.performSegueWithIdentifier("goToNeuro2", sender: self)
+    }
   
-    override public func viewWillDisappear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
+      pageControl.currentPage = 6
+    }
+  
+  
+    override func viewWillDisappear(animated: Bool) {
       for cells in tableView.visibleCells {
         let cell = cells as! PostCellTableViewCell
         
@@ -133,19 +144,15 @@ public class NeuromusculoskeletalTableViewController: UITableViewController {
       self.performSegueWithIdentifier("go", sender: self)
     }
 
-    public override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     // MARK: - Table view data source
 
-    public override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 4
     }
   
-    public override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
       if(section == 0)
       {
@@ -165,7 +172,7 @@ public class NeuromusculoskeletalTableViewController: UITableViewController {
       }
     }
 
-    public override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       
       if(section == 0)
       {
@@ -186,7 +193,7 @@ public class NeuromusculoskeletalTableViewController: UITableViewController {
     }
 
   
-    public override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! PostCellTableViewCell
       
       cell.selectionStyle = UITableViewCellSelectionStyle.None

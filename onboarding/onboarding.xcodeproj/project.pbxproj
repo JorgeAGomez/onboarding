@@ -54,6 +54,8 @@
 		D6CC783C1D7385E600CE1AA1 /* CardiovascularTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC783B1D7385E600CE1AA1 /* CardiovascularTableViewCell.swift */; };
 		D6CC783E1D73907A00CE1AA1 /* MultipleSectionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC783D1D73907A00CE1AA1 /* MultipleSectionsTableViewCell.swift */; };
 		D6CC78401D739C9300CE1AA1 /* SecondMultipleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC783F1D739C9300CE1AA1 /* SecondMultipleTableViewCell.swift */; };
+		D6CC78421D739FD700CE1AA1 /* NeuroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC78411D739FD700CE1AA1 /* NeuroTableViewCell.swift */; };
+		D6CC78441D73A0E700CE1AA1 /* SecondNeuroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC78431D73A0E700CE1AA1 /* SecondNeuroTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +123,8 @@
 		D6CC783B1D7385E600CE1AA1 /* CardiovascularTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardiovascularTableViewCell.swift; sourceTree = "<group>"; };
 		D6CC783D1D73907A00CE1AA1 /* MultipleSectionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultipleSectionsTableViewCell.swift; sourceTree = "<group>"; };
 		D6CC783F1D739C9300CE1AA1 /* SecondMultipleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondMultipleTableViewCell.swift; sourceTree = "<group>"; };
+		D6CC78411D739FD700CE1AA1 /* NeuroTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeuroTableViewCell.swift; sourceTree = "<group>"; };
+		D6CC78431D73A0E700CE1AA1 /* SecondNeuroTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondNeuroTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,7 +271,9 @@
 				D67312FF1D6361D300DE45DB /* SecondMultipleTableViewController.swift */,
 				D6CC783F1D739C9300CE1AA1 /* SecondMultipleTableViewCell.swift */,
 				D62A4D441D480A0B00CDF4F8 /* NeuromusculoskeletalTableViewController.swift */,
+				D6CC78411D739FD700CE1AA1 /* NeuroTableViewCell.swift */,
 				D67313011D6361FC00DE45DB /* SecondNeuroTableViewController.swift */,
+				D6CC78431D73A0E700CE1AA1 /* SecondNeuroTableViewCell.swift */,
 				D67313031D63622F00DE45DB /* HipsLegsFeetTableViewController.swift */,
 				D66A3B4F1D46B5B000E83DD7 /* PostCell.xib */,
 				D66A3B511D46B62300E83DD7 /* PostCellTableViewCell.swift */,
@@ -456,6 +462,7 @@
 				D62E69DC1D22F6B600AEE03C /* FirebaseHelper.m in Sources */,
 				D64C6E7A1D4AD99F00ABB8BA /* SubmitScreenViewController.swift in Sources */,
 				D616B36D1D205B2C00ABF52D /* DateAndTimeValueTransformer.m in Sources */,
+				D6CC78421D739FD700CE1AA1 /* NeuroTableViewCell.swift in Sources */,
 				D62829FE1D1F6622001D64FA /* AppDelegate.m in Sources */,
 				D62E69D81D21E2F300AEE03C /* HealthCoverageViewController.m in Sources */,
 				D6665DA71D6DE5D7005E62A3 /* ConsentThirdPageViewController.swift in Sources */,
@@ -476,6 +483,7 @@
 				D6CC783A1D737E2000CE1AA1 /* GastrointestinalTableViewCell.swift in Sources */,
 				D67313041D63622F00DE45DB /* HipsLegsFeetTableViewController.swift in Sources */,
 				D6CC783C1D7385E600CE1AA1 /* CardiovascularTableViewCell.swift in Sources */,
+				D6CC78441D73A0E700CE1AA1 /* SecondNeuroTableViewCell.swift in Sources */,
 				D68CE7EF1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.m in Sources */,
 				D6CC78401D739C9300CE1AA1 /* SecondMultipleTableViewCell.swift in Sources */,
 				D64C6E7D1D4B8F0D00ABB8BA /* ConsentIntroViewController.m in Sources */,

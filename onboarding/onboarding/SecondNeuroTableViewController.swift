@@ -17,13 +17,16 @@ var armsDic = [String:String]()
 var armsData = [String:[String:String]]()
 
 
-class SecondNeuroTableViewController: UITableViewController{
+class SecondNeuroTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
+  @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "Cell"
     let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Neuromusculoskeletal"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
         lowback = ["Low Back Pain","Low Back stiffness","Tailbone pain","Muscle Spasms","Pinched nerve"]
         armshands = ["Pain in elbow / arm","Pain in forearm","Pain in hands / fingers","Arthritis / swollen hands","Cold hands","Carpal Tunnel","Tingling in hands","Loss of grip strength"]
       
@@ -40,10 +43,13 @@ class SecondNeuroTableViewController: UITableViewController{
         }
 
     }
+  
+    func nextTapped(){
+      self.performSegueWithIdentifier("goToHips", sender: self)
+    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(animated: Bool) {
+      pageControl.currentPage = 7
     }
   
     override func viewWillDisappear(animated: Bool) {
@@ -88,11 +94,11 @@ class SecondNeuroTableViewController: UITableViewController{
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 3
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       
       if(section == 0)
       {
@@ -108,7 +114,7 @@ class SecondNeuroTableViewController: UITableViewController{
       }
     }
   
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
       if(section == 0)
       {
@@ -124,7 +130,7 @@ class SecondNeuroTableViewController: UITableViewController{
       }
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! PostCellTableViewCell
       cell.selectionStyle = UITableViewCellSelectionStyle.None
       cell.contentView.userInteractionEnabled = false

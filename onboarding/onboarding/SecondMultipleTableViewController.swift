@@ -54,7 +54,7 @@ class SecondMultipleTableViewController: UIViewController, UITableViewDelegate, 
     override func viewWillDisappear(animated: Bool) {
       
       for cells in tableView.visibleCells{
-        let cell = cells as! PostCellTableViewCell
+        let cell = cells as! SecondMultipleTableViewCell
         //EYE EAR NOSE AND THROAT
         if(cell.circleButton.tag == 0 && cell.squareButton.tag == 0)
         {
@@ -131,7 +131,7 @@ class SecondMultipleTableViewController: UIViewController, UITableViewDelegate, 
   
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       
-      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! PostCellTableViewCell
+      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! SecondMultipleTableViewCell
       cell.selectionStyle = UITableViewCellSelectionStyle.None
       cell.contentView.userInteractionEnabled = false
       cell.circleButton.layer.borderWidth = 1
