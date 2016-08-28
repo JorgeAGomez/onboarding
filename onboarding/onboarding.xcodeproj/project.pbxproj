@@ -56,6 +56,7 @@
 		D6CC78401D739C9300CE1AA1 /* SecondMultipleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC783F1D739C9300CE1AA1 /* SecondMultipleTableViewCell.swift */; };
 		D6CC78421D739FD700CE1AA1 /* NeuroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC78411D739FD700CE1AA1 /* NeuroTableViewCell.swift */; };
 		D6CC78441D73A0E700CE1AA1 /* SecondNeuroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC78431D73A0E700CE1AA1 /* SecondNeuroTableViewCell.swift */; };
+		D6CC78461D73A8EB00CE1AA1 /* HipsLegsFeetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC78451D73A8EB00CE1AA1 /* HipsLegsFeetTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,6 +126,7 @@
 		D6CC783F1D739C9300CE1AA1 /* SecondMultipleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondMultipleTableViewCell.swift; sourceTree = "<group>"; };
 		D6CC78411D739FD700CE1AA1 /* NeuroTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeuroTableViewCell.swift; sourceTree = "<group>"; };
 		D6CC78431D73A0E700CE1AA1 /* SecondNeuroTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondNeuroTableViewCell.swift; sourceTree = "<group>"; };
+		D6CC78451D73A8EB00CE1AA1 /* HipsLegsFeetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HipsLegsFeetTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,9 +277,10 @@
 				D67313011D6361FC00DE45DB /* SecondNeuroTableViewController.swift */,
 				D6CC78431D73A0E700CE1AA1 /* SecondNeuroTableViewCell.swift */,
 				D67313031D63622F00DE45DB /* HipsLegsFeetTableViewController.swift */,
+				D6CC78451D73A8EB00CE1AA1 /* HipsLegsFeetTableViewCell.swift */,
+				D64C6E791D4AD99F00ABB8BA /* SubmitScreenViewController.swift */,
 				D66A3B4F1D46B5B000E83DD7 /* PostCell.xib */,
 				D66A3B511D46B62300E83DD7 /* PostCellTableViewCell.swift */,
-				D64C6E791D4AD99F00ABB8BA /* SubmitScreenViewController.swift */,
 			);
 			name = "Health Report Questionnarie";
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6CC78461D73A8EB00CE1AA1 /* HipsLegsFeetTableViewCell.swift in Sources */,
 				D66A3B521D46B62300E83DD7 /* PostCellTableViewCell.swift in Sources */,
 				D67313021D6361FC00DE45DB /* SecondNeuroTableViewController.swift in Sources */,
 				D64C6E7F1D4B9DB500ABB8BA /* ConsentFirstPageViewController.swift in Sources */,

@@ -73,7 +73,7 @@ class MultipleSectionsTableViewController: UIViewController, UITableViewDataSour
     }
   
     func nextTapped(){
-      self.performSegueWithIdentifier("GoToSecondMultiple", sender: self)
+      self.performSegueWithIdentifier("haha", sender: self)
     }
   
     override func viewWillDisappear(animated: Bool)

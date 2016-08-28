@@ -82,7 +82,7 @@ class NeuromusculoskeletalTableViewController: UIViewController, UITableViewData
   
     override func viewWillDisappear(animated: Bool) {
       for cells in tableView.visibleCells {
-        let cell = cells as! PostCellTableViewCell
+        let cell = cells as! NeuroTableViewCell
         
         //HEAD NECK
         if(cell.circleButton.tag == 0 && cell.squareButton.tag == 0)
@@ -194,7 +194,7 @@ class NeuromusculoskeletalTableViewController: UIViewController, UITableViewData
 
   
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! PostCellTableViewCell
+      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! NeuroTableViewCell
       
       cell.selectionStyle = UITableViewCellSelectionStyle.None
       cell.contentView.userInteractionEnabled = false

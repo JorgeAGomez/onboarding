@@ -37,9 +37,9 @@ class GeneralTableViewController: UIViewController, UITableViewDelegate, UITable
       origin = CGPointMake(navBarSize.width / 2, navBarSize.height / 2)
       pageControl = UIPageControl(frame: CGRectMake(origin.x, origin.y+15, 0, 0))
       //Or whatever number of viewcontrollers you have
-      pageControl.numberOfPages = 8
-      pageControl.pageIndicatorTintColor = UIColor.redColor()
-      pageControl.currentPageIndicatorTintColor = UIColor.blueColor()
+      pageControl.numberOfPages = 9
+      pageControl.pageIndicatorTintColor = UIColor.blackColor()
+      pageControl.currentPageIndicatorTintColor = myColor
       self.navigationController!.navigationBar.addSubview(pageControl)
 
       general = ["Diabetes","Hypoglycemia","Stress / Depression","Epilepsy / Seizures", "Skin conditions / Rashes","Alcoholism","High Cholesterol","Parkinson's disease","Heart disease","Cancer","Osteoarthritis","Ulcers","Anemia / Fatigue", "Multiple Sclerosis","Thyroid","Osteoporosis"]
@@ -62,25 +62,25 @@ class GeneralTableViewController: UIViewController, UITableViewDelegate, UITable
 
     override func viewWillDisappear(animated: Bool) {
       let table = tableView
-//     for cell in table.visibleCells {
-//        let cells = cell as! GeneralTableViewCell
-//        if(cells.circleButton.backgroundColor == myColor)
-//        {
-//          dic1[cells.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
-//        }
-//        else
-//        {
-//          dic1[cells.titleLabel.text!]!.updateValue("No", forKey: "previously")
-//        }
-//        if(cells.squareButton.backgroundColor == myColor)
-//        {
-//          dic1[cells.titleLabel.text!]!.updateValue("Yes", forKey: "presently")
-//        }
-//        else
-//        {
-//          dic1[cells.titleLabel.text!]!.updateValue("No", forKey: "presently")
-//        }
-//     }
+     for cell in table.visibleCells {
+        let cells = cell as! GeneralTableViewCell
+        if(cells.circleButton.backgroundColor == myColor)
+        {
+          dic1[cells.nameLabel.text!]!.updateValue("Yes", forKey: "previously")
+        }
+        else
+        {
+          dic1[cells.nameLabel.text!]!.updateValue("No", forKey: "previously")
+        }
+        if(cells.squareButton.backgroundColor == myColor)
+        {
+          dic1[cells.nameLabel.text!]!.updateValue("Yes", forKey: "presently")
+        }
+        else
+        {
+          dic1[cells.nameLabel.text!]!.updateValue("No", forKey: "presently")
+        }
+     }
     }
     
     // MARK: - Table view data source

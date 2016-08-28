@@ -12,6 +12,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
 
     override func viewDidLoad() {
       super.viewDidLoad()
+        pageControl.hidesForSinglePage = true
       
         }
 
@@ -19,6 +20,9 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       super.didReceiveMemoryWarning()
       // Dispose of any resources that can be recreated.
     }
+  
+  
+    
 
 
 }

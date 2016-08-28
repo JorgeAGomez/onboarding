@@ -12,13 +12,17 @@ var hipsLegsFeet = []
 var hipsDic = [String:String]()
 var hipsData = [String:[String:String]]()
 
-class HipsLegsFeetTableViewController: UITableViewController {
+class HipsLegsFeetTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+  @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "Cell"
     let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
 
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+        self.navigationItem.title = "Hips, Legs & Feet"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
       
         hipsLegsFeet = ["Pain in buttock","Pain in hip / knee joint","Cold feet","Tingling in feet","Arthritis","Sprain / strain","Pain down leg(s)","Tingling in leg(s)","Swollen ankle / feet","Pain in ankle / feet","Loss of leg strength","Muscles cramps"]
               
@@ -29,14 +33,17 @@ class HipsLegsFeetTableViewController: UITableViewController {
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func nextTapped(){
+      self.performSegueWithIdentifier("thankYou", sender: self)
+    }
+  
+    override func viewWillAppear(animated: Bool) {
+      pageControl.currentPage = 8
     }
   
     override func viewWillDisappear(animated: Bool) {
       for cells in tableView.visibleCells {
-        let cell = cells as! PostCellTableViewCell
+        let cell = cells as! HipsLegsFeetTableViewCell
 
         //HIPS LEGS FEET
         if(cell.circleButton.backgroundColor == myColor){
@@ -54,7 +61,7 @@ class HipsLegsFeetTableViewController: UITableViewController {
       }
     }
   
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
       if(section == 0)
       {
@@ -68,12 +75,12 @@ class HipsLegsFeetTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 2
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if(section == 0){
           return 0
@@ -83,8 +90,8 @@ class HipsLegsFeetTableViewController: UITableViewController {
         }
     }
   
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! PostCellTableViewCell
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! HipsLegsFeetTableViewCell
       cell.selectionStyle = UITableViewCellSelectionStyle.None
       cell.contentView.userInteractionEnabled = false
       cell.circleButton.layer.borderWidth = 1
@@ -96,9 +103,5 @@ class HipsLegsFeetTableViewController: UITableViewController {
         cell.titleLabel.text = hipsLegsFeet[indexPath.row] as? String
       }
         return cell
-    }
-  
-    func buttonTapped(){
-      self.navigationController!.performSegueWithIdentifier("gogo", sender: self)
     }
 }
