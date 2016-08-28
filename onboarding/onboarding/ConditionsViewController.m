@@ -188,15 +188,15 @@ XLFormRowDescriptor *medicationNewCell;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-  _questionnarie = [[QuestionnarieVC alloc] init];
-  _questionnarie = [segue destinationViewController];
-  
-  _questionnarie.personalInformation = [NSMutableDictionary dictionaryWithDictionary:_personalInformation];
-  _questionnarie.medicalInformation = [NSMutableDictionary dictionaryWithDictionary:_medicalInformation];
-  _questionnarie.workInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:_workInjuryInformation];
-  _questionnarie.motorVehicleInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:_motorVehicleInjuryInformation];
-  _questionnarie.healthCoverageInformation = [NSMutableDictionary dictionaryWithDictionary:_healthCoverageInformation];
-  _questionnarie.conditionsInformation = [NSMutableDictionary dictionaryWithDictionary:_conditionsInformation];
+//  _questionnarie = [[QuestionnarieVC alloc] init];
+//  _questionnarie = [segue destinationViewController];
+//  
+//  _questionnarie.personalInformation = [NSMutableDictionary dictionaryWithDictionary:_personalInformation];
+//  _questionnarie.medicalInformation = [NSMutableDictionary dictionaryWithDictionary:_medicalInformation];
+//  _questionnarie.workInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:_workInjuryInformation];
+//  _questionnarie.motorVehicleInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:_motorVehicleInjuryInformation];
+//  _questionnarie.healthCoverageInformation = [NSMutableDictionary dictionaryWithDictionary:_healthCoverageInformation];
+//  _questionnarie.conditionsInformation = [NSMutableDictionary dictionaryWithDictionary:_conditionsInformation];
 }
 
 -(void)formRowDescriptorValueHasChanged:(XLFormRowDescriptor *)rowDescriptor oldValue:(id)oldValue newValue:(id)newValue
@@ -253,18 +253,18 @@ XLFormRowDescriptor *medicationNewCell;
   }
   
 
+//  
+//  _questionnarie = [[QuestionnarieVC alloc] init];
+//  _questionnarie.personalInformation = [NSMutableDictionary dictionaryWithDictionary:_personalInformation];
+//  _questionnarie.medicalInformation = [NSMutableDictionary dictionaryWithDictionary:_medicalInformation];
+//  _questionnarie.workInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:_workInjuryInformation];
+//  _questionnarie.motorVehicleInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:_motorVehicleInjuryInformation];
+//  _questionnarie.healthCoverageInformation = [NSMutableDictionary dictionaryWithDictionary:_healthCoverageInformation];
+//  _questionnarie.conditionsInformation = [NSMutableDictionary dictionaryWithDictionary:_conditionsInformation];
+//  
+//  [self.navigationController pushViewController:_questionnarie animated:true];
   
-  _questionnarie = [[QuestionnarieVC alloc] init];
-  _questionnarie.personalInformation = [NSMutableDictionary dictionaryWithDictionary:_personalInformation];
-  _questionnarie.medicalInformation = [NSMutableDictionary dictionaryWithDictionary:_medicalInformation];
-  _questionnarie.workInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:_workInjuryInformation];
-  _questionnarie.motorVehicleInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:_motorVehicleInjuryInformation];
-  _questionnarie.healthCoverageInformation = [NSMutableDictionary dictionaryWithDictionary:_healthCoverageInformation];
-  _questionnarie.conditionsInformation = [NSMutableDictionary dictionaryWithDictionary:_conditionsInformation];
-  
-  [self.navigationController pushViewController:_questionnarie animated:true];
-  
- // [self.navigationController performSegueWithIdentifier:@"ploplo" sender:self];
+  [self performSegueWithIdentifier:@"gogo" sender:self];
   
   
 }

@@ -7,41 +7,27 @@
 //
 
 import UIKit
-import XLPagerTabStrip
 
 var cardioDic = [String:String]()
 var cardioData = [String:[String:String]]()
 var cardiovascular = []
 
 
-class CardiovascularTableViewController: UITableViewController,IndicatorInfoProvider {
+class CardiovascularTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "Cell"
-    var blackTheme = false
-    var itemInfo = IndicatorInfo(title: "Cardiovascular")
     let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
-  
-    init(style: UITableViewStyle, itemInfo: IndicatorInfo)
-    {
-      self.itemInfo = itemInfo
-      super.init(style: style)
-    }
-  
-    required init?(coder aDecoder: NSCoder)
-    {
-      fatalError("init(coder:) has not been implemented")
-    }
 
   
     override func viewDidLoad()
     {
       super.viewDidLoad()
+      
+      self.navigationItem.title = "Cardiovascular"
+      self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
+      
       cardiovascular = ["Irregular Heartbeat","Stroke / Heart attack","Low Blood Pressure","High Blood Pressure","Palpitations","Swelling Ankles","Pain / Pressure in Chest","Shortness of Breath"]
-      tableView.registerNib(UINib(nibName: "PostCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: cellIdentifier)
-      if blackTheme
-      {
-        tableView.backgroundColor = UIColor(red: 15/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1.0)
-      }
       
       for i in cardiovascular
       {
@@ -50,16 +36,18 @@ class CardiovascularTableViewController: UITableViewController,IndicatorInfoProv
       }
     }
   
-    override func didReceiveMemoryWarning()
-    {
-      super.didReceiveMemoryWarning()
-      // Dispose of any resources that can be recreated.
+    override func viewWillAppear(animated: Bool) {
+      pageControl.currentPage = 3
+    }
+  
+    func nextTapped(){
+      self.performSegueWithIdentifier("goToMultiple", sender: self)
     }
   
     override func viewWillDisappear(animated: Bool)
     {
       for cells in tableView.visibleCells{
-        let cell = cells as! PostCellTableViewCell
+        let cell = cells as! CardiovascularTableViewCell
         if(cell.circleButton.backgroundColor == myColor){
           cardioData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
         }
@@ -75,39 +63,31 @@ class CardiovascularTableViewController: UITableViewController,IndicatorInfoProv
       }
     }
   
-
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
       return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
       return cardiovascular.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! PostCellTableViewCell
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CardiovascularTableViewCell
       cell.selectionStyle = UITableViewCellSelectionStyle.None
       cell.contentView.userInteractionEnabled = false
       cell.titleLabel.text = cardiovascular[indexPath.row] as? String
-      cell.circleButton.layer.borderWidth = 1
       cell.circleButton.layer.borderColor = myColor.CGColor
       cell.squareButton.layer.borderColor = myColor.CGColor
 
       return cell
     }
   
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
         return "Please check: \(circleScalar) for previously had and \(squareScalar) for presently have"
-    }
-  
-        // MARK: - IndicatorInfoProvider
-
-    func indicatorInfoForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return itemInfo
     }
 }

@@ -7,40 +7,20 @@
 //
 
 import UIKit
-import XLPagerTabStrip
 
 var hipsLegsFeet = []
 var hipsDic = [String:String]()
 var hipsData = [String:[String:String]]()
 
-class HipsLegsFeetTableViewController: UITableViewController, IndicatorInfoProvider {
+class HipsLegsFeetTableViewController: UITableViewController {
 
     let cellIdentifier = "Cell"
-    var blackTheme = false
-    var itemInfo = IndicatorInfo(title: "View")
     let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
-  
-  
-    init(style: UITableViewStyle, itemInfo: IndicatorInfo)
-    {
-      self.itemInfo = itemInfo
-      super.init(style: style)
-    }
-  
-    required init?(coder aDecoder: NSCoder)
-    {
-      fatalError("init(coder:) has not been implemented")
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
       
         hipsLegsFeet = ["Pain in buttock","Pain in hip / knee joint","Cold feet","Tingling in feet","Arthritis","Sprain / strain","Pain down leg(s)","Tingling in leg(s)","Swollen ankle / feet","Pain in ankle / feet","Loss of leg strength","Muscles cramps"]
-      
-        tableView.registerNib(UINib(nibName: "PostCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: cellIdentifier)
-        if blackTheme {
-            tableView.backgroundColor = UIColor(red: 15/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1.0)
-        }
               
         for i in hipsLegsFeet
         {
@@ -120,11 +100,5 @@ class HipsLegsFeetTableViewController: UITableViewController, IndicatorInfoProvi
   
     func buttonTapped(){
       self.navigationController!.performSegueWithIdentifier("gogo", sender: self)
-    }
-  
-    // MARK: - IndicatorInfoProvider
-
-    func indicatorInfoForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return itemInfo
     }
 }

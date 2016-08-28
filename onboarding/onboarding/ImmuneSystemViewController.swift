@@ -7,40 +7,26 @@
 //
 
 import UIKit
-import XLPagerTabStrip
+
 
 var immuneDic = [String:String]()
 var immuneData = [String:[String:String]]()
 var immuneSystemInfection = []
 
 
-
-class ImmuneSystemInfectonTVCTableViewController: UITableViewController, IndicatorInfoProvider {
+class ImmuneSystemViewController: UIViewController {
   
-
-    
+  @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "Cell"
-    var blackTheme = false
     let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
-    var itemInfo = IndicatorInfo(title: "Immune System / infection")
   
-    init(style: UITableViewStyle, itemInfo: IndicatorInfo)
-    {
-      self.itemInfo = itemInfo
-      super.init(style: style)
-    }
-  
-    required init?(coder aDecoder: NSCoder)
-    {
-      fatalError("init(coder:) has not been implemented")
-    }
-
-
     override func viewDidLoad()
     {
       super.viewDidLoad()
+      self.navigationItem.title = "Immune System / Infection"
+      self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
+      
       immuneSystemInfection = ["HIV (AIDS)","Pneumonia","Allergies / sinus troubles","Catch colds / flue easily","Rheumatoid Arthritis","Venereal Disease","Tuberculosis","Rheumatic Fever"]
-      tableView.registerNib(UINib(nibName: "PostCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: cellIdentifier)
       for i in immuneSystemInfection
       {
         immuneDic = ["previously":"No","presently":"No"]
@@ -49,16 +35,18 @@ class ImmuneSystemInfectonTVCTableViewController: UITableViewController, Indicat
 
     }
 
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
+    func nextTapped(){
+      self.performSegueWithIdentifier("goToGastro", sender: self)
+    }
+  
+    override func viewWillAppear(animated: Bool) {
+      pageControl.currentPage = 1
     }
 
-  
     override func viewWillDisappear(animated: Bool)
     {
       for cell in tableView.visibleCells{
-      let cells = cell as! PostCellTableViewCell
+      let cells = cell as! ImmuneSystemTableViewCell
       if(cells.circleButton.backgroundColor == myColor)
       {
         immuneData[cells.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
@@ -82,38 +70,31 @@ class ImmuneSystemInfectonTVCTableViewController: UITableViewController, Indicat
   
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int
     {
       return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
       return immuneSystemInfection.count
     }
   
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! PostCellTableViewCell
+      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ImmuneSystemTableViewCell
       cell.selectionStyle = UITableViewCellSelectionStyle.None
       cell.contentView.userInteractionEnabled = false
       cell.titleLabel.text = immuneSystemInfection[indexPath.row] as? String
-      cell.circleButton.layer.borderWidth = 1
       cell.circleButton.layer.borderColor = myColor.CGColor
       cell.squareButton.layer.borderColor = myColor.CGColor
       return cell
     }
   
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
         return "Please check: \(circleScalar) for previously had and \(squareScalar) for presently have"
     }
   
-    // MARK: - IndicatorInfoProvider
-
-    func indicatorInfoForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return itemInfo
-    }
-
 
 }

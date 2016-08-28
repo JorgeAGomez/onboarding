@@ -110,9 +110,10 @@
     [personalInformationSection addFormRow:personalInformationRow];
   
     //Postal Code
-    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Postal Code" rowType:XLFormRowDescriptorTypeText title:@"Postal Code:"];
+    personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Postal Code" rowType:XLFormRowDescriptorTypeZipCode title:@"Postal Code:"];
     [personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     personalInformationRow.required = YES;
+    
     [personalInformationSection addFormRow:personalInformationRow];
   
     //Select type of Home Phone #

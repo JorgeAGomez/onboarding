@@ -18,4 +18,5 @@ use_frameworks!
 pod 'XLPagerTabStrip', '~> 5.0'
 pod 'SimplePDF', '~> 1.0'
 
+
 end

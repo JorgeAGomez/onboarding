@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import XLPagerTabStrip
 
 var multipleDic = [String:String]()
 var multipleData = [String:[String:String]]()
@@ -27,40 +26,24 @@ var bloodSugarData = [String:[String:String]]()
 var bloodSugarDic = [String:String]()
 
 
-class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoProvider {
+class MultipleSectionsTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   
-    let cellIdentifier = "Multiple"
-    var blackTheme = false
-    var itemInfo = IndicatorInfo(title: "View")
-    let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
-
-  
-    init(style: UITableViewStyle, itemInfo: IndicatorInfo)
-    {
-      self.itemInfo = itemInfo
-      super.init(style: style)
-    }
-  
-    required init?(coder aDecoder: NSCoder)
-    {
-      fatalError("init(coder:) has not been implemented")
-    }
+  let cellIdentifier = "Cell"
+  @IBOutlet weak var tableView: UITableView!
+  let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
+      
+        self.navigationItem.title = "Other systems"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
         nervousSystem = ["Dizziness / Lightheaded","Fainting","Discoordination","Memory Loss"]
         respiratory = ["Chronic Cough","Spitting Blood","Difficulty Breathing","Shortness of Breath","Asthma","Spitting up Phlegm","Emphysema"]
         bloodSugar = ["Irritable before Meals","Palpitations if miss meals","Gets shaky if hungry","Awaken from sleep"]
         
       
         multiple = ["Dizziness / Lightheaded","Fainting","Discoordination","Memory Loss","Chronic Cough","Spitting Blood","Difficulty Breathing","Shortness of Breath","Asthma","Spitting up Phlegm","Emphysema","Irritable before Meals","Palpitations if miss meals","Gets shaky if hungry","Awaken from sleep","Vision Problems","Hoarseness","Nose Bleeding","Ear Pain","Dental Problems","Hearing Loss","Store Throat","Ringing in Ear(s)","Blood in Urine","Bladder Infection","Inability to Control Urination"," Kidney Stones","Painful Urination"]
-      
-        tableView.registerNib(UINib(nibName: "PostCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: cellIdentifier)
-        if blackTheme {
-            tableView.backgroundColor = UIColor(red: 15/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1.0)
-          
-        }
       
         for i in multiple{
           multipleDic = ["previously":"No","presently":"No"]
@@ -85,10 +68,18 @@ class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoP
 
     }
   
+    override func viewWillAppear(animated: Bool) {
+      pageControl.currentPage = 4
+    }
+  
+    func nextTapped(){
+      self.performSegueWithIdentifier("GoToSecondMultiple", sender: self)
+    }
+  
     override func viewWillDisappear(animated: Bool)
     {
       for cells in tableView.visibleCells{
-        let cell = cells as! PostCellTableViewCell
+        let cell = cells as! MultipleSectionsTableViewCell
         
         //NERVOUS
         if(cell.circleButton.tag == 0 && cell.squareButton.tag == 0)
@@ -150,12 +141,12 @@ class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoP
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
       
         return 4
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         if(section == 0)
         {
@@ -175,7 +166,7 @@ class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoP
         }
 
     }
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
       if(section == 0)
       {
@@ -195,8 +186,8 @@ class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoP
       }
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! PostCellTableViewCell
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MultipleSectionsTableViewCell
       
       cell.selectionStyle = UITableViewCellSelectionStyle.None
       cell.contentView.userInteractionEnabled = false
@@ -224,12 +215,6 @@ class MultipleSectionsTableViewController: UITableViewController, IndicatorInfoP
       }
 
       return cell
-    }
-    
-        // MARK: - IndicatorInfoProvider
-
-    func indicatorInfoForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return itemInfo
     }
 
 }

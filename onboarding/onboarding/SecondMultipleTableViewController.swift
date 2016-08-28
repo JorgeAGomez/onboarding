@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import XLPagerTabStrip
 
 var eyeEarNoseThroat = []
 var eyeEarNoseThroatData = [String:[String:String]]()
@@ -17,34 +16,21 @@ var urinaryTract = []
 var urinaryTractData = [String:[String:String]]()
 var urinaryTractDic = [String:String]()
 
-class SecondMultipleTableViewController: UITableViewController, IndicatorInfoProvider {
+class SecondMultipleTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    let cellIdentifier = "SecondMultiple"
-    var blackTheme = false
-    var itemInfo = IndicatorInfo(title: "View")
+    let cellIdentifier = "Cell"
     let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
-  
-    init(style: UITableViewStyle, itemInfo: IndicatorInfo)
-    {
-      self.itemInfo = itemInfo
-      super.init(style: style)
-    }
-  
-    required init?(coder aDecoder: NSCoder)
-    {
-      fatalError("init(coder:) has not been implemented")
-    }
+
+    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+        self.navigationItem.title = "Other systems"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
+      
         eyeEarNoseThroat = ["Vision Problems","Hoarseness","Nose Bleeding","Ear Pain","Dental Problems","Hearing Loss","Store Throat","Ringing in Ear(s)"]
         urinaryTract = ["Blood in Urine","Bladder Infection","Inability to Control Urination"," Kidney Stones","Painful Urination"]
-      
-        tableView.registerNib(UINib(nibName: "PostCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: cellIdentifier)
-        if blackTheme {
-            tableView.backgroundColor = UIColor(red: 15/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1.0)
-          
-        }
       
         for i in eyeEarNoseThroat{
           eyeEarNoseThroatDic = ["previously":"No","presently":"No","Selected":"No"]
@@ -56,10 +42,13 @@ class SecondMultipleTableViewController: UITableViewController, IndicatorInfoPro
           urinaryTractData.updateValue(urinaryTractDic, forKey: i as! String)
         }
     }
+  
+    func nextTapped(){
+      self.performSegueWithIdentifier("goToNeuro", sender: self)
+    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
+    override func viewWillAppear(animated: Bool) {
+      pageControl.currentPage = 5
     }
   
     override func viewWillDisappear(animated: Bool) {
@@ -103,12 +92,12 @@ class SecondMultipleTableViewController: UITableViewController, IndicatorInfoPro
     }
 
     // MARK: - Table view data source
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
       
         return 3
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         if(section == 0)
         {
@@ -123,7 +112,7 @@ class SecondMultipleTableViewController: UITableViewController, IndicatorInfoPro
         }
     }
   
-        override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
       if(section == 0)
       {
@@ -140,7 +129,7 @@ class SecondMultipleTableViewController: UITableViewController, IndicatorInfoPro
     }
 
   
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       
       let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! PostCellTableViewCell
       cell.selectionStyle = UITableViewCellSelectionStyle.None
@@ -164,12 +153,4 @@ class SecondMultipleTableViewController: UITableViewController, IndicatorInfoPro
       
       return cell
     }
-    
-
-    // MARK: - IndicatorInfoProvider
-
-    func indicatorInfoForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return itemInfo
-    }
-
 }

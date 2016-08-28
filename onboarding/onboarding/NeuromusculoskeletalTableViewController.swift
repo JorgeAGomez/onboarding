@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import XLPagerTabStrip
-
 
 var neuroDic = [String:String]()
 var neuroData = [String:[String:String]]()
@@ -27,24 +25,10 @@ var midDic = [String:String]()
 var midData = [String:[String:String]]()
 
 
-public class NeuromusculoskeletalTableViewController: UITableViewController, IndicatorInfoProvider {
+public class NeuromusculoskeletalTableViewController: UITableViewController {
     
     let cellIdentifier = "Cell"
-    var blackTheme = false
-    var itemInfo = IndicatorInfo(title: "View")
     let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
-  
-  
-    init(style: UITableViewStyle, itemInfo: IndicatorInfo)
-    {
-      self.itemInfo = itemInfo
-      super.init(style: style)
-    }
-  
-    required public init?(coder aDecoder: NSCoder)
-    {
-      fatalError("init(coder:) has not been implemented")
-    }
   
     public override func viewDidLoad()
     {
@@ -56,11 +40,7 @@ public class NeuromusculoskeletalTableViewController: UITableViewController, Ind
         midback = ["Mid back Pain","Pain between shoulders","Muscle spasms","Sharp stabbing pain"]
       
         neuro = ["Headaches","Neck Pain / stiffness","Pinched nerve","Jaw Pain / TMJ","Arthritis in neck","Shoulder pain","Can't raise arm"," arthritis","Bursitis","Clicking / popping","Mid back Pain","Pain between shoulders","Muscle spasms","Sharp stabbing pain","Low Back Pain","Low Back stiffness","Tailbone pain","Muscle Spasms","Pinched nerve","Pain in elbow / arm","Pain in forearm","Pain in hands / fingers","Arthritis / swollen hands","Cold hands","Carpal Tunnel","Tingling in hands","Loss of grip strength","Pain in buttock","Pain in hip / knee joint","Cold feet","Tingling in feet","Arthritis","Sprain / strain","Pain down leg(s)","Tingling in leg(s)","Swollen ankle / feet","Pain in ankle / feet","Loss of leg strength","Muscles cramps"]
-      
-        tableView.registerNib(UINib(nibName: "PostCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: cellIdentifier)
-        if blackTheme {
-            tableView.backgroundColor = UIColor(red: 15/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1.0)
-        }
+
         for i in neuro
         {
           neuroDic = ["previously":"No","presently":"No"]
@@ -237,11 +217,4 @@ public class NeuromusculoskeletalTableViewController: UITableViewController, Ind
       return cell
     }
  
-    // MARK: - IndicatorInfoProvider
-
-    public func indicatorInfoForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return itemInfo
-    }
-  
-
 }

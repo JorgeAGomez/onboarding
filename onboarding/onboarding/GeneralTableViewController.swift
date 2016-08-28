@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import XLPagerTabStrip
 
 var generalDic = [String:String]()
 var dic1 = [String:[String:String]]()
@@ -17,28 +16,32 @@ let blackCircleCode = 0x026AB
 let blackSquareCode = 0x02B1B
 let circleScalar = UnicodeScalar(blackCircleCode)
 let squareScalar = UnicodeScalar(blackSquareCode)
+var pageControl = UIPageControl()
 
-class GeneralTableViewController: UITableViewController, IndicatorInfoProvider {
+class GeneralTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
-    let cellIdentifier = "Cell"
-    var blackTheme = false
-    var itemInfo = IndicatorInfo(title: "General")
-    let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
-
-    init(style: UITableViewStyle, itemInfo: IndicatorInfo)
-    {
-      self.itemInfo = itemInfo
-      super.init(style: style)
-    }
+  @IBOutlet weak var tableView: UITableView!
   
-    required init?(coder aDecoder: NSCoder)
-    {
-      fatalError("init(coder:) has not been implemented")
-    }
-
+  
+    let cellIdentifier = "Cell"
+    let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
+    var origin = CGPoint()
+  
     override func viewDidLoad()
     {
       super.viewDidLoad()
+      
+      self.navigationItem.title = "General"
+      self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
+      var navBarSize = self.navigationController!.navigationBar.bounds.size
+      origin = CGPointMake(navBarSize.width / 2, navBarSize.height / 2)
+      pageControl = UIPageControl(frame: CGRectMake(origin.x, origin.y+15, 0, 0))
+      //Or whatever number of viewcontrollers you have
+      pageControl.numberOfPages = 8
+      pageControl.pageIndicatorTintColor = UIColor.redColor()
+      pageControl.currentPageIndicatorTintColor = UIColor.blueColor()
+      self.navigationController!.navigationBar.addSubview(pageControl)
+
       general = ["Diabetes","Hypoglycemia","Stress / Depression","Epilepsy / Seizures", "Skin conditions / Rashes","Alcoholism","High Cholesterol","Parkinson's disease","Heart disease","Cancer","Osteoarthritis","Ulcers","Anemia / Fatigue", "Multiple Sclerosis","Thyroid","Osteoporosis"]
 
       for i in general
@@ -46,69 +49,57 @@ class GeneralTableViewController: UITableViewController, IndicatorInfoProvider {
         generalDic = ["previously":"No","presently":"No"]
         dic1.updateValue(generalDic, forKey: i as! String)
       }
-      
-      tableView.registerNib(UINib(nibName: "PostCell", bundle: NSBundle.mainBundle()), forCellReuseIdentifier: cellIdentifier)
-      tableView.allowsMultipleSelection = true
-      if blackTheme
-      {
-        tableView.backgroundColor = UIColor(red: 15/255.0, green: 16/255.0, blue: 16/255.0, alpha: 1.0)
-      }
     }
   
-    override func viewDidAppear(animated: Bool) {
-      
-      let newB = UIBarButtonItem()
-      newB.title = "NewTitle"
-      self.navigationItem.rightBarButtonItem = newB
+    func nextTapped(){
+      self.performSegueWithIdentifier("goToImmune", sender: self)
     }
+  
+    override func viewWillAppear(animated: Bool) {
+      pageControl.currentPage = 0
+    }
+    
 
-    override func didReceiveMemoryWarning()
-    {
-      super.didReceiveMemoryWarning()
-      // Dispose of any resources that can be recreated.
-    }
-  
     override func viewWillDisappear(animated: Bool) {
       let table = tableView
-     for cell in table.visibleCells {
-        let cells = cell as! PostCellTableViewCell
-        if(cells.circleButton.backgroundColor == myColor)
-        {
-          dic1[cells.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
-        }
-        else
-        {
-          dic1[cells.titleLabel.text!]!.updateValue("No", forKey: "previously")
-        }
-        if(cells.squareButton.backgroundColor == myColor)
-        {
-          dic1[cells.titleLabel.text!]!.updateValue("Yes", forKey: "presently")
-        }
-        else
-        {
-          dic1[cells.titleLabel.text!]!.updateValue("No", forKey: "presently")
-        }
-     }
+//     for cell in table.visibleCells {
+//        let cells = cell as! GeneralTableViewCell
+//        if(cells.circleButton.backgroundColor == myColor)
+//        {
+//          dic1[cells.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
+//        }
+//        else
+//        {
+//          dic1[cells.titleLabel.text!]!.updateValue("No", forKey: "previously")
+//        }
+//        if(cells.squareButton.backgroundColor == myColor)
+//        {
+//          dic1[cells.titleLabel.text!]!.updateValue("Yes", forKey: "presently")
+//        }
+//        else
+//        {
+//          dic1[cells.titleLabel.text!]!.updateValue("No", forKey: "presently")
+//        }
+//     }
     }
     
     // MARK: - Table view data source
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return general.count
     }
   
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
-      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! PostCellTableViewCell
+      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! GeneralTableViewCell
       cell.selectionStyle = UITableViewCellSelectionStyle.None
       cell.contentView.userInteractionEnabled = false
-      cell.titleLabel.text = general[indexPath.row] as? String
-      cell.circleButton.layer.borderWidth = 1
+      cell.nameLabel.text = general[indexPath.row] as? String
       cell.circleButton.layer.borderColor = myColor.CGColor
       cell.squareButton.layer.borderColor = myColor.CGColor
     
@@ -116,14 +107,9 @@ class GeneralTableViewController: UITableViewController, IndicatorInfoProvider {
       return cell
     }
   
-        override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
         return "Please check: \(circleScalar) for previously had and \(squareScalar) for presently have"
     }
-  
-        // MARK: - IndicatorInfoProvider
 
-    func indicatorInfoForPagerTabStrip(pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return itemInfo
-    }
 }

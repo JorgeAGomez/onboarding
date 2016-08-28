@@ -13,15 +13,13 @@ class ConsentThirdPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Patient Consent"
-        self.navigationItem.hidesBackButton = true
+        //self.navigationItem.hidesBackButton = true
         self.view.backgroundColor = UIColor.whiteColor()
-        let newView = consentThirdScreenView()
-        newView.frame = CGRect(x:60.0, y: 0.0, width: 600, height: 600)
+        let newView = consentFirstScreenView()
+        newView.frame = CGRect(x:80.0, y: 0.0, width: 600, height: 600)
         self.view.addSubview(newView)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
     }
-  
-  
   
     func nextTapped(){
     
