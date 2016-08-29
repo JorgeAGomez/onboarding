@@ -15,6 +15,13 @@ var immuneSystemInfection = []
 
 
 class ImmuneSystemViewController: UIViewController {
+
+  var personalInformation = NSMutableDictionary()
+  var medicalInformation = NSMutableDictionary()
+  var workInjuryInformation = NSMutableDictionary()
+  var motorVehicleInjuryInformation = NSMutableDictionary()
+  var healthCoverageInformation = NSMutableDictionary()
+  var conditionsInformation = NSMutableDictionary()
   
   @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "Cell"
@@ -33,6 +40,17 @@ class ImmuneSystemViewController: UIViewController {
         immuneData.updateValue(immuneDic, forKey: i as! String)
       }
 
+    }
+  
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      var controller = GastrointestinalTableViewController()
+      controller = segue.destinationViewController as! GastrointestinalTableViewController
+      controller.personalInformation = personalInformation
+      controller.medicalInformation = medicalInformation
+      controller.workInjuryInformation = workInjuryInformation
+      controller.motorVehicleInjuryInformation = motorVehicleInjuryInformation
+      controller.healthCoverageInformation = healthCoverageInformation
+      controller.conditionsInformation = conditionsInformation
     }
 
     func nextTapped(){

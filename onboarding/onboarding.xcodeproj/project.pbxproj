@@ -48,6 +48,8 @@
 		D6CC78421D739FD700CE1AA1 /* NeuroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC78411D739FD700CE1AA1 /* NeuroTableViewCell.swift */; };
 		D6CC78441D73A0E700CE1AA1 /* SecondNeuroTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC78431D73A0E700CE1AA1 /* SecondNeuroTableViewCell.swift */; };
 		D6CC78461D73A8EB00CE1AA1 /* HipsLegsFeetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC78451D73A8EB00CE1AA1 /* HipsLegsFeetTableViewCell.swift */; };
+		D6CC78481D74A32C00CE1AA1 /* AssessmentTreatmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC78471D74A32C00CE1AA1 /* AssessmentTreatmentVC.swift */; };
+		D6CC784A1D74BCD400CE1AA1 /* ReleaseCollectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6CC78491D74BCD400CE1AA1 /* ReleaseCollectVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +111,8 @@
 		D6CC78411D739FD700CE1AA1 /* NeuroTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeuroTableViewCell.swift; sourceTree = "<group>"; };
 		D6CC78431D73A0E700CE1AA1 /* SecondNeuroTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondNeuroTableViewCell.swift; sourceTree = "<group>"; };
 		D6CC78451D73A8EB00CE1AA1 /* HipsLegsFeetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HipsLegsFeetTableViewCell.swift; sourceTree = "<group>"; };
+		D6CC78471D74A32C00CE1AA1 /* AssessmentTreatmentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssessmentTreatmentVC.swift; sourceTree = "<group>"; };
+		D6CC78491D74BCD400CE1AA1 /* ReleaseCollectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReleaseCollectVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +181,8 @@
 		D68CE7F31D2C2C8900E1A0EE /* Informed Consent */ = {
 			isa = PBXGroup;
 			children = (
+				D6CC78471D74A32C00CE1AA1 /* AssessmentTreatmentVC.swift */,
+				D6CC78491D74BCD400CE1AA1 /* ReleaseCollectVC.swift */,
 			);
 			name = "Informed Consent";
 			sourceTree = "<group>";
@@ -427,6 +433,7 @@
 				D66A3B521D46B62300E83DD7 /* PostCellTableViewCell.swift in Sources */,
 				D67313021D6361FC00DE45DB /* SecondNeuroTableViewController.swift in Sources */,
 				D66A3B481D46A78600E83DD7 /* GeneralTableViewController.swift in Sources */,
+				D6CC784A1D74BCD400CE1AA1 /* ReleaseCollectVC.swift in Sources */,
 				D6CC78381D72356700CE1AA1 /* ImmuneSystemTableViewCell.swift in Sources */,
 				D62A4D431D48022700CDF4F8 /* MultipleSectionsTableViewController.swift in Sources */,
 				D67950CE1D46839B00539C90 /* QuestionnarieVC.swift in Sources */,
@@ -436,6 +443,7 @@
 				D6CC78421D739FD700CE1AA1 /* NeuroTableViewCell.swift in Sources */,
 				D62829FE1D1F6622001D64FA /* AppDelegate.m in Sources */,
 				D62E69D81D21E2F300AEE03C /* HealthCoverageViewController.m in Sources */,
+				D6CC78481D74A32C00CE1AA1 /* AssessmentTreatmentVC.swift in Sources */,
 				D6CC78361D7198C600CE1AA1 /* GeneralTableViewCell.swift in Sources */,
 				D62A4D451D480A0B00CDF4F8 /* NeuromusculoskeletalTableViewController.swift in Sources */,
 				D6B1DF661D6768190026664F /* FirebaseHelperSwift.swift in Sources */,

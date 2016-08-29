@@ -463,7 +463,7 @@
 -(void)showFormValidationError:(NSError *)error
 {
 #if __IPHONE_OS_VERSION_MAX_ALLOWED < 80000
-    UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+    UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Sorry", nil)
                                                          message:error.localizedDescription
                                                         delegate:self
                                                cancelButtonTitle:NSLocalizedString(@"OK", nil)
@@ -471,7 +471,7 @@
     [alertView show];
 #else
     if ([UIAlertController class]){
-        UIAlertController * alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Error", nil)
+        UIAlertController * alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Sorry", nil)
                                                                                   message:error.localizedDescription
                                                                            preferredStyle:UIAlertControllerStyleAlert];
         [alertController addAction:[UIAlertAction actionWithTitle:@"OK"
@@ -481,7 +481,7 @@
     }
 #ifndef XL_APP_EXTENSIONS
     else{
-        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Sorry", nil)
                                                              message:error.localizedDescription
                                                             delegate:self
                                                    cancelButtonTitle:NSLocalizedString(@"OK", nil)

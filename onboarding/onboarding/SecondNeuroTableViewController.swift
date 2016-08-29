@@ -18,7 +18,13 @@ var armsData = [String:[String:String]]()
 
 
 class SecondNeuroTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
-
+  
+  var personalInformation = NSMutableDictionary()
+  var medicalInformation = NSMutableDictionary()
+  var workInjuryInformation = NSMutableDictionary()
+  var motorVehicleInjuryInformation = NSMutableDictionary()
+  var healthCoverageInformation = NSMutableDictionary()
+  var conditionsInformation = NSMutableDictionary()
   @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "Cell"
     let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
@@ -46,6 +52,17 @@ class SecondNeuroTableViewController: UIViewController, UITableViewDelegate, UIT
   
     func nextTapped(){
       self.performSegueWithIdentifier("goToHips", sender: self)
+    }
+  
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      var controller = HipsLegsFeetTableViewController()
+      controller = segue.destinationViewController as! HipsLegsFeetTableViewController
+      controller.personalInformation = personalInformation
+      controller.medicalInformation = medicalInformation
+      controller.workInjuryInformation = workInjuryInformation
+      controller.motorVehicleInjuryInformation = motorVehicleInjuryInformation
+      controller.healthCoverageInformation = healthCoverageInformation
+      controller.conditionsInformation = conditionsInformation
     }
 
     override func viewWillAppear(animated: Bool) {

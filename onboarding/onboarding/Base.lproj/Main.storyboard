@@ -21,13 +21,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="New Patient Information Form" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lp2-Nd-PUM">
-                                <rect key="frame" x="166" y="257" width="268" height="21"/>
+                                <rect key="frame" x="166" y="257" width="268" height="22"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAc-vA-GnH">
-                                <rect key="frame" x="58" y="313" width="484" height="33"/>
+                                <rect key="frame" x="58" y="313" width="484" height="34"/>
                                 <string key="text">Please assist us to provide you with optimum care by carefully answering each section of this form. All information on the form will be kept confidential.</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -43,7 +43,7 @@
                                     <segue destination="fDe-X0-UCa" kind="push" id="oVU-D7-Ujm"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Physio4DLogo" translatesAutoresizingMaskIntoConstraints="NO" id="wTN-kE-zbJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Physio4DLogo" translatesAutoresizingMaskIntoConstraints="NO" id="wTN-kE-zbJ">
                                 <rect key="frame" x="246" y="857" width="130" height="116"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="116" id="HrQ-x2-ctU"/>
@@ -90,7 +90,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ws5-in-z6a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1721" y="27"/>
+            <point key="canvasLocation" x="965" y="27"/>
         </scene>
         <!--Form View Controller-->
         <scene sceneID="SdG-Xg-Qte">
@@ -130,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x32-dW-hDd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2496" y="28"/>
+            <point key="canvasLocation" x="1780" y="28"/>
         </scene>
         <!--Medical Information View Controller-->
         <scene sceneID="vdW-If-ZsU">
@@ -397,7 +397,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VOy-RA-eRG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3122" y="750"/>
+            <point key="canvasLocation" x="1315" y="1280"/>
         </scene>
         <!--QuestionnarieVC-->
         <scene sceneID="feM-Jh-tbo">
@@ -458,7 +458,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xa6-yA-xwZ" id="yrc-0t-hed">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJ1-HW-rPU">
@@ -475,6 +475,9 @@
                                                             <integer key="value" value="13"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="circleButton:" destination="xa6-yA-xwZ" eventType="touchUpInside" id="CEl-qZ-Jw3"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KlG-Kc-QMV">
                                                     <rect key="frame" x="548" y="10" width="26" height="26"/>
@@ -490,6 +493,9 @@
                                                             <integer key="value" value="6"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="squareButton:" destination="xa6-yA-xwZ" eventType="touchUpInside" id="chc-S8-LOg"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVK-aE-rn8">
                                                     <rect key="frame" x="19" y="11" width="291" height="21"/>
@@ -518,7 +524,7 @@
                                         <connections>
                                             <outlet property="circleButton" destination="YJ1-HW-rPU" id="jMp-bk-Jx1"/>
                                             <outlet property="nameLabel" destination="bVK-aE-rn8" id="lGs-5J-3xc"/>
-                                            <outlet property="squareButton" destination="KlG-Kc-QMV" id="0fc-OQ-ko6"/>
+                                            <outlet property="squareButton" destination="KlG-Kc-QMV" id="cwd-dS-L1L"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -565,7 +571,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ga6-bE-GEB" id="e8k-nO-fLR">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U23-tU-iAJ">
@@ -592,6 +598,9 @@
                                                             <integer key="value" value="6"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="squareButton:" destination="ga6-bE-GEB" eventType="touchUpInside" id="o9b-Ca-c6d"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L9a-BM-Efd">
                                                     <rect key="frame" x="496" y="10" width="26" height="26"/>
@@ -607,6 +616,9 @@
                                                             <integer key="value" value="13"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="circleButton:" destination="ga6-bE-GEB" eventType="touchUpInside" id="cZn-EL-M2K"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -652,10 +664,88 @@
             </objects>
             <point key="canvasLocation" x="7477" y="27"/>
         </scene>
-        <!--View Controller-->
+        <!--Release CollectVC-->
+        <scene sceneID="Dng-gX-DtH">
+            <objects>
+                <viewController id="aoQ-5s-Nt5" customClass="ReleaseCollectVC" customModule="onboarding" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Dcy-At-yVu"/>
+                        <viewControllerLayoutGuide type="bottom" id="dNP-uS-oSp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZGi-Hd-TT1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="14" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BkJ-2n-UzL">
+                                <rect key="frame" x="-51" y="60" width="702" height="198.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="239" id="cr3-Tc-Kuq"/>
+                                    <constraint firstAttribute="width" constant="702" id="sb4-C4-8ln"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">I hereby authorize Caleo Health or any agent acting on behalf of the aforementioned to disclose or collect, verbal or written, any or all relevant medical information pertinent to my case to: medical/technical consultants; legal representatives; insurance carriers and third party payers involved in the case.</string>
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">By initialing below, I hereby acknowledge that I have read and understand the above statements, and consent to the release of any or all relevant medical information pertinent to my case to: medical/technical consultants; legal representatives; insurance carriers and third party payers involved in the case. I reserve the right to inform my therapist or doctor of such, and withdraw my consent at anytime in whole or in part to the information within.</string>
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacingBefore="20" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Patient's/Guarantor's Initials:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcL-HK-z30">
+                                <rect key="frame" x="55" y="288" width="224" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="NdT-mG-q6k"/>
+                                    <constraint firstAttribute="width" constant="224" id="Zld-iZ-h10"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YAY-zR-Ubs">
+                                <rect key="frame" x="285" y="288" width="87" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="6zq-Nt-On0"/>
+                                    <constraint firstAttribute="width" constant="87" id="tbF-9o-iUT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HcL-HK-z30" firstAttribute="centerY" secondItem="YAY-zR-Ubs" secondAttribute="centerY" id="4us-1C-zBY"/>
+                            <constraint firstItem="YAY-zR-Ubs" firstAttribute="top" secondItem="BkJ-2n-UzL" secondAttribute="bottom" constant="30" id="RjG-Nb-WfA"/>
+                            <constraint firstItem="HcL-HK-z30" firstAttribute="leading" secondItem="ZGi-Hd-TT1" secondAttribute="leadingMargin" constant="35" id="gvh-bM-SxW"/>
+                            <constraint firstItem="BkJ-2n-UzL" firstAttribute="centerX" secondItem="ZGi-Hd-TT1" secondAttribute="centerX" id="ixx-xs-ZNf"/>
+                            <constraint firstItem="YAY-zR-Ubs" firstAttribute="leading" secondItem="HcL-HK-z30" secondAttribute="trailing" constant="6" id="qTp-F9-XNQ"/>
+                            <constraint firstItem="BkJ-2n-UzL" firstAttribute="top" secondItem="Dcy-At-yVu" secondAttribute="bottom" constant="40" id="rN7-Pa-iFZ"/>
+                            <constraint firstItem="dNP-uS-oSp" firstAttribute="top" secondItem="YAY-zR-Ubs" secondAttribute="bottom" constant="665" id="tUS-RX-MtB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YAY-zR-Ubs" secondAttribute="trailing" constant="376" id="zqR-bs-SkG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="initialTextField" destination="YAY-zR-Ubs" id="d1r-Wv-KZZ"/>
+                        <segue destination="CFf-4i-Las" kind="show" identifier="thankYou" id="gIf-hk-SMH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wp2-XT-8rE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2755" y="1214"/>
+        </scene>
+        <!--Assessment TreatmentVC-->
         <scene sceneID="GrX-uF-3LP">
             <objects>
-                <viewController id="Tjo-ag-tut" sceneMemberID="viewController">
+                <viewController id="Tjo-ag-tut" customClass="AssessmentTreatmentVC" customModule="onboarding" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BXU-Nj-rmO"/>
                         <viewControllerLayoutGuide type="bottom" id="Io8-tl-ogb"/>
@@ -664,36 +754,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Consent to Assessment and Treatment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyG-JZ-LfH">
-                                <rect key="frame" x="20" y="28" width="560" height="46"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uw9-ZA-xAF">
+                                <rect key="frame" x="272" y="271" width="87" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="PNy-2Q-OtR"/>
-                                    <constraint firstAttribute="width" constant="560" id="e5u-rg-FRd"/>
+                                    <constraint firstAttribute="width" constant="87" id="5eZ-Ne-NY8"/>
+                                    <constraint firstAttribute="height" constant="30" id="pGJ-eA-Ml8"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient's / Guarantor's Initials:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J9Z-FH-cOL">
+                                <rect key="frame" x="25" y="274" width="230" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="5b8-ZJ-tAa"/>
+                                    <constraint firstAttribute="height" constant="21" id="MPd-O0-slh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="50" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEj-Zh-6jy">
-                                <rect key="frame" x="20" y="73" width="560" height="504"/>
+                                <rect key="frame" x="-51" y="59" width="702" height="587"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="560" id="Hrz-hc-6aj"/>
-                                    <constraint firstAttribute="height" constant="504" id="ss2-xc-7sV"/>
+                                    <constraint firstAttribute="height" constant="587" id="YbA-Ux-Wpe"/>
+                                    <constraint firstAttribute="width" constant="702" id="nbu-QX-X69"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment>
                                         <string key="content">Physiotherapy, physical therapy has been subject to government reports and multidisciplinary studies and has been demonstrated to be highly effective treatment for joint pain, back and neck pain, headaches and other similar symptoms.</string>
                                         <attributes>
                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                            <font key="NSFont" size="16" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacingBefore="11" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">I, _____________________________________ hereby request and consent to the performance physiotherapy, massage including various modalities, acupuncture, gait analysis, which may be deemed appropriate for therapeutic and or diagnostic purposes. These modalities may include, but are not limited to: electrical muscle/nerve stimulation; spinal manipulative therapy; laser/electrical acupuncture, therapeutic ultrasound; mobilization; soft tissue manipulation; diagnostic x-rays; and various forms of physio/physical therapy performed by the physiotherapist, therapist aide, kinesiologist and/or anyone authorized by the therapist.I understand that, as is the case with most health care interventions, there is a certain inherent risk of complication associated with physiotherapy, acupuncture, physiotherapeutic and/or rehabilitative procedures, which may include but is not limited to skin irritation; bruising; muscle strains/sprains; disc injuries; infection and stroke. The risk of complication/injury associated with the aforementioned procedures is small and subsequently reduced when performed by a certified and/or licensed professional.I understand my therapist or doctor will not be able to anticipate and explain all risks and complications, but I elect to rely on his/her clinical expertise and judgment to determine reasonable course(s) of clinical action, based upon known facts, which are considered to be in my best interest. I understand the results are not guaranteed and that I have the opportunity to discuss the purposes and risks associated with any and all recommended evaluations and treatment procedures.By signing below, I hereby acknowledge that I have read and understood the preceding statements. I have also had an opportunity to ask questions and address any concerns in regards to its content. I intend this consent form to serve as written consent throughout the entire course of treatment of my present condition and for any future condition(s) for which I may seek treatment at Caleo Health. If at any time I decide that I am unwilling to engage or continue with these procedures, I reserve the right to inform my therapist or doctor of such, and withdraw my consent at anytime in any or all forms of evaluation and/or treatment.</mutableString>
+                                        <mutableString key="content">I, _____________________________________ hereby request and consent to the performance physiotherapy, massage including various modalities, acupuncture, gait analysis, which may be deemed appropriate for therapeutic and or diagnostic purposes. These modalities may include, but are not limited to: electrical muscle/nerve stimulation; spinal manipulative therapy; laser/electrical acupuncture, therapeutic ultrasound; mobilization; soft tissue manipulation; diagnostic x-rays; and various forms of physio/physical therapy performed by the physiotherapist, therapist aide, kinesiologist and/or anyone authorized by the therapist.I understand that, as is the case with most health care interventions, there is a certain inherent risk of complication associated with physiotherapy, acupuncture, physiotherapeutic and/or rehabilitative procedures, which may include but is not limited to skin irritation; bruising; muscle strains/sprains; disc injuries; infection and stroke. The risk of complication/injury associated with the aforementioned procedures is small and subsequently reduced when performed by a certified and/or licensed professional.I understand my therapist or doctor will not be able to anticipate and explain all risks and complications, but I elect to rely on his/her clinical expertise and judgment to determine reasonable course(s) of clinical action, based upon known facts, which are considered to be in my best interest. I understand the results are not guaranteed and that I have the opportunity to discuss the purposes and risks associated with any and all recommended evaluations and treatment procedures.By initialing below, I hereby acknowledge that I have read and understood the preceding statements. I have also had an opportunity to ask questions and address any concerns in regards to its content. I intend this consent form to serve as written consent throughout the entire course of treatment of my present condition and for any future condition(s) for which I may seek treatment at Caleo Health. If at any time I decide that I am unwilling to engage or continue with these procedures, I reserve the right to inform my therapist or doctor of such, and withdraw my consent at anytime in any or all forms of evaluation and/or treatment.</mutableString>
                                         <attributes>
                                             <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                            <font key="NSFont" size="16" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -703,16 +802,24 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="VyG-JZ-LfH" firstAttribute="centerX" secondItem="q3Q-Hv-Wga" secondAttribute="centerX" id="DT7-yF-7UC"/>
-                            <constraint firstItem="pEj-Zh-6jy" firstAttribute="top" secondItem="BXU-Nj-rmO" secondAttribute="bottom" constant="53" id="FuH-e6-ELW"/>
-                            <constraint firstItem="pEj-Zh-6jy" firstAttribute="centerX" secondItem="VyG-JZ-LfH" secondAttribute="centerX" id="Wje-eb-quL"/>
-                            <constraint firstItem="VyG-JZ-LfH" firstAttribute="top" secondItem="BXU-Nj-rmO" secondAttribute="bottom" constant="8" id="han-KW-OOT"/>
+                            <constraint firstItem="Io8-tl-ogb" firstAttribute="top" secondItem="Uw9-ZA-xAF" secondAttribute="bottom" constant="299" id="BlN-eK-JNK"/>
+                            <constraint firstItem="pEj-Zh-6jy" firstAttribute="centerX" secondItem="q3Q-Hv-Wga" secondAttribute="centerX" id="C7o-rA-ak7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Uw9-ZA-xAF" secondAttribute="trailing" constant="389" id="Cj3-eF-4Qb"/>
+                            <constraint firstItem="pEj-Zh-6jy" firstAttribute="top" secondItem="BXU-Nj-rmO" secondAttribute="bottom" constant="39" id="Dfc-MX-BaJ"/>
+                            <constraint firstItem="J9Z-FH-cOL" firstAttribute="leading" secondItem="q3Q-Hv-Wga" secondAttribute="leadingMargin" constant="5" id="TK4-1W-0pU"/>
+                            <constraint firstItem="Uw9-ZA-xAF" firstAttribute="leading" secondItem="J9Z-FH-cOL" secondAttribute="trailing" constant="17" id="qLB-B3-9qu"/>
+                            <constraint firstItem="J9Z-FH-cOL" firstAttribute="baseline" secondItem="Uw9-ZA-xAF" secondAttribute="baseline" id="zkG-a2-BVi"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="initialTextField" destination="Uw9-ZA-xAF" id="8Z6-0w-WVa"/>
+                        <outlet property="paragraphLabel" destination="pEj-Zh-6jy" id="6Fd-OE-lR9"/>
+                        <segue destination="aoQ-5s-Nt5" kind="show" identifier="goToConsent2" id="Osn-4d-WiU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zHL-Qi-FHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3946" y="768"/>
+            <point key="canvasLocation" x="3646" y="1264"/>
         </scene>
         <!--Hips Legs Feet Table View Controller-->
         <scene sceneID="tpW-xF-sTB">
@@ -734,7 +841,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o8S-xB-aGv" id="Vhf-OV-jH2">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCM-jb-ojI">
@@ -761,6 +868,9 @@
                                                             <integer key="value" value="6"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="squareButton:" destination="o8S-xB-aGv" eventType="touchUpInside" id="iR8-sk-O70"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rl-VU-UWF">
                                                     <rect key="frame" x="496" y="10" width="26" height="26"/>
@@ -776,6 +886,9 @@
                                                             <integer key="value" value="13"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="circleButton:" destination="o8S-xB-aGv" eventType="touchUpInside" id="ExR-f0-hbj"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -814,6 +927,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="E6k-pG-CJ6" id="6xg-Ro-K1N"/>
+                        <segue destination="Tjo-ag-tut" kind="show" identifier="goToConsent1" id="kK7-Bg-jM8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mwu-0L-uZV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -840,7 +954,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lM8-s9-B9d" id="p54-Iu-Ybq">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fw-Qd-dnW">
@@ -867,6 +981,9 @@
                                                             <integer key="value" value="13"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="circleButton:" destination="lM8-s9-B9d" eventType="touchUpInside" id="Ian-OO-WMt"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ps0-jF-qtU">
                                                     <rect key="frame" x="548" y="10" width="26" height="26"/>
@@ -882,6 +999,9 @@
                                                             <integer key="value" value="6"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="squareButton:" destination="lM8-s9-B9d" eventType="touchUpInside" id="X73-U7-75y"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -947,7 +1067,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5t6-4X-QTq" id="acD-Px-GPG">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQ9-wZ-Fcm">
@@ -974,6 +1094,9 @@
                                                             <integer key="value" value="13"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="circleButton:" destination="5t6-4X-QTq" eventType="touchUpInside" id="Ad4-dr-8oo"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPy-UZ-ff0">
                                                     <rect key="frame" x="548" y="10" width="26" height="26"/>
@@ -989,6 +1112,9 @@
                                                             <integer key="value" value="6"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="squareButton:" destination="5t6-4X-QTq" eventType="touchUpInside" id="BTr-Cc-iuW"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1054,7 +1180,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eC9-aF-Nju" id="fi4-Bv-EI4">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lW6-o7-gxQ">
@@ -1081,6 +1207,9 @@
                                                             <integer key="value" value="6"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="squareButton:" destination="eC9-aF-Nju" eventType="touchUpInside" id="uPg-aD-phf"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsv-zw-lxy">
                                                     <rect key="frame" x="496" y="10" width="26" height="26"/>
@@ -1096,6 +1225,9 @@
                                                             <integer key="value" value="13"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="circleButton:" destination="eC9-aF-Nju" eventType="touchUpInside" id="ALW-3S-8DA"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1161,7 +1293,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8cv-fk-K5v" id="EPR-R6-Vjf">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ccf-Vv-25C">
@@ -1188,6 +1320,9 @@
                                                             <integer key="value" value="13"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="circleButton:" destination="8cv-fk-K5v" eventType="touchUpInside" id="ULU-UB-Y3p"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3J-GC-0gf">
                                                     <rect key="frame" x="548" y="10" width="26" height="26"/>
@@ -1203,6 +1338,9 @@
                                                             <integer key="value" value="6"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="squareButton:" destination="8cv-fk-K5v" eventType="touchUpInside" id="nXk-8m-Z0d"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1268,7 +1406,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vjT-09-jfJ" id="XP3-As-63O">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HsP-44-xLA">
@@ -1295,6 +1433,9 @@
                                                             <integer key="value" value="13"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="circleButton:" destination="vjT-09-jfJ" eventType="touchUpInside" id="ikP-sm-RPp"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czd-EI-TZp">
                                                     <rect key="frame" x="548" y="10" width="26" height="26"/>
@@ -1310,6 +1451,9 @@
                                                             <integer key="value" value="6"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="squareButton:" destination="vjT-09-jfJ" eventType="touchUpInside" id="Nag-7g-Pq6"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1375,7 +1519,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WHp-AW-lGz" id="Una-wb-wbU">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egL-mH-Uqa">
@@ -1402,6 +1546,9 @@
                                                             <integer key="value" value="13"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="circleButton:" destination="WHp-AW-lGz" eventType="touchUpInside" id="jvU-Qg-zo2"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33v-Mi-P3L">
                                                     <rect key="frame" x="548" y="10" width="26" height="26"/>
@@ -1417,6 +1564,9 @@
                                                             <integer key="value" value="6"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="squareButton:" destination="WHp-AW-lGz" eventType="touchUpInside" id="99h-cZ-cxa"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1799,7 +1949,7 @@ By initialing below, I hereby acknowledge that I have read and understood the pr
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jl-wF-i7g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="910" y="28"/>
+            <point key="canvasLocation" x="194" y="8"/>
         </scene>
     </scenes>
     <resources>

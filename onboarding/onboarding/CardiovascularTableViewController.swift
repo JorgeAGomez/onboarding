@@ -14,7 +14,13 @@ var cardiovascular = []
 
 
 class CardiovascularTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+  
+    var personalInformation = NSMutableDictionary()
+    var medicalInformation = NSMutableDictionary()
+    var workInjuryInformation = NSMutableDictionary()
+    var motorVehicleInjuryInformation = NSMutableDictionary()
+    var healthCoverageInformation = NSMutableDictionary()
+    var conditionsInformation = NSMutableDictionary()
     @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "Cell"
     let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
@@ -42,6 +48,17 @@ class CardiovascularTableViewController: UIViewController, UITableViewDelegate, 
   
     func nextTapped(){
       self.performSegueWithIdentifier("goToMultiple", sender: self)
+    }
+  
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      var controller = MultipleSectionsTableViewController()
+      controller = segue.destinationViewController as! MultipleSectionsTableViewController
+      controller.personalInformation = personalInformation
+      controller.medicalInformation = medicalInformation
+      controller.workInjuryInformation = workInjuryInformation
+      controller.motorVehicleInjuryInformation = motorVehicleInjuryInformation
+      controller.healthCoverageInformation = healthCoverageInformation
+      controller.conditionsInformation = conditionsInformation
     }
   
     override func viewWillDisappear(animated: Bool)

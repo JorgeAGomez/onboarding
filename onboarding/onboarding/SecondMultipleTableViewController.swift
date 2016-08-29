@@ -17,6 +17,13 @@ var urinaryTractData = [String:[String:String]]()
 var urinaryTractDic = [String:String]()
 
 class SecondMultipleTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+  
+    var personalInformation = NSMutableDictionary()
+    var medicalInformation = NSMutableDictionary()
+    var workInjuryInformation = NSMutableDictionary()
+    var motorVehicleInjuryInformation = NSMutableDictionary()
+    var healthCoverageInformation = NSMutableDictionary()
+    var conditionsInformation = NSMutableDictionary()
 
     let cellIdentifier = "Cell"
     let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
@@ -45,6 +52,17 @@ class SecondMultipleTableViewController: UIViewController, UITableViewDelegate, 
   
     func nextTapped(){
       self.performSegueWithIdentifier("goToNeuro", sender: self)
+    }
+  
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var controller = NeuromusculoskeletalTableViewController()
+        controller = segue.destinationViewController as! NeuromusculoskeletalTableViewController
+        controller.personalInformation = personalInformation
+        controller.medicalInformation = medicalInformation
+        controller.workInjuryInformation = workInjuryInformation
+        controller.motorVehicleInjuryInformation = motorVehicleInjuryInformation
+        controller.healthCoverageInformation = healthCoverageInformation
+        controller.conditionsInformation = conditionsInformation
     }
 
     override func viewWillAppear(animated: Bool) {

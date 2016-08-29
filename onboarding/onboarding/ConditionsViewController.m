@@ -12,7 +12,8 @@
 
 @interface ConditionsViewController ()
 
-@property (nonatomic,strong) QuestionnarieVC *questionnarie;
+@property (nonatomic,strong) GeneralTableViewController *questionnarie;
+@property (nonatomic,strong) AssessmentTreatmentVC *controller;
 
 @end
 
@@ -25,11 +26,11 @@ XLFormRowDescriptor *medicationChecked;
 XLFormRowDescriptor *medicationNewCell;
 
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.contentInset = UIEdgeInsetsMake(30,0,0,0);
-}
+  
+    }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -66,7 +67,7 @@ XLFormRowDescriptor *medicationNewCell;
   
     conditionsForm = [XLFormDescriptor formDescriptorWithTitle:@"Conditions"];
     conditionsSection = [XLFormSectionDescriptor formSection];
-    conditionsSection.title = @"Check off any following conditions that you may be experiencing:";
+    conditionsSection.title = @"Check off any of the following conditions that you may be experiencing:";
     [conditionsForm addFormSection:conditionsSection];
   
     conditionsRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Neck Pain / stiffness" rowType:XLFormRowDescriptorTypeBooleanCheck];
@@ -188,15 +189,15 @@ XLFormRowDescriptor *medicationNewCell;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-//  _questionnarie = [[QuestionnarieVC alloc] init];
-//  _questionnarie = [segue destinationViewController];
-//  
-//  _questionnarie.personalInformation = [NSMutableDictionary dictionaryWithDictionary:_personalInformation];
-//  _questionnarie.medicalInformation = [NSMutableDictionary dictionaryWithDictionary:_medicalInformation];
-//  _questionnarie.workInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:_workInjuryInformation];
-//  _questionnarie.motorVehicleInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:_motorVehicleInjuryInformation];
-//  _questionnarie.healthCoverageInformation = [NSMutableDictionary dictionaryWithDictionary:_healthCoverageInformation];
-//  _questionnarie.conditionsInformation = [NSMutableDictionary dictionaryWithDictionary:_conditionsInformation];
+  _questionnarie = [[GeneralTableViewController alloc] init];
+  _questionnarie = [segue destinationViewController];
+  
+  _questionnarie.personalInformation = [NSMutableDictionary dictionaryWithDictionary:_personalInformation];
+  _questionnarie.medicalInformation = [NSMutableDictionary dictionaryWithDictionary:_medicalInformation];
+  _questionnarie.workInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:_workInjuryInformation];
+  _questionnarie.motorVehicleInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:_motorVehicleInjuryInformation];
+  _questionnarie.healthCoverageInformation = [NSMutableDictionary dictionaryWithDictionary:_healthCoverageInformation];
+  _questionnarie.conditionsInformation = [NSMutableDictionary dictionaryWithDictionary:_conditionsInformation];
 }
 
 -(void)formRowDescriptorValueHasChanged:(XLFormRowDescriptor *)rowDescriptor oldValue:(id)oldValue newValue:(id)newValue
@@ -251,18 +252,6 @@ XLFormRowDescriptor *medicationNewCell;
     [_conditionsInformation setValue:medicationsValue forKey:@"Medications"];
     [_conditionsInformation setValue:nil forKey:@"MedicationsText"];
   }
-  
-
-//  
-//  _questionnarie = [[QuestionnarieVC alloc] init];
-//  _questionnarie.personalInformation = [NSMutableDictionary dictionaryWithDictionary:_personalInformation];
-//  _questionnarie.medicalInformation = [NSMutableDictionary dictionaryWithDictionary:_medicalInformation];
-//  _questionnarie.workInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:_workInjuryInformation];
-//  _questionnarie.motorVehicleInjuryInformation = [NSMutableDictionary dictionaryWithDictionary:_motorVehicleInjuryInformation];
-//  _questionnarie.healthCoverageInformation = [NSMutableDictionary dictionaryWithDictionary:_healthCoverageInformation];
-//  _questionnarie.conditionsInformation = [NSMutableDictionary dictionaryWithDictionary:_conditionsInformation];
-//  
-//  [self.navigationController pushViewController:_questionnarie animated:true];
   
   [self performSegueWithIdentifier:@"gogo" sender:self];
   

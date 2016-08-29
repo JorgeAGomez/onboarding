@@ -14,6 +14,13 @@ var hipsData = [String:[String:String]]()
 
 class HipsLegsFeetTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+  var personalInformation = NSMutableDictionary()
+  var medicalInformation = NSMutableDictionary()
+  var workInjuryInformation = NSMutableDictionary()
+  var motorVehicleInjuryInformation = NSMutableDictionary()
+  var healthCoverageInformation = NSMutableDictionary()
+  var conditionsInformation = NSMutableDictionary()
+
   @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "Cell"
     let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
@@ -34,7 +41,18 @@ class HipsLegsFeetTableViewController: UIViewController, UITableViewDataSource, 
     }
 
     func nextTapped(){
-      self.performSegueWithIdentifier("thankYou", sender: self)
+      self.performSegueWithIdentifier("goToConsent1", sender: self)
+    }
+  
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      var controller = AssessmentTreatmentVC()
+      controller = segue.destinationViewController as! AssessmentTreatmentVC
+      controller.personalInformation = personalInformation
+      controller.medicalInformation = medicalInformation
+      controller.workInjuryInformation = workInjuryInformation
+      controller.motorVehicleInjuryInformation = motorVehicleInjuryInformation
+      controller.healthCoverageInformation = healthCoverageInformation
+      controller.conditionsInformation = conditionsInformation
     }
   
     override func viewWillAppear(animated: Bool) {

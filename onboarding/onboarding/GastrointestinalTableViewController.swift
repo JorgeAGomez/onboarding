@@ -14,6 +14,13 @@ var gastrointestinal = []
 
 
 class GastrointestinalTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+  var personalInformation = NSMutableDictionary()
+  var medicalInformation = NSMutableDictionary()
+  var workInjuryInformation = NSMutableDictionary()
+  var motorVehicleInjuryInformation = NSMutableDictionary()
+  var healthCoverageInformation = NSMutableDictionary()
+  var conditionsInformation = NSMutableDictionary()
   
   @IBOutlet weak var tableView: UITableView!
   let cellIdentifier = "Cell"
@@ -41,6 +48,17 @@ class GastrointestinalTableViewController: UIViewController, UITableViewDataSour
 
     func nextTapped(){
       self.performSegueWithIdentifier("goToCardio", sender: self)
+    }
+  
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      var controller = CardiovascularTableViewController()
+      controller = segue.destinationViewController as! CardiovascularTableViewController
+      controller.personalInformation = personalInformation
+      controller.medicalInformation = medicalInformation
+      controller.workInjuryInformation = workInjuryInformation
+      controller.motorVehicleInjuryInformation = motorVehicleInjuryInformation
+      controller.healthCoverageInformation = healthCoverageInformation
+      controller.conditionsInformation = conditionsInformation
     }
   
     override func viewWillDisappear(animated: Bool) {
@@ -81,7 +99,6 @@ class GastrointestinalTableViewController: UIViewController, UITableViewDataSour
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! GastrointestinalTableViewCell
       cell.selectionStyle = UITableViewCellSelectionStyle.None
-      cell.contentView.userInteractionEnabled = false
       cell.titleLabel.text = gastrointestinal[indexPath.row] as? String
       cell.circleButton.layer.borderColor = myColor.CGColor
       cell.squareButton.layer.borderColor = myColor.CGColor

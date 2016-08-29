@@ -27,6 +27,12 @@ var midData = [String:[String:String]]()
 
 class NeuromusculoskeletalTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   
+    var personalInformation = NSMutableDictionary()
+    var medicalInformation = NSMutableDictionary()
+    var workInjuryInformation = NSMutableDictionary()
+    var motorVehicleInjuryInformation = NSMutableDictionary()
+    var healthCoverageInformation = NSMutableDictionary()
+    var conditionsInformation = NSMutableDictionary()
   
     @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "Cell"
@@ -142,6 +148,17 @@ class NeuromusculoskeletalTableViewController: UIViewController, UITableViewData
     func sayHello()
     {
       self.performSegueWithIdentifier("go", sender: self)
+    }
+  
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      var controller = SecondNeuroTableViewController()
+      controller = segue.destinationViewController as! SecondNeuroTableViewController
+      controller.personalInformation = personalInformation
+      controller.medicalInformation = medicalInformation
+      controller.workInjuryInformation = workInjuryInformation
+      controller.motorVehicleInjuryInformation = motorVehicleInjuryInformation
+      controller.healthCoverageInformation = healthCoverageInformation
+      controller.conditionsInformation = conditionsInformation
     }
 
 

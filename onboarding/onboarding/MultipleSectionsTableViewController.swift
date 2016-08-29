@@ -27,6 +27,13 @@ var bloodSugarDic = [String:String]()
 
 
 class MultipleSectionsTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+  var personalInformation = NSMutableDictionary()
+  var medicalInformation = NSMutableDictionary()
+  var workInjuryInformation = NSMutableDictionary()
+  var motorVehicleInjuryInformation = NSMutableDictionary()
+  var healthCoverageInformation = NSMutableDictionary()
+  var conditionsInformation = NSMutableDictionary()
   
   let cellIdentifier = "Cell"
   @IBOutlet weak var tableView: UITableView!
@@ -74,6 +81,17 @@ class MultipleSectionsTableViewController: UIViewController, UITableViewDataSour
   
     func nextTapped(){
       self.performSegueWithIdentifier("haha", sender: self)
+    }
+  
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      var controller = SecondMultipleTableViewController()
+      controller = segue.destinationViewController as! SecondMultipleTableViewController
+      controller.personalInformation = personalInformation
+      controller.medicalInformation = medicalInformation
+      controller.workInjuryInformation = workInjuryInformation
+      controller.motorVehicleInjuryInformation = motorVehicleInjuryInformation
+      controller.healthCoverageInformation = healthCoverageInformation
+      controller.conditionsInformation = conditionsInformation
     }
   
     override func viewWillDisappear(animated: Bool)

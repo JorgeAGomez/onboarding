@@ -21,6 +21,12 @@ var pageControl = UIPageControl()
 class GeneralTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
   @IBOutlet weak var tableView: UITableView!
+  var personalInformation = NSMutableDictionary()
+  var medicalInformation = NSMutableDictionary()
+  var workInjuryInformation = NSMutableDictionary()
+  var motorVehicleInjuryInformation = NSMutableDictionary()
+  var healthCoverageInformation = NSMutableDictionary()
+  var conditionsInformation = NSMutableDictionary()
   
   
     let cellIdentifier = "Cell"
@@ -31,6 +37,7 @@ class GeneralTableViewController: UIViewController, UITableViewDelegate, UITable
     {
       super.viewDidLoad()
       
+      self.navigationItem.hidesBackButton = true
       self.navigationItem.title = "General"
       self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
       var navBarSize = self.navigationController!.navigationBar.bounds.size
@@ -49,6 +56,17 @@ class GeneralTableViewController: UIViewController, UITableViewDelegate, UITable
         generalDic = ["previously":"No","presently":"No"]
         dic1.updateValue(generalDic, forKey: i as! String)
       }
+    }
+  
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      var controller = ImmuneSystemViewController()
+      controller = segue.destinationViewController as! ImmuneSystemViewController
+      controller.personalInformation = personalInformation
+      controller.medicalInformation = medicalInformation
+      controller.workInjuryInformation = workInjuryInformation
+      controller.motorVehicleInjuryInformation = motorVehicleInjuryInformation
+      controller.healthCoverageInformation = healthCoverageInformation
+      controller.conditionsInformation = conditionsInformation
     }
   
     func nextTapped(){
@@ -98,7 +116,6 @@ class GeneralTableViewController: UIViewController, UITableViewDelegate, UITable
     
       let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! GeneralTableViewCell
       cell.selectionStyle = UITableViewCellSelectionStyle.None
-      cell.contentView.userInteractionEnabled = false
       cell.nameLabel.text = general[indexPath.row] as? String
       cell.circleButton.layer.borderColor = myColor.CGColor
       cell.squareButton.layer.borderColor = myColor.CGColor

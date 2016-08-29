@@ -212,7 +212,7 @@
     if([_personalInformation[@"Home Phone #"] isEqual:[NSNull null]] && [_personalInformation[@"Cell Phone #"] isEqual:[NSNull null]] && [_personalInformation[@"Work Phone #"] isEqual:[NSNull null]])
     {
       UIAlertController * alert=   [UIAlertController
-                                     alertControllerWithTitle:@"Error"
+                                     alertControllerWithTitle:@"Sorry"
                                      message:@"Provide at least one phone number"
                                      preferredStyle:UIAlertControllerStyleAlert];
         

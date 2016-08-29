@@ -13,7 +13,9 @@ class CardiovascularTableViewCell: UITableViewCell {
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var circleButton: UIButton!
   @IBOutlet weak var squareButton: UIButton!
-    override func awakeFromNib() {
+  let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
+  
+  override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
@@ -24,4 +26,18 @@ class CardiovascularTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+  @IBAction func squareButton(sender: AnyObject)
+  {
+    if(circleButton.backgroundColor == myColor){
+      circleButton.backgroundColor = UIColor.whiteColor()
+    }
+    else{
+      circleButton.backgroundColor = myColor
+    }
+  }
+  
+  @IBAction func circleButton(sender: AnyObject) {
+  }
+  
+  
 }
