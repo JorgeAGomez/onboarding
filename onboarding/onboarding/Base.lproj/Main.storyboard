@@ -39,9 +39,6 @@
                                     <constraint firstAttribute="width" constant="58" id="uKr-V7-ppA"/>
                                 </constraints>
                                 <state key="normal" title="Start"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer." value="YES"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="fDe-X0-UCa" kind="push" id="oVU-D7-Ujm"/>
                                 </connections>
@@ -346,51 +343,61 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Physio4DLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Tee-71-MPd">
-                                <rect key="frame" x="133" y="240" width="131" height="128"/>
+                                <rect key="frame" x="235" y="641" width="131" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="131" id="aYf-Rb-6cv"/>
-                                    <constraint firstAttribute="height" constant="128" id="t4g-sY-2df"/>
+                                    <constraint firstAttribute="width" constant="131" id="Tsw-w7-trA"/>
+                                    <constraint firstAttribute="height" constant="128" id="nrX-tf-Qlw"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CaleoLogo" translatesAutoresizingMaskIntoConstraints="NO" id="7Kb-Q0-ld9">
-                                <rect key="frame" x="299" y="247" width="240" height="128"/>
+                                <rect key="frame" x="180" y="816" width="240" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="XeD-t6-UPR"/>
-                                    <constraint firstAttribute="width" constant="240" id="hB6-JW-e4A"/>
+                                    <constraint firstAttribute="height" constant="128" id="J2i-SL-yHc"/>
+                                    <constraint firstAttribute="width" constant="240" id="ZrP-O6-R3R"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9y-M9-Icr">
-                                <rect key="frame" x="276" y="445" width="49" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9y-M9-Icr">
+                                <rect key="frame" x="276" y="456" width="55" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="0os-eT-UQd"/>
+                                    <constraint firstAttribute="height" constant="35" id="n1O-g4-Xvt"/>
+                                </constraints>
                                 <state key="normal" title="Submit"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="submitButton:" destination="CFf-4i-Las" eventType="touchUpInside" id="faA-rL-Rrj"/>
+                                    <action selector="submitButton:" destination="CFf-4i-Las" eventType="touchUpInside" id="Iaj-JW-qzj"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="7Kb-Q0-ld9" secondAttribute="trailing" constant="41" id="1ag-ib-MhE"/>
-                            <constraint firstItem="7Kb-Q0-ld9" firstAttribute="leading" secondItem="Tee-71-MPd" secondAttribute="trailing" constant="35" id="A2h-7v-3OY"/>
-                            <constraint firstItem="Tee-71-MPd" firstAttribute="leading" secondItem="PPS-Sk-K9a" secondAttribute="leadingMargin" constant="113" id="ARW-eo-inN"/>
-                            <constraint firstItem="Tee-71-MPd" firstAttribute="top" secondItem="uvQ-GZ-d2b" secondAttribute="bottom" constant="84" id="Aam-Nh-5Dn"/>
-                            <constraint firstItem="7Kb-Q0-ld9" firstAttribute="leading" secondItem="Tee-71-MPd" secondAttribute="trailing" constant="35" id="FCI-Nl-RHf"/>
-                            <constraint firstItem="g9y-M9-Icr" firstAttribute="top" secondItem="7Kb-Q0-ld9" secondAttribute="bottom" constant="31" id="Oh1-NS-yIQ"/>
-                            <constraint firstItem="7Kb-Q0-ld9" firstAttribute="top" secondItem="uvQ-GZ-d2b" secondAttribute="bottom" constant="91" id="QBj-fJ-rOZ"/>
+                            <constraint firstItem="7Kb-Q0-ld9" firstAttribute="centerX" secondItem="Tee-71-MPd" secondAttribute="centerX" id="1SN-MC-9iw"/>
+                            <constraint firstItem="g9y-M9-Icr" firstAttribute="top" secondItem="uvQ-GZ-d2b" secondAttribute="bottom" constant="300" id="Jw3-Ey-ziX"/>
+                            <constraint firstItem="Tee-71-MPd" firstAttribute="centerX" secondItem="g9y-M9-Icr" secondAttribute="centerX" constant="-3" id="L0g-86-D39"/>
+                            <constraint firstItem="Tee-71-MPd" firstAttribute="top" secondItem="g9y-M9-Icr" secondAttribute="bottom" constant="150" id="LZX-RE-LW6"/>
+                            <constraint firstItem="7Kb-Q0-ld9" firstAttribute="top" secondItem="Tee-71-MPd" secondAttribute="bottom" constant="47" id="MVr-iQ-dwF"/>
                             <constraint firstItem="uvQ-GZ-d2b" firstAttribute="leading" secondItem="PPS-Sk-K9a" secondAttribute="leadingMargin" constant="119" id="TAk-qF-XZL"/>
-                            <constraint firstItem="g9y-M9-Icr" firstAttribute="centerX" secondItem="uvQ-GZ-d2b" secondAttribute="centerX" id="TpS-77-1Lm"/>
                             <constraint firstItem="uvQ-GZ-d2b" firstAttribute="top" secondItem="4YG-r8-meF" secondAttribute="bottom" constant="56" id="bw1-fH-nSl"/>
+                            <constraint firstItem="g9y-M9-Icr" firstAttribute="centerX" secondItem="uvQ-GZ-d2b" secondAttribute="centerX" constant="3" id="kBw-mr-TIr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uvQ-GZ-d2b" secondAttribute="trailing" constant="118" id="kJ6-ZX-Ecp"/>
-                            <constraint firstItem="bPl-RF-B9u" firstAttribute="top" secondItem="Tee-71-MPd" secondAttribute="bottom" constant="232" id="s1u-XY-klu"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="G0Z-yC-Vfd"/>
                     <connections>
+                        <outlet property="submitButton" destination="g9y-M9-Icr" id="eG3-vG-byh"/>
                         <segue destination="zg6-Vu-Rpp" kind="push" identifier="goBack" id="bmt-ug-nNb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VOy-RA-eRG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3961" y="768"/>
+            <point key="canvasLocation" x="3122" y="750"/>
         </scene>
         <!--QuestionnarieVC-->
         <scene sceneID="feM-Jh-tbo">
@@ -645,6 +652,68 @@
             </objects>
             <point key="canvasLocation" x="7477" y="27"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="GrX-uF-3LP">
+            <objects>
+                <viewController id="Tjo-ag-tut" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BXU-Nj-rmO"/>
+                        <viewControllerLayoutGuide type="bottom" id="Io8-tl-ogb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="q3Q-Hv-Wga">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Consent to Assessment and Treatment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VyG-JZ-LfH">
+                                <rect key="frame" x="20" y="28" width="560" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="PNy-2Q-OtR"/>
+                                    <constraint firstAttribute="width" constant="560" id="e5u-rg-FRd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="50" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEj-Zh-6jy">
+                                <rect key="frame" x="20" y="73" width="560" height="504"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="560" id="Hrz-hc-6aj"/>
+                                    <constraint firstAttribute="height" constant="504" id="ss2-xc-7sV"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Physiotherapy, physical therapy has been subject to government reports and multidisciplinary studies and has been demonstrated to be highly effective treatment for joint pain, back and neck pain, headaches and other similar symptoms.</string>
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" paragraphSpacingBefore="11" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <mutableString key="content">I, _____________________________________ hereby request and consent to the performance physiotherapy, massage including various modalities, acupuncture, gait analysis, which may be deemed appropriate for therapeutic and or diagnostic purposes. These modalities may include, but are not limited to: electrical muscle/nerve stimulation; spinal manipulative therapy; laser/electrical acupuncture, therapeutic ultrasound; mobilization; soft tissue manipulation; diagnostic x-rays; and various forms of physio/physical therapy performed by the physiotherapist, therapist aide, kinesiologist and/or anyone authorized by the therapist.I understand that, as is the case with most health care interventions, there is a certain inherent risk of complication associated with physiotherapy, acupuncture, physiotherapeutic and/or rehabilitative procedures, which may include but is not limited to skin irritation; bruising; muscle strains/sprains; disc injuries; infection and stroke. The risk of complication/injury associated with the aforementioned procedures is small and subsequently reduced when performed by a certified and/or licensed professional.I understand my therapist or doctor will not be able to anticipate and explain all risks and complications, but I elect to rely on his/her clinical expertise and judgment to determine reasonable course(s) of clinical action, based upon known facts, which are considered to be in my best interest. I understand the results are not guaranteed and that I have the opportunity to discuss the purposes and risks associated with any and all recommended evaluations and treatment procedures.By signing below, I hereby acknowledge that I have read and understood the preceding statements. I have also had an opportunity to ask questions and address any concerns in regards to its content. I intend this consent form to serve as written consent throughout the entire course of treatment of my present condition and for any future condition(s) for which I may seek treatment at Caleo Health. If at any time I decide that I am unwilling to engage or continue with these procedures, I reserve the right to inform my therapist or doctor of such, and withdraw my consent at anytime in any or all forms of evaluation and/or treatment.</mutableString>
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VyG-JZ-LfH" firstAttribute="centerX" secondItem="q3Q-Hv-Wga" secondAttribute="centerX" id="DT7-yF-7UC"/>
+                            <constraint firstItem="pEj-Zh-6jy" firstAttribute="top" secondItem="BXU-Nj-rmO" secondAttribute="bottom" constant="53" id="FuH-e6-ELW"/>
+                            <constraint firstItem="pEj-Zh-6jy" firstAttribute="centerX" secondItem="VyG-JZ-LfH" secondAttribute="centerX" id="Wje-eb-quL"/>
+                            <constraint firstItem="VyG-JZ-LfH" firstAttribute="top" secondItem="BXU-Nj-rmO" secondAttribute="bottom" constant="8" id="han-KW-OOT"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zHL-Qi-FHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3946" y="768"/>
+        </scene>
         <!--Hips Legs Feet Table View Controller-->
         <scene sceneID="tpW-xF-sTB">
             <objects>
@@ -657,7 +726,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="E6k-pG-CJ6">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="E6k-pG-CJ6">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -736,10 +805,15 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="E6k-pG-CJ6" firstAttribute="leading" secondItem="DCS-Ef-qbc" secondAttribute="leadingMargin" constant="-20" id="MU0-CK-omZ"/>
+                            <constraint firstItem="E6k-pG-CJ6" firstAttribute="top" secondItem="DCS-Ef-qbc" secondAttribute="topMargin" id="T3e-ND-1ef"/>
+                            <constraint firstItem="hRF-gJ-vKb" firstAttribute="top" secondItem="E6k-pG-CJ6" secondAttribute="bottom" id="bAG-MP-3DE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="E6k-pG-CJ6" secondAttribute="trailing" constant="-20" id="mLy-FT-U9f"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="E6k-pG-CJ6" id="6xg-Ro-K1N"/>
-                        <segue destination="CFf-4i-Las" kind="show" identifier="thankYou" id="4FT-T8-4bb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mwu-0L-uZV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -785,6 +859,14 @@
                                                         <constraint firstAttribute="height" constant="26" id="bqM-ZZ-Xku"/>
                                                         <constraint firstAttribute="width" constant="26" id="kkk-zG-Hzd"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                            <integer key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="13"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ps0-jF-qtU">
                                                     <rect key="frame" x="548" y="10" width="26" height="26"/>
@@ -792,6 +874,14 @@
                                                         <constraint firstAttribute="width" constant="26" id="ZVg-7w-irp"/>
                                                         <constraint firstAttribute="height" constant="26" id="k8A-lO-1t0"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                            <integer key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="6"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -849,7 +939,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hEY-5I-y0f">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hEY-5I-y0f">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -876,6 +966,14 @@
                                                         <constraint firstAttribute="height" constant="26" id="0aX-l4-0xh"/>
                                                         <constraint firstAttribute="width" constant="26" id="gdc-cl-BdY"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                            <integer key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="13"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPy-UZ-ff0">
                                                     <rect key="frame" x="548" y="10" width="26" height="26"/>
@@ -883,6 +981,14 @@
                                                         <constraint firstAttribute="width" constant="26" id="6e2-dN-spU"/>
                                                         <constraint firstAttribute="height" constant="26" id="8hS-uT-lkS"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                            <integer key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="6"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -912,6 +1018,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hEY-5I-y0f" firstAttribute="leading" secondItem="3Cr-ZJ-RQO" secondAttribute="leadingMargin" constant="-20" id="AXS-a4-Nup"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hEY-5I-y0f" secondAttribute="trailing" constant="-20" id="G63-eS-Ak1"/>
+                            <constraint firstItem="V3k-wI-1IR" firstAttribute="top" secondItem="hEY-5I-y0f" secondAttribute="bottom" id="mSf-Eu-fFn"/>
+                            <constraint firstItem="hEY-5I-y0f" firstAttribute="top" secondItem="3Cr-ZJ-RQO" secondAttribute="topMargin" id="nIO-ql-1Dz"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="hEY-5I-y0f" id="hb3-wG-18o"/>
@@ -961,6 +1073,14 @@
                                                         <constraint firstAttribute="height" constant="26" id="5wO-mV-gOT"/>
                                                         <constraint firstAttribute="width" constant="26" id="OSn-Kk-P87"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                            <integer key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="6"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsv-zw-lxy">
                                                     <rect key="frame" x="496" y="10" width="26" height="26"/>
@@ -968,6 +1088,14 @@
                                                         <constraint firstAttribute="height" constant="26" id="0T1-dS-AeY"/>
                                                         <constraint firstAttribute="width" constant="26" id="nSh-kZ-2fV"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                            <integer key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="13"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1266,6 +1394,14 @@
                                                         <constraint firstAttribute="height" constant="26" id="XFe-us-vNP"/>
                                                         <constraint firstAttribute="width" constant="26" id="lNP-49-fe4"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                            <integer key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="13"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33v-Mi-P3L">
                                                     <rect key="frame" x="548" y="10" width="26" height="26"/>
@@ -1273,6 +1409,14 @@
                                                         <constraint firstAttribute="width" constant="26" id="L8g-hF-ASu"/>
                                                         <constraint firstAttribute="height" constant="26" id="Ujd-y1-dMg"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                            <integer key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="6"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </button>
                                             </subviews>
                                             <constraints>

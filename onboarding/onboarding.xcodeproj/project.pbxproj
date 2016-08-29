@@ -26,15 +26,6 @@
 		D62E69E11D23182D00AEE03C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D62E69E01D23182D00AEE03C /* GoogleService-Info.plist */; };
 		D64C6E7A1D4AD99F00ABB8BA /* SubmitScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64C6E791D4AD99F00ABB8BA /* SubmitScreenViewController.swift */; };
 		D64C6E7D1D4B8F0D00ABB8BA /* ConsentIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C6E7C1D4B8F0D00ABB8BA /* ConsentIntroViewController.m */; };
-		D64C6E7F1D4B9DB500ABB8BA /* ConsentFirstPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64C6E7E1D4B9DB500ABB8BA /* ConsentFirstPageViewController.swift */; };
-		D6665DA11D6CF53F005E62A3 /* consentFirstScreenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6665DA01D6CF53F005E62A3 /* consentFirstScreenView.xib */; };
-		D6665DA31D6CF5A7005E62A3 /* consentFirstScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6665DA21D6CF5A7005E62A3 /* consentFirstScreenView.swift */; };
-		D6665DA51D6DE369005E62A3 /* ConsentSecondPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6665DA41D6DE369005E62A3 /* ConsentSecondPageViewController.swift */; };
-		D6665DA71D6DE5D7005E62A3 /* ConsentThirdPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6665DA61D6DE5D7005E62A3 /* ConsentThirdPageViewController.swift */; };
-		D6665DA91D6DE60D005E62A3 /* consentSecondScreenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6665DA81D6DE60D005E62A3 /* consentSecondScreenView.xib */; };
-		D6665DAB1D6DE61C005E62A3 /* consentThirdScreenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6665DAA1D6DE61C005E62A3 /* consentThirdScreenView.xib */; };
-		D6665DAD1D6DEBA4005E62A3 /* consentSecondScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6665DAC1D6DEBA4005E62A3 /* consentSecondScreenView.swift */; };
-		D6665DAF1D6DEBB7005E62A3 /* consentThirdScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6665DAE1D6DEBB7005E62A3 /* consentThirdScreenView.swift */; };
 		D66A3B481D46A78600E83DD7 /* GeneralTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66A3B471D46A78600E83DD7 /* GeneralTableViewController.swift */; };
 		D66A3B501D46B5B000E83DD7 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66A3B4F1D46B5B000E83DD7 /* PostCell.xib */; };
 		D66A3B521D46B62300E83DD7 /* PostCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66A3B511D46B62300E83DD7 /* PostCellTableViewCell.swift */; };
@@ -90,15 +81,6 @@
 		D64C6E791D4AD99F00ABB8BA /* SubmitScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitScreenViewController.swift; sourceTree = "<group>"; };
 		D64C6E7B1D4B8F0D00ABB8BA /* ConsentIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsentIntroViewController.h; sourceTree = "<group>"; };
 		D64C6E7C1D4B8F0D00ABB8BA /* ConsentIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsentIntroViewController.m; sourceTree = "<group>"; };
-		D64C6E7E1D4B9DB500ABB8BA /* ConsentFirstPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentFirstPageViewController.swift; sourceTree = "<group>"; };
-		D6665DA01D6CF53F005E62A3 /* consentFirstScreenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = consentFirstScreenView.xib; sourceTree = "<group>"; };
-		D6665DA21D6CF5A7005E62A3 /* consentFirstScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = consentFirstScreenView.swift; sourceTree = "<group>"; };
-		D6665DA41D6DE369005E62A3 /* ConsentSecondPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentSecondPageViewController.swift; sourceTree = "<group>"; };
-		D6665DA61D6DE5D7005E62A3 /* ConsentThirdPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsentThirdPageViewController.swift; sourceTree = "<group>"; };
-		D6665DA81D6DE60D005E62A3 /* consentSecondScreenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = consentSecondScreenView.xib; sourceTree = "<group>"; };
-		D6665DAA1D6DE61C005E62A3 /* consentThirdScreenView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = consentThirdScreenView.xib; sourceTree = "<group>"; };
-		D6665DAC1D6DEBA4005E62A3 /* consentSecondScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = consentSecondScreenView.swift; sourceTree = "<group>"; };
-		D6665DAE1D6DEBB7005E62A3 /* consentThirdScreenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = consentThirdScreenView.swift; sourceTree = "<group>"; };
 		D66A3B471D46A78600E83DD7 /* GeneralTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralTableViewController.swift; sourceTree = "<group>"; };
 		D66A3B4F1D46B5B000E83DD7 /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		D66A3B511D46B62300E83DD7 /* PostCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCellTableViewCell.swift; sourceTree = "<group>"; };
@@ -195,15 +177,6 @@
 		D68CE7F31D2C2C8900E1A0EE /* Informed Consent */ = {
 			isa = PBXGroup;
 			children = (
-				D64C6E7E1D4B9DB500ABB8BA /* ConsentFirstPageViewController.swift */,
-				D6665DA01D6CF53F005E62A3 /* consentFirstScreenView.xib */,
-				D6665DA21D6CF5A7005E62A3 /* consentFirstScreenView.swift */,
-				D6665DA41D6DE369005E62A3 /* ConsentSecondPageViewController.swift */,
-				D6665DA81D6DE60D005E62A3 /* consentSecondScreenView.xib */,
-				D6665DAC1D6DEBA4005E62A3 /* consentSecondScreenView.swift */,
-				D6665DA61D6DE5D7005E62A3 /* ConsentThirdPageViewController.swift */,
-				D6665DAA1D6DE61C005E62A3 /* consentThirdScreenView.xib */,
-				D6665DAE1D6DEBB7005E62A3 /* consentThirdScreenView.swift */,
 			);
 			name = "Informed Consent";
 			sourceTree = "<group>";
@@ -388,12 +361,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6282A091D1F6622001D64FA /* LaunchScreen.storyboard in Resources */,
-				D6665DA91D6DE60D005E62A3 /* consentSecondScreenView.xib in Resources */,
 				D62E69E11D23182D00AEE03C /* GoogleService-Info.plist in Resources */,
 				D66A3B501D46B5B000E83DD7 /* PostCell.xib in Resources */,
-				D6665DAB1D6DE61C005E62A3 /* consentThirdScreenView.xib in Resources */,
 				D6282A061D1F6622001D64FA /* Assets.xcassets in Resources */,
-				D6665DA11D6CF53F005E62A3 /* consentFirstScreenView.xib in Resources */,
 				D6282A041D1F6622001D64FA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,27 +426,22 @@
 				D6CC78461D73A8EB00CE1AA1 /* HipsLegsFeetTableViewCell.swift in Sources */,
 				D66A3B521D46B62300E83DD7 /* PostCellTableViewCell.swift in Sources */,
 				D67313021D6361FC00DE45DB /* SecondNeuroTableViewController.swift in Sources */,
-				D64C6E7F1D4B9DB500ABB8BA /* ConsentFirstPageViewController.swift in Sources */,
-				D6665DA51D6DE369005E62A3 /* ConsentSecondPageViewController.swift in Sources */,
 				D66A3B481D46A78600E83DD7 /* GeneralTableViewController.swift in Sources */,
 				D6CC78381D72356700CE1AA1 /* ImmuneSystemTableViewCell.swift in Sources */,
 				D62A4D431D48022700CDF4F8 /* MultipleSectionsTableViewController.swift in Sources */,
 				D67950CE1D46839B00539C90 /* QuestionnarieVC.swift in Sources */,
-				D6665DAF1D6DEBB7005E62A3 /* consentThirdScreenView.swift in Sources */,
 				D62E69DC1D22F6B600AEE03C /* FirebaseHelper.m in Sources */,
 				D64C6E7A1D4AD99F00ABB8BA /* SubmitScreenViewController.swift in Sources */,
 				D616B36D1D205B2C00ABF52D /* DateAndTimeValueTransformer.m in Sources */,
 				D6CC78421D739FD700CE1AA1 /* NeuroTableViewCell.swift in Sources */,
 				D62829FE1D1F6622001D64FA /* AppDelegate.m in Sources */,
 				D62E69D81D21E2F300AEE03C /* HealthCoverageViewController.m in Sources */,
-				D6665DA71D6DE5D7005E62A3 /* ConsentThirdPageViewController.swift in Sources */,
 				D6CC78361D7198C600CE1AA1 /* GeneralTableViewCell.swift in Sources */,
 				D62A4D451D480A0B00CDF4F8 /* NeuromusculoskeletalTableViewController.swift in Sources */,
 				D6B1DF661D6768190026664F /* FirebaseHelperSwift.swift in Sources */,
 				D62A4D411D47EBE900CDF4F8 /* CardiovascularTableViewController.swift in Sources */,
 				D62829FB1D1F6622001D64FA /* main.m in Sources */,
 				D68CE7FC1D2C379100E1A0EE /* ConditionsViewController.m in Sources */,
-				D6665DA31D6CF5A7005E62A3 /* consentFirstScreenView.swift in Sources */,
 				D67313001D6361D300DE45DB /* SecondMultipleTableViewController.swift in Sources */,
 				D616B36A1D2054B500ABF52D /* FormViewController.m in Sources */,
 				D68CE7F21D2C2C7700E1A0EE /* ReleaseCollectConsentViewController.m in Sources */,
@@ -491,7 +456,6 @@
 				D68CE7EF1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.m in Sources */,
 				D6CC78401D739C9300CE1AA1 /* SecondMultipleTableViewCell.swift in Sources */,
 				D64C6E7D1D4B8F0D00ABB8BA /* ConsentIntroViewController.m in Sources */,
-				D6665DAD1D6DEBA4005E62A3 /* consentSecondScreenView.swift in Sources */,
 				D616B3701D20C16500ABF52D /* MedicalInformationViewController.m in Sources */,
 				D62A4D3D1D47C5BD00CDF4F8 /* ImmuneSystemViewController.swift in Sources */,
 			);
