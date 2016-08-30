@@ -22,6 +22,8 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
   var healthCoverageInformation = NSMutableDictionary()
   var conditionsInformation = NSMutableDictionary()
   var downloadURL = NSURL()
+  var firstBoxInitials = String()
+  var secondBoxInitials = String()
   
     override func viewDidLoad() {
       super.viewDidLoad()
@@ -198,7 +200,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       pdf.addText("By initialing below, I hereby acknowledge that I have read and understood the preceding statements. I have also had an opportunity to ask questions and address any concerns in regards to its content. I intend this consent form to serve as written consent throughout the entire course of treatment of my present condition and for any future condition(s) for which I may seek treatment at Caleo Health. If at any time I decide that I am unwilling to engage or continue with these procedures, I reserve the right to inform my therapist or doctor of such, and withdraw my consent at anytime in any or all forms of evaluation and/or treatment.")
       pdf.addLineSpace(15)
 
-      pdf.addText("Patient's / Guarantor's Initials: \(firstName.characters.first) \(lastName.characters.first)")
+      pdf.addText("Patient's / Guarantor's Initials: \(secondBoxInitials)")
       let date = NSDate()
       let stringDate = dateFormatter.stringFromDate(date)
       pdf.addText("Date: \(stringDate)")
@@ -217,7 +219,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       pdf.addLineSpace(15)
       pdf.addText("By signing below, I hereby acknowledge that I have read and understand the above statements, and consent to the release of any or all relevant medical information pertinent to my case to: medical/technical consultants; legal representatives; insurance carriers and third party payers involved in the case. I reserve the right to inform my therapist or doctor of such, and withdraw my consent at anytime in whole or in part to the information within.")
       pdf.addLineSpace(15)
-      pdf.addText("Patient's / Guarantor's Initials: \(firstName.characters.first) \(lastName.characters.first)")
+      pdf.addText("Patient's / Guarantor's Initials: \(secondBoxInitials)")
       pdf.addText("Date: \(stringDate)")
       //pdf.addText("Consent reviewed with patient: Therapist's Signature / Initials or Office stamp: ______")
     
@@ -1056,7 +1058,6 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
           }
         }
       }
-    
     
       /********* FIREBASE ************/
     

@@ -111,8 +111,6 @@ class HipsLegsFeetTableViewController: UIViewController, UITableViewDataSource, 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! HipsLegsFeetTableViewCell
       cell.selectionStyle = UITableViewCellSelectionStyle.None
-      cell.contentView.userInteractionEnabled = false
-      cell.circleButton.layer.borderWidth = 1
       cell.circleButton.layer.borderColor = myColor.CGColor
       cell.squareButton.layer.borderColor = myColor.CGColor
       

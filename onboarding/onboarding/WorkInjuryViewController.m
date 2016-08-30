@@ -60,9 +60,9 @@
   
     workInjuryForm.assignFirstResponderOnShow = YES;
   
-    workInjuryForm = [XLFormDescriptor formDescriptorWithTitle:@"Work Related Injury"];
+    workInjuryForm = [XLFormDescriptor formDescriptorWithTitle:@"Work Related Injury Information"];
     workInjurySection = [XLFormSectionDescriptor formSection];
-    workInjurySection.title = @"Work Related Injury";
+    workInjurySection.title = @"Work Related Injury Information";
     [workInjuryForm addFormSection:workInjurySection];
   
     //Figure out if is a work related injury.

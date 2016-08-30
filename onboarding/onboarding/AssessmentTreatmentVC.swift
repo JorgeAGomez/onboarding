@@ -18,7 +18,7 @@ class AssessmentTreatmentVC: UIViewController {
   var motorVehicleInjuryInformation = NSMutableDictionary()
   var healthCoverageInformation = NSMutableDictionary()
   var conditionsInformation = NSMutableDictionary()
-  var initials = String()
+  var firstBoxInitials = String()
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +28,7 @@ class AssessmentTreatmentVC: UIViewController {
         self.navigationItem.title = "Consent to Assessment and Treatment"
         let firstName = personalInformation["First name"] as! String
         let lastName = personalInformation["Last name"] as! String
-        let firstNameInitial = firstName.characters.first
-        let lastNameInitial = lastName.characters.first
-        initials = "\(firstNameInitial)\(lastNameInitial)"
+      
         let getText = paragraphLabel.text
         let nameAdded = getText!.stringByReplacingOccurrencesOfString("_____________________________________", withString: "\(firstName) \(lastName)")
       
@@ -60,12 +58,12 @@ class AssessmentTreatmentVC: UIViewController {
     }
   
     func nextTapped(){
+      firstBoxInitials = initialTextField.text!
       if(initialTextField.text == ""){
         let alert = UIAlertController(title: "Sorry", message: "Initials box cannot be empty", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
       self.presentViewController(alert, animated: true, completion: nil)
       }
-      
       self.performSegueWithIdentifier("goToConsent2", sender: self)
     }
   
@@ -78,6 +76,7 @@ class AssessmentTreatmentVC: UIViewController {
       controller.motorVehicleInjuryInformation = motorVehicleInjuryInformation
       controller.healthCoverageInformation = healthCoverageInformation
       controller.conditionsInformation = conditionsInformation
+      controller.firstBoxInitials = firstBoxInitials
       
     }
   

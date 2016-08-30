@@ -28,14 +28,21 @@ class HipsLegsFeetTableViewCell: UITableViewCell {
 
   @IBAction func squareButton(sender: AnyObject)
   {
-    if(circleButton.backgroundColor == myColor){
+    if(squareButton.backgroundColor == myColor){
+      squareButton.backgroundColor = UIColor.whiteColor()
+    }
+    else{
+      squareButton.backgroundColor = myColor
+    }
+  }
+  
+  @IBAction func circleButton(sender: AnyObject)
+  {
+      if(circleButton.backgroundColor == myColor){
       circleButton.backgroundColor = UIColor.whiteColor()
     }
     else{
       circleButton.backgroundColor = myColor
     }
-  }
-  
-  @IBAction func circleButton(sender: AnyObject) {
   }
 }

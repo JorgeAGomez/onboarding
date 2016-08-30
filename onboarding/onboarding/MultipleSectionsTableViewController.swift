@@ -208,8 +208,6 @@ class MultipleSectionsTableViewController: UIViewController, UITableViewDataSour
       let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MultipleSectionsTableViewCell
       
       cell.selectionStyle = UITableViewCellSelectionStyle.None
-      cell.contentView.userInteractionEnabled = false
-      cell.circleButton.layer.borderWidth = 1
       cell.circleButton.layer.borderColor = myColor.CGColor
       cell.squareButton.layer.borderColor = myColor.CGColor
       

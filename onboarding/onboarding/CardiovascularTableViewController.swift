@@ -95,7 +95,6 @@ class CardiovascularTableViewController: UIViewController, UITableViewDelegate, 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CardiovascularTableViewCell
       cell.selectionStyle = UITableViewCellSelectionStyle.None
-      cell.contentView.userInteractionEnabled = false
       cell.titleLabel.text = cardiovascular[indexPath.row] as? String
       cell.circleButton.layer.borderColor = myColor.CGColor
       cell.squareButton.layer.borderColor = myColor.CGColor

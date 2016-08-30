@@ -17,18 +17,35 @@ class ReleaseCollectVC: UIViewController {
   var motorVehicleInjuryInformation = NSMutableDictionary()
   var healthCoverageInformation = NSMutableDictionary()
   var conditionsInformation = NSMutableDictionary()
+  var firstBoxInitials = String()
+  var secondBoxInitials = String()
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
         //self.navigationItem.hidesBackButton = true
         pageControl.hidden = true
         self.navigationItem.title = "Consent to Release and/or Collect Medical Information"
-
+      
     }
 
     func nextTapped(){
+      secondBoxInitials = initialTextField.text!
+      if(firstBoxInitials != secondBoxInitials)
+      {
+        let alert = UIAlertController(title: "Sorry", message: "All initials must match", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+      }
+      
+      if(initialTextField.text == ""){
+        let alert = UIAlertController(title: "Sorry", message: "Initials box cannot be empty", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+      self.presentViewController(alert, animated: true, completion: nil)
+      }
       self.performSegueWithIdentifier("thankYou", sender: self)
     }
+  
   
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       var controller = SubmitScreenViewController()
@@ -39,5 +56,7 @@ class ReleaseCollectVC: UIViewController {
       controller.motorVehicleInjuryInformation = motorVehicleInjuryInformation
       controller.healthCoverageInformation = healthCoverageInformation
       controller.conditionsInformation = conditionsInformation
+      controller.firstBoxInitials = firstBoxInitials
+      controller.secondBoxInitials = secondBoxInitials
     }
 }

@@ -66,9 +66,9 @@
   
     carAccidentForm.assignFirstResponderOnShow = YES;
   
-    carAccidentForm = [XLFormDescriptor formDescriptorWithTitle:@"Motor Vehicle Accident"];
+    carAccidentForm = [XLFormDescriptor formDescriptorWithTitle:@"Motor Vehicle Accident Information"];
     carAccidentSection = [XLFormSectionDescriptor formSection];
-    carAccidentSection.title = @"Motor Vehicle Accident";
+    carAccidentSection.title = @"Motor Vehicle Accident Information";
     [carAccidentForm addFormSection:carAccidentSection];
   
     //Figure out if is a work related injury.

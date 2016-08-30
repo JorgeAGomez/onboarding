@@ -63,7 +63,13 @@ static func workRelatedInjury(dateOfInjury: NSDate, WCBClaimNumber: String, empl
   let dbReference = FIRDatabase.database().reference()
   let dateFormatter = NSDateFormatter()
   dateFormatter.dateFormat = "yyyy-MM-dd"
-  let stringDate = dateFormatter.stringFromDate(dateOfInjury)
+  var stringDate = String()
+  if(WCBClaimNumber == "" && employer == ""){
+    stringDate = ""
+  }
+  else{
+     stringDate = dateFormatter.stringFromDate(dateOfInjury)
+  }
   dbReference.child("patientInformation").child("\(homePhoneId)\(cellPhoneId)\(workPhoneId)\(nameId)").child("workRelatedInjury").setValue(["dateOfInjury":stringDate,
                                                                                                                                             "WCBClainNumber":WCBClaimNumber,
                                                                                                                                             "employer":employer,
@@ -78,7 +84,13 @@ static func motorVehicleAccident(insuranceCompany: String, dateOfAccident: NSDat
   let dbReference = FIRDatabase.database().reference()
   let dateFormatter = NSDateFormatter()
   dateFormatter.dateFormat = "yyyy-MM-dd"
-  let stringDate = dateFormatter.stringFromDate(dateOfAccident)
+  var stringDate = String()
+  if(insuranceCompany == "" && claimPolicyNumber == ""){
+    stringDate = ""
+  }
+  else{
+    stringDate = dateFormatter.stringFromDate(dateOfAccident)
+  }
   dbReference.child("patientInformation").child("\(homePhoneId)\(cellPhoneId)\(workPhoneId)\(nameId)").child("motorVehicleAccident").setValue(["insuranceCompany":insuranceCompany,
                                                                                                                                                "dateOfAccident":stringDate,
                                                                                                                                                "claimPolicyNumber":claimPolicyNumber,

@@ -102,7 +102,6 @@ class ImmuneSystemViewController: UIViewController {
     {
       let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ImmuneSystemTableViewCell
       cell.selectionStyle = UITableViewCellSelectionStyle.None
-      cell.contentView.userInteractionEnabled = false
       cell.titleLabel.text = immuneSystemInfection[indexPath.row] as? String
       cell.circleButton.layer.borderColor = myColor.CGColor
       cell.squareButton.layer.borderColor = myColor.CGColor

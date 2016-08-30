@@ -36,7 +36,14 @@ class GeneralTableViewCell: UITableViewCell {
     }
   }
   
-  @IBAction func squareButton(sender: AnyObject) {
+  @IBAction func squareButton(sender: AnyObject)
+  {
+      if(squareButton.backgroundColor == myColor){
+      squareButton.backgroundColor = UIColor.whiteColor()
+    }
+    else{
+      squareButton.backgroundColor = myColor
+    }
   }
   
   
