@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "onboarding/SubmitScreenViewController.swift"
-            timestampString = "494222034.967808"
+            timestampString = "494225144.74465"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1069"
-            endingLineNumber = "1069"
+            startingLineNumber = "1068"
+            endingLineNumber = "1068"
             landmarkName = "submitButton(_:)"
             landmarkType = "5">
          </BreakpointContent>

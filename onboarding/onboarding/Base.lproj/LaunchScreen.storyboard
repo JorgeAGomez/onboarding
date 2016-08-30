@@ -16,7 +16,48 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CaleoLogo" translatesAutoresizingMaskIntoConstraints="NO" id="MrY-6G-8Rb">
+                                <rect key="frame" x="180" y="199" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="SQ2-un-FNh"/>
+                                    <constraint firstAttribute="width" constant="240" id="c8O-XG-lZf"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kD2-y5-CGS">
+                                <rect key="frame" x="45" y="61" width="511" height="73"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="73" id="OAs-an-73T"/>
+                                    <constraint firstAttribute="width" constant="511" id="gKL-x9-vxO"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Patient Onboarding">
+                                        <attributes>
+                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <font key="NSFont" size="36" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Physio4DLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Jjs-nl-Ivj">
+                                <rect key="frame" x="180" y="384" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="NWC-Ry-t02"/>
+                                    <constraint firstAttribute="width" constant="240" id="Wvz-ko-omG"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MrY-6G-8Rb" firstAttribute="centerX" secondItem="kD2-y5-CGS" secondAttribute="centerX" id="GWo-iq-WeU"/>
+                            <constraint firstItem="kD2-y5-CGS" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Jn3-kx-B0E"/>
+                            <constraint firstItem="Jjs-nl-Ivj" firstAttribute="top" secondItem="MrY-6G-8Rb" secondAttribute="bottom" constant="57" id="TT3-A7-RFq"/>
+                            <constraint firstItem="MrY-6G-8Rb" firstAttribute="top" secondItem="kD2-y5-CGS" secondAttribute="bottom" constant="65" id="dAa-2o-t5P"/>
+                            <constraint firstItem="kD2-y5-CGS" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="41" id="ywa-0m-E3i"/>
+                            <constraint firstItem="Jjs-nl-Ivj" firstAttribute="centerX" secondItem="MrY-6G-8Rb" secondAttribute="centerX" id="zJz-hl-gAY"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +65,8 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CaleoLogo" width="792" height="612"/>
+        <image name="Physio4DLogo" width="327" height="347"/>
+    </resources>
 </document>

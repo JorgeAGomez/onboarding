@@ -25,16 +25,11 @@
 		D62E69DC1D22F6B600AEE03C /* FirebaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D62E69DB1D22F6B600AEE03C /* FirebaseHelper.m */; };
 		D62E69E11D23182D00AEE03C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D62E69E01D23182D00AEE03C /* GoogleService-Info.plist */; };
 		D64C6E7A1D4AD99F00ABB8BA /* SubmitScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64C6E791D4AD99F00ABB8BA /* SubmitScreenViewController.swift */; };
-		D64C6E7D1D4B8F0D00ABB8BA /* ConsentIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D64C6E7C1D4B8F0D00ABB8BA /* ConsentIntroViewController.m */; };
+		D65F854F1D7547630098FBC0 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65F854E1D7547630098FBC0 /* StartScreenViewController.swift */; };
 		D66A3B481D46A78600E83DD7 /* GeneralTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66A3B471D46A78600E83DD7 /* GeneralTableViewController.swift */; };
-		D66A3B501D46B5B000E83DD7 /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66A3B4F1D46B5B000E83DD7 /* PostCell.xib */; };
-		D66A3B521D46B62300E83DD7 /* PostCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66A3B511D46B62300E83DD7 /* PostCellTableViewCell.swift */; };
 		D67313001D6361D300DE45DB /* SecondMultipleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67312FF1D6361D300DE45DB /* SecondMultipleTableViewController.swift */; };
 		D67313021D6361FC00DE45DB /* SecondNeuroTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67313011D6361FC00DE45DB /* SecondNeuroTableViewController.swift */; };
 		D67313041D63622F00DE45DB /* HipsLegsFeetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67313031D63622F00DE45DB /* HipsLegsFeetTableViewController.swift */; };
-		D67950CE1D46839B00539C90 /* QuestionnarieVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67950CD1D46839B00539C90 /* QuestionnarieVC.swift */; };
-		D68CE7EF1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D68CE7EE1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.m */; };
-		D68CE7F21D2C2C7700E1A0EE /* ReleaseCollectConsentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D68CE7F11D2C2C7700E1A0EE /* ReleaseCollectConsentViewController.m */; };
 		D68CE7FC1D2C379100E1A0EE /* ConditionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D68CE7FB1D2C379100E1A0EE /* ConditionsViewController.m */; };
 		D6919D351D21AE4F00E0FCAB /* WorkInjuryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6919D341D21AE4F00E0FCAB /* WorkInjuryViewController.m */; };
 		D6919D381D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6919D371D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m */; };
@@ -81,20 +76,12 @@
 		D62E69DB1D22F6B600AEE03C /* FirebaseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirebaseHelper.m; sourceTree = "<group>"; };
 		D62E69E01D23182D00AEE03C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D64C6E791D4AD99F00ABB8BA /* SubmitScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitScreenViewController.swift; sourceTree = "<group>"; };
-		D64C6E7B1D4B8F0D00ABB8BA /* ConsentIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsentIntroViewController.h; sourceTree = "<group>"; };
-		D64C6E7C1D4B8F0D00ABB8BA /* ConsentIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsentIntroViewController.m; sourceTree = "<group>"; };
+		D65F854E1D7547630098FBC0 /* StartScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		D66A3B471D46A78600E83DD7 /* GeneralTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralTableViewController.swift; sourceTree = "<group>"; };
-		D66A3B4F1D46B5B000E83DD7 /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
-		D66A3B511D46B62300E83DD7 /* PostCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCellTableViewCell.swift; sourceTree = "<group>"; };
 		D67312FF1D6361D300DE45DB /* SecondMultipleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondMultipleTableViewController.swift; sourceTree = "<group>"; };
 		D67313011D6361FC00DE45DB /* SecondNeuroTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondNeuroTableViewController.swift; sourceTree = "<group>"; };
 		D67313031D63622F00DE45DB /* HipsLegsFeetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HipsLegsFeetTableViewController.swift; sourceTree = "<group>"; };
 		D67950CC1D46839A00539C90 /* onboarding-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "onboarding-Bridging-Header.h"; sourceTree = "<group>"; };
-		D67950CD1D46839B00539C90 /* QuestionnarieVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionnarieVC.swift; sourceTree = "<group>"; };
-		D68CE7ED1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssessmentAndTreatmentViewController.h; sourceTree = "<group>"; };
-		D68CE7EE1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssessmentAndTreatmentViewController.m; sourceTree = "<group>"; };
-		D68CE7F01D2C2C7700E1A0EE /* ReleaseCollectConsentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleaseCollectConsentViewController.h; sourceTree = "<group>"; };
-		D68CE7F11D2C2C7700E1A0EE /* ReleaseCollectConsentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleaseCollectConsentViewController.m; sourceTree = "<group>"; };
 		D68CE7FA1D2C379100E1A0EE /* ConditionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConditionsViewController.h; sourceTree = "<group>"; };
 		D68CE7FB1D2C379100E1A0EE /* ConditionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConditionsViewController.m; sourceTree = "<group>"; };
 		D6919D331D21AE4F00E0FCAB /* WorkInjuryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkInjuryViewController.h; sourceTree = "<group>"; };
@@ -183,6 +170,7 @@
 			children = (
 				D6CC78471D74A32C00CE1AA1 /* AssessmentTreatmentVC.swift */,
 				D6CC78491D74BCD400CE1AA1 /* ReleaseCollectVC.swift */,
+				D65F854E1D7547630098FBC0 /* StartScreenViewController.swift */,
 			);
 			name = "Informed Consent";
 			sourceTree = "<group>";
@@ -238,7 +226,6 @@
 			isa = PBXGroup;
 			children = (
 				D67950CC1D46839A00539C90 /* onboarding-Bridging-Header.h */,
-				D67950CD1D46839B00539C90 /* QuestionnarieVC.swift */,
 				D66A3B471D46A78600E83DD7 /* GeneralTableViewController.swift */,
 				D6CC78351D7198C600CE1AA1 /* GeneralTableViewCell.swift */,
 				D62A4D3C1D47C5BD00CDF4F8 /* ImmuneSystemViewController.swift */,
@@ -258,8 +245,6 @@
 				D67313031D63622F00DE45DB /* HipsLegsFeetTableViewController.swift */,
 				D6CC78451D73A8EB00CE1AA1 /* HipsLegsFeetTableViewCell.swift */,
 				D64C6E791D4AD99F00ABB8BA /* SubmitScreenViewController.swift */,
-				D66A3B4F1D46B5B000E83DD7 /* PostCell.xib */,
-				D66A3B511D46B62300E83DD7 /* PostCellTableViewCell.swift */,
 			);
 			name = "Health Report Questionnarie";
 			sourceTree = "<group>";
@@ -282,12 +267,6 @@
 				D6282A051D1F6622001D64FA /* Assets.xcassets */,
 				D6282A071D1F6622001D64FA /* LaunchScreen.storyboard */,
 				D6282A0A1D1F6622001D64FA /* Info.plist */,
-				D68CE7ED1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.h */,
-				D68CE7EE1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.m */,
-				D68CE7F01D2C2C7700E1A0EE /* ReleaseCollectConsentViewController.h */,
-				D68CE7F11D2C2C7700E1A0EE /* ReleaseCollectConsentViewController.m */,
-				D64C6E7B1D4B8F0D00ABB8BA /* ConsentIntroViewController.h */,
-				D64C6E7C1D4B8F0D00ABB8BA /* ConsentIntroViewController.m */,
 				D62829FC1D1F6622001D64FA /* AppDelegate.h */,
 				D62829FD1D1F6622001D64FA /* AppDelegate.m */,
 				D616B36B1D205B2C00ABF52D /* DateAndTimeValueTransformer.h */,
@@ -368,7 +347,6 @@
 			files = (
 				D6282A091D1F6622001D64FA /* LaunchScreen.storyboard in Resources */,
 				D62E69E11D23182D00AEE03C /* GoogleService-Info.plist in Resources */,
-				D66A3B501D46B5B000E83DD7 /* PostCell.xib in Resources */,
 				D6282A061D1F6622001D64FA /* Assets.xcassets in Resources */,
 				D6282A041D1F6622001D64FA /* Main.storyboard in Resources */,
 			);
@@ -429,14 +407,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D65F854F1D7547630098FBC0 /* StartScreenViewController.swift in Sources */,
 				D6CC78461D73A8EB00CE1AA1 /* HipsLegsFeetTableViewCell.swift in Sources */,
-				D66A3B521D46B62300E83DD7 /* PostCellTableViewCell.swift in Sources */,
 				D67313021D6361FC00DE45DB /* SecondNeuroTableViewController.swift in Sources */,
 				D66A3B481D46A78600E83DD7 /* GeneralTableViewController.swift in Sources */,
 				D6CC784A1D74BCD400CE1AA1 /* ReleaseCollectVC.swift in Sources */,
 				D6CC78381D72356700CE1AA1 /* ImmuneSystemTableViewCell.swift in Sources */,
 				D62A4D431D48022700CDF4F8 /* MultipleSectionsTableViewController.swift in Sources */,
-				D67950CE1D46839B00539C90 /* QuestionnarieVC.swift in Sources */,
 				D62E69DC1D22F6B600AEE03C /* FirebaseHelper.m in Sources */,
 				D64C6E7A1D4AD99F00ABB8BA /* SubmitScreenViewController.swift in Sources */,
 				D616B36D1D205B2C00ABF52D /* DateAndTimeValueTransformer.m in Sources */,
@@ -452,7 +429,6 @@
 				D68CE7FC1D2C379100E1A0EE /* ConditionsViewController.m in Sources */,
 				D67313001D6361D300DE45DB /* SecondMultipleTableViewController.swift in Sources */,
 				D616B36A1D2054B500ABF52D /* FormViewController.m in Sources */,
-				D68CE7F21D2C2C7700E1A0EE /* ReleaseCollectConsentViewController.m in Sources */,
 				D6919D351D21AE4F00E0FCAB /* WorkInjuryViewController.m in Sources */,
 				D6CC783E1D73907A00CE1AA1 /* MultipleSectionsTableViewCell.swift in Sources */,
 				D6919D381D21D58F00E0FCAB /* MotorVehicleAccidentViewController.m in Sources */,
@@ -461,9 +437,7 @@
 				D67313041D63622F00DE45DB /* HipsLegsFeetTableViewController.swift in Sources */,
 				D6CC783C1D7385E600CE1AA1 /* CardiovascularTableViewCell.swift in Sources */,
 				D6CC78441D73A0E700CE1AA1 /* SecondNeuroTableViewCell.swift in Sources */,
-				D68CE7EF1D2C2C5D00E1A0EE /* AssessmentAndTreatmentViewController.m in Sources */,
 				D6CC78401D739C9300CE1AA1 /* SecondMultipleTableViewCell.swift in Sources */,
-				D64C6E7D1D4B8F0D00ABB8BA /* ConsentIntroViewController.m in Sources */,
 				D616B3701D20C16500ABF52D /* MedicalInformationViewController.m in Sources */,
 				D62A4D3D1D47C5BD00CDF4F8 /* ImmuneSystemViewController.swift in Sources */,
 			);
