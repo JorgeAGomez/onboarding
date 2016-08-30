@@ -168,7 +168,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       let dateFormatter = NSDateFormatter()
       dateFormatter.dateFormat = "yyyy-MM-dd"
     
-      let firstPage = CGSize(width: 650, height: 842)
+      let firstPage = CGSize(width: 650, height: 800)
       let pdf = SimplePDF(pageSize: firstPage, pageMargin: 33.0)
       var borderSize : CGFloat = 1.0
       
@@ -200,7 +200,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       pdf.addText("By initialing below, I hereby acknowledge that I have read and understood the preceding statements. I have also had an opportunity to ask questions and address any concerns in regards to its content. I intend this consent form to serve as written consent throughout the entire course of treatment of my present condition and for any future condition(s) for which I may seek treatment at Caleo Health. If at any time I decide that I am unwilling to engage or continue with these procedures, I reserve the right to inform my therapist or doctor of such, and withdraw my consent at anytime in any or all forms of evaluation and/or treatment.")
       pdf.addLineSpace(15)
 
-      pdf.addText("Patient's / Guarantor's Initials: \(secondBoxInitials)")
+      pdf.addText("Patient's / Guarantor's Initials: \(firstBoxInitials)")
       let date = NSDate()
       let stringDate = dateFormatter.stringFromDate(date)
       pdf.addText("Date: \(stringDate)")
@@ -398,8 +398,9 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
         borderSize = 0.0
         pdf.addText("No conditions recorded")
       }
-    
-      pdf.addTable(finalCondition.count, columnCount: 2, rowHeight: 20, columnWidth: 200, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: finalCondition)
+      else{
+        pdf.addTable(finalCondition.count, columnCount: 2, rowHeight: 20, columnWidth: 200, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: finalCondition)
+      }
       pdf.addLineSpace(20)
     
       //QUESTIONNARIE
@@ -407,6 +408,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       pdf.beginNewPage()
     
       //GENERAL
+      borderSize = 1.0
       pdf.addImage(logoImage)
       pdf.addLineSpace(18)
       pdf.setContentAlignment(.Center)
@@ -443,7 +445,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
         else{
           temp.append(" ")
         }
-        if(!(temp[1] == " " && temp[2] == " ")){
+        if(true/*!(temp[1] == " " && temp[2] == " ")*/){
           finalGeneral.append(temp)
         }
       }
@@ -460,6 +462,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       }
     
       //IMMUNE SYSTEM / INFECTION
+        borderSize = 1.0
         pdf.addLineSpace(15)
         pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
         pdf.addText("Immune System / infection")
@@ -485,7 +488,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
         else{
           temp.append(" ")
         }
-        if(!(temp[1] == " " && temp[2] == " ")){
+        if(true/*!(temp[1] == " " && temp[2] == " ")*/){
           immuneFinal.append(temp)
         }
       }
@@ -499,8 +502,10 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       {
         pdf.addTable(immuneFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: immuneFinal)
       }
+      pdf.beginNewPage()
     
       //GASTROINSTESTINAL
+        borderSize = 1.0
         pdf.addLineSpace(15)
         pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
         pdf.addText("Gastrointestinal")
@@ -528,7 +533,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
         else{
           temp.append(" ")
         }
-        if(!(temp[1] == " " && temp[2] == " ")){
+        if(true/*!(temp[1] == " " && temp[2] == " ")*/){
           gastroFinal.append(temp)
         }
       }
@@ -542,8 +547,9 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
         pdf.addTable(gastroFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: gastroFinal)
       }
     
+    
       //CARDIOVASCULAR
-      
+        borderSize = 1.0
         pdf.addLineSpace(15)
         pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
         pdf.addText("Cardiovascular")
@@ -571,7 +577,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
         else{
           temp.append(" ")
         }
-        if(!(temp[1] == " " && temp[2] == " ")){
+        if(true/*!(temp[1] == " " && temp[2] == " ")*/){
           cardioFinal.append(temp)
         }
       }
@@ -584,10 +590,12 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       {
         pdf.addTable(cardioFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: cardioFinal)
       }
-      
+    
+      pdf.beginNewPage()
     
       //OTHER SYSTEMS
       //NERVOUS SYSTEM
+      borderSize = 1.0
       pdf.addLineSpace(15)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
       pdf.addText("Nervous System")
@@ -614,7 +622,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
         else{
           temp.append(" ")
         }
-        if(!(temp[1] == " " && temp[2] == " ")){
+        if(true/*!(temp[1] == " " && temp[2] == " ")*/){
           nervousFinal.append(temp)
         }
       }
@@ -656,7 +664,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
         else{
           temp.append(" ")
         }
-        if(!(temp[1] == " " && temp[2] == " ")){
+        if(true/*!(temp[1] == " " && temp[2] == " ")*/){
           respiratoryFinal.append(temp)
         }
       }
@@ -697,7 +705,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
         else{
           temp.append(" ")
         }
-        if(!(temp[1] == " " && temp[2] == " ")){
+        if(true/*!(temp[1] == " " && temp[2] == " ")*/){
           bloodSugarFinal.append(temp)
         }
       }
@@ -737,7 +745,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
         else{
           temp.append(" ")
         }
-        if(!(temp[1] == " " && temp[2] == " ")){
+        if(true/*!(temp[1] == " " && temp[2] == " ")*/){
           eyeEarNoseThroatFinal.append(temp)
         }
       }
@@ -749,9 +757,8 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       else{
         pdf.addTable(eyeEarNoseThroatFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: eyeEarNoseThroatFinal)
       }
-      
     
-    
+      pdf.beginNewPage()
       //URINARY TRACT
       pdf.addLineSpace(15)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
@@ -778,7 +785,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
         else{
           temp.append(" ")
         }
-        if(!(temp[1] == " " && temp[2] == " ")){
+        if(true/*!(temp[1] == " " && temp[2] == " ")*/){
           urinaryTractFinal.append(temp)
         }
       }
@@ -790,8 +797,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       else{
         pdf.addTable(urinaryTractFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: urinaryTractFinal)
       }
-      
-      
+    
       //HEAD & NECK
       pdf.addLineSpace(19)
       pdf.setContentAlignment(.Center)
@@ -823,7 +829,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
         else{
           temp.append(" ")
         }
-        if(!(temp[1] == " " && temp[2] == " ")){
+        if(true/*!(temp[1] == " " && temp[2] == " ")*/){
           headNeckFinal.append(temp)
         }
       }
@@ -863,7 +869,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
         else{
           temp.append(" ")
         }
-        if(!(temp[1] == " " && temp[2] == " ")){
+        if(true/*!(temp[1] == " " && temp[2] == " ")*/){
           shoulderFinal.append(temp)
         }
       }
@@ -903,7 +909,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
         else{
           temp.append(" ")
         }
-        if(!(temp[1] == " " && temp[2] == " ")){
+        if(true/*!(temp[1] == " " && temp[2] == " ")*/){
           midFinal.append(temp)
         }
       }
@@ -916,7 +922,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
         pdf.addTable(midFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: midFinal)
       }
       
-     
+     pdf.beginNewPage()
 
       //LOW BACK
       pdf.addLineSpace(15)
@@ -944,7 +950,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
         else{
           temp.append(" ")
         }
-        if(!(temp[1] == " " && temp[2] == " ")){
+        if(true/*!(temp[1] == " " && temp[2] == " ")*/){
           lowFinal.append(temp)
         }
       }
@@ -985,7 +991,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
         else{
           temp.append(" ")
         }
-        if(!(temp[1] == " " && temp[2] == " ")){
+        if(true/*!(temp[1] == " " && temp[2] == " ")*/){
           armsFinal.append(temp)
         }
       }
@@ -996,7 +1002,6 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       else{
         pdf.addTable(armsFinal.count, columnCount: 3, rowHeight: 20, columnWidth: 150, tableLineWidth: borderSize, font: UIFont(name: "HelveticaNeue", size: 11)!, dataArray: armsFinal)
       }
-      
     
     
       //HIPS LEGS FEET
@@ -1025,7 +1030,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
         else{
           temp.append(" ")
         }
-        if(!(temp[1] == " " && temp[2] == " ")){
+        if(true/*!(temp[1] == " " && temp[2] == " ")*/){
           hipsFinal.append(temp)
         }
       }

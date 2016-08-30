@@ -31,18 +31,18 @@ class ReleaseCollectVC: UIViewController {
 
     func nextTapped(){
       secondBoxInitials = initialTextField.text!
-      if(firstBoxInitials != secondBoxInitials)
-      {
-        let alert = UIAlertController(title: "Sorry", message: "All initials must match", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
-      }
-      
-      if(initialTextField.text == ""){
-        let alert = UIAlertController(title: "Sorry", message: "Initials box cannot be empty", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-      self.presentViewController(alert, animated: true, completion: nil)
-      }
+//      if(firstBoxInitials != secondBoxInitials)
+//      {
+//        let alert = UIAlertController(title: "Sorry", message: "All initials must match", preferredStyle: UIAlertControllerStyle.Alert)
+//        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+//        self.presentViewController(alert, animated: true, completion: nil)
+//      }
+//      
+//      if(initialTextField.text == ""){
+//        let alert = UIAlertController(title: "Sorry", message: "Initials box cannot be empty", preferredStyle: UIAlertControllerStyle.Alert)
+//        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+//      self.presentViewController(alert, animated: true, completion: nil)
+//      }
       self.performSegueWithIdentifier("thankYou", sender: self)
     }
   
