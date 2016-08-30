@@ -117,6 +117,22 @@ class HipsLegsFeetTableViewController: UIViewController, UITableViewDataSource, 
       if(indexPath.section == 1)
       {
         cell.titleLabel.text = hipsLegsFeet[indexPath.row] as? String
+        
+        if(hipsData[cell.titleLabel.text!]!["previously"]! == "Yes"){
+          cell.circleButton.backgroundColor = myColor
+        }
+        else{
+          cell.circleButton.backgroundColor = UIColor.whiteColor()
+        }
+        
+        if(hipsData[cell.titleLabel.text!]!["presently"]! == "Yes"){
+          cell.squareButton.backgroundColor = myColor
+        }
+        else{
+          cell.squareButton.backgroundColor = UIColor.whiteColor()
+        }
+
+        
       }
         return cell
     }

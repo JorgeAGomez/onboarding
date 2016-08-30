@@ -22,6 +22,7 @@ class ImmuneSystemViewController: UIViewController {
   var motorVehicleInjuryInformation = NSMutableDictionary()
   var healthCoverageInformation = NSMutableDictionary()
   var conditionsInformation = NSMutableDictionary()
+  var noNo = true
   
   @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "Cell"
@@ -34,12 +35,21 @@ class ImmuneSystemViewController: UIViewController {
       self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
       
       immuneSystemInfection = ["HIV (AIDS)","Pneumonia","Allergies / sinus troubles","Catch colds / flue easily","Rheumatoid Arthritis","Venereal Disease","Tuberculosis","Rheumatic Fever"]
-      for i in immuneSystemInfection
-      {
-        immuneDic = ["previously":"No","presently":"No"]
-        immuneData.updateValue(immuneDic, forKey: i as! String)
+      for i in immuneData{
+        if(i.1["previously"] == "Yes" || i.1["presently"] == "Yes"){
+          noNo = false
+        }
+        else{
+          immuneData.updateValue(["previously":"No","presently":"No"], forKey: i.0)
+        }
       }
-
+      if(noNo){
+        for i in immuneSystemInfection
+        {
+          immuneDic = ["previously":"No","presently":"No"]
+          immuneData.updateValue(immuneDic, forKey: i as! String)
+        }
+      }
     }
   
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -105,6 +115,22 @@ class ImmuneSystemViewController: UIViewController {
       cell.titleLabel.text = immuneSystemInfection[indexPath.row] as? String
       cell.circleButton.layer.borderColor = myColor.CGColor
       cell.squareButton.layer.borderColor = myColor.CGColor
+      
+      
+      if(immuneData[cell.titleLabel.text!]!["previously"]! == "Yes"){
+        cell.circleButton.backgroundColor = myColor
+      }
+      else{
+        cell.circleButton.backgroundColor = UIColor.whiteColor()
+      }
+      
+      if(immuneData[cell.titleLabel.text!]!["presently"]! == "Yes"){
+        cell.squareButton.backgroundColor = myColor
+      }
+      else{
+        cell.squareButton.backgroundColor = UIColor.whiteColor()
+      }
+      
       return cell
     }
   

@@ -159,6 +159,21 @@ class SecondMultipleTableViewController: UIViewController, UITableViewDelegate, 
         cell.titleLabel.text = eyeEarNoseThroat[indexPath.row] as? String
         cell.circleButton.tag = 0
         cell.squareButton.tag = 0
+        
+        if(eyeEarNoseThroatData[cell.titleLabel.text!]!["previously"]! == "Yes"){
+          cell.circleButton.backgroundColor = myColor
+        }
+        else{
+          cell.circleButton.backgroundColor = UIColor.whiteColor()
+        }
+        
+        if(eyeEarNoseThroatData[cell.titleLabel.text!]!["presently"]! == "Yes"){
+          cell.squareButton.backgroundColor = myColor
+        }
+        else{
+          cell.squareButton.backgroundColor = UIColor.whiteColor()
+        }
+
       }
       if(indexPath.section == 2)
       {

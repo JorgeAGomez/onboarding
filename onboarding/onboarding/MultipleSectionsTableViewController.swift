@@ -34,6 +34,10 @@ class MultipleSectionsTableViewController: UIViewController, UITableViewDataSour
   var motorVehicleInjuryInformation = NSMutableDictionary()
   var healthCoverageInformation = NSMutableDictionary()
   var conditionsInformation = NSMutableDictionary()
+  var noNo1 = true
+  var noNo2 = true
+  var noNo3 = true
+  var noNo4 = true
   
   let cellIdentifier = "Cell"
   @IBOutlet weak var tableView: UITableView!
@@ -52,26 +56,56 @@ class MultipleSectionsTableViewController: UIViewController, UITableViewDataSour
       
         multiple = ["Dizziness / Lightheaded","Fainting","Discoordination","Memory Loss","Chronic Cough","Spitting Blood","Difficulty Breathing","Shortness of Breath","Asthma","Spitting up Phlegm","Emphysema","Irritable before Meals","Palpitations if miss meals","Gets shaky if hungry","Awaken from sleep","Vision Problems","Hoarseness","Nose Bleeding","Ear Pain","Dental Problems","Hearing Loss","Store Throat","Ringing in Ear(s)","Blood in Urine","Bladder Infection","Inability to Control Urination"," Kidney Stones","Painful Urination"]
       
-        for i in multiple{
-          multipleDic = ["previously":"No","presently":"No"]
-          multipleData.updateValue(multipleDic, forKey: i as! String)
+      for i in nervousData{
+        if(i.1["previously"] == "Yes" || i.1["presently"] == "Yes"){
+          noNo1 = false
         }
-      
-      
-        for i in nervousSystem{
+        else{
+          nervousData.updateValue(["previously":"No","presently":"No"], forKey: i.0)
+        }
+      }
+      if(noNo1){
+        for i in nervousSystem
+        {
           nervousDic = ["previously":"No","presently":"No"]
           nervousData.updateValue(nervousDic, forKey: i as! String)
         }
+      }
       
-        for i in respiratory{
+      
+      for i in respiratoryData{
+        if(i.1["previously"] == "Yes" || i.1["presently"] == "Yes"){
+          noNo2 = false
+        }
+        else{
+          respiratoryData.updateValue(["previously":"No","presently":"No"], forKey: i.0)
+        }
+      }
+      if(noNo2){
+        for i in respiratory
+        {
           respiratoryDic = ["previously":"No","presently":"No"]
           respiratoryData.updateValue(respiratoryDic, forKey: i as! String)
         }
+      }
       
-        for i in bloodSugar{
+      
+      for i in bloodSugarData{
+        if(i.1["previously"] == "Yes" || i.1["presently"] == "Yes"){
+          noNo3 = false
+        }
+        else{
+          bloodSugarData.updateValue(["previously":"No","presently":"No"], forKey: i.0)
+        }
+      }
+      if(noNo3){
+        for i in bloodSugar
+        {
           bloodSugarDic = ["previously":"No","presently":"No"]
           bloodSugarData.updateValue(bloodSugarDic, forKey: i as! String)
         }
+      }
+
 
     }
   
@@ -216,18 +250,65 @@ class MultipleSectionsTableViewController: UIViewController, UITableViewDataSour
         cell.titleLabel.text = nervousSystem[indexPath.row] as? String
         cell.circleButton.tag = 0
         cell.squareButton.tag = 0
+        
+        if(nervousData[cell.titleLabel.text!]!["previously"]! == "Yes"){
+          cell.circleButton.backgroundColor = myColor
+        }
+        else{
+          cell.circleButton.backgroundColor = UIColor.whiteColor()
+        }
+        
+        if(nervousData[cell.titleLabel.text!]!["presently"]! == "Yes"){
+          cell.squareButton.backgroundColor = myColor
+        }
+        else{
+          cell.squareButton.backgroundColor = UIColor.whiteColor()
+        }
+
       }
       if(indexPath.section == 2)
       {
         cell.titleLabel.text = respiratory[indexPath.row] as? String
         cell.circleButton.tag = 1
         cell.squareButton.tag = 1
+              
+        if(respiratoryData[cell.titleLabel.text!]!["previously"]! == "Yes"){
+          cell.circleButton.backgroundColor = myColor
+        }
+        else{
+          cell.circleButton.backgroundColor = UIColor.whiteColor()
+        }
+        
+        if(respiratoryData[cell.titleLabel.text!]!["presently"]! == "Yes"){
+          cell.squareButton.backgroundColor = myColor
+        }
+        else{
+          cell.squareButton.backgroundColor = UIColor.whiteColor()
+        }
+
+        
       }
       if(indexPath.section == 3)
       {
         cell.titleLabel.text = bloodSugar[indexPath.row] as? String
         cell.circleButton.tag = 2
         cell.squareButton.tag = 2
+        
+        if(bloodSugarData[cell.titleLabel.text!]!["previously"]! == "Yes"){
+          cell.circleButton.backgroundColor = myColor
+        }
+        else{
+          cell.circleButton.backgroundColor = UIColor.whiteColor()
+        }
+        
+        if(bloodSugarData[cell.titleLabel.text!]!["presently"]! == "Yes"){
+          cell.squareButton.backgroundColor = myColor
+        }
+        else{
+          cell.squareButton.backgroundColor = UIColor.whiteColor()
+        }
+        
+        
       }
 
       return cell

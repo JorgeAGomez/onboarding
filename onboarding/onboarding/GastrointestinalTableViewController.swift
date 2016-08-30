@@ -21,6 +21,8 @@ class GastrointestinalTableViewController: UIViewController, UITableViewDataSour
   var motorVehicleInjuryInformation = NSMutableDictionary()
   var healthCoverageInformation = NSMutableDictionary()
   var conditionsInformation = NSMutableDictionary()
+  var noNo = true
+  
   
   @IBOutlet weak var tableView: UITableView!
   let cellIdentifier = "Cell"
@@ -35,10 +37,21 @@ class GastrointestinalTableViewController: UIViewController, UITableViewDataSour
   
       gastrointestinal = ["Gall Bladder Problem","Colitis","Blood in Stool","Constipation","Burning in Stomach","Heartburn","Excessive Thirst","Vomiting","Recent Weight Gain","Liver Trouble / Hepatitis","Mucus in Stool","Diarrhea","Pain over Stomach","Burping / Bloating","Distress from Greasy food","Nausea","Hiatal Hernia","Metallic taste","Recent Weight Loss"]
       
-      for i in gastrointestinal
-      {
-        gastroDic = ["previously":"No","presently":"No"]
-        gastroData.updateValue(gastroDic, forKey: i as! String)
+      
+      for i in gastroData{
+        if(i.1["previously"] == "Yes" || i.1["presently"] == "Yes"){
+          noNo = false
+        }
+        else{
+          gastroData.updateValue(["previously":"No","presently":"No"], forKey: i.0)
+        }
+      }
+      if(noNo){
+        for i in gastrointestinal
+        {
+          gastroDic = ["previously":"No","presently":"No"]
+          gastroData.updateValue(gastroDic, forKey: i as! String)
+        }
       }
     }
   
@@ -102,6 +115,22 @@ class GastrointestinalTableViewController: UIViewController, UITableViewDataSour
       cell.titleLabel.text = gastrointestinal[indexPath.row] as? String
       cell.circleButton.layer.borderColor = myColor.CGColor
       cell.squareButton.layer.borderColor = myColor.CGColor
+      
+            
+      if(gastroData[cell.titleLabel.text!]!["previously"]! == "Yes"){
+        cell.circleButton.backgroundColor = myColor
+      }
+      else{
+        cell.circleButton.backgroundColor = UIColor.whiteColor()
+      }
+      
+      if(gastroData[cell.titleLabel.text!]!["presently"]! == "Yes"){
+        cell.squareButton.backgroundColor = myColor
+      }
+      else{
+        cell.squareButton.backgroundColor = UIColor.whiteColor()
+      }
+      
       return cell
     }
   

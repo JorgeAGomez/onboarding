@@ -24,7 +24,7 @@ class CardiovascularTableViewController: UIViewController, UITableViewDelegate, 
     @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "Cell"
     let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
-
+    var noNo = true
   
     override func viewDidLoad()
     {
@@ -35,11 +35,23 @@ class CardiovascularTableViewController: UIViewController, UITableViewDelegate, 
       
       cardiovascular = ["Irregular Heartbeat","Stroke / Heart attack","Low Blood Pressure","High Blood Pressure","Palpitations","Swelling Ankles","Pain / Pressure in Chest","Shortness of Breath"]
       
-      for i in cardiovascular
-      {
-        cardioDic = ["previously":"No","presently":"No"]
-        cardioData.updateValue(cardioDic, forKey: i as! String)
+      
+      for i in cardioData{
+        if(i.1["previously"] == "Yes" || i.1["presently"] == "Yes"){
+          noNo = false
+        }
+        else{
+          cardioData.updateValue(["previously":"No","presently":"No"], forKey: i.0)
+        }
       }
+      if(noNo){
+        for i in cardiovascular
+        {
+          cardioDic = ["previously":"No","presently":"No"]
+          cardioData.updateValue(cardioDic, forKey: i as! String)
+        }
+      }
+    
     }
   
     override func viewWillAppear(animated: Bool) {
@@ -98,6 +110,22 @@ class CardiovascularTableViewController: UIViewController, UITableViewDelegate, 
       cell.titleLabel.text = cardiovascular[indexPath.row] as? String
       cell.circleButton.layer.borderColor = myColor.CGColor
       cell.squareButton.layer.borderColor = myColor.CGColor
+      
+            
+      if(cardioData[cell.titleLabel.text!]!["previously"]! == "Yes"){
+        cell.circleButton.backgroundColor = myColor
+      }
+      else{
+        cell.circleButton.backgroundColor = UIColor.whiteColor()
+      }
+      
+      if(cardioData[cell.titleLabel.text!]!["presently"]! == "Yes"){
+        cell.squareButton.backgroundColor = myColor
+      }
+      else{
+        cell.squareButton.backgroundColor = UIColor.whiteColor()
+      }
+
 
       return cell
     }
