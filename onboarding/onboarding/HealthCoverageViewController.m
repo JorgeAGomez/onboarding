@@ -70,7 +70,7 @@
     [healthCoverageSection addFormRow:healthCoverageRow];
   
   
-    healthCoverageRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Insurance Company" rowType:XLFormRowDescriptorTypeName title:@"Insurance Company:"];
+    healthCoverageRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Insurance Company" rowType:XLFormRowDescriptorTypeName title:@"* Insurance Company:"];
     healthCoverageRow.required = YES;
     [healthCoverageRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     _insuranceCompany = healthCoverageRow;

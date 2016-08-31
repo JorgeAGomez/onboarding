@@ -36,18 +36,13 @@ class GeneralTableViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad()
     {
       super.viewDidLoad()
-//      for i in dic1{
-//        if(i.1["previously"] == "Yes" || i.1["presently"] == "Yes"){
-//          noNo = false
-//        }
-//      }
       
       self.navigationItem.hidesBackButton = true
       self.navigationItem.title = "General"
       self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
       var navBarSize = self.navigationController!.navigationBar.bounds.size
       
-     // if(noNo){
+     
         origin = CGPointMake(navBarSize.width / 2, navBarSize.height / 2)
         pageControl = UIPageControl(frame: CGRectMake(origin.x, origin.y+15, 0, 0))
         //Or whatever number of viewcontrollers you have
@@ -55,7 +50,6 @@ class GeneralTableViewController: UIViewController, UITableViewDelegate, UITable
         pageControl.pageIndicatorTintColor = UIColor.blackColor()
         pageControl.currentPageIndicatorTintColor = myColor
         self.navigationController!.navigationBar.addSubview(pageControl)
-    //  }
       general = ["Diabetes","Hypoglycemia","Stress / Depression","Epilepsy / Seizures", "Skin conditions / Rashes","Alcoholism","High Cholesterol","Parkinson's disease","Heart disease","Cancer","Osteoarthritis","Ulcers","Anemia / Fatigue", "Multiple Sclerosis","Thyroid","Osteoporosis"]
 
       for i in general

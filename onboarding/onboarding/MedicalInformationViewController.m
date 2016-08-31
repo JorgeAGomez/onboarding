@@ -59,7 +59,7 @@
     [medicalInfoForm addFormSection:medicallInfoSection];
   
     //Emergency contact
-    medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Emergency Contact" rowType:XLFormRowDescriptorTypeName title:@"Emergency Contact Name:"];
+    medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Emergency Contact" rowType:XLFormRowDescriptorTypeName title:@"* Emergency Contact Name:"];
     [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     medicalInfoRow.required = YES;
     [medicallInfoSection addFormRow:medicalInfoRow];
@@ -68,7 +68,7 @@
     SHSPhoneNumberFormatter *formatter = [[SHSPhoneNumberFormatter alloc] init];
     [formatter setDefaultOutputPattern:@"(###) ###-####" imagePath:nil];
     medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Contact Phone" rowType:
-    XLFormRowDescriptorTypePhone title:@"Emergency Contact Phone #:"];
+    XLFormRowDescriptorTypePhone title:@"* Emergency Contact Phone #:"];
     medicalInfoRow.valueFormatter = formatter;
     [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     medicalInfoRow.useValueFormatterDuringInput = YES;

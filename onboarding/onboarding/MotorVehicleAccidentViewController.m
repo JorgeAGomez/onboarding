@@ -78,7 +78,7 @@
     [carAccidentSection addFormRow:carAccidentRow];
   
   
-    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Insurence" rowType:XLFormRowDescriptorTypeName title:@"Insurance Company:"];
+    carAccidentRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Insurence" rowType:XLFormRowDescriptorTypeName title:@"* Insurance Company:"];
     [carAccidentRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     carAccidentRow.required = YES;
     _insurance = carAccidentRow;

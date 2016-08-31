@@ -72,7 +72,7 @@
     [workInjurySection addFormRow:workInjuryRow];
   
     //Date of Injury
-    workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Date of Injury" rowType:XLFormRowDescriptorTypeDateInline title:@"Date of Injury:"];
+    workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Date of Injury" rowType:XLFormRowDescriptorTypeDateInline title:@"* Date of Injury:"];
     //workInjuryRow.value = [NSDate date];
     workInjuryRow.required = YES;
     _dateOfInjury = workInjuryRow;
@@ -83,7 +83,7 @@
     _WCBClaim = workInjuryRow;
   
     //Employer
-    workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Employer" rowType:XLFormRowDescriptorTypeName title:@"Employer:"];
+    workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Employer" rowType:XLFormRowDescriptorTypeName title:@"* Employer:"];
     [workInjuryRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     workInjuryRow.required = YES;
     _Employer = workInjuryRow;
