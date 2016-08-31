@@ -24,6 +24,9 @@ class SecondMultipleTableViewController: UIViewController, UITableViewDelegate, 
     var motorVehicleInjuryInformation = NSMutableDictionary()
     var healthCoverageInformation = NSMutableDictionary()
     var conditionsInformation = NSMutableDictionary()
+    var noNo1 = true
+    var noNo2 = true
+  
 
     let cellIdentifier = "Cell"
     let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
@@ -39,15 +42,38 @@ class SecondMultipleTableViewController: UIViewController, UITableViewDelegate, 
         eyeEarNoseThroat = ["Vision Problems","Hoarseness","Nose Bleeding","Ear Pain","Dental Problems","Hearing Loss","Store Throat","Ringing in Ear(s)"]
         urinaryTract = ["Blood in Urine","Bladder Infection","Inability to Control Urination"," Kidney Stones","Painful Urination"]
       
-        for i in eyeEarNoseThroat{
-          eyeEarNoseThroatDic = ["previously":"No","presently":"No","Selected":"No"]
+      for i in eyeEarNoseThroatData{
+        if(i.1["previously"] == "Yes" || i.1["presently"] == "Yes"){
+          noNo1 = false
+        }
+        else{
+          eyeEarNoseThroatData.updateValue(["previously":"No","presently":"No"], forKey: i.0)
+        }
+      }
+      if(noNo1){
+        for i in eyeEarNoseThroat
+        {
+          eyeEarNoseThroatDic = ["previously":"No","presently":"No"]
           eyeEarNoseThroatData.updateValue(eyeEarNoseThroatDic, forKey: i as! String)
         }
+      }
       
-        for i in urinaryTract{
-          urinaryTractDic = ["previously":"No","presently":"No","Selected":"No"]
+      for i in urinaryTractData{
+        if(i.1["previously"] == "Yes" || i.1["presently"] == "Yes"){
+          noNo2 = false
+        }
+        else{
+          urinaryTractData.updateValue(["previously":"No","presently":"No"], forKey: i.0)
+        }
+      }
+      if(noNo2){
+        for i in urinaryTract
+        {
+          urinaryTractDic = ["previously":"No","presently":"No"]
           urinaryTractData.updateValue(urinaryTractDic, forKey: i as! String)
         }
+      }
+    
     }
   
     func nextTapped(){
@@ -180,6 +206,21 @@ class SecondMultipleTableViewController: UIViewController, UITableViewDelegate, 
         cell.titleLabel.text = urinaryTract[indexPath.row] as? String
         cell.circleButton.tag = 1
         cell.squareButton.tag = 1
+        
+        if(urinaryTractData[cell.titleLabel.text!]!["previously"]! == "Yes"){
+          cell.circleButton.backgroundColor = myColor
+        }
+        else{
+          cell.circleButton.backgroundColor = UIColor.whiteColor()
+        }
+        
+        if(urinaryTractData[cell.titleLabel.text!]!["presently"]! == "Yes"){
+          cell.squareButton.backgroundColor = myColor
+        }
+        else{
+          cell.squareButton.backgroundColor = UIColor.whiteColor()
+        }
+        
       }
       
       return cell

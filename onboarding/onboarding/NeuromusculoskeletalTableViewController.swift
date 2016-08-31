@@ -33,6 +33,9 @@ class NeuromusculoskeletalTableViewController: UIViewController, UITableViewData
     var motorVehicleInjuryInformation = NSMutableDictionary()
     var healthCoverageInformation = NSMutableDictionary()
     var conditionsInformation = NSMutableDictionary()
+    var noNo1 = true
+    var noNo2 = true
+    var noNo3 = true
   
     @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "Cell"
@@ -51,30 +54,57 @@ class NeuromusculoskeletalTableViewController: UIViewController, UITableViewData
       
         neuro = ["Headaches","Neck Pain / stiffness","Pinched nerve","Jaw Pain / TMJ","Arthritis in neck","Shoulder pain","Can't raise arm"," arthritis","Bursitis","Clicking / popping","Mid back Pain","Pain between shoulders","Muscle spasms","Sharp stabbing pain","Low Back Pain","Low Back stiffness","Tailbone pain","Muscle Spasms","Pinched nerve","Pain in elbow / arm","Pain in forearm","Pain in hands / fingers","Arthritis / swollen hands","Cold hands","Carpal Tunnel","Tingling in hands","Loss of grip strength","Pain in buttock","Pain in hip / knee joint","Cold feet","Tingling in feet","Arthritis","Sprain / strain","Pain down leg(s)","Tingling in leg(s)","Swollen ankle / feet","Pain in ankle / feet","Loss of leg strength","Muscles cramps"]
 
-        for i in neuro
-        {
-          neuroDic = ["previously":"No","presently":"No"]
-          neuroData.updateValue(neuroDic, forKey: i as! String)
+      //HEADNECK
+      for i in headNeckData{
+        if(i.1["previously"] == "Yes" || i.1["presently"] == "Yes"){
+          noNo1 = false
         }
-
+        else{
+          headNeckData.updateValue(["previously":"No","presently":"No"], forKey: i.0)
+        }
+      }
+      if(noNo1){
         for i in headNeck
         {
           headNeckDic = ["previously":"No","presently":"No"]
           headNeckData.updateValue(headNeckDic, forKey: i as! String)
         }
-
+      }
+      
+      //SHOULDER
+      for i in shoulderData{
+        if(i.1["previously"] == "Yes" || i.1["presently"] == "Yes"){
+          noNo2 = false
+        }
+        else{
+          shoulderData.updateValue(["previously":"No","presently":"No"], forKey: i.0)
+        }
+      }
+      if(noNo2){
         for i in shoulder
         {
           shoulderDic = ["previously":"No","presently":"No"]
           shoulderData.updateValue(shoulderDic, forKey: i as! String)
         }
+      }
       
+      //MIDBACK
+      for i in midData{
+        if(i.1["previously"] == "Yes" || i.1["presently"] == "Yes"){
+          noNo3 = false
+        }
+        else{
+          midData.updateValue(["previously":"No","presently":"No"], forKey: i.0)
+        }
+      }
+      if(noNo3){
         for i in midback
         {
           midDic = ["previously":"No","presently":"No"]
           midData.updateValue(midDic, forKey: i as! String)
         }
-
+      }
+      
     }
   
     func nextTapped(){

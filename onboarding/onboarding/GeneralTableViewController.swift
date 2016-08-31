@@ -27,7 +27,7 @@ class GeneralTableViewController: UIViewController, UITableViewDelegate, UITable
   var motorVehicleInjuryInformation = NSMutableDictionary()
   var healthCoverageInformation = NSMutableDictionary()
   var conditionsInformation = NSMutableDictionary()
-  
+  //var noNo = true
   
     let cellIdentifier = "Cell"
     let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
@@ -36,19 +36,26 @@ class GeneralTableViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad()
     {
       super.viewDidLoad()
+//      for i in dic1{
+//        if(i.1["previously"] == "Yes" || i.1["presently"] == "Yes"){
+//          noNo = false
+//        }
+//      }
       
       self.navigationItem.hidesBackButton = true
       self.navigationItem.title = "General"
       self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
       var navBarSize = self.navigationController!.navigationBar.bounds.size
-      origin = CGPointMake(navBarSize.width / 2, navBarSize.height / 2)
-      pageControl = UIPageControl(frame: CGRectMake(origin.x, origin.y+15, 0, 0))
-      //Or whatever number of viewcontrollers you have
-      pageControl.numberOfPages = 9
-      pageControl.pageIndicatorTintColor = UIColor.blackColor()
-      pageControl.currentPageIndicatorTintColor = myColor
-      self.navigationController!.navigationBar.addSubview(pageControl)
-
+      
+     // if(noNo){
+        origin = CGPointMake(navBarSize.width / 2, navBarSize.height / 2)
+        pageControl = UIPageControl(frame: CGRectMake(origin.x, origin.y+15, 0, 0))
+        //Or whatever number of viewcontrollers you have
+        pageControl.numberOfPages = 9
+        pageControl.pageIndicatorTintColor = UIColor.blackColor()
+        pageControl.currentPageIndicatorTintColor = myColor
+        self.navigationController!.navigationBar.addSubview(pageControl)
+    //  }
       general = ["Diabetes","Hypoglycemia","Stress / Depression","Epilepsy / Seizures", "Skin conditions / Rashes","Alcoholism","High Cholesterol","Parkinson's disease","Heart disease","Cancer","Osteoarthritis","Ulcers","Anemia / Fatigue", "Multiple Sclerosis","Thyroid","Osteoporosis"]
 
       for i in general
@@ -57,6 +64,8 @@ class GeneralTableViewController: UIViewController, UITableViewDelegate, UITable
         dic1.updateValue(generalDic, forKey: i as! String)
       }
     }
+  
+  
   
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       var controller = ImmuneSystemViewController()

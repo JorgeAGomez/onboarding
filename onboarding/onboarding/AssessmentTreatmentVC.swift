@@ -23,7 +23,7 @@ class AssessmentTreatmentVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
-        self.navigationItem.hidesBackButton = true
+        //self.navigationItem.hidesBackButton = true
         pageControl.hidden = true
         self.navigationItem.title = "Consent to Assessment and Treatment"
         let firstName = personalInformation["First name"] as! String

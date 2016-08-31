@@ -20,7 +20,8 @@ class HipsLegsFeetTableViewController: UIViewController, UITableViewDataSource, 
   var motorVehicleInjuryInformation = NSMutableDictionary()
   var healthCoverageInformation = NSMutableDictionary()
   var conditionsInformation = NSMutableDictionary()
-
+  var noNo = true
+  
   @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "Cell"
     let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
@@ -33,10 +34,20 @@ class HipsLegsFeetTableViewController: UIViewController, UITableViewDataSource, 
       
         hipsLegsFeet = ["Pain in buttock","Pain in hip / knee joint","Cold feet","Tingling in feet","Arthritis","Sprain / strain","Pain down leg(s)","Tingling in leg(s)","Swollen ankle / feet","Pain in ankle / feet","Loss of leg strength","Muscles cramps"]
               
-        for i in hipsLegsFeet
-        {
-          hipsDic = ["previously":"No","presently":"No"]
-          hipsData.updateValue(hipsDic, forKey: i as! String)
+        for i in hipsData{
+          if(i.1["previously"] == "Yes" || i.1["presently"] == "Yes"){
+            noNo = false
+          }
+          else{
+            hipsData.updateValue(["previously":"No","presently":"No"], forKey: i.0)
+          }
+        }
+        if(noNo){
+          for i in hipsLegsFeet
+          {
+            hipsDic = ["previously":"No","presently":"No"]
+            hipsData.updateValue(hipsDic, forKey: i as! String)
+          }
         }
     }
 

@@ -37,7 +37,6 @@ class MultipleSectionsTableViewController: UIViewController, UITableViewDataSour
   var noNo1 = true
   var noNo2 = true
   var noNo3 = true
-  var noNo4 = true
   
   let cellIdentifier = "Cell"
   @IBOutlet weak var tableView: UITableView!

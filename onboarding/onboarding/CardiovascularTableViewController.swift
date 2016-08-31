@@ -81,10 +81,10 @@ class CardiovascularTableViewController: UIViewController, UITableViewDelegate, 
           cardioData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
         }
         else{
-          cardioData[cell.titleLabel.text!]!.updateValue("No", forKey: "presently")
+          cardioData[cell.titleLabel.text!]!.updateValue("No", forKey: "previously")
         }
         if(cell.squareButton.backgroundColor == myColor){
-          cardioData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "previously")
+          cardioData[cell.titleLabel.text!]!.updateValue("Yes", forKey: "presently")
         }
         else{
           cardioData[cell.titleLabel.text!]!.updateValue("No", forKey: "presently")

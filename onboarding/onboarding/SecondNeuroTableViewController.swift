@@ -25,6 +25,9 @@ class SecondNeuroTableViewController: UIViewController, UITableViewDelegate, UIT
   var motorVehicleInjuryInformation = NSMutableDictionary()
   var healthCoverageInformation = NSMutableDictionary()
   var conditionsInformation = NSMutableDictionary()
+  var noNo1 = true
+  var noNo2 = true
+  
   @IBOutlet weak var tableView: UITableView!
     let cellIdentifier = "Cell"
     let myColor : UIColor = UIColor( red: 0, green: 122/255, blue:255/255, alpha: 1.0)
@@ -36,17 +39,39 @@ class SecondNeuroTableViewController: UIViewController, UITableViewDelegate, UIT
         lowback = ["Low Back Pain","Low Back stiffness","Tailbone pain","Muscle Spasms","Pinched nerve"]
         armshands = ["Pain in elbow / arm","Pain in forearm","Pain in hands / fingers","Arthritis / swollen hands","Cold hands","Carpal Tunnel","Tingling in hands","Loss of grip strength"]
       
+        //LOWBACK
+        for i in lowData{
+        if(i.1["previously"] == "Yes" || i.1["presently"] == "Yes"){
+          noNo1 = false
+        }
+        else{
+          lowData.updateValue(["previously":"No","presently":"No"], forKey: i.0)
+        }
+      }
+      if(noNo1){
         for i in lowback
         {
           lowDic = ["previously":"No","presently":"No"]
           lowData.updateValue(lowDic, forKey: i as! String)
         }
+      }
       
+      //ARMSHANDS
+      for i in armsData{
+        if(i.1["previously"] == "Yes" || i.1["presently"] == "Yes"){
+          noNo2 = false
+        }
+        else{
+          armsData.updateValue(["previously":"No","presently":"No"], forKey: i.0)
+        }
+      }
+      if(noNo2){
         for i in armshands
         {
           armsDic = ["previously":"No","presently":"No"]
           armsData.updateValue(armsDic, forKey: i as! String)
         }
+      }
 
     }
   
