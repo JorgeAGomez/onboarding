@@ -26,6 +26,13 @@
   self.tableView.contentInset = UIEdgeInsetsMake(44,0,0,0);
 }
 
+//-(void) viewWillDisappear:(BOOL)animated{
+//  [super viewWillDisappear:animated];
+//  if(self.isMovingToParentViewController){
+//    
+//  }
+//}
+
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
     self = [super initWithCoder:coder];
@@ -87,7 +94,7 @@
     //Province
     personalInformationRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Province" rowType:XLFormRowDescriptorTypeSelectorPush title:@"* Province:"];
     personalInformationRow.value = [XLFormOptionsObject formOptionsObjectWithValue:@(0) displayText:@"Alberta"];
-    //[personalInformationRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
+  
 
     personalInformationRow.selectorTitle = @"Province";
     personalInformationRow.selectorOptions =
@@ -164,10 +171,11 @@
   NSMutableDictionary * result = [NSMutableDictionary dictionary];
   for (XLFormSectionDescriptor * section in self.form.formSections) {
      if (!section.isMultivaluedSection){
-         for (XLFormRowDescriptor * row in section.formRows) {
+         for (XLFormRowDescriptor * row in section.formRows){
              if (row.tag && ![row.tag isEqualToString:@""]){
                  [result setObject:(row.value ?: [NSNull null]) forKey:row.tag];
              }
+             NSLog(@"%@",row.tag);
          }
      }
      else{

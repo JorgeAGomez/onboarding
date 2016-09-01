@@ -15,6 +15,10 @@
 
 @end
 
+BOOL wentBack4 = false;
+NSString *newSegmented;
+NSMutableDictionary *theNewTextFieldValues;
+
 @implementation HealthCoverageViewController
 
 #ifndef USE_PREDICATES_FOR_HIDING
@@ -25,12 +29,30 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   self.tableView.contentInset = UIEdgeInsetsMake(44,0,0,0);
+  theNewTextFieldValues = [[NSMutableDictionary alloc]init];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)viewWillDisappear:(BOOL)animated{
+  [super viewWillDisappear:animated];
+  theNewTextFieldValues = [[NSMutableDictionary alloc]init];
+  if(self.isMovingFromParentViewController){
+     for(id key in [self formValues]){
+       if(![[[self formValues] objectForKey:key] isEqual:[NSNull null]]){
+          if([[[self formValues] objectForKey:@"Extended Health Coverage"] isEqual:@"No"]){
+            wentBack4 = false;
+          }
+          else{
+            wentBack4 = true;
+          }
+          [theNewTextFieldValues setObject:[[self formValues] objectForKey:key] forKey:key];
+       }
+     }
+     if(wentBack4){
+      [[NSUserDefaults standardUserDefaults] setObject:theNewTextFieldValues forKey:@"extendedHealthCoverage"];
+     }
+  }
 }
+
 
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
@@ -56,6 +78,8 @@
     XLFormSectionDescriptor *healthCoverageSection;
     XLFormRowDescriptor *healthCoverageRow;
   
+    theNewTextFieldValues = [[[NSUserDefaults standardUserDefaults] objectForKey:@"extendedHealthCoverage"] mutableCopy];
+  
     healthCoverageForm.assignFirstResponderOnShow = YES;
   
     healthCoverageForm = [XLFormDescriptor formDescriptorWithTitle:@"Extended Health Coverage"];
@@ -66,18 +90,36 @@
     //Figure out if patient has health coverage
     healthCoverageRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Extended Health Coverage" rowType:XLFormRowDescriptorTypeSelectorSegmentedControl title:@"Do you have extended health coverage?"];
     healthCoverageRow.selectorOptions = @[@"Yes", @"No"];
-    healthCoverageRow.value = @"No";
+   if(wentBack4){
+      newSegmented = [theNewTextFieldValues objectForKey:@"extendedHealthCoverage"];
+      if([newSegmented isEqual:@"Yes"]){
+        newSegmented = @"Yes";
+      }
+      else{
+        newSegmented = @"No";
+      }
+    }
+    else{
+      newSegmented = @"No";
+    }
+
+    healthCoverageRow.value = newSegmented;
     [healthCoverageSection addFormRow:healthCoverageRow];
   
   
     healthCoverageRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Insurance Company" rowType:XLFormRowDescriptorTypeName title:@"* Insurance Company:"];
     healthCoverageRow.required = YES;
     [healthCoverageRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
+    if(wentBack4){
+      NSString *insuranceName = [theNewTextFieldValues objectForKey:@"Insurance Company"];
+      if([insuranceName isEqual:[NSNull null]]){
+        insuranceName = @"";
+      }
+      healthCoverageRow.value = insuranceName;
+      [healthCoverageSection addFormRow:healthCoverageRow];
+    }
     _insuranceCompany = healthCoverageRow;
-  
-  
     self.form = healthCoverageForm;
-  
 }
 
 -(void)formRowDescriptorValueHasChanged:(XLFormRowDescriptor *)rowDescriptor oldValue:(id)oldValue newValue:(id)newValue

@@ -13,5 +13,6 @@
 - (IBAction)nextButton:(id)sender;
 @property (strong,nonatomic) NSMutableDictionary *personalInformation;
 @property (strong, nonatomic) NSMutableDictionary *medicalInformation;
+@property (strong,nonatomic) NSMutableDictionary *checkPreviousValues;
 
 @end

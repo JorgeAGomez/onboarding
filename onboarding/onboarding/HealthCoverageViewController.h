@@ -20,6 +20,8 @@
 @property (strong,nonatomic) NSMutableDictionary *motorVehicleInjuryInformation;
 @property (strong, nonatomic) NSMutableDictionary *healthCoverageInformation;
 
+@property (strong, nonatomic) NSMutableDictionary *otherValuesTextField;
+
 - (IBAction)nextButton:(id)sender;
 
 

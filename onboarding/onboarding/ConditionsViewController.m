@@ -72,6 +72,7 @@ XLFormRowDescriptor *medicationNewCell;
   
     conditionsRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Neck Pain / stiffness" rowType:XLFormRowDescriptorTypeBooleanCheck];
     conditionsRow.title = @"Neck Pain / stiffness";
+    conditionsRow.value = @"Yes";
     [conditionsSection addFormRow:conditionsRow];
   
         conditionsRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Arthritis in neck" rowType:XLFormRowDescriptorTypeBooleanCheck];

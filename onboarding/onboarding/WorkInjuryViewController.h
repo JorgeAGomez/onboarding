@@ -17,5 +17,6 @@
 @property (strong,nonatomic) NSMutableDictionary *personalInformation;
 @property (strong, nonatomic) NSMutableDictionary *medicalInformation;
 @property (strong,nonatomic) NSMutableDictionary *workInjuryInformation;
+@property (strong, nonatomic) NSMutableDictionary *saveTextFieldValues;
 
 @end

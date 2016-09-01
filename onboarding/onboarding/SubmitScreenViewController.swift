@@ -39,7 +39,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
   
   @IBAction func submitButton(sender: AnyObject) {
   
-          //PERSONAL INFORMATION
+      //PERSONAL INFORMATION
       let personalKeys = NSMutableArray()
       for i in personalInformation{
         if(i.value.isEqual(NSNull())){

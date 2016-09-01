@@ -49,6 +49,7 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6jR-D3-dRx">
                                 <rect key="frame" x="249" y="431" width="102" height="49"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="VhG-rz-9uJ"/>
                                     <constraint firstAttribute="width" constant="102" id="uKr-V7-ppA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -356,10 +357,10 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9y-M9-Icr">
-                                <rect key="frame" x="276" y="456" width="55" height="35"/>
+                                <rect key="frame" x="249" y="456" width="102" height="49"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="55" id="0os-eT-UQd"/>
-                                    <constraint firstAttribute="height" constant="35" id="n1O-g4-Xvt"/>
+                                    <constraint firstAttribute="width" constant="102" id="0os-eT-UQd"/>
+                                    <constraint firstAttribute="height" constant="49" id="n1O-g4-Xvt"/>
                                 </constraints>
                                 <state key="normal" title="Submit"/>
                                 <userDefinedRuntimeAttributes>
@@ -379,12 +380,12 @@
                         <constraints>
                             <constraint firstItem="7Kb-Q0-ld9" firstAttribute="centerX" secondItem="Tee-71-MPd" secondAttribute="centerX" id="1SN-MC-9iw"/>
                             <constraint firstItem="g9y-M9-Icr" firstAttribute="top" secondItem="uvQ-GZ-d2b" secondAttribute="bottom" constant="300" id="Jw3-Ey-ziX"/>
-                            <constraint firstItem="Tee-71-MPd" firstAttribute="centerX" secondItem="g9y-M9-Icr" secondAttribute="centerX" constant="-3" id="L0g-86-D39"/>
-                            <constraint firstItem="Tee-71-MPd" firstAttribute="top" secondItem="g9y-M9-Icr" secondAttribute="bottom" constant="150" id="LZX-RE-LW6"/>
+                            <constraint firstItem="Tee-71-MPd" firstAttribute="centerX" secondItem="g9y-M9-Icr" secondAttribute="centerX" constant="0.5" id="L0g-86-D39"/>
+                            <constraint firstItem="Tee-71-MPd" firstAttribute="top" secondItem="g9y-M9-Icr" secondAttribute="bottom" constant="136" id="LZX-RE-LW6"/>
                             <constraint firstItem="7Kb-Q0-ld9" firstAttribute="top" secondItem="Tee-71-MPd" secondAttribute="bottom" constant="47" id="MVr-iQ-dwF"/>
                             <constraint firstItem="uvQ-GZ-d2b" firstAttribute="leading" secondItem="PPS-Sk-K9a" secondAttribute="leadingMargin" constant="119" id="TAk-qF-XZL"/>
                             <constraint firstItem="uvQ-GZ-d2b" firstAttribute="top" secondItem="4YG-r8-meF" secondAttribute="bottom" constant="56" id="bw1-fH-nSl"/>
-                            <constraint firstItem="g9y-M9-Icr" firstAttribute="centerX" secondItem="uvQ-GZ-d2b" secondAttribute="centerX" constant="3" id="kBw-mr-TIr"/>
+                            <constraint firstItem="g9y-M9-Icr" firstAttribute="centerX" secondItem="uvQ-GZ-d2b" secondAttribute="centerX" constant="-0.5" id="kBw-mr-TIr"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uvQ-GZ-d2b" secondAttribute="trailing" constant="118" id="kJ6-ZX-Ecp"/>
                         </constraints>
                     </view>

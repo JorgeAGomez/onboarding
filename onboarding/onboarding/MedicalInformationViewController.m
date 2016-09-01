@@ -17,6 +17,7 @@
 
 @end
 
+BOOL wentBack = false;
 
 @implementation MedicalInformationViewController
 
@@ -26,6 +27,22 @@
 
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+  [super viewWillDisappear:animated];
+  _checkPreviousValues = [[NSMutableDictionary alloc]init];
+  if(self.isMovingFromParentViewController){
+     for(id key in [self formValues]){
+       if(![[[self formValues] objectForKey:key] isEqual:[NSNull null]]){
+          wentBack = true;
+          NSString *value = [[self formValues] objectForKey:key];
+          [_checkPreviousValues setObject:value forKey:key];
+       }
+     }
+     if(wentBack){
+      [[NSUserDefaults standardUserDefaults] setObject:_checkPreviousValues forKey:@"medicalInformation"];
+     }
+  }
+}
 
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
@@ -50,6 +67,7 @@
     XLFormDescriptor *medicalInfoForm;
     XLFormSectionDescriptor *medicallInfoSection;
     XLFormRowDescriptor *medicalInfoRow;
+    NSDictionary *retrieveDictionary = [[NSUserDefaults standardUserDefaults] dictionaryForKey:@"medicalInformation"];
   
     medicalInfoForm.assignFirstResponderOnShow = YES;
   
@@ -62,6 +80,14 @@
     medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Emergency Contact" rowType:XLFormRowDescriptorTypeName title:@"* Emergency Contact Name:"];
     [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     medicalInfoRow.required = YES;
+    if(wentBack){
+      NSString *emergencyContactValue = [retrieveDictionary objectForKey:@"Emergency Contact"];
+      if([emergencyContactValue isEqual:[NSNull null]]){
+        emergencyContactValue = @"";
+      }
+      medicalInfoRow.value = emergencyContactValue;
+    }
+  
     [medicallInfoSection addFormRow:medicalInfoRow];
   
     //Emergency contact Phone No.
@@ -72,13 +98,26 @@
     medicalInfoRow.valueFormatter = formatter;
     [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     medicalInfoRow.useValueFormatterDuringInput = YES;
+    if(wentBack){
+      NSString *contactNumber = [retrieveDictionary objectForKey:@"Contact Phone"];
+      if([contactNumber isEqual:[NSNull null]]){
+      contactNumber = @"";
+      }
+      medicalInfoRow.value = contactNumber;
+    }
     medicalInfoRow.required = YES;
-
     [medicallInfoSection addFormRow:medicalInfoRow];
   
     //Medical Doctor's Name
     medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Medical Doctor's Name" rowType:XLFormRowDescriptorTypeName title:@"Medical Doctor's Name:"];
     [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
+    if(wentBack){
+      NSString *doctorName = [retrieveDictionary objectForKey:@"Medical Doctor's Name"];
+      if([doctorName isEqual:[NSNull null]]){
+        doctorName = @"";
+      }
+      medicalInfoRow.value = doctorName;
+    }
     [medicallInfoSection addFormRow:medicalInfoRow];
   
         //Emergency contact Phone No.
@@ -86,16 +125,56 @@
     medicalInfoRow.valueFormatter = formatter;
     medicalInfoRow.useValueFormatterDuringInput = YES;
     [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
+    if(wentBack){
+      NSString *doctorPhone = [retrieveDictionary objectForKey:@"Doctor Phone"];
+      if([doctorPhone isEqual:[NSNull null]]){
+        doctorPhone = @"";
+      }
+      medicalInfoRow.value = doctorPhone;
+    }
     [medicallInfoSection addFormRow:medicalInfoRow];
   
     //Address
     medicalInfoRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Address" rowType:XLFormRowDescriptorTypeText title:@"Address:"];
     [medicalInfoRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
+    if(wentBack){
+    NSString *address = [retrieveDictionary objectForKey:@"Address"];
+    if([address isEqual:[NSNull null]]){
+      address = @"";
+    }
+    medicalInfoRow.value = address;
+    }
     [medicallInfoSection addFormRow:medicalInfoRow];
-  
     self.form = medicalInfoForm;
     
 }
+
+-(NSDictionary *)formValues{
+
+  NSMutableDictionary * result = [NSMutableDictionary dictionary];
+  for (XLFormSectionDescriptor * section in self.form.formSections) {
+     if (!section.isMultivaluedSection){
+         for (XLFormRowDescriptor * row in section.formRows){
+             if (row.tag && ![row.tag isEqualToString:@""]){
+                 [result setObject:(row.value ?: [NSNull null]) forKey:row.tag];
+             }
+             NSLog(@"%@",row.tag);
+         }
+     }
+     else{
+         NSMutableArray * multiValuedValuesArray = [NSMutableArray new];
+         for (XLFormRowDescriptor * row in section.formRows) {
+             if (row.value){
+                 [multiValuedValuesArray addObject:row.value];
+             }
+         }
+         [result setObject:multiValuedValuesArray forKey:section.multivaluedTag];
+     }
+ }
+
+ return result;
+}
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

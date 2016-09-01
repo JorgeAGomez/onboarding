@@ -15,6 +15,11 @@
 
 @end
 
+BOOL wentBack2 = false;
+NSString *yesOrNo;
+NSString *yesOrNo2;
+NSMutableDictionary *retrieveDictionary;
+
 @implementation WorkInjuryViewController
 #ifndef USE_PREDICATES_FOR_HIDING
     XLFormRowDescriptor * _dateOfInjury;
@@ -27,11 +32,28 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   self.tableView.contentInset = UIEdgeInsetsMake(44,0,0,0);
+  retrieveDictionary = [[NSMutableDictionary alloc]init];
 }
 
--(void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)viewWillDisappear:(BOOL)animated{
+  [super viewWillDisappear:animated];
+  _saveTextFieldValues = [[NSMutableDictionary alloc]init];
+  if(self.isMovingFromParentViewController){
+     for(id key in [self formValues]){
+       if(![[[self formValues] objectForKey:key] isEqual:[NSNull null]]){
+          if([[[self formValues] objectForKey:@"Work Related Injury"] isEqual:@"No"]){
+            wentBack2 = false;
+          }
+          else{
+            wentBack2 = true;
+          }
+          [_saveTextFieldValues setObject:[[self formValues] objectForKey:key] forKey:key];
+       }
+     }
+     if(wentBack2){
+      [[NSUserDefaults standardUserDefaults] setObject:_saveTextFieldValues forKey:@"workRelatedInjury"];
+     }
+  }
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder
@@ -58,6 +80,8 @@
     XLFormSectionDescriptor *workInjurySection;
     XLFormRowDescriptor *workInjuryRow;
   
+    retrieveDictionary = [[[NSUserDefaults standardUserDefaults] objectForKey:@"workRelatedInjury"] mutableCopy];
+  
     workInjuryForm.assignFirstResponderOnShow = YES;
   
     workInjuryForm = [XLFormDescriptor formDescriptorWithTitle:@"Work Related Injury Information"];
@@ -68,44 +92,109 @@
     //Figure out if is a work related injury.
     workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Work Related Injury" rowType:XLFormRowDescriptorTypeSelectorSegmentedControl title:@"Are you here due to work related injury?"];
     workInjuryRow.selectorOptions = @[@"Yes", @"No"];
-    workInjuryRow.value = @"No";
+    if(wentBack2){
+      yesOrNo = [retrieveDictionary objectForKey:@"Work Related Injury"];
+      if([yesOrNo isEqual:@"Yes"]){
+        yesOrNo = @"Yes";
+      }
+      else{
+        yesOrNo = @"No";
+      }
+    }
+    else{
+      yesOrNo = @"No";
+    }
+    workInjuryRow.value = yesOrNo;
     [workInjurySection addFormRow:workInjuryRow];
   
     //Date of Injury
     workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Date of Injury" rowType:XLFormRowDescriptorTypeDateInline title:@"* Date of Injury:"];
-    //workInjuryRow.value = [NSDate date];
+    if(wentBack2){
+      NSDate *dateOfInjury = [retrieveDictionary objectForKey:@"Date of Injury"];
+      if([dateOfInjury isEqual:[NSNull null]]){
+        dateOfInjury = [NSDate date];
+      }
+      workInjuryRow.value = dateOfInjury;
+      [workInjurySection addFormRow:workInjuryRow];
+    }
     workInjuryRow.required = YES;
     _dateOfInjury = workInjuryRow;
   
     //WCB Claim Number --> NOT required but need to be provided ASAP
     workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"WCB Claim No." rowType:XLFormRowDescriptorTypeText title:@"WCB Claim #:"];
     [workInjuryRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
+    if(wentBack2){
+      NSString *WCBClaim = [retrieveDictionary objectForKey:@"WCB Claim No."];
+      if([WCBClaim isEqual:[NSNull null]]){
+        WCBClaim = @"";
+      }
+      workInjuryRow.value = WCBClaim;
+      [workInjurySection addFormRow:workInjuryRow];
+    }
     _WCBClaim = workInjuryRow;
   
     //Employer
     workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Employer" rowType:XLFormRowDescriptorTypeName title:@"* Employer:"];
     [workInjuryRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     workInjuryRow.required = YES;
+    if(wentBack2){
+      NSString *employer = [retrieveDictionary objectForKey:@"Employer"];
+      if([employer isEqual:[NSNull null]]){
+        employer = @"";
+      }
+      workInjuryRow.value = employer;
+      [workInjurySection addFormRow:workInjuryRow];
+    }
     _Employer = workInjuryRow;
   
     //Phone number
     SHSPhoneNumberFormatter *formatter = [[SHSPhoneNumberFormatter alloc] init];
     [formatter setDefaultOutputPattern:@"(###) ###-####" imagePath:nil];
-    workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Employer Phone" rowType:XLFormRowDescriptorTypeText title:@"Employer Phone #:"];
+    workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Employer Phone" rowType:XLFormRowDescriptorTypePhone title:@"Employer Phone #:"];
     [workInjuryRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
     workInjuryRow.valueFormatter = formatter;
     workInjuryRow.useValueFormatterDuringInput = YES;
+    if(wentBack2){
+      NSString *employerPhone = [retrieveDictionary objectForKey:@"Employer Phone"];
+      if([employerPhone isEqual:[NSNull null]]){
+        employerPhone = @"";
+      }
+      workInjuryRow.value = employerPhone;
+      [workInjurySection addFormRow:workInjuryRow];
+    }
     _Phone = workInjuryRow;
   
     //Address
     workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Employer Address" rowType:XLFormRowDescriptorTypeText title:@"Address:"];
     [workInjuryRow.cellConfigAtConfigure setObject:@(NSTextAlignmentJustified) forKey:@"textField.textAlignment"];
+    if(wentBack2){
+      NSString *address = [retrieveDictionary objectForKey:@"Employer Address"];
+      if([address isEqual:[NSNull null]]){
+        address = @"";
+      }
+      workInjuryRow.value = address;
+      [workInjurySection addFormRow:workInjuryRow];
+    }
     _Address = workInjuryRow;
   
     //Can we contact the employer?
     workInjuryRow = [XLFormRowDescriptor formRowDescriptorWithTag:@"Contact employer" rowType:XLFormRowDescriptorTypeSelectorSegmentedControl title:@"May we contact your employer?"];
     workInjuryRow.selectorOptions = @[@"Yes", @"No"];
-    workInjuryRow.value = @"No";
+    if(wentBack2){
+      yesOrNo2 = [retrieveDictionary objectForKey:@"Work Related Injury"];
+      if([yesOrNo2 isEqual:@"Yes"]){
+        yesOrNo2 = @"Yes";
+        [workInjurySection addFormRow:workInjuryRow];
+      }
+      else{
+        yesOrNo2 = @"No";
+        [workInjurySection addFormRow:workInjuryRow];
+      }
+    }
+    else{
+      yesOrNo2 = @"No";
+    }
+    workInjuryRow.value = yesOrNo2;
     _contactEmployer = workInjuryRow;
   
     self.form = workInjuryForm;
