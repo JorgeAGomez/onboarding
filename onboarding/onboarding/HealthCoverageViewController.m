@@ -119,6 +119,7 @@ NSMutableDictionary *theNewTextFieldValues;
       [healthCoverageSection addFormRow:healthCoverageRow];
     }
     _insuranceCompany = healthCoverageRow;
+    
     self.form = healthCoverageForm;
 }
 
