@@ -24,14 +24,13 @@
 
 import Foundation
 
-
 public struct TwitterPagerTabStripSettings {
     
     public struct Style {
         public var dotColor = UIColor(white: 1, alpha: 0.4)
         public var selectedDotColor = UIColor.white
-        public var portraitTitleFont = UIFont.systemFont(ofSize: 20)
-        public var landscapeTitleFont = UIFont.systemFont(ofSize: 16)
+        public var portraitTitleFont = UIFont.systemFont(ofSize: 18)
+        public var landscapeTitleFont = UIFont.systemFont(ofSize: 15)
         public var titleColor = UIColor.white
     }
     
@@ -84,13 +83,9 @@ open class TwitterPagerTabStripViewController: PagerTabStripViewController, Page
     }
     
     // MARK: - PagerTabStripDelegate
-    
-    open func pagerTabStripViewController(_ pagerTabStripViewController: PagerTabStripViewController, updateIndicatorFromIndex fromIndex: Int, toIndex: Int) {
-        fatalError()
-    }
-    
-    open func pagerTabStripViewController(_ pagerTabStripViewController: PagerTabStripViewController, updateIndicatorFromIndex fromIndex: Int, toIndex: Int, withProgressPercentage progressPercentage: CGFloat, indexWasChanged: Bool) {
-        
+
+    open func updateIndicator(for viewController: PagerTabStripViewController, fromIndex: Int, toIndex: Int, withProgressPercentage progressPercentage: CGFloat, indexWasChanged: Bool) {
+
         // move indicator scroll view
         let distance = distanceValue
         var xOffset: CGFloat = 0
@@ -103,28 +98,23 @@ open class TwitterPagerTabStripViewController: PagerTabStripViewController, Page
         else {
             xOffset = distance * CGFloat(fromIndex)
         }
-        
+
         titleScrollView.contentOffset = CGPoint(x: xOffset, y: 0)
-        
+
         // update alpha of titles
-        setAlphaWithOffset(xOffset, andDistance: distance)
-        
+        setAlphaWith(offset: xOffset, andDistance: distance)
+
         // update page control page
         pageControl.currentPage = currentIndex
-        self.navigationItem.rightBarButtonItem?.title = "Done"
-        self.navigationItem.rightBarButtonItem?.isEnabled = false
-        if(childTitleLabels[currentIndex].text == "Hips, Legs and Feet"){
-          self.navigationItem.rightBarButtonItem?.title = "Done"
-          self.navigationItem.rightBarButtonItem?.isEnabled = true
-        }
-        else{
-          self.navigationItem.rightBarButtonItem?.isEnabled = false
-        }
-      
     }
-  
+
+    open func updateIndicator(for viewController: PagerTabStripViewController, fromIndex: Int, toIndex: Int) {
+        fatalError()
+    }
+    
     open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        guard object as AnyObject? === titleView && keyPath == "frame" && change?[NSKeyValueChangeKey.kindKey] as? UInt == NSKeyValueChange.setting.rawValue else { return }
+        guard object as AnyObject === titleView && keyPath == "frame" && change?[NSKeyValueChangeKey.kindKey] as? UInt == NSKeyValueChange.setting.rawValue else { return }
+        
         let oldRect = (change![NSKeyValueChangeKey.oldKey]! as AnyObject).cgRectValue
         let newRect = (change![NSKeyValueChangeKey.oldKey]! as AnyObject).cgRectValue
         if (oldRect?.equalTo(newRect!))! {
@@ -144,13 +134,13 @@ open class TwitterPagerTabStripViewController: PagerTabStripViewController, Page
     
     // MARK: - Helpers
     
-    fileprivate lazy var titleView: UIView = {
+    private lazy var titleView: UIView = {
         let navigationView = UIView()
         navigationView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         return navigationView
         }()
     
-    fileprivate lazy var titleScrollView: UIScrollView = { [unowned self] in
+    private lazy var titleScrollView: UIScrollView = { [unowned self] in
         let titleScrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 44))
         titleScrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         titleScrollView.bounces = true
@@ -165,27 +155,26 @@ open class TwitterPagerTabStripViewController: PagerTabStripViewController, Page
         return titleScrollView
     }()
     
-    fileprivate lazy var pageControl: FXPageControl = { [unowned self] in
+    private lazy var pageControl: FXPageControl = { [unowned self] in
         let pageControl = FXPageControl()
         pageControl.backgroundColor = .clear
-        pageControl.dotSize = 5.5
-        pageControl.dotSpacing = 5.0
+        pageControl.dotSize = 3.8
+        pageControl.dotSpacing = 4.0
         pageControl.dotColor = self.settings.style.dotColor
         pageControl.selectedDotColor = self.settings.style.selectedDotColor
         pageControl.isUserInteractionEnabled = false
         return pageControl
     }()
     
-    fileprivate var childTitleLabels = [UILabel]()
+    private var childTitleLabels = [UILabel]()
 
-    fileprivate func reloadNavigationViewItems() {
+    private func reloadNavigationViewItems() {
         // remove all child view controller header labels
         childTitleLabels.forEach { $0.removeFromSuperview() }
         childTitleLabels.removeAll()
-      
         for (index, item) in viewControllers.enumerated() {
             let child = item as! IndicatorInfoProvider
-            let indicatorInfo = child.indicatorInfoForPagerTabStrip(self)
+            let indicatorInfo = child.indicatorInfo(for: self)
             let navTitleLabel : UILabel = {
                 let label = UILabel()
                 label.text = indicatorInfo.title
@@ -201,7 +190,7 @@ open class TwitterPagerTabStripViewController: PagerTabStripViewController, Page
         }
     }
     
-    fileprivate func setNavigationViewItemsPosition(updateAlpha: Bool) {
+    private func setNavigationViewItemsPosition(updateAlpha: Bool) {
         let distance = distanceValue
         let isPortrait = UIApplication.shared.statusBarOrientation.isPortrait
         let navBarHeight: CGFloat = navigationController!.navigationBar.frame.size.height
@@ -227,7 +216,7 @@ open class TwitterPagerTabStripViewController: PagerTabStripViewController, Page
         pageControl.frame = CGRect(x: originX, y: navBarHeight - 10, width: viewSize.width, height: viewSize.height)
     }
     
-    fileprivate func setAlphaWithOffset(_ offset: CGFloat, andDistance distance: CGFloat) {
+    private func setAlphaWith(offset: CGFloat, andDistance distance: CGFloat) {
         for (index, label) in childTitleLabels.enumerated() {
             label.alpha = {
                 if offset < distance * CGFloat(index) {
@@ -240,7 +229,7 @@ open class TwitterPagerTabStripViewController: PagerTabStripViewController, Page
         }
     }
     
-    fileprivate var distanceValue: CGFloat {
+    private var distanceValue: CGFloat {
         let middle = navigationController!.navigationBar.convert(navigationController!.navigationBar.center, to: titleView)
         return middle.x
     }

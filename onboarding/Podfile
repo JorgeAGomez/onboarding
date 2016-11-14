@@ -15,8 +15,8 @@ pod 'FirebaseStorage', '~> 1.0'
 
 
 use_frameworks! 
-pod 'XLPagerTabStrip', '~> 5.0'
-pod 'SimplePDF', '~> 1.0'
+pod 'XLPagerTabStrip', '~> 6.0.0'
+pod 'SimplePDF', '~> 2.0.0'
 
 
 end

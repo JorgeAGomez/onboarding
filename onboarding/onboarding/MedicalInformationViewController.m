@@ -10,7 +10,7 @@
 #import "XLForm.h"
 #import "DateAndTimeValueTransformer.h"
 #import "WorkInjuryViewController.h"
-#import <SHSPhoneComponent/SHSPhoneNumberFormatter+UserConfig.h>
+#import "SHSPhoneNumberFormatter+UserConfig.h"
 
 
 @interface MedicalInformationViewController ()

@@ -9,7 +9,7 @@
 #import "MotorVehicleAccidentViewController.h"
 #import "XLForm.h"
 #import "HealthCoverageViewController.h"
-#import <SHSPhoneComponent/SHSPhoneNumberFormatter+UserConfig.h>
+#import "SHSPhoneNumberFormatter+UserConfig.h"
 
 
 @interface MotorVehicleAccidentViewController ()
