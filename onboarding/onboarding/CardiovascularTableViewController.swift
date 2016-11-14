@@ -10,7 +10,7 @@ import UIKit
 
 var cardioDic = [String:String]()
 var cardioData = [String:[String:String]]()
-var cardiovascular = []
+var cardiovascular:NSArray = []
 
 
 class CardiovascularTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -31,7 +31,7 @@ class CardiovascularTableViewController: UIViewController, UITableViewDelegate, 
       super.viewDidLoad()
       
       self.navigationItem.title = "Cardiovascular"
-      self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
+      self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextTapped))
       
       cardiovascular = ["Irregular Heartbeat","Stroke / Heart attack","Low Blood Pressure","High Blood Pressure","Palpitations","Swelling Ankles","Pain / Pressure in Chest","Shortness of Breath"]
       
@@ -54,17 +54,17 @@ class CardiovascularTableViewController: UIViewController, UITableViewDelegate, 
     
     }
   
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
       pageControl.currentPage = 3
     }
   
     func nextTapped(){
-      self.performSegueWithIdentifier("goToMultiple", sender: self)
+      self.performSegue(withIdentifier: "goToMultiple", sender: self)
     }
   
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       var controller = MultipleSectionsTableViewController()
-      controller = segue.destinationViewController as! MultipleSectionsTableViewController
+      controller = segue.destination as! MultipleSectionsTableViewController
       controller.personalInformation = personalInformation
       controller.medicalInformation = medicalInformation
       controller.workInjuryInformation = workInjuryInformation
@@ -73,7 +73,7 @@ class CardiovascularTableViewController: UIViewController, UITableViewDelegate, 
       controller.conditionsInformation = conditionsInformation
     }
   
-    override func viewWillDisappear(animated: Bool)
+    override func viewWillDisappear(_ animated: Bool)
     {
       for cells in tableView.visibleCells{
         let cell = cells as! CardiovascularTableViewCell
@@ -94,43 +94,43 @@ class CardiovascularTableViewController: UIViewController, UITableViewDelegate, 
   
     // MARK: - Table view data source
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    func numberOfSections(in tableView: UITableView) -> Int
     {
       return 1
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
       return cardiovascular.count
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! CardiovascularTableViewCell
-      cell.selectionStyle = UITableViewCellSelectionStyle.None
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CardiovascularTableViewCell
+      cell.selectionStyle = UITableViewCellSelectionStyle.none
       cell.titleLabel.text = cardiovascular[indexPath.row] as? String
-      cell.circleButton.layer.borderColor = myColor.CGColor
-      cell.squareButton.layer.borderColor = myColor.CGColor
+      cell.circleButton.layer.borderColor = myColor.cgColor
+      cell.squareButton.layer.borderColor = myColor.cgColor
       
             
       if(cardioData[cell.titleLabel.text!]!["previously"]! == "Yes"){
         cell.circleButton.backgroundColor = myColor
       }
       else{
-        cell.circleButton.backgroundColor = UIColor.whiteColor()
+        cell.circleButton.backgroundColor = UIColor.white
       }
       
       if(cardioData[cell.titleLabel.text!]!["presently"]! == "Yes"){
         cell.squareButton.backgroundColor = myColor
       }
       else{
-        cell.squareButton.backgroundColor = UIColor.whiteColor()
+        cell.squareButton.backgroundColor = UIColor.white
       }
 
 
       return cell
     }
   
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
         return "Please check: \(circleScalar) for previously had and \(squareScalar) for presently have"
     }

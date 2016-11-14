@@ -20,26 +20,26 @@ class CardiovascularTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
 
-  @IBAction func squareButton(sender: AnyObject)
+  @IBAction func squareButton(_ sender: AnyObject)
   {
     if(squareButton.backgroundColor == myColor){
-      squareButton.backgroundColor = UIColor.whiteColor()
+      squareButton.backgroundColor = UIColor.white
     }
     else{
       squareButton.backgroundColor = myColor
     }
   }
   
-  @IBAction func circleButton(sender: AnyObject)
+  @IBAction func circleButton(_ sender: AnyObject)
   {
       if(circleButton.backgroundColor == myColor){
-      circleButton.backgroundColor = UIColor.whiteColor()
+      circleButton.backgroundColor = UIColor.white
     }
     else{
       circleButton.backgroundColor = myColor

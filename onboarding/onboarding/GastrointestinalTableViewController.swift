@@ -10,7 +10,7 @@ import UIKit
 
 var gastroDic = [String:String]()
 var gastroData = [String:[String:String]]()
-var gastrointestinal = []
+var gastrointestinal:NSArray = []
 
 
 class GastrointestinalTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -33,7 +33,7 @@ class GastrointestinalTableViewController: UIViewController, UITableViewDataSour
      
       super.viewDidLoad()
       self.navigationItem.title = "Gastrointestinal"
-      self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
+      self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextTapped))
   
       gastrointestinal = ["Gall Bladder Problem","Colitis","Blood in Stool","Constipation","Burning in Stomach","Heartburn","Excessive Thirst","Vomiting","Recent Weight Gain","Liver Trouble / Hepatitis","Mucus in Stool","Diarrhea","Pain over Stomach","Burping / Bloating","Distress from Greasy food","Nausea","Hiatal Hernia","Metallic taste","Recent Weight Loss"]
       
@@ -55,17 +55,17 @@ class GastrointestinalTableViewController: UIViewController, UITableViewDataSour
       }
     }
   
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
       pageControl.currentPage = 2
     }
 
     func nextTapped(){
-      self.performSegueWithIdentifier("goToCardio", sender: self)
+      self.performSegue(withIdentifier: "goToCardio", sender: self)
     }
   
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       var controller = CardiovascularTableViewController()
-      controller = segue.destinationViewController as! CardiovascularTableViewController
+      controller = segue.destination as! CardiovascularTableViewController
       controller.personalInformation = personalInformation
       controller.medicalInformation = medicalInformation
       controller.workInjuryInformation = workInjuryInformation
@@ -74,7 +74,7 @@ class GastrointestinalTableViewController: UIViewController, UITableViewDataSour
       controller.conditionsInformation = conditionsInformation
     }
   
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
      
       for cells in tableView.visibleCells
       {
@@ -98,43 +98,43 @@ class GastrointestinalTableViewController: UIViewController, UITableViewDataSour
 
     // MARK: - Table view data source
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return gastrointestinal.count
     }
 
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! GastrointestinalTableViewCell
-      cell.selectionStyle = UITableViewCellSelectionStyle.None
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! GastrointestinalTableViewCell
+      cell.selectionStyle = UITableViewCellSelectionStyle.none
       cell.titleLabel.text = gastrointestinal[indexPath.row] as? String
-      cell.circleButton.layer.borderColor = myColor.CGColor
-      cell.squareButton.layer.borderColor = myColor.CGColor
+      cell.circleButton.layer.borderColor = myColor.cgColor
+      cell.squareButton.layer.borderColor = myColor.cgColor
       
             
       if(gastroData[cell.titleLabel.text!]!["previously"]! == "Yes"){
         cell.circleButton.backgroundColor = myColor
       }
       else{
-        cell.circleButton.backgroundColor = UIColor.whiteColor()
+        cell.circleButton.backgroundColor = UIColor.white
       }
       
       if(gastroData[cell.titleLabel.text!]!["presently"]! == "Yes"){
         cell.squareButton.backgroundColor = myColor
       }
       else{
-        cell.squareButton.backgroundColor = UIColor.whiteColor()
+        cell.squareButton.backgroundColor = UIColor.white
       }
       
       return cell
     }
   
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
         return "Please check: \(circleScalar) for previously had and \(squareScalar) for presently have"
     }

@@ -20,12 +20,12 @@ class FirebaseHelperSwift{
 
 //PERSONAL INFORMATION
 
-static func personalInformation(firstName: String, lastName: String, address: String, city: String, postalCode: String, province: String, homePhone: String, cellPhone: String, workPhone: String, DOB: NSDate, PHN: String){
+static func personalInformation(_ firstName: String, lastName: String, address: String, city: String, postalCode: String, province: String, homePhone: String, cellPhone: String, workPhone: String, DOB: Date, PHN: String){
   let dbReference = FIRDatabase.database().reference()
   
-  let dateFormatter = NSDateFormatter()
+  let dateFormatter = DateFormatter()
   dateFormatter.dateFormat = "yyyy-MM-dd"
-  let stringDOB = dateFormatter.stringFromDate(DOB)
+  let stringDOB = dateFormatter.string(from: DOB)
   
   homePhoneId = homePhone
   cellPhoneId = cellPhone
@@ -47,7 +47,7 @@ static func personalInformation(firstName: String, lastName: String, address: St
 
 //MEDICAL INFORMATION
 
-static func medicalInformation(emergencyContact: String, emergencyPhoneNumber: String, medicalDoctorName: String, doctorPhoneNumber: String, address: String){
+static func medicalInformation(_ emergencyContact: String, emergencyPhoneNumber: String, medicalDoctorName: String, doctorPhoneNumber: String, address: String){
   let dbReference = FIRDatabase.database().reference()
   dbReference.child("patientInformation").child("\(homePhoneId)\(cellPhoneId)\(workPhoneId)\(nameId)").child("medicalInformation").setValue(["emergencyContact":emergencyContact,
                                                                                                                                              "emergencyPhoneNumber":emergencyPhoneNumber,
@@ -59,16 +59,16 @@ static func medicalInformation(emergencyContact: String, emergencyPhoneNumber: S
 
 //WORK RELATED INJURY
 
-static func workRelatedInjury(dateOfInjury: NSDate, WCBClaimNumber: String, employer: String, employerPhoneNumber: String, address: String, mayContactEmployer:String){
+static func workRelatedInjury(_ dateOfInjury: Date, WCBClaimNumber: String, employer: String, employerPhoneNumber: String, address: String, mayContactEmployer:String){
   let dbReference = FIRDatabase.database().reference()
-  let dateFormatter = NSDateFormatter()
+  let dateFormatter = DateFormatter()
   dateFormatter.dateFormat = "yyyy-MM-dd"
   var stringDate = String()
   if(WCBClaimNumber == "" && employer == ""){
     stringDate = ""
   }
   else{
-     stringDate = dateFormatter.stringFromDate(dateOfInjury)
+     stringDate = dateFormatter.string(from: dateOfInjury)
   }
   dbReference.child("patientInformation").child("\(homePhoneId)\(cellPhoneId)\(workPhoneId)\(nameId)").child("workRelatedInjury").setValue(["dateOfInjury":stringDate,
                                                                                                                                             "WCBClainNumber":WCBClaimNumber,
@@ -80,16 +80,16 @@ static func workRelatedInjury(dateOfInjury: NSDate, WCBClaimNumber: String, empl
 
 //MOTOR VEHICLE ACCIDENT
 
-static func motorVehicleAccident(insuranceCompany: String, dateOfAccident: NSDate, claimPolicyNumber: String, adjuster: String, phoneNumber: String, faxNumber: String, nameOnPolicy: String, legalRepresentative: String){
+static func motorVehicleAccident(_ insuranceCompany: String, dateOfAccident: Date, claimPolicyNumber: String, adjuster: String, phoneNumber: String, faxNumber: String, nameOnPolicy: String, legalRepresentative: String){
   let dbReference = FIRDatabase.database().reference()
-  let dateFormatter = NSDateFormatter()
+  let dateFormatter = DateFormatter()
   dateFormatter.dateFormat = "yyyy-MM-dd"
   var stringDate = String()
   if(insuranceCompany == "" && claimPolicyNumber == ""){
     stringDate = ""
   }
   else{
-    stringDate = dateFormatter.stringFromDate(dateOfAccident)
+    stringDate = dateFormatter.string(from: dateOfAccident)
   }
   dbReference.child("patientInformation").child("\(homePhoneId)\(cellPhoneId)\(workPhoneId)\(nameId)").child("motorVehicleAccident").setValue(["insuranceCompany":insuranceCompany,
                                                                                                                                                "dateOfAccident":stringDate,
@@ -103,91 +103,91 @@ static func motorVehicleAccident(insuranceCompany: String, dateOfAccident: NSDat
 
 //EXTENDED HEALTH COVERAGE
 
-static func healthCoverage(insuranceCompany: String){
+static func healthCoverage(_ insuranceCompany: String){
   let dbReference = FIRDatabase.database().reference()
   dbReference.child("patientInformation").child("\(homePhoneId)\(cellPhoneId)\(workPhoneId)\(nameId)").child("healthCoverage").setValue(["insuranceCompany":insuranceCompany])
 }
 
 //CONDITIONS
 
-static func conditions(conditions: [[String]]){
+static func conditions(_ conditions: [[String]]){
   let dbReference = FIRDatabase.database().reference()
   dbReference.child("patientInformation").child("\(homePhoneId)\(cellPhoneId)\(workPhoneId)\(nameId)").child("questionnarie").child("conditions").setValue(conditions)
 }
 
 //ENTIRE QUESTIONNARIE
 
-static func questGeneral(general: [[String]]){
+static func questGeneral(_ general: [[String]]){
   let dbReference = FIRDatabase.database().reference()
   dbReference.child("patientInformation").child("\(homePhoneId)\(cellPhoneId)\(workPhoneId)\(nameId)").child("questionnarie").child("general").setValue(general)
 }
 
-static func questImmune(immune: [[String]]){
+static func questImmune(_ immune: [[String]]){
   let dbReference = FIRDatabase.database().reference()
   dbReference.child("patientInformation").child("\(homePhoneId)\(cellPhoneId)\(workPhoneId)\(nameId)").child("questionnarie").child("immuneSystem").setValue(immune)
 }
 
-static func questGastro(gastro: [[String]]){
+static func questGastro(_ gastro: [[String]]){
   let dbReference = FIRDatabase.database().reference()
   dbReference.child("patientInformation").child("\(homePhoneId)\(cellPhoneId)\(workPhoneId)\(nameId)").child("questionnarie").child("gastrointestinal").setValue(gastro)
 }
 
-static func questCardio(cardio: [[String]]){
+static func questCardio(_ cardio: [[String]]){
   let dbReference = FIRDatabase.database().reference()
   dbReference.child("patientInformation").child("\(homePhoneId)\(cellPhoneId)\(workPhoneId)\(nameId)").child("questionnarie").child("cardiovascular").setValue(cardio)
 }
 
-static func questNervous(nervous: [[String]]){
+static func questNervous(_ nervous: [[String]]){
   let dbReference = FIRDatabase.database().reference()
   dbReference.child("patientInformation").child("\(homePhoneId)\(cellPhoneId)\(workPhoneId)\(nameId)").child("questionnarie").child("nervousSystem").setValue(nervous)
 }
 
-static func questRespiratory(respiratory: [[String]]){
+static func questRespiratory(_ respiratory: [[String]]){
   let dbReference = FIRDatabase.database().reference()
   dbReference.child("patientInformation").child("\(homePhoneId)\(cellPhoneId)\(workPhoneId)\(nameId)").child("questionnarie").child("respiratory").setValue(respiratory)
 }
 
-static func questBloodSugar(bloodSugar: [[String]]){
+static func questBloodSugar(_ bloodSugar: [[String]]){
   let dbReference = FIRDatabase.database().reference()
   dbReference.child("patientInformation").child("\(homePhoneId)\(cellPhoneId)\(workPhoneId)\(nameId)").child("questionnarie").child("bloodSugar").setValue(bloodSugar)
 }
 
-static func questEyeEarNoseThroat(eyeEarNoseThroat: [[String]]){
+static func questEyeEarNoseThroat(_ eyeEarNoseThroat: [[String]]){
   let dbReference = FIRDatabase.database().reference()
   dbReference.child("patientInformation").child("\(homePhoneId)\(cellPhoneId)\(workPhoneId)\(nameId)").child("questionnarie").child("eyeEarNoseThroat").setValue(eyeEarNoseThroat)
 }
 
-static func questUrinary(urinaryTract: [[String]]){
+static func questUrinary(_ urinaryTract: [[String]]){
   let dbReference = FIRDatabase.database().reference()
   dbReference.child("patientInformation").child("\(homePhoneId)\(cellPhoneId)\(workPhoneId)\(nameId)").child("questionnarie").child("urinaryTract").setValue(urinaryTract)
 }
 
-static func questHeadNeck(headNeck: [[String]]){
+static func questHeadNeck(_ headNeck: [[String]]){
   let dbReference = FIRDatabase.database().reference()
   dbReference.child("patientInformation").child("\(homePhoneId)\(cellPhoneId)\(workPhoneId)\(nameId)").child("questionnarie").child("headNeck").setValue(headNeck)
 }
 
-static func questShoulder(shoulder: [[String]]){
+static func questShoulder(_ shoulder: [[String]]){
   let dbReference = FIRDatabase.database().reference()
   dbReference.child("patientInformation").child("\(homePhoneId)\(cellPhoneId)\(workPhoneId)\(nameId)").child("questionnarie").child("shoulder").setValue(shoulder)
 }
 
-static func questMidBack(midBack: [[String]]){
+static func questMidBack(_ midBack: [[String]]){
   let dbReference = FIRDatabase.database().reference()
   dbReference.child("patientInformation").child("\(homePhoneId)\(cellPhoneId)\(workPhoneId)\(nameId)").child("questionnarie").child("midBack").setValue(midBack)
 }
 
-static func questLowBack(lowBack: [[String]]){
+static func questLowBack(_ lowBack: [[String]]){
   let dbReference = FIRDatabase.database().reference()
   dbReference.child("patientInformation").child("\(homePhoneId)\(cellPhoneId)\(workPhoneId)\(nameId)").child("questionnarie").child("lowBack").setValue(lowBack)
 }
 
-static func questArmsHands(armsHands: [[String]]){
+static func questArmsHands(_ armsHands: [[String]]){
   let dbReference = FIRDatabase.database().reference()
   dbReference.child("patientInformation").child("\(homePhoneId)\(cellPhoneId)\(workPhoneId)\(nameId)").child("questionnarie").child("armsHands").setValue(armsHands)
 }
 
-static func questHipsLegsFeets(hipsLegsFeets: [[String]]){
+static func questHipsLegsFeets(_ hipsLegsFeets: [[String]]){
   let dbReference = FIRDatabase.database().reference()
   dbReference.child("patientInformation").child("\(homePhoneId)\(cellPhoneId)\(workPhoneId)\(nameId)").child("questionnarie").child("hipsLegsFeets").setValue(hipsLegsFeets)
 }

@@ -8,11 +8,11 @@
 
 import UIKit
 
-var eyeEarNoseThroat = []
+var eyeEarNoseThroat:NSArray = []
 var eyeEarNoseThroatData = [String:[String:String]]()
 var eyeEarNoseThroatDic = [String:String]()
 
-var urinaryTract = []
+var urinaryTract:NSArray = []
 var urinaryTractData = [String:[String:String]]()
 var urinaryTractDic = [String:String]()
 
@@ -37,7 +37,7 @@ class SecondMultipleTableViewController: UIViewController, UITableViewDelegate, 
         super.viewDidLoad()
       
         self.navigationItem.title = "Other systems"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextTapped))
       
         eyeEarNoseThroat = ["Vision Problems","Hoarseness","Nose Bleeding","Ear Pain","Dental Problems","Hearing Loss","Store Throat","Ringing in Ear(s)"]
         urinaryTract = ["Blood in Urine","Bladder Infection","Inability to Control Urination"," Kidney Stones","Painful Urination"]
@@ -77,12 +77,12 @@ class SecondMultipleTableViewController: UIViewController, UITableViewDelegate, 
     }
   
     func nextTapped(){
-      self.performSegueWithIdentifier("goToNeuro", sender: self)
+      self.performSegue(withIdentifier: "goToNeuro", sender: self)
     }
   
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var controller = NeuromusculoskeletalTableViewController()
-        controller = segue.destinationViewController as! NeuromusculoskeletalTableViewController
+        controller = segue.destination as! NeuromusculoskeletalTableViewController
         controller.personalInformation = personalInformation
         controller.medicalInformation = medicalInformation
         controller.workInjuryInformation = workInjuryInformation
@@ -91,11 +91,11 @@ class SecondMultipleTableViewController: UIViewController, UITableViewDelegate, 
         controller.conditionsInformation = conditionsInformation
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
       pageControl.currentPage = 5
     }
   
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
       
       for cells in tableView.visibleCells{
         let cell = cells as! SecondMultipleTableViewCell
@@ -136,12 +136,12 @@ class SecondMultipleTableViewController: UIViewController, UITableViewDelegate, 
     }
 
     // MARK: - Table view data source
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
       
         return 3
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         if(section == 0)
         {
@@ -156,7 +156,7 @@ class SecondMultipleTableViewController: UIViewController, UITableViewDelegate, 
         }
     }
   
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
       if(section == 0)
       {
@@ -173,12 +173,12 @@ class SecondMultipleTableViewController: UIViewController, UITableViewDelegate, 
     }
 
   
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       
-      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! SecondMultipleTableViewCell
-      cell.selectionStyle = UITableViewCellSelectionStyle.None
-      cell.circleButton.layer.borderColor = myColor.CGColor
-      cell.squareButton.layer.borderColor = myColor.CGColor
+      let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SecondMultipleTableViewCell
+      cell.selectionStyle = UITableViewCellSelectionStyle.none
+      cell.circleButton.layer.borderColor = myColor.cgColor
+      cell.squareButton.layer.borderColor = myColor.cgColor
 
       if(indexPath.section == 1)
       {
@@ -190,14 +190,14 @@ class SecondMultipleTableViewController: UIViewController, UITableViewDelegate, 
           cell.circleButton.backgroundColor = myColor
         }
         else{
-          cell.circleButton.backgroundColor = UIColor.whiteColor()
+          cell.circleButton.backgroundColor = UIColor.white
         }
         
         if(eyeEarNoseThroatData[cell.titleLabel.text!]!["presently"]! == "Yes"){
           cell.squareButton.backgroundColor = myColor
         }
         else{
-          cell.squareButton.backgroundColor = UIColor.whiteColor()
+          cell.squareButton.backgroundColor = UIColor.white
         }
 
       }
@@ -211,14 +211,14 @@ class SecondMultipleTableViewController: UIViewController, UITableViewDelegate, 
           cell.circleButton.backgroundColor = myColor
         }
         else{
-          cell.circleButton.backgroundColor = UIColor.whiteColor()
+          cell.circleButton.backgroundColor = UIColor.white
         }
         
         if(urinaryTractData[cell.titleLabel.text!]!["presently"]! == "Yes"){
           cell.squareButton.backgroundColor = myColor
         }
         else{
-          cell.squareButton.backgroundColor = UIColor.whiteColor()
+          cell.squareButton.backgroundColor = UIColor.white
         }
         
       }

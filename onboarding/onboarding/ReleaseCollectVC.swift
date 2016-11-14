@@ -22,9 +22,9 @@ class ReleaseCollectVC: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextTapped))
         //self.navigationItem.hidesBackButton = true
-        pageControl.hidden = true
+        pageControl.isHidden = true
         self.navigationItem.title = "Consent to Release and/or Collect Medical Information"
       
     }
@@ -43,13 +43,13 @@ class ReleaseCollectVC: UIViewController {
 //        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
 //      self.presentViewController(alert, animated: true, completion: nil)
 //      }
-      self.performSegueWithIdentifier("thankYou", sender: self)
+      self.performSegue(withIdentifier: "thankYou", sender: self)
     }
   
   
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       var controller = SubmitScreenViewController()
-      controller = segue.destinationViewController as! SubmitScreenViewController
+      controller = segue.destination as! SubmitScreenViewController
       controller.personalInformation = personalInformation
       controller.medicalInformation = medicalInformation
       controller.workInjuryInformation = workInjuryInformation

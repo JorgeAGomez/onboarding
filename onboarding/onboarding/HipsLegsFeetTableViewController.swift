@@ -8,7 +8,7 @@
 
 import UIKit
 
-var hipsLegsFeet = []
+var hipsLegsFeet:NSArray = []
 var hipsDic = [String:String]()
 var hipsData = [String:[String:String]]()
 
@@ -30,7 +30,7 @@ class HipsLegsFeetTableViewController: UIViewController, UITableViewDataSource, 
         super.viewDidLoad()
       
         self.navigationItem.title = "Hips, Legs & Feet"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextTapped))
       
         hipsLegsFeet = ["Pain in buttock","Pain in hip / knee joint","Cold feet","Tingling in feet","Arthritis","Sprain / strain","Pain down leg(s)","Tingling in leg(s)","Swollen ankle / feet","Pain in ankle / feet","Loss of leg strength","Muscles cramps"]
               
@@ -52,12 +52,12 @@ class HipsLegsFeetTableViewController: UIViewController, UITableViewDataSource, 
     }
 
     func nextTapped(){
-      self.performSegueWithIdentifier("goToConsent1", sender: self)
+      self.performSegue(withIdentifier: "goToConsent1", sender: self)
     }
   
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       var controller = AssessmentTreatmentVC()
-      controller = segue.destinationViewController as! AssessmentTreatmentVC
+      controller = segue.destination as! AssessmentTreatmentVC
       controller.personalInformation = personalInformation
       controller.medicalInformation = medicalInformation
       controller.workInjuryInformation = workInjuryInformation
@@ -66,11 +66,11 @@ class HipsLegsFeetTableViewController: UIViewController, UITableViewDataSource, 
       controller.conditionsInformation = conditionsInformation
     }
   
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
       pageControl.currentPage = 8
     }
   
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
       for cells in tableView.visibleCells {
         let cell = cells as! HipsLegsFeetTableViewCell
 
@@ -90,7 +90,7 @@ class HipsLegsFeetTableViewController: UIViewController, UITableViewDataSource, 
       }
     }
   
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
       if(section == 0)
       {
@@ -104,12 +104,12 @@ class HipsLegsFeetTableViewController: UIViewController, UITableViewDataSource, 
 
     // MARK: - Table view data source
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 2
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if(section == 0){
           return 0
@@ -119,11 +119,11 @@ class HipsLegsFeetTableViewController: UIViewController, UITableViewDataSource, 
         }
     }
   
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! HipsLegsFeetTableViewCell
-      cell.selectionStyle = UITableViewCellSelectionStyle.None
-      cell.circleButton.layer.borderColor = myColor.CGColor
-      cell.squareButton.layer.borderColor = myColor.CGColor
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! HipsLegsFeetTableViewCell
+      cell.selectionStyle = UITableViewCellSelectionStyle.none
+      cell.circleButton.layer.borderColor = myColor.cgColor
+      cell.squareButton.layer.borderColor = myColor.cgColor
       
       if(indexPath.section == 1)
       {
@@ -133,14 +133,14 @@ class HipsLegsFeetTableViewController: UIViewController, UITableViewDataSource, 
           cell.circleButton.backgroundColor = myColor
         }
         else{
-          cell.circleButton.backgroundColor = UIColor.whiteColor()
+          cell.circleButton.backgroundColor = UIColor.white
         }
         
         if(hipsData[cell.titleLabel.text!]!["presently"]! == "Yes"){
           cell.squareButton.backgroundColor = myColor
         }
         else{
-          cell.squareButton.backgroundColor = UIColor.whiteColor()
+          cell.squareButton.backgroundColor = UIColor.white
         }
 
         

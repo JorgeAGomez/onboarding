@@ -21,14 +21,14 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
   var motorVehicleInjuryInformation = NSMutableDictionary()
   var healthCoverageInformation = NSMutableDictionary()
   var conditionsInformation = NSMutableDictionary()
-  var downloadURL = NSURL()
+  var downloadURL: URL!
   var firstBoxInitials = String()
   var secondBoxInitials = String()
   
     override func viewDidLoad() {
       super.viewDidLoad()
-        pageControl.hidden = true
-        submitButton.layer.borderColor = submitButton.tintColor.CGColor
+        pageControl.isHidden = true
+        submitButton.layer.borderColor = submitButton.tintColor.cgColor
         self.navigationItem.hidesBackButton = true
     }
 
@@ -37,18 +37,18 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       // Dispose of any resources that can be recreated.
     }
   
-  @IBAction func submitButton(sender: AnyObject) {
+  @IBAction func submitButton(_ sender: AnyObject) {
   
       //PERSONAL INFORMATION
       let personalKeys = NSMutableArray()
       for i in personalInformation{
-        if(i.value.isEqual(NSNull())){
-          personalKeys.addObject(i.key)
+        if((i.value as AnyObject).isEqual(NSNull())){
+          personalKeys.add(i.key)
         }
       }
       for object in personalKeys
       {
-        personalInformation.removeObjectForKey(object)
+        personalInformation.removeObject(forKey: object)
         personalInformation.setValue("", forKey: object as! String)
       }
       
@@ -56,15 +56,15 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       let medicalKeys = NSMutableArray()
       for i in medicalInformation
       {
-        if(i.value.isEqual(NSNull()))
+        if((i.value as AnyObject).isEqual(NSNull()))
         {
-          medicalKeys.addObject(i.key)
+          medicalKeys.add(i.key)
         }
       }
       
       for object in medicalKeys
       {
-        medicalInformation.removeObjectForKey(object)
+        medicalInformation.removeObject(forKey: object)
         medicalInformation.setValue("", forKey: object as! String)
       }
     
@@ -72,15 +72,15 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       let workKeys = NSMutableArray()
       for i in workInjuryInformation
       {
-        if(i.value.isEqual(NSNull()))
+        if((i.value as AnyObject).isEqual(NSNull()))
         {
-          workKeys.addObject(i.key)
+          workKeys.add(i.key)
         }
       }
       
       for object in workKeys
       {
-        workInjuryInformation.removeObjectForKey(object)
+        workInjuryInformation.removeObject(forKey: object)
         workInjuryInformation.setValue("", forKey: object as! String)
       }
     
@@ -88,15 +88,15 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       let carKeys = NSMutableArray()
       for i in motorVehicleInjuryInformation
       {
-        if(i.value.isEqual(NSNull()))
+        if((i.value as AnyObject).isEqual(NSNull()))
         {
-          carKeys.addObject(i.key)
+          carKeys.add(i.key)
         }
       }
       
       for object in medicalKeys
       {
-        motorVehicleInjuryInformation.removeObjectForKey(object)
+        motorVehicleInjuryInformation.removeObject(forKey: object)
         motorVehicleInjuryInformation.setValue("", forKey: object as! String)
       }
     
@@ -121,16 +121,16 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       let doctorAddress = medicalInformation["Address"] as! String
     
       //WORK RELATED INJURY
-      var dateInjury = NSDate()
+      var dateInjury = Date()
       var WCB = String()
       var employer = String()
       var phoneNumber = String()
       var employerAddress = String()
       var canContact = String()
     
-      if((workInjuryInformation["Work Related Injury"]!.isEqualToString("Yes")))
+      if(((workInjuryInformation["Work Related Injury"]! as AnyObject).isEqual(to: "Yes")))
       {
-        dateInjury = workInjuryInformation["Date of Injury"] as! NSDate
+        dateInjury = workInjuryInformation["Date of Injury"] as! Date
         WCB = workInjuryInformation["WCB Claim No."] as! String
         employer  = workInjuryInformation["Employer"] as! String
         phoneNumber = workInjuryInformation["Employer Phone"] as! String
@@ -140,7 +140,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
     
       //MOTOR VEHICLE ACCIDENT
       var insuranceCompany = String()
-      var accidentDate = NSDate()
+      var accidentDate = Date()
       var claimNumber = String()
       var adjuster = String()
       var adjusterPhone = String()
@@ -148,9 +148,9 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       var namePolicy = String()
       var legalRep = String()
     
-      if(motorVehicleInjuryInformation["Motor Vehicle Injury"]!.isEqualToString("Yes")){
+      if((motorVehicleInjuryInformation["Motor Vehicle Injury"]! as AnyObject).isEqual(to: "Yes")){
         insuranceCompany = motorVehicleInjuryInformation["Insurence"] as! String
-        accidentDate = motorVehicleInjuryInformation["Date of accident"] as! NSDate
+        accidentDate = motorVehicleInjuryInformation["Date of accident"] as! Date
         claimNumber = motorVehicleInjuryInformation["Claim/Policy #"] as! String
         adjuster = motorVehicleInjuryInformation["Adjuster"] as! String
         adjusterPhone = motorVehicleInjuryInformation["Phone No."] as! String
@@ -161,11 +161,11 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
     
       //HEALTH COVERAGE
       var insuranceCompanyCoverage = String()
-      if(healthCoverageInformation["Extended Health Coverage"]!.isEqualToString("Yes")){
+      if((healthCoverageInformation["Extended Health Coverage"]! as AnyObject).isEqual(to: "Yes")){
         insuranceCompanyCoverage = healthCoverageInformation["Extended Health Coverage"] as! String
       }
       
-      let dateFormatter = NSDateFormatter()
+      let dateFormatter = DateFormatter()
       dateFormatter.dateFormat = "yyyy-MM-dd"
     
       let firstPage = CGSize(width: 650, height: 800)
@@ -176,12 +176,12 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       pdf.addImage(logoImage)
       pdf.addLineSpace(18)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 22)!)
-      pdf.setContentAlignment(.Center)
+      pdf.setContentAlignment(.center)
       pdf.addText("INFORMED CONSENT")
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
       pdf.addLineSeparator()
       pdf.addLineSpace(20)
-      pdf.setContentAlignment(.Left)
+      pdf.setContentAlignment(.left)
       pdf.addText("Dear patient: Your information is confidential. We need this information so that we can better care for you. Your consent will help us determine if treatment in our office will benefit you. If we do not sincerely believe your condition will respond satisfactorily, we will not accept your case. In order for us to understand your condition properly, please be as neat and complete as possible while completing all form.")
       pdf.addLineSpace(30)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
@@ -201,8 +201,8 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       pdf.addLineSpace(15)
 
       pdf.addText("Patient's / Guarantor's Initials: \(firstBoxInitials)")
-      let date = NSDate()
-      let stringDate = dateFormatter.stringFromDate(date)
+      let date = Date()
+      let stringDate = dateFormatter.string(from: date)
       pdf.addText("Date: \(stringDate)")
     
       //////////
@@ -228,11 +228,11 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       pdf.beginNewPage()
       pdf.addImage(logoImage)
       pdf.addLineSpace(18)
-      pdf.setContentAlignment(.Center)
+      pdf.setContentAlignment(.center)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 22)!)
       pdf.addText("New Patient Information Form")
       pdf.addLineSpace(15)
-      pdf.setContentAlignment(.Left)
+      pdf.setContentAlignment(.left)
     
       // PERSONAL INFORMATION
     
@@ -252,7 +252,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       pdf.addLineSpace(4)
       pdf.addText("Home Phone #: \(homePhone)        Cell Phone #: \(cellPhone)        Work Phone #: \(workPhone)")
       pdf.addLineSpace(4)
-      let stringDOB = dateFormatter.stringFromDate(DOB as! NSDate)
+      let stringDOB = dateFormatter.string(from: DOB as! Date)
       pdf.addText("Date of birth: \(stringDOB)        PHN #: \(PHN)")
       pdf.addLineSpace(15)
     
@@ -271,14 +271,14 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       pdf.addLineSpace(15)
     
     
-      if((workInjuryInformation["Work Related Injury"]!).isEqualToString("Yes")){
+      if(((workInjuryInformation["Work Related Injury"]!) as AnyObject).isEqual(to: "Yes")){
         
         pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
         pdf.addText("Work Related Injury")
         pdf.addLineSeparator()
         pdf.addLineSpace(15)
         pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
-        let stringDateInjury = dateFormatter.stringFromDate(dateInjury)
+        let stringDateInjury = dateFormatter.string(from: dateInjury)
         pdf.addText("Date of Injury: \(stringDateInjury)        WCB Claim #: \(WCB)")
         pdf.addLineSpace(4)
         pdf.addText("Employer: \(employer)         Phone #: \(phoneNumber)")
@@ -297,14 +297,14 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
         pdf.addLineSpace(15)
       }
     
-      if(motorVehicleInjuryInformation["Motor Vehicle Injury"]!.isEqualToString("Yes")){
+      if((motorVehicleInjuryInformation["Motor Vehicle Injury"]! as AnyObject).isEqual(to: "Yes")){
         
         pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
         pdf.addText("Motor Vehicle Accident")
         pdf.addLineSeparator()
         pdf.addLineSpace(15)
         pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
-        let stringAccidentDate = dateFormatter.stringFromDate(accidentDate)
+        let stringAccidentDate = dateFormatter.string(from: accidentDate)
         pdf.addText("Insurance Company: \(insuranceCompany)        Date of Injury: \(stringAccidentDate)")
         pdf.addLineSpace(4)
         pdf.addText("Claim / Policy #: \(claimNumber)        Adjuster: \(adjuster)")
@@ -324,7 +324,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
         pdf.addLineSpace(15)
       }
     
-      if(healthCoverageInformation["Extended Health Coverage"]!.isEqualToString("Yes")){
+      if((healthCoverageInformation["Extended Health Coverage"]! as AnyObject).isEqual(to: "Yes")){
         
         pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
         pdf.addText("Extended Health Coverage")
@@ -349,9 +349,9 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       pdf.addImage(logoImage)
       pdf.addLineSpace(18)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 22)!)
-      pdf.setContentAlignment(.Center)
+      pdf.setContentAlignment(.center)
       pdf.addText("Conditions")
-      pdf.setContentAlignment(.Left)
+      pdf.setContentAlignment(.left)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
       pdf.addLineSeparator()
       pdf.addLineSpace(15)
@@ -371,20 +371,20 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       var finalCondition = [[String]]()
       for i in conditionsInformation {
         var temp = [String]()
-        if(i.key.isEqualToString("Medications") && !i.value.isEqual("No")){
+        if((i.key as AnyObject).isEqual(to: "Medications") && !(i.value as AnyObject).isEqual("No")){
           temp.append(i.key as! String)
           temp.append(i.value as! String)
           finalCondition.append(temp)
           continue
         }
-        if(i.key.isEqualToString("Allergies") && !i.value.isEqual("No")){
+        if((i.key as AnyObject).isEqual(to: "Allergies") && !(i.value as AnyObject).isEqual("No")){
           temp.append(i.key as! String)
           temp.append(i.value as! String)
           finalCondition.append(temp)
           continue
         }
-        if(!i.value .isEqual((NSNull()))){
-          if(i.value.isEqual("No")){
+        if(!(i.value as AnyObject) .isEqual((NSNull()))){
+          if((i.value as AnyObject).isEqual("No")){
             continue
           }
           else{
@@ -411,11 +411,11 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
       borderSize = 1.0
       pdf.addImage(logoImage)
       pdf.addLineSpace(18)
-      pdf.setContentAlignment(.Center)
+      pdf.setContentAlignment(.center)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 22)!)
       pdf.addText("Health Report Questionnarie")
       pdf.addLineSpace(15)
-      pdf.setContentAlignment(.Left)
+      pdf.setContentAlignment(.left)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 12)!)
       pdf.addText("For the following conditions please check: \(circleScalar) for previously had and \(squareScalar) for presently have")
       pdf.addLineSpace(15)
@@ -800,10 +800,10 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
     
       //HEAD & NECK
       pdf.addLineSpace(19)
-      pdf.setContentAlignment(.Center)
+      pdf.setContentAlignment(.center)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 18)!)
       pdf.addText("Neuromusculoskeletal")
-      pdf.setContentAlignment(.Left)
+      pdf.setContentAlignment(.left)
       pdf.addLineSpace(15)
       pdf.setFont(UIFont(name: "HelveticaNeue", size: 15)!)
       pdf.addText("Head & Neck")
@@ -1049,11 +1049,11 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
     let pdfData = pdf.generatePDFdata()
     do{
         let storage = FIRStorage.storage()
-        let storageReference = storage.referenceForURL("gs://project-4839952831808961167.appspot.com")
+        let storageReference = storage.reference(forURL: "gs://project-4839952831808961167.appspot.com")
       
-        let pdfFile: NSData = pdfData
+        let pdfFile: Data = pdfData
         let pdfReference = storageReference.child("PatientsOnboardingForms/\(firstName)\(lastName).pdf/")
-        let uploadTask = pdfReference.putData(pdfFile, metadata: nil) { pdfFile, error in
+        let uploadTask = pdfReference.put(pdfFile, metadata: nil) { pdfFile, error in
           if(error != nil){
             print("An error has occcurred")
             print(error)
@@ -1066,7 +1066,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
     
       /********* FIREBASE ************/
     
-      FirebaseHelperSwift.personalInformation(firstName, lastName: lastName, address: address, city: city, postalCode: postalCode, province: province, homePhone: homePhone, cellPhone: cellPhone, workPhone: workPhone, DOB: DOB as! NSDate, PHN: PHN)
+      FirebaseHelperSwift.personalInformation(firstName, lastName: lastName, address: address, city: city, postalCode: postalCode, province: province, homePhone: homePhone, cellPhone: cellPhone, workPhone: workPhone, DOB: DOB as! Date, PHN: PHN)
 
       FirebaseHelperSwift.medicalInformation(emergencyContact, emergencyPhoneNumber: contactPhone, medicalDoctorName: doctorName, doctorPhoneNumber: doctorPhone, address: doctorAddress)
     
@@ -1108,7 +1108,7 @@ class SubmitScreenViewController: UIViewController, MFMailComposeViewControllerD
     
       FirebaseHelperSwift.questHipsLegsFeets(hipsFinal)
   
-    self.performSegueWithIdentifier("goBack", sender: self)
+    self.performSegue(withIdentifier: "goBack", sender: self)
   }
   
 }

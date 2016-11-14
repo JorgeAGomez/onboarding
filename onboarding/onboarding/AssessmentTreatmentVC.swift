@@ -22,21 +22,21 @@ class AssessmentTreatmentVC: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextTapped))
         self.navigationItem.hidesBackButton = true
-        pageControl.hidden = true
+        pageControl.isHidden = true
         self.navigationItem.title = "Consent to Assessment and Treatment"
         let firstName = personalInformation["First name"] as! String
         let lastName = personalInformation["Last name"] as! String
       
         let getText = paragraphLabel.text
-        let nameAdded = getText!.stringByReplacingOccurrencesOfString("_____________________________________", withString: "\(firstName) \(lastName)")
+        let nameAdded = getText!.replacingOccurrences(of: "_____________________________________", with: "\(firstName) \(lastName)")
       
-        let font = UIFont(name: "Helvetica Neue", size: 16.0) ?? UIFont.systemFontOfSize(16.0)
+        let font = UIFont(name: "Helvetica Neue", size: 16.0) ?? UIFont.systemFont(ofSize: 16.0)
         let textFont = [NSFontAttributeName:font]
         let theText = NSAttributedString(string: nameAdded, attributes: textFont)
         let newText = NSMutableAttributedString()
-        newText.appendAttributedString(theText)
+        newText.append(theText)
       
 
         let paragraphStyle = NSMutableParagraphStyle()
@@ -57,16 +57,16 @@ class AssessmentTreatmentVC: UIViewController {
     func nextTapped(){
       firstBoxInitials = initialTextField.text!
       if(initialTextField.text == ""){
-        let alert = UIAlertController(title: "Sorry", message: "Initials box cannot be empty", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
-      self.presentViewController(alert, animated: true, completion: nil)
+        let alert = UIAlertController(title: "Sorry", message: "Initials box cannot be empty", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+      self.present(alert, animated: true, completion: nil)
       }
-      self.performSegueWithIdentifier("goToConsent2", sender: self)
+      self.performSegue(withIdentifier: "goToConsent2", sender: self)
     }
   
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       var controller = ReleaseCollectVC()
-      controller = segue.destinationViewController as! ReleaseCollectVC
+      controller = segue.destination as! ReleaseCollectVC
       controller.personalInformation = personalInformation
       controller.medicalInformation = medicalInformation
       controller.workInjuryInformation = workInjuryInformation

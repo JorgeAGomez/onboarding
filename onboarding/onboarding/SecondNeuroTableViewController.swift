@@ -8,11 +8,11 @@
 
 import UIKit
 
-var lowback = []
+var lowback:NSArray = []
 var lowDic = [String:String]()
 var lowData = [String:[String:String]]()
 
-var armshands = []
+var armshands:NSArray = []
 var armsDic = [String:String]()
 var armsData = [String:[String:String]]()
 
@@ -35,7 +35,7 @@ class SecondNeuroTableViewController: UIViewController, UITableViewDelegate, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Neuromusculoskeletal"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextTapped))
         lowback = ["Low Back Pain","Low Back stiffness","Tailbone pain","Muscle Spasms","Pinched nerve"]
         armshands = ["Pain in elbow / arm","Pain in forearm","Pain in hands / fingers","Arthritis / swollen hands","Cold hands","Carpal Tunnel","Tingling in hands","Loss of grip strength"]
       
@@ -76,12 +76,12 @@ class SecondNeuroTableViewController: UIViewController, UITableViewDelegate, UIT
     }
   
     func nextTapped(){
-      self.performSegueWithIdentifier("goToHips", sender: self)
+      self.performSegue(withIdentifier: "goToHips", sender: self)
     }
   
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       var controller = HipsLegsFeetTableViewController()
-      controller = segue.destinationViewController as! HipsLegsFeetTableViewController
+      controller = segue.destination as! HipsLegsFeetTableViewController
       controller.personalInformation = personalInformation
       controller.medicalInformation = medicalInformation
       controller.workInjuryInformation = workInjuryInformation
@@ -90,11 +90,11 @@ class SecondNeuroTableViewController: UIViewController, UITableViewDelegate, UIT
       controller.conditionsInformation = conditionsInformation
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
       pageControl.currentPage = 7
     }
   
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
       for cells in tableView.visibleCells {
         let cell = cells as! SecondNeuroTableViewCell
 
@@ -136,11 +136,11 @@ class SecondNeuroTableViewController: UIViewController, UITableViewDelegate, UIT
 
     // MARK: - Table view data source
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       
       if(section == 0)
       {
@@ -156,7 +156,7 @@ class SecondNeuroTableViewController: UIViewController, UITableViewDelegate, UIT
       }
     }
   
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
       if(section == 0)
       {
@@ -172,11 +172,11 @@ class SecondNeuroTableViewController: UIViewController, UITableViewDelegate, UIT
       }
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! SecondNeuroTableViewCell
-      cell.selectionStyle = UITableViewCellSelectionStyle.None
-      cell.circleButton.layer.borderColor = myColor.CGColor
-      cell.squareButton.layer.borderColor = myColor.CGColor
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SecondNeuroTableViewCell
+      cell.selectionStyle = UITableViewCellSelectionStyle.none
+      cell.circleButton.layer.borderColor = myColor.cgColor
+      cell.squareButton.layer.borderColor = myColor.cgColor
       
       
       if(indexPath.section == 1)
@@ -189,14 +189,14 @@ class SecondNeuroTableViewController: UIViewController, UITableViewDelegate, UIT
           cell.circleButton.backgroundColor = myColor
         }
         else{
-          cell.circleButton.backgroundColor = UIColor.whiteColor()
+          cell.circleButton.backgroundColor = UIColor.white
         }
         
         if(lowData[cell.titleLabel.text!]!["presently"]! == "Yes"){
           cell.squareButton.backgroundColor = myColor
         }
         else{
-          cell.squareButton.backgroundColor = UIColor.whiteColor()
+          cell.squareButton.backgroundColor = UIColor.white
         }
 
       }
@@ -210,14 +210,14 @@ class SecondNeuroTableViewController: UIViewController, UITableViewDelegate, UIT
           cell.circleButton.backgroundColor = myColor
         }
         else{
-          cell.circleButton.backgroundColor = UIColor.whiteColor()
+          cell.circleButton.backgroundColor = UIColor.white
         }
         
         if(armsData[cell.titleLabel.text!]!["presently"]! == "Yes"){
           cell.squareButton.backgroundColor = myColor
         }
         else{
-          cell.squareButton.backgroundColor = UIColor.whiteColor()
+          cell.squareButton.backgroundColor = UIColor.white
         }
 
       }

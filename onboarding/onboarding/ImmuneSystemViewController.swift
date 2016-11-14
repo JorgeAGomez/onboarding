@@ -11,7 +11,7 @@ import UIKit
 
 var immuneDic = [String:String]()
 var immuneData = [String:[String:String]]()
-var immuneSystemInfection = []
+var immuneSystemInfection:NSArray = []
 
 
 class ImmuneSystemViewController: UIViewController {
@@ -32,7 +32,7 @@ class ImmuneSystemViewController: UIViewController {
     {
       super.viewDidLoad()
       self.navigationItem.title = "Immune System / Infection"
-      self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
+      self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextTapped))
       
       immuneSystemInfection = ["HIV (AIDS)","Pneumonia","Allergies / sinus troubles","Catch colds / flue easily","Rheumatoid Arthritis","Venereal Disease","Tuberculosis","Rheumatic Fever"]
       for i in immuneData{
@@ -52,9 +52,9 @@ class ImmuneSystemViewController: UIViewController {
       }
     }
   
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       var controller = GastrointestinalTableViewController()
-      controller = segue.destinationViewController as! GastrointestinalTableViewController
+      controller = segue.destination as! GastrointestinalTableViewController
       controller.personalInformation = personalInformation
       controller.medicalInformation = medicalInformation
       controller.workInjuryInformation = workInjuryInformation
@@ -64,14 +64,14 @@ class ImmuneSystemViewController: UIViewController {
     }
 
     func nextTapped(){
-      self.performSegueWithIdentifier("goToGastro", sender: self)
+      self.performSegue(withIdentifier: "goToGastro", sender: self)
     }
   
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
       pageControl.currentPage = 1
     }
 
-    override func viewWillDisappear(animated: Bool)
+    override func viewWillDisappear(_ animated: Bool)
     {
       for cell in tableView.visibleCells{
       let cells = cell as! ImmuneSystemTableViewCell
@@ -98,43 +98,43 @@ class ImmuneSystemViewController: UIViewController {
   
     // MARK: - Table view data source
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    func numberOfSectionsInTableView(_ tableView: UITableView) -> Int
     {
       return 1
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
       return immuneSystemInfection.count
     }
   
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell
     {
-      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ImmuneSystemTableViewCell
-      cell.selectionStyle = UITableViewCellSelectionStyle.None
+      let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ImmuneSystemTableViewCell
+      cell.selectionStyle = UITableViewCellSelectionStyle.none
       cell.titleLabel.text = immuneSystemInfection[indexPath.row] as? String
-      cell.circleButton.layer.borderColor = myColor.CGColor
-      cell.squareButton.layer.borderColor = myColor.CGColor
+      cell.circleButton.layer.borderColor = myColor.cgColor
+      cell.squareButton.layer.borderColor = myColor.cgColor
       
       
       if(immuneData[cell.titleLabel.text!]!["previously"]! == "Yes"){
         cell.circleButton.backgroundColor = myColor
       }
       else{
-        cell.circleButton.backgroundColor = UIColor.whiteColor()
+        cell.circleButton.backgroundColor = UIColor.white
       }
       
       if(immuneData[cell.titleLabel.text!]!["presently"]! == "Yes"){
         cell.squareButton.backgroundColor = myColor
       }
       else{
-        cell.squareButton.backgroundColor = UIColor.whiteColor()
+        cell.squareButton.backgroundColor = UIColor.white
       }
       
       return cell
     }
   
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
         return "Please check: \(circleScalar) for previously had and \(squareScalar) for presently have"
     }

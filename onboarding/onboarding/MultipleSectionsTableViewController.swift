@@ -10,18 +10,18 @@ import UIKit
 
 var multipleDic = [String:String]()
 var multipleData = [String:[String:String]]()
-var multiple = []
+var multiple:NSArray = []
 
-var nervousSystem = []
+var nervousSystem:NSArray = []
 var nervousData = [String:[String:String]]()
 var nervousDic = [String:String]()
 
-var respiratory = []
+var respiratory:NSArray = []
 var respiratoryData = [String:[String:String]]()
 var respiratoryDic = [String:String]()
 
 
-var bloodSugar = []
+var bloodSugar:NSArray = []
 var bloodSugarData = [String:[String:String]]()
 var bloodSugarDic = [String:String]()
 
@@ -47,7 +47,7 @@ class MultipleSectionsTableViewController: UIViewController, UITableViewDataSour
         super.viewDidLoad()
       
         self.navigationItem.title = "Other systems"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextTapped))
         nervousSystem = ["Dizziness / Lightheaded","Fainting","Discoordination","Memory Loss"]
         respiratory = ["Chronic Cough","Spitting Blood","Difficulty Breathing","Shortness of Breath","Asthma","Spitting up Phlegm","Emphysema"]
         bloodSugar = ["Irritable before Meals","Palpitations if miss meals","Gets shaky if hungry","Awaken from sleep"]
@@ -108,17 +108,17 @@ class MultipleSectionsTableViewController: UIViewController, UITableViewDataSour
 
     }
   
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
       pageControl.currentPage = 4
     }
   
     func nextTapped(){
-      self.performSegueWithIdentifier("haha", sender: self)
+      self.performSegue(withIdentifier: "haha", sender: self)
     }
   
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       var controller = SecondMultipleTableViewController()
-      controller = segue.destinationViewController as! SecondMultipleTableViewController
+      controller = segue.destination as! SecondMultipleTableViewController
       controller.personalInformation = personalInformation
       controller.medicalInformation = medicalInformation
       controller.workInjuryInformation = workInjuryInformation
@@ -127,7 +127,7 @@ class MultipleSectionsTableViewController: UIViewController, UITableViewDataSour
       controller.conditionsInformation = conditionsInformation
     }
   
-    override func viewWillDisappear(animated: Bool)
+    override func viewWillDisappear(_ animated: Bool)
     {
       for cells in tableView.visibleCells{
         let cell = cells as! MultipleSectionsTableViewCell
@@ -192,12 +192,12 @@ class MultipleSectionsTableViewController: UIViewController, UITableViewDataSour
 
     // MARK: - Table view data source
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
       
         return 4
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         if(section == 0)
         {
@@ -217,7 +217,7 @@ class MultipleSectionsTableViewController: UIViewController, UITableViewDataSour
         }
 
     }
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
       if(section == 0)
       {
@@ -237,12 +237,12 @@ class MultipleSectionsTableViewController: UIViewController, UITableViewDataSour
       }
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MultipleSectionsTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MultipleSectionsTableViewCell
       
-      cell.selectionStyle = UITableViewCellSelectionStyle.None
-      cell.circleButton.layer.borderColor = myColor.CGColor
-      cell.squareButton.layer.borderColor = myColor.CGColor
+      cell.selectionStyle = UITableViewCellSelectionStyle.none
+      cell.circleButton.layer.borderColor = myColor.cgColor
+      cell.squareButton.layer.borderColor = myColor.cgColor
       
       if(indexPath.section == 1)
       {
@@ -254,14 +254,14 @@ class MultipleSectionsTableViewController: UIViewController, UITableViewDataSour
           cell.circleButton.backgroundColor = myColor
         }
         else{
-          cell.circleButton.backgroundColor = UIColor.whiteColor()
+          cell.circleButton.backgroundColor = UIColor.white
         }
         
         if(nervousData[cell.titleLabel.text!]!["presently"]! == "Yes"){
           cell.squareButton.backgroundColor = myColor
         }
         else{
-          cell.squareButton.backgroundColor = UIColor.whiteColor()
+          cell.squareButton.backgroundColor = UIColor.white
         }
 
       }
@@ -275,14 +275,14 @@ class MultipleSectionsTableViewController: UIViewController, UITableViewDataSour
           cell.circleButton.backgroundColor = myColor
         }
         else{
-          cell.circleButton.backgroundColor = UIColor.whiteColor()
+          cell.circleButton.backgroundColor = UIColor.white
         }
         
         if(respiratoryData[cell.titleLabel.text!]!["presently"]! == "Yes"){
           cell.squareButton.backgroundColor = myColor
         }
         else{
-          cell.squareButton.backgroundColor = UIColor.whiteColor()
+          cell.squareButton.backgroundColor = UIColor.white
         }
 
         
@@ -297,14 +297,14 @@ class MultipleSectionsTableViewController: UIViewController, UITableViewDataSour
           cell.circleButton.backgroundColor = myColor
         }
         else{
-          cell.circleButton.backgroundColor = UIColor.whiteColor()
+          cell.circleButton.backgroundColor = UIColor.white
         }
         
         if(bloodSugarData[cell.titleLabel.text!]!["presently"]! == "Yes"){
           cell.squareButton.backgroundColor = myColor
         }
         else{
-          cell.squareButton.backgroundColor = UIColor.whiteColor()
+          cell.squareButton.backgroundColor = UIColor.white
         }
         
         

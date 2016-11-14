@@ -10,7 +10,7 @@ import UIKit
 
 var generalDic = [String:String]()
 var dic1 = [String:[String:String]]()
-var general = []
+var general:NSArray = []
 
 let blackCircleCode = 0x026AB
 let blackSquareCode = 0x02B1B
@@ -39,15 +39,15 @@ class GeneralTableViewController: UIViewController, UITableViewDelegate, UITable
       
       self.navigationItem.hidesBackButton = true
       self.navigationItem.title = "General"
-      self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
-      var navBarSize = self.navigationController!.navigationBar.bounds.size
+      self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextTapped))
+      let navBarSize = self.navigationController!.navigationBar.bounds.size
       
      
-        origin = CGPointMake(navBarSize.width / 2, navBarSize.height / 2)
-        pageControl = UIPageControl(frame: CGRectMake(origin.x, origin.y+15, 0, 0))
+        origin = CGPoint(x: navBarSize.width / 2, y: navBarSize.height / 2)
+        pageControl = UIPageControl(frame: CGRect(x: origin.x, y: origin.y+15, width: 0, height: 0))
         //Or whatever number of viewcontrollers you have
         pageControl.numberOfPages = 9
-        pageControl.pageIndicatorTintColor = UIColor.blackColor()
+        pageControl.pageIndicatorTintColor = UIColor.black
         pageControl.currentPageIndicatorTintColor = myColor
         self.navigationController!.navigationBar.addSubview(pageControl)
       general = ["Diabetes","Hypoglycemia","Stress / Depression","Epilepsy / Seizures", "Skin conditions / Rashes","Alcoholism","High Cholesterol","Parkinson's disease","Heart disease","Cancer","Osteoarthritis","Ulcers","Anemia / Fatigue", "Multiple Sclerosis","Thyroid","Osteoporosis"]
@@ -61,9 +61,9 @@ class GeneralTableViewController: UIViewController, UITableViewDelegate, UITable
   
   
   
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       var controller = ImmuneSystemViewController()
-      controller = segue.destinationViewController as! ImmuneSystemViewController
+      controller = segue.destination as! ImmuneSystemViewController
       controller.personalInformation = personalInformation
       controller.medicalInformation = medicalInformation
       controller.workInjuryInformation = workInjuryInformation
@@ -73,17 +73,17 @@ class GeneralTableViewController: UIViewController, UITableViewDelegate, UITable
     }
   
     func nextTapped(){
-      self.performSegueWithIdentifier("goToImmune", sender: self)
+      self.performSegue(withIdentifier: "goToImmune", sender: self)
     }
   
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
       pageControl.currentPage = 0
     }
     
 
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
       let table = tableView
-     for cell in table.visibleCells {
+     for cell in (table?.visibleCells)! {
         let cells = cell as! GeneralTableViewCell
         if(cells.circleButton.backgroundColor == myColor)
         {
@@ -105,29 +105,29 @@ class GeneralTableViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     // MARK: - Table view data source
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return general.count
     }
   
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! GeneralTableViewCell
-      cell.selectionStyle = UITableViewCellSelectionStyle.None
+      let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! GeneralTableViewCell
+      cell.selectionStyle = UITableViewCellSelectionStyle.none
       cell.nameLabel.text = general[indexPath.row] as? String
-      cell.circleButton.layer.borderColor = myColor.CGColor
-      cell.squareButton.layer.borderColor = myColor.CGColor
+      cell.circleButton.layer.borderColor = myColor.cgColor
+      cell.squareButton.layer.borderColor = myColor.cgColor
     
       
       return cell
     }
   
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
         return "Please check: \(circleScalar) for previously had and \(squareScalar) for presently have"
     }

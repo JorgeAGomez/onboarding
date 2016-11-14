@@ -10,17 +10,17 @@ import UIKit
 
 var neuroDic = [String:String]()
 var neuroData = [String:[String:String]]()
-var neuro = []
+var neuro:NSArray = []
 
-var headNeck = []
+var headNeck:NSArray = []
 var headNeckDic = [String:String]()
 var headNeckData = [String:[String:String]]()
 
-var shoulder = []
+var shoulder:NSArray = []
 var shoulderDic = [String:String]()
 var shoulderData = [String:[String:String]]()
 
-var midback = []
+var midback:NSArray = []
 var midDic = [String:String]()
 var midData = [String:[String:String]]()
 
@@ -46,7 +46,7 @@ class NeuromusculoskeletalTableViewController: UIViewController, UITableViewData
         super.viewDidLoad()
       
         self.navigationItem.title = "Neuromusculoskeletal"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: #selector(nextTapped))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextTapped))
 
         headNeck = ["Headaches","Neck Pain / stiffness","Pinched nerve","Jaw Pain / TMJ","Arthritis in neck"]
         shoulder = ["Shoulder pain","Can't raise arm","Arthritis","Bursitis","Clicking / popping"]
@@ -108,15 +108,15 @@ class NeuromusculoskeletalTableViewController: UIViewController, UITableViewData
     }
   
     func nextTapped(){
-      self.performSegueWithIdentifier("goToNeuro2", sender: self)
+      self.performSegue(withIdentifier: "goToNeuro2", sender: self)
     }
   
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
       pageControl.currentPage = 6
     }
   
   
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
       for cells in tableView.visibleCells {
         let cell = cells as! NeuroTableViewCell
         
@@ -177,12 +177,12 @@ class NeuromusculoskeletalTableViewController: UIViewController, UITableViewData
   
     func sayHello()
     {
-      self.performSegueWithIdentifier("go", sender: self)
+      self.performSegue(withIdentifier: "go", sender: self)
     }
   
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       var controller = SecondNeuroTableViewController()
-      controller = segue.destinationViewController as! SecondNeuroTableViewController
+      controller = segue.destination as! SecondNeuroTableViewController
       controller.personalInformation = personalInformation
       controller.medicalInformation = medicalInformation
       controller.workInjuryInformation = workInjuryInformation
@@ -194,12 +194,12 @@ class NeuromusculoskeletalTableViewController: UIViewController, UITableViewData
 
     // MARK: - Table view data source
 
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 4
     }
   
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
       if(section == 0)
       {
@@ -219,7 +219,7 @@ class NeuromusculoskeletalTableViewController: UIViewController, UITableViewData
       }
     }
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       
       if(section == 0)
       {
@@ -240,12 +240,12 @@ class NeuromusculoskeletalTableViewController: UIViewController, UITableViewData
     }
 
   
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! NeuroTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! NeuroTableViewCell
       
-      cell.selectionStyle = UITableViewCellSelectionStyle.None
-      cell.circleButton.layer.borderColor = myColor.CGColor
-      cell.squareButton.layer.borderColor = myColor.CGColor
+      cell.selectionStyle = UITableViewCellSelectionStyle.none
+      cell.circleButton.layer.borderColor = myColor.cgColor
+      cell.squareButton.layer.borderColor = myColor.cgColor
       
       if(indexPath.section == 1)
       {
@@ -257,14 +257,14 @@ class NeuromusculoskeletalTableViewController: UIViewController, UITableViewData
           cell.circleButton.backgroundColor = myColor
         }
         else{
-          cell.circleButton.backgroundColor = UIColor.whiteColor()
+          cell.circleButton.backgroundColor = UIColor.white
         }
         
         if(headNeckData[cell.titleLabel.text!]!["presently"]! == "Yes"){
           cell.squareButton.backgroundColor = myColor
         }
         else{
-          cell.squareButton.backgroundColor = UIColor.whiteColor()
+          cell.squareButton.backgroundColor = UIColor.white
         }
         
       }
@@ -278,14 +278,14 @@ class NeuromusculoskeletalTableViewController: UIViewController, UITableViewData
           cell.circleButton.backgroundColor = myColor
         }
         else{
-          cell.circleButton.backgroundColor = UIColor.whiteColor()
+          cell.circleButton.backgroundColor = UIColor.white
         }
         
         if(shoulderData[cell.titleLabel.text!]!["presently"]! == "Yes"){
           cell.squareButton.backgroundColor = myColor
         }
         else{
-          cell.squareButton.backgroundColor = UIColor.whiteColor()
+          cell.squareButton.backgroundColor = UIColor.white
         }
         
       }
@@ -299,14 +299,14 @@ class NeuromusculoskeletalTableViewController: UIViewController, UITableViewData
           cell.circleButton.backgroundColor = myColor
         }
         else{
-          cell.circleButton.backgroundColor = UIColor.whiteColor()
+          cell.circleButton.backgroundColor = UIColor.white
         }
         
         if(midData[cell.titleLabel.text!]!["presently"]! == "Yes"){
           cell.squareButton.backgroundColor = myColor
         }
         else{
-          cell.squareButton.backgroundColor = UIColor.whiteColor()
+          cell.squareButton.backgroundColor = UIColor.white
         }
       }
       return cell

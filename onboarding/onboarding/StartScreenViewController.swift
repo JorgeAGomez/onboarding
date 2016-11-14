@@ -15,7 +15,7 @@ class StartScreenViewController: UIViewController {
         super.viewDidLoad()
         startButton.layer.borderWidth = 1
         startButton.layer.cornerRadius = 6
-        startButton.layer.borderColor = startButton.tintColor.CGColor
+        startButton.layer.borderColor = startButton.tintColor.cgColor
         self.navigationItem.hidesBackButton = true
         // Do any additional setup after loading the view.
     }
